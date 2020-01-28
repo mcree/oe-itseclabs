@@ -6,10 +6,12 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-notebook = "*"
+jupyterlab = "*"
 zsh-jupyter-kernel = "*"
 ipywidgets = "*"
 iplantuml = "*"
+jupyter_contrib_nbextensions = "*"
+jupyter_nbextensions_configurator = "*"
 
 [requires]
 python_version = "3.6"

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Jupyter Labs
+Exec=/home/hallgato/oe-itseclabs/run.sh
+Path=/home/hallgato/oe-itseclabs/
+Icon=/home/hallgato/oe-itseclabs/files/jupyter.svg
+Terminal=true
+Type=Application
+Categories=Application

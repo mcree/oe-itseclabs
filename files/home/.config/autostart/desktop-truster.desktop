@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Desktop-Truster
+Comment=Autostarter to trust all desktop files
+Exec=~/.config/autostart/desktop-truster.sh
+Type=Application

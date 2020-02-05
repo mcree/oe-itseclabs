@@ -7,7 +7,7 @@
     - name: install required apt packages
       apt:
         pkg:
-          - ubuntu-desktop
+          - lubuntu-desktop
           - apt-transport-https
           - dotnet-sdk-3.0
           - python3-pip
@@ -34,6 +34,7 @@
       git:
         repo: https://github.com/mcree/oe-itseclabs.git
         dest: /home/hallgato/oe-itseclabs
+        force: yes
       become: yes
       become_user: hallgato
     - name: setup jupyter labs
@@ -52,3 +53,8 @@
         - "pipenv shell 'dotnet try jupyter install ; exit'"
         - "pipenv run jupyter contrib nbextension install --user"
         - "pipenv run jupyter nbextensions_configurator enable --user"
+    - name: copy files to home directory
+      copy:
+        src: ../files/home/
+        dest: /home/hallgato/
+        owner: hallgato

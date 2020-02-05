@@ -39,20 +39,21 @@
       become_user: hallgato
     - name: setup jupyter labs
       command:
-        cmd: "{{ item }}"
+        cmd: "{{ item.cmd }}"
+        creates: "{{ item.creates }}"
         chdir: /home/hallgato/oe-itseclabs
-        creates: /home/hallgato/.jupyter
       become: yes
       become_user: hallgato
       environment:
         LC_ALL: "C.UTF-8"
         LANG: "C.UTF-8"
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hallgato/.dotnet/tools/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hallgato/.dotnet/tools"
       with_items:
-        - "pipenv update"
-        - "pipenv shell 'dotnet tool install -g dotnet-try ; exit'"
-        - "pipenv shell 'dotnet try jupyter install ; exit'"
-        - "pipenv run jupyter contrib nbextension install --user"
-        - "pipenv run jupyter nbextensions_configurator enable --user"
+        - {cmd: "pipenv update", creates: "Pipfile.lock"}
+        - {cmd: "pipenv shell 'dotnet tool install -g dotnet-try ; exit'", creates: "/home/hallgato/.dotnet/tools/dotnet-try"}
+        - {cmd: "pipenv shell 'dotnet try jupyter install ; exit'", creates: "/home/hallgato/.local/share/jupyter/kernels/.net-csharp"}
+        - {cmd: "pipenv run jupyter contrib nbextension install --user", creates: "/home/hallgato/.local/share/jupyter/nbextensions"}
+        - {cmd: "/home/hallgato/oe-itseclabs/sysprep.sh", creates: "/home/hallgato/oe-itseclabs/.flag-sysprep-done"}
     - name: copy files to home directory
       copy:
         src: ../files/home/

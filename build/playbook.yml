@@ -1,0 +1,54 @@
+---
+- hosts: all
+  tasks:
+    - name: install dotnet package repos
+      apt:
+        deb: https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+    - name: install required apt packages
+      apt:
+        pkg:
+          - ubuntu-desktop
+          - apt-transport-https
+          - dotnet-sdk-3.0
+          - python3-pip
+          - nodejs
+          - npm
+          - mc
+        update_cache: yes
+    - name: upgrade distribution packages
+      apt:
+        upgrade: full
+    - name: install required pip packages
+      pip:
+        executable: pip3
+        name:
+          - pipenv
+    - name: add default user hallgato/hallgato
+      user:
+        name: hallgato
+        comment: Hallgato
+        password: $6$7uQS525NCE04TAQA$FS4oHPvK6j32ylaB9mN7ftpfDeKus0OhUGvq9GkxbLaFs/OYcgWmEr1oMOxprLhZUqxf0PAKQSinKfbdQ0INv0
+        groups: sudo, vagrant
+        shell: /bin/bash
+    - name: checkout oe-itseclabs git repo
+      git:
+        repo: https://github.com/mcree/oe-itseclabs.git
+        dest: /home/hallgato/oe-itseclabs
+      become: yes
+      become_user: hallgato
+    - name: setup jupyter labs
+      command:
+        cmd: "{{ item }}"
+        chdir: /home/hallgato/oe-itseclabs
+        creates: /home/hallgato/.jupyter
+      become: yes
+      become_user: hallgato
+      environment:
+        LC_ALL: "C.UTF-8"
+        LANG: "C.UTF-8"
+      with_items:
+        - "pipenv update"
+        - "pipenv shell 'dotnet tool install -g dotnet-try ; exit'"
+        - "pipenv shell 'dotnet try jupyter install ; exit'"
+        - "pipenv run jupyter contrib nbextension install --user"
+        - "pipenv run jupyter nbextensions_configurator enable --user"

@@ -9,7 +9,7 @@
         pkg:
           - lubuntu-desktop
           - apt-transport-https
-          - dotnet-sdk-3.0
+          - dotnet-sdk-3.1
           - python3-pip
           - nodejs
           - npm
@@ -50,8 +50,8 @@
         PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hallgato/.dotnet/tools/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hallgato/.dotnet/tools"
       with_items:
         - {cmd: "pipenv update", creates: "Pipfile.lock"}
-        - {cmd: "pipenv shell 'dotnet tool install -g dotnet-try ; exit'", creates: "/home/hallgato/.dotnet/tools/dotnet-try"}
-        - {cmd: "pipenv shell 'dotnet try jupyter install ; exit'", creates: "/home/hallgato/.local/share/jupyter/kernels/.net-csharp"}
+        - {cmd: "pipenv shell 'dotnet tool install -g --add-source \"https://dotnet.myget.org/F/dotnet-try/api/v3/index.json\" Microsoft.dotnet-interactive ; exit'", creates: "/home/hallgato/.dotnet/tools/dotnet-interactive"}
+        - {cmd: "pipenv shell 'dotnet interactive jupyter install ; exit'", creates: "/home/hallgato/.local/share/jupyter/kernels/.net-csharp"}
         - {cmd: "pipenv run jupyter contrib nbextension install --user", creates: "/home/hallgato/.local/share/jupyter/nbextensions"}
         - {cmd: "/home/hallgato/oe-itseclabs/sysprep.sh", creates: "/home/hallgato/oe-itseclabs/.flag-sysprep-done"}
     - name: copy files to home directory

@@ -8,10 +8,16 @@
       apt:
         pkg:
           - lubuntu-desktop
+          - language-pack-hu
+          - language-pack-gnome-hu
           - apt-transport-https
           - dotnet-sdk-3.1
           - python3-pip
           - nodejs
+          - firefox-locale-hu
+          - hunspell-hu
+          - aspell-hu
+          - gnome-user-docs-hu
           - npm
           - mc
         update_cache: yes
@@ -23,6 +29,9 @@
         executable: pip3
         name:
           - pipenv
+    - name: set system locale
+      command:
+        cmd: "update-locale LANG=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8"
     - name: add default user hallgato/hallgato
       user:
         name: hallgato
@@ -59,3 +68,8 @@
         src: ../files/home/
         dest: /home/hallgato/
         owner: hallgato
+    - name: copy files to etc directory
+      copy:
+        src: ../files/etc/
+        dest: /etc/
+        owner: root

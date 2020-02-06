@@ -8,5 +8,7 @@ rsync -arx --delete --delete-excluded \
     --exclude .dotnet \
     --exclude .nuget \
     --exclude .local/share/NuGet \
+    --exclude '.xsession-errors*' \
+    --exclude .vboxclient-seamless.pid \
     /home/hallgato/ /var/tmp/hallgato/
 diff -ruN /var/tmp/hallgato.prev/ /var/tmp/hallgato/

@@ -62,6 +62,7 @@
         - {cmd: "pipenv shell 'dotnet tool install -g --add-source \"https://dotnet.myget.org/F/dotnet-try/api/v3/index.json\" Microsoft.dotnet-interactive ; exit'", creates: "/home/hallgato/.dotnet/tools/dotnet-interactive"}
         - {cmd: "pipenv shell 'dotnet interactive jupyter install ; exit'", creates: "/home/hallgato/.local/share/jupyter/kernels/.net-csharp"}
         - {cmd: "pipenv run jupyter contrib nbextension install --user", creates: "/home/hallgato/.local/share/jupyter/nbextensions"}
+        - {cmd: "dotnet tool install -g dotnet-script", creates: "/home/hallgato/.dotnet/tools/dotnet-script"}
         - {cmd: "/home/hallgato/oe-itseclabs/sysprep.sh", creates: "/home/hallgato/oe-itseclabs/.flag-sysprep-done"}
     - name: copy files to home directory
       copy:

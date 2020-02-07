@@ -12,6 +12,7 @@ ipywidgets = "*"
 iplantuml = "*"
 jupyter_contrib_nbextensions = "*"
 jupyter_nbextensions_configurator = "*"
+jupyterlab-git = "*"
 
 [requires]
 python_version = "3.6"

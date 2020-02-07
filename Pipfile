@@ -13,6 +13,7 @@ iplantuml = "*"
 jupyter_contrib_nbextensions = "*"
 jupyter_nbextensions_configurator = "*"
 jupyterlab-git = "*"
+sympy = "*"
 
 [requires]
 python_version = "3.6"

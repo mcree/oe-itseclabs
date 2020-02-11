@@ -20,6 +20,11 @@
           - gnome-user-docs-hu
           - npm
           - mc
+          - xca
+          - nginx-light
+          - php-fpm
+          - php-mysql
+          - mysql-server
         update_cache: yes
     - name: upgrade distribution packages
       apt:

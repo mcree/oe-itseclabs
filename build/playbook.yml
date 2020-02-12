@@ -86,3 +86,5 @@
         dest: /usr/
         owner: root
         mode: preserve
+    - name: update CA certs
+      command: update-ca-certificates

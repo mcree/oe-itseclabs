@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  roles:
+    - docker
   tasks:
     - name: install dotnet package repos
       apt:
@@ -20,7 +22,6 @@
           - gnome-user-docs-hu
           - npm
           - mc
-          - xca
           - nginx-light
           - php-fpm
           - php-mysql
@@ -79,3 +80,9 @@
         src: ../files/etc/
         dest: /etc/
         owner: root
+    - name: copy files to usr directory
+      copy:
+        src: ../files/usr/
+        dest: /usr/
+        owner: root
+        mode: preserve

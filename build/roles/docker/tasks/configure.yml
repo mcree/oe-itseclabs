@@ -1,0 +1,18 @@
+---
+- name: Create the docker group
+  group:
+    name: docker
+    state: present
+
+- name: Add users to the docker secondary group
+  user:
+    name: "{{ item }}"
+    append: yes
+    groups: docker
+  with_items: "{{ docker_users }}"
+
+- name: Start the docker service
+  systemd:
+    name: docker
+    enabled: yes
+    state: started

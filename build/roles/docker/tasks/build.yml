@@ -1,0 +1,13 @@
+---
+
+- name: copy docker image recipes to /tmp
+  copy:
+    src: ./
+    dest: /tmp/
+
+- name: Build local docker images
+  docker_image:
+    name: "{{ item }}"
+    path: "/tmp/{{ item }}"
+  with_items:
+    - xca

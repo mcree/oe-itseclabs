@@ -1,0 +1,19 @@
+---
+# vars file for docker
+
+ubuntu_prereq_packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg-agent
+  - software-properties-common
+
+ubuntu_docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - python-docker
+
+docker_users:
+  - root
+  - hallgato

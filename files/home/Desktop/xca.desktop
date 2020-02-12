@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=XCA
-Exec=/usr/local/bin/x11docker --home=~ xca
+Exec=/usr/local/bin/x11docker --home=/home/hallgato xca
 Path=/home/hallgato/
 Icon=/home/hallgato/oe-itseclabs/files/XCA-logo.png
 Terminal=false

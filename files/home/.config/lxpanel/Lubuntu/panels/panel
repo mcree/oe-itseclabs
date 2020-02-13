@@ -16,7 +16,7 @@ Global {
   usefontcolor=1
   fontcolor=#000000
   background=0
-  backgroundfile=/home/hallgato/oe-itseclabs/files/background.jpg
+  backgroundfile=/home/hallgato/oe-itseclabs/files/background.png
   iconsize=24
 }
 Plugin {

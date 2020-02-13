@@ -13,6 +13,7 @@ ubuntu_docker_packages:
   - docker-ce-cli
   - containerd.io
   - python-docker
+  - docker-compose
 
 docker_users:
   - root

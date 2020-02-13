@@ -8,6 +8,7 @@
 - name: Build local docker images
   docker_image:
     name: "{{ item }}"
-    path: "/tmp/{{ item }}"
+    build:
+      path: "/tmp/{{ item }}"
   with_items:
     - xca

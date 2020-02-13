@@ -43,7 +43,7 @@
         name: hallgato
         comment: Hallgato
         password: $6$7uQS525NCE04TAQA$FS4oHPvK6j32ylaB9mN7ftpfDeKus0OhUGvq9GkxbLaFs/OYcgWmEr1oMOxprLhZUqxf0PAKQSinKfbdQ0INv0
-        groups: sudo, vagrant
+        groups: sudo, vagrant, docker
         shell: /bin/bash
     - name: checkout oe-itseclabs git repo
       git:

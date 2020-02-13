@@ -2,7 +2,7 @@
 Version=1.0
 Name=Wordpress
 Exec=docker-compose up
-Path=/home/hallgato/files/compose/wordpress
+Path=/home/hallgato/oe-itseclabs/files/compose/wordpress
 Icon=/home/hallgato/oe-itseclabs/files/wordpress.svg
 Terminal=true
 Type=Application

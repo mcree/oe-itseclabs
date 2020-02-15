@@ -1,8 +1,8 @@
 ---
 - hosts: all
   vars:
-    - dest_user: "{{ lookup('env','NB_USER') | default('hallgato') }}"
-    - dest_uid: "{{ lookup('env','NB_UID') | default('1000') }}"
+    - dest_user: "{{ lookup('env','NB_USER') | default('hallgato', true) }}"
+    - dest_uid: "{{ lookup('env','NB_UID') | default(10000, true) }}"
   roles:
     - role: docker
       tags: [invm]
@@ -64,7 +64,7 @@
         - docker
         - vagrant
       tags: [indocker]
-    - name: add default user
+    - name: "add default user {{ dest_user }}:{{ dest_uid }}"
       user:
         name: "{{ dest_user }}"
         home: "/home/{{ dest_user }}"

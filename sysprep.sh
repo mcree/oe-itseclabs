@@ -12,8 +12,8 @@ pipenv run dotnet interactive jupyter install
 pipenv run jupyter contrib nbextension install --user
 pipenv run jupyter serverextension enable --py jupyterlab_git
 pipenv run jupyter nbextensions_configurator enable --user
-pipenv run jupyter labextension install @jupyter-widgets/jupyterlab-manager
-pipenv run jupyter labextension install @jupyterlab/git
+pipenv run jupyter labextension install --no-build @jupyter-widgets/jupyterlab-manager
+pipenv run jupyter labextension install --no-build @jupyterlab/git
 pipenv run jupyter lab build
 touch .flag-sysprep-done
 exit 0

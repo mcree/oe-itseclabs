@@ -1,2 +1,2 @@
 #!/bin/bash
-cd ~/oe-itseclabs && pipenv jupyter "$@"
+cd ~/oe-itseclabs && pipenv jupyter run "$@"

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Wordpress
+Exec=docker-compose up
+Path=/home/hallgato/oe-itseclabs/.build/files/compose/wordpress
+Icon=/home/hallgato/oe-itseclabs/.build/files/wordpress.svg
+Terminal=true
+Type=Application
+Categories=Application

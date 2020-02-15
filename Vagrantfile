@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
   SHELL
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "build/playbook.yml"
+    ansible.playbook = ".build/playbook.yml"
     ansible.become = true
     ansible.tags = "invm"
   end

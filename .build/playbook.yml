@@ -79,7 +79,7 @@
         repo: https://github.com/mcree/oe-itseclabs.git
         dest: "/home/{{ dest_user }}/oe-itseclabs"
         force: yes
-      tags: [indocker, invm]
+      tags: [invm]
     - name: fix /home permissions
       file:
           path: "/home/{{ dest_user }}"
@@ -96,23 +96,24 @@
         LANG: "C.UTF-8"
         PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/{{ dest_user }}/.dotnet/tools"
       with_items:
-        - {cmd: "sudo -i -u {{ dest_user }} /home/{{ dest_user }}/oe-itseclabs/sysprep.sh", creates: "/home/{{ dest_user }}/oe-itseclabs/.flag-sysprep-done"}
+        - {cmd: "/home/{{ dest_user }}/oe-itseclabs/.build/prep-system.sh", creates: "/home/{{ dest_user }}/oe-itseclabs/.build/.flag-prep-system-done"}
+        - {cmd: "sudo -i -u {{ dest_user }} /home/{{ dest_user }}/oe-itseclabs/.build/prep-user.sh", creates: "/home/{{ dest_user }}/oe-itseclabs/.build/.flag-prep-user-done"}
       tags: [indocker, invm]
     - name: copy files to home directory
       copy:
-        src: ../files/home/
+        src: files/home/
         dest: "/home/{{ dest_user }}/"
         owner: "{{ dest_user }}"
       tags: [indocker, invm]
     - name: copy files to etc directory
       copy:
-        src: ../files/etc/
+        src: files/etc/
         dest: /etc/
         owner: root
       tags: [indocker, invm]
     - name: copy files to usr directory
       copy:
-        src: ../files/usr/
+        src: files/usr/
         dest: /usr/
         owner: root
         mode: preserve

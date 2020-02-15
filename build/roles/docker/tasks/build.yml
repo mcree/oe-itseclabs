@@ -2,7 +2,7 @@
 
 - name: copy docker image recipes to /tmp
   copy:
-    src: ./build
+    src: ./build/
     dest: /tmp/
 
 - name: Build local docker images

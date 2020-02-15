@@ -22,3 +22,4 @@ ENV HOME=/home/${NB_USER}
 USER ${USER}
 WORKDIR ${HOME}/oe-itseclabs
 
+CMD jupyter lab --ip 0.0.0.0

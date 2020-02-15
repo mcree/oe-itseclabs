@@ -1,4 +1,4 @@
 #!/bin/bash
 export LANG=C.UTF-8
 export LC_ALL=C.UTF-8
-cd ~/oe-itseclabs && pipenv run jupyter "$@"
+cd ~/oe-itseclabs && pipenv run jupyter --ip 0.0.0.0 "$@"

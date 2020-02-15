@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mcree/oe-itseclabs/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mcree/oe-itseclabs/master?urlpath=lab)
 
 # IT Security labs at Óbuda University
 

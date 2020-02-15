@@ -1,90 +1,122 @@
 ---
 - hosts: all
+  vars:
+    - dest_user: "{{ lookup('env','NB_USER') | default('hallgato') }}"
+    - dest_uid: "{{ lookup('env','NB_UID') | default('1000') }}"
   roles:
-    - docker
+    - role: docker
+      tags: [invm]
   tasks:
     - name: install dotnet package repos
       apt:
         deb: https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-    - name: install required apt packages
+      tags: [indocker, invm]
+    - name: install required apt cli packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - dotnet-sdk-3.1
+          - python3-pip
+          - nodejs
+          - npm
+          - locales
+          - git
+          - sudo
+        update_cache: yes
+      tags: [indocker, invm]
+    - name: install required apt gui packages
       apt:
         pkg:
           - lubuntu-desktop
           - language-pack-hu
           - language-pack-gnome-hu
-          - apt-transport-https
-          - dotnet-sdk-3.1
-          - python3-pip
-          - nodejs
           - firefox-locale-hu
           - hunspell-hu
           - aspell-hu
           - gnome-user-docs-hu
-          - npm
           - mc
           - nginx-light
           - php-fpm
           - php-mysql
           - mysql-server
-        update_cache: yes
+      tags: [invm]
     - name: upgrade distribution packages
       apt:
         upgrade: full
+      tags: [indocker, invm]
     - name: install required pip packages
       pip:
         executable: pip3
         name:
           - pipenv
+      tags: [indocker, invm]
     - name: set system locale
       command:
-        cmd: "update-locale LANG=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8"
-    - name: add default user hallgato/hallgato
+        cmd: "{{ item }}"
+      with_items:
+        - "locale-gen hu_HU.UTF-8"
+        - "update-locale LANG=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8"
+      tags: [indocker, invm]
+    - name: create user groups
+      group:
+        name: "{{ item }}"
+      with_items:
+        - docker
+        - vagrant
+      tags: [indocker]
+    - name: add default user
       user:
-        name: hallgato
+        name: "{{ dest_user }}"
+        home: "/home/{{ dest_user }}"
         comment: Hallgato
         password: $6$7uQS525NCE04TAQA$FS4oHPvK6j32ylaB9mN7ftpfDeKus0OhUGvq9GkxbLaFs/OYcgWmEr1oMOxprLhZUqxf0PAKQSinKfbdQ0INv0
         groups: sudo, vagrant, docker
         shell: /bin/bash
+        uid: "{{ dest_uid }}"
+      tags: [indocker, invm]
     - name: checkout oe-itseclabs git repo
       git:
         repo: https://github.com/mcree/oe-itseclabs.git
-        dest: /home/hallgato/oe-itseclabs
+        dest: "/home/{{ dest_user }}/oe-itseclabs"
         force: yes
-      become: yes
-      become_user: hallgato
+      tags: [indocker, invm]
+    - name: fix /home permissions
+      file:
+          path: "/home/{{ dest_user }}"
+          recurse: yes
+          owner: "{{ dest_user }}"
+      tags: [indocker, invm]
     - name: setup jupyter labs
       command:
         cmd: "{{ item.cmd }}"
         creates: "{{ item.creates }}"
-        chdir: /home/hallgato/oe-itseclabs
-      become: yes
-      become_user: hallgato
+        chdir: "/home/{{ dest_user }}/oe-itseclabs"
       environment:
         LC_ALL: "C.UTF-8"
         LANG: "C.UTF-8"
-        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hallgato/.dotnet/tools/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hallgato/.dotnet/tools"
+        PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/{{ dest_user }}/.dotnet/tools"
       with_items:
-        - {cmd: "pipenv update", creates: "Pipfile.lock"}
-        - {cmd: "pipenv shell 'dotnet tool install -g --add-source \"https://dotnet.myget.org/F/dotnet-try/api/v3/index.json\" Microsoft.dotnet-interactive ; exit'", creates: "/home/hallgato/.dotnet/tools/dotnet-interactive"}
-        - {cmd: "pipenv shell 'dotnet interactive jupyter install ; exit'", creates: "/home/hallgato/.local/share/jupyter/kernels/.net-csharp"}
-        - {cmd: "pipenv run jupyter contrib nbextension install --user", creates: "/home/hallgato/.local/share/jupyter/nbextensions"}
-        - {cmd: "dotnet tool install -g dotnet-script", creates: "/home/hallgato/.dotnet/tools/dotnet-script"}
-        - {cmd: "/home/hallgato/oe-itseclabs/sysprep.sh", creates: "/home/hallgato/oe-itseclabs/.flag-sysprep-done"}
+        - {cmd: "sudo -u {{ dest_user }} /home/{{ dest_user }}/oe-itseclabs/sysprep.sh", creates: "/home/{{ dest_user }}/oe-itseclabs/.flag-sysprep-done"}
+      tags: [indocker, invm]
     - name: copy files to home directory
       copy:
         src: ../files/home/
-        dest: /home/hallgato/
-        owner: hallgato
+        dest: "/home/{{ dest_user }}/"
+        owner: "{{ dest_user }}"
+      tags: [indocker, invm]
     - name: copy files to etc directory
       copy:
         src: ../files/etc/
         dest: /etc/
         owner: root
+      tags: [indocker, invm]
     - name: copy files to usr directory
       copy:
         src: ../files/usr/
         dest: /usr/
         owner: root
         mode: preserve
+      tags: [indocker, invm]
     - name: update CA certs
       command: update-ca-certificates
+      tags: [indocker, invm]

@@ -23,3 +23,16 @@ but most things are also present in english)
 12. PGP, e-mail security
 13. SSL, web security
 14. Lab exam II.
+
+## Usage
+
+### Populating a virtual machine (tested with Ubuntu 18.04 LTS)
+
+```sudo add-apt-repository -y ppa:ansible/ansible && sudo apt-get -y install ansible && sudo ansible-pull --url=https://github.com/mcree/oe-itseclabs.git --inventory=localhost, --tags=invm .build/playbook.yml```
+
+This will include GUI components. Default username and password is: hallgato / hallgato
+
+### Using Docker
+
+Tested with [repo2docker](https://repo2docker.readthedocs.io/en/latest/) for
+running on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mcree/oe-itseclabs/master?urlpath=lab)

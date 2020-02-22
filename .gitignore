@@ -3,4 +3,5 @@
 /.vagrant/
 /.build/playbook.retry
 Pipfile.lock
-.flag-sysprep-done
+.flag-prep-system-done
+.flag-prep-user-done

@@ -62,7 +62,6 @@
         name: "{{ item }}"
       with_items:
         - docker
-        - vagrant
       tags: [indocker]
     - name: "add default user {{ dest_user }}:{{ dest_uid }}"
       user:

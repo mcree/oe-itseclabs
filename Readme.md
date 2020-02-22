@@ -12,8 +12,8 @@ but most things are also present in english)
 1. Introduction, getting to know the environment
 2. User awareness I. (web, e-mail, social media)
 3. User awareness II. (public networks, malware, device security)
-4. Criptography I. (basic simmetric ciphers)
-5. Criptography II. (RSA, diffie-hellman)
+4. Cryptography I. (basic symmetric ciphers)
+5. Cryptography II. (RSA, diffie-hellman)
 6. Password management
 7. Lab exam I.
 8. Windows hardening

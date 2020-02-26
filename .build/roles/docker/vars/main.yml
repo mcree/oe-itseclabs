@@ -12,7 +12,7 @@ ubuntu_docker_packages:
   - docker-ce
   - docker-ce-cli
   - containerd.io
-  - python-docker
+  - python3-docker
   - docker-compose
 
 docker_users:

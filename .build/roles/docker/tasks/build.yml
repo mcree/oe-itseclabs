@@ -12,3 +12,9 @@
       path: "/tmp/{{ item }}"
   with_items:
     - xca
+
+- name: Build jupyter docker image
+  docker_image:
+    name: jupyter
+    build:
+      path: "./"

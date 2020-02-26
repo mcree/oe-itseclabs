@@ -67,10 +67,14 @@ Vagrant.configure("2") do |config|
     DEBIAN_FRONTEND=noninteractive apt-get -y install python
   SHELL
 
-  config.vm.provision "ansible" do |ansible|
+  config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = ".build/playbook.yml"
     ansible.become = true
     ansible.tags = "invm"
+    ansible.compatibility_mode = "2.0"
+    ansible.version = "2.9.4"
+    ansible.install = true
+    ansible.install_mode = "pip"
   end
 
 end

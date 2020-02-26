@@ -1,7 +1,0 @@
-#!/bin/bash
-set -e
-tmp=$(mktemp)
-trap "rm -f $tmp" exit
-cat > $tmp
-~/.dotnet/tools/dotnet-script $tmp
-exit 0

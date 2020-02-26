@@ -76,15 +76,13 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    DEBIAN_FRONTEND=noninteractive apt-get -y remove python2.7-minimal
-    DEBIAN_FRONTEND=noninteractive apt-get -y install python3
+    DEBIAN_FRONTEND=noninteractive apt-get -y install python3 python3-distutils
     update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
   SHELL
 
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = ".build/playbook.yml"
     ansible.become = true
-    ansible.tags = "invm"
     ansible.compatibility_mode = "2.0"
     ansible.version = "2.9.4"
     ansible.install = true

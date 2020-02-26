@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Name=Jupyter Lab
-Exec=jupyter lab
+Exec=jupyter-lab
 Path=/home/hallgato/oe-itseclabs/
-Icon=/home/hallgato/oe-itseclabs/resources/jupyter.svg
+Icon=/home/hallgato/resources/jupyter.svg
 Terminal=true
 Type=Application
 Categories=Application

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+docker exec -ti -e LANG=C.UTF-8 jupyter pipenv lock
+docker exec -ti -e LANG=C.UTF-8 jupyter pipenv install --system

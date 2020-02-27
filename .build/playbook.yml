@@ -50,7 +50,17 @@
       git:
         repo: https://github.com/mcree/oe-itseclabs-jupyter.git
         dest: "/home/{{ dest_user }}/oe-itseclabs"
-        force: yes
+        force: no
+        update: yes
+      register: git_result
+    - name: build docker image for jupyter
+      docker_image:
+        name: jupyter
+        source: build
+        force_source: yes
+        build:
+          path: "/home/{{ dest_user }}/oe-itseclabs"
+      when: git_result.before != git_result.after
     - name: fix /home permissions
       file:
           path: "/home/{{ dest_user }}"

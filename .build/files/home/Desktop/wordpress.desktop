@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Wordpress
-Exec=docker-compose up
+Exec=/home/hallgato/resources/compose/wordpress/run
 Path=/home/hallgato/resources/compose/wordpress
 Icon=/home/hallgato/resources/wordpress.svg
 Terminal=true

@@ -1,0 +1,4 @@
+#!/bin/bash
+cd $(dirname $0)
+( sleep 5 ; nohup firefox https://www.itseclabs.local )&
+docker-compose up

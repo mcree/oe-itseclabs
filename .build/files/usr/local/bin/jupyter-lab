@@ -1,6 +1,13 @@
 #!/bin/bash
 #image="mcreeiw/oe-itseclabs-jupyter:latest"
 image="jupyter"
+mkdir -p /home/hallgato/.jupyter
 #docker image pull ${image}
 ( sleep 5 ; nohup firefox http://localhost:8888 )&
-docker run -ti --rm --volume /home/hallgato/oe-itseclabs:/home/hallgato/oe-itseclabs --user=hallgato --name=jupyter --network=host ${image} jupyter lab --LabApp.token=''
+docker run -ti --rm \
+    --volume /home/hallgato/oe-itseclabs:/home/hallgato/oe-itseclabs \
+    --volume /home/hallgato/.jupyter:/home/hallgato/.jupyter \
+    --user=hallgato \
+    --name=jupyter \
+    --network=host \
+    ${image} jupyter lab --LabApp.token=''

@@ -85,3 +85,9 @@
       tags: [indocker, invm]
     - name: update CA certs
       command: update-ca-certificates
+    - name: clean up environment
+      command:
+        cmd: "{{ item }}"
+      with_items:
+        - "apt-get autoremove -f -y"
+        - "apt-get clean"

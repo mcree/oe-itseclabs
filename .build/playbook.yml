@@ -5,6 +5,7 @@
     - dest_uid: "{{ lookup('env','NB_UID') | default(10000, true) }}"
   roles:
     - role: docker
+      tags: update
   tasks:
     - name: install required packages
       apt:
@@ -22,21 +23,25 @@
           - git
           - sudo
           - mc
+      tags: update
     - name: upgrade distribution packages
       apt:
         upgrade: full
+      tags: update
     - name: install required pip packages
       pip:
         executable: pip3
         name:
           - pipenv
           - "docker-compose==1.25.4"
+      tags: update
     - name: setup system locale
       command:
         cmd: "{{ item }}"
       with_items:
         - "locale-gen hu_HU.UTF-8"
-        - "update-locale LANG=hu_HU.UTF-8 LC_ALL=hu_HU.UTF-8"
+        - "update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8"
+      tags: update
     - name: "add default user {{ dest_user }}:{{ dest_uid }}"
       user:
         name: "{{ dest_user }}"
@@ -53,6 +58,7 @@
         force: no
         update: yes
       register: git_result
+      tags: update
     - name: build docker image for jupyter
       docker_image:
         name: jupyter
@@ -61,33 +67,39 @@
         build:
           path: "/home/{{ dest_user }}/oe-itseclabs"
       when: git_result.before != git_result.after
+      tags: update
     - name: fix /home permissions
       file:
           path: "/home/{{ dest_user }}"
           recurse: yes
           owner: "{{ dest_user }}"
+      tags: update
     - name: copy files to /home
       copy:
         src: files/home/
         dest: "/home/{{ dest_user }}/"
         owner: "{{ dest_user }}"
+      tags: update
     - name: copy files to /etc
       copy:
         src: files/etc/
         dest: /etc/
         owner: root
+      tags: update
     - name: copy files to /usr
       copy:
         src: files/usr/
         dest: /usr/
         owner: root
         mode: preserve
-      tags: [indocker, invm]
+      tags: update
     - name: update CA certs
       command: update-ca-certificates
+      tags: update
     - name: clean up environment
       command:
         cmd: "{{ item }}"
       with_items:
         - "apt-get autoremove -f -y"
         - "apt-get clean"
+      tags: update

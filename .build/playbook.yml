@@ -23,6 +23,10 @@
           - git
           - sudo
           - zsh
+          - ecryptfs-utils
+          - cryptsetup
+          - slay
+          - gufw
           - mc
       tags: update
     - name: upgrade distribution packages
@@ -53,6 +57,10 @@
         groups: sudo, docker
         shell: /bin/bash
         uid: "{{ dest_uid }}"
+    - name: remove default ubuntu cloudimage user
+      user:
+        name: ubuntu
+        state: absent
     - name: checkout oe-itseclabs jupyter git repo
       git:
         repo: https://github.com/mcree/oe-itseclabs-jupyter.git
@@ -61,15 +69,16 @@
         update: yes
       register: git_result
       tags: update
-    #- name: build docker image for jupyter
-      #docker_image:
-      #  name: jupyter
-      #  source: build
-      #  force_source: yes
-      #  build:
-      #    path: "/home/{{ dest_user }}/oe-itseclabs"
-      #when: git_result.before != git_result.after
-      #tags: update
+    - name: remove obsolete docker jupyter image
+      docker_image:
+        name: jupyter
+        state: absent
+      tags: update
+    - name: prune docker images and builder cache to free up space
+      docker_prune:
+        images: yes
+        builder_cache: yes
+      tags: update
     - name: copy files to /home
       copy:
         src: files/home/
@@ -85,6 +94,7 @@
           path: "/home/{{ dest_user }}"
           recurse: yes
           owner: "{{ dest_user }}"
+          follow: no
       tags: update
     - name: fix /home/.ssh permissions
       file:
@@ -92,6 +102,7 @@
           recurse: yes
           owner: "{{ dest_user }}"
           mode: "u=rwX,go-rwx"
+          follow: no
       tags: update
     - name: copy files to /etc
       copy:

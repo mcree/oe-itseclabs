@@ -61,21 +61,21 @@
         update: yes
       register: git_result
       tags: update
-    - name: build docker image for jupyter
-      docker_image:
-        name: jupyter
-        source: build
-        force_source: yes
-        build:
-          path: "/home/{{ dest_user }}/oe-itseclabs"
-      when: git_result.before != git_result.after
-      tags: update
-    #- name: copy files to /home
-      #copy:
-      #  src: files/home/
-      #  dest: "/home/{{ dest_user }}/"
-      #  owner: "{{ dest_user }}"
+    #- name: build docker image for jupyter
+      #docker_image:
+      #  name: jupyter
+      #  source: build
+      #  force_source: yes
+      #  build:
+      #    path: "/home/{{ dest_user }}/oe-itseclabs"
+      #when: git_result.before != git_result.after
       #tags: update
+    - name: copy files to /home
+      copy:
+        src: files/home/
+        dest: "/home/{{ dest_user }}/"
+        owner: "{{ dest_user }}"
+      tags: update
     - name: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
       shell: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
       tags: update

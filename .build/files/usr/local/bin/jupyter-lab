@@ -1,12 +1,13 @@
 #!/bin/bash
-#image="mcreeiw/oe-itseclabs-jupyter:latest"
-image="jupyter"
+image="mcreeiw/oe-itseclabs-jupyter:dist"
+#image="jupyter"
 mkdir -p /home/hallgato/.jupyter
-#docker image pull ${image}
+docker image pull ${image}
 ( sleep 5 ; nohup firefox http://localhost:8888 )&
 docker run -ti --rm \
     --volume /home/hallgato/oe-itseclabs:/home/hallgato/oe-itseclabs \
     --volume /home/hallgato/.jupyter:/home/hallgato/.jupyter \
+    --volume /home/hallgato/.ssh:/home/hallgato/.ssh \
     --user=hallgato \
     --name=jupyter \
     --network=host \

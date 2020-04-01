@@ -22,6 +22,7 @@
           - locales
           - git
           - sudo
+          - zsh
           - mc
       tags: update
     - name: upgrade distribution packages
@@ -34,6 +35,7 @@
         name:
           - pipenv
           - "docker-compose==1.25.4"
+          - zsh_jupyter_kernel
       tags: update
     - name: setup system locale
       command:
@@ -68,17 +70,28 @@
           path: "/home/{{ dest_user }}/oe-itseclabs"
       when: git_result.before != git_result.after
       tags: update
+    #- name: copy files to /home
+      #copy:
+      #  src: files/home/
+      #  dest: "/home/{{ dest_user }}/"
+      #  owner: "{{ dest_user }}"
+      #tags: update
+    - name: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
+      shell: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
+      tags: update
+      #creates: "/home/{{ dest_user }}/.ssh/known_hosts"
     - name: fix /home permissions
       file:
           path: "/home/{{ dest_user }}"
           recurse: yes
           owner: "{{ dest_user }}"
       tags: update
-    - name: copy files to /home
-      copy:
-        src: files/home/
-        dest: "/home/{{ dest_user }}/"
-        owner: "{{ dest_user }}"
+    - name: fix /home/.ssh permissions
+      file:
+          path: "/home/{{ dest_user }}/.ssh"
+          recurse: yes
+          owner: "{{ dest_user }}"
+          mode: "u=rwX,go-rwx"
       tags: update
     - name: copy files to /etc
       copy:

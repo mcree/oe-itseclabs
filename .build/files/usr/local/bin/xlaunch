@@ -1,0 +1,7 @@
+#!/bin/bash
+export DISPLAY=:0.0
+echo "+ launching $@"
+exec 2>&1
+exec &>/dev/null
+sudo -b -i -u hallgato "$@"
+exit 0

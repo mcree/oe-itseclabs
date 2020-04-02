@@ -65,7 +65,7 @@
       git:
         repo: https://github.com/mcree/oe-itseclabs-jupyter.git
         dest: "/home/{{ dest_user }}/oe-itseclabs"
-        force: no
+        force: yes
         update: yes
       register: git_result
       tags: update

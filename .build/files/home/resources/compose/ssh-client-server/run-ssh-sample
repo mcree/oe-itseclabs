@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+cd $(dirname $0)
+/usr/bin/lxterminal --title="SSH Client" -e /bin/bash run
+exit 0

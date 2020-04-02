@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  server:
+    image: sshd
+    hostname: ssh-server
+    #restart: never
+    volumes:
+      - "${SSH_WORKDIR}/sshd_config:/etc/ssh/"
+      - "${SSH_WORKDIR}/server_home/:/home/hallgato"
+
+  client:
+    image: sshclient
+    hostname: ssh-client
+    #restart: never
+    stdin_open: true
+    tty: true
+    links: 
+      - server
+    volumes:
+      - "${SSH_WORKDIR}/client_home/:/home/hallgato"

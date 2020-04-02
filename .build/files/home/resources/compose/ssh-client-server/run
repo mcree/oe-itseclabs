@@ -1,0 +1,4 @@
+#!/bin/bash
+cd $(dirname $0)
+export SSH_WORKDIR="/home/hallgato/oe-itseclabs/04 - Linux hardening/ssh"
+docker-compose run client

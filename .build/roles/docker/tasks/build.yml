@@ -8,7 +8,13 @@
 - name: Build local docker images
   docker_image:
     name: "{{ item }}"
+    source: build
     build:
       path: "/tmp/{{ item }}"
+      pull: no
+    force_source: yes
   with_items:
     - xca
+    - sshd
+    - sshclient
+

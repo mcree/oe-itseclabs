@@ -3,6 +3,13 @@
   vars:
     - dest_user: "{{ lookup('env','NB_USER') | default('hallgato', true) }}"
     - dest_uid: "{{ lookup('env','NB_UID') | default(10000, true) }}"
+  pre_tasks:
+    - name: stop and disable apt-daily.service
+      systemd:
+        name: apt-daily.service
+        enabled: no
+        state: stopped
+      tags: update
   roles:
     - role: docker
       tags: update
@@ -86,9 +93,10 @@
         owner: "{{ dest_user }}"
       tags: update
     - name: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
-      shell: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
+      shell:
+        cmd: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
+        creates: "/home/{{ dest_user }}/.ssh/known_hosts"
       tags: update
-      #creates: "/home/{{ dest_user }}/.ssh/known_hosts"
     - name: fix /home permissions
       file:
           path: "/home/{{ dest_user }}"
@@ -121,9 +129,9 @@
       command: update-ca-certificates
       tags: update
     - name: clean up environment
-      command:
+      shell:
         cmd: "{{ item }}"
       with_items:
-        - "apt-get autoremove -f -y"
+        - "DEBIAN_FRONTEND=noninteractive apt-get autoremove -f -y"
         - "apt-get clean"
       tags: update

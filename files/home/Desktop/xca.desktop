@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
 Name=XCA
-Exec=/usr/local/bin/x11docker --home=/home/hallgato xca
-Path=/home/hallgato/
+Exec=/bin/bash /home/hallgato/docker/xca/run
+Path=/home/hallgato/docker/xca
 Icon=/home/hallgato/resources/XCA-logo.png
-Terminal=false
+Terminal=true
 Type=Application
 Categories=Application

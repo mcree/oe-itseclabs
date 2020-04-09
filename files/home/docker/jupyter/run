@@ -6,6 +6,8 @@ docker image pull ${image}
 ( sleep 5 ; nohup firefox http://localhost:8888 )&
 docker run -ti --rm \
     --volume /home/hallgato/oe-itseclabs:/home/hallgato/oe-itseclabs \
+    --volume /home/hallgato/docker:/home/hallgato/oe-itseclabs/docker \
+    --volume /home/hallgato/resources:/home/hallgato/oe-itseclabs/resources \
     --volume /home/hallgato/.jupyter:/home/hallgato/.jupyter \
     --volume /home/hallgato/.ssh:/home/hallgato/.ssh \
     --user=hallgato \

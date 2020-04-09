@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+docker image inspect xca || docker build -t xca .
+/usr/local/bin/x11docker --clipboard --home=/home/hallgato xca

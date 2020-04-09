@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
 Name=Wordpress
-Exec=/bin/bash /home/hallgato/resources/compose/wordpress/run
-Path=/home/hallgato/resources/compose/wordpress
+Exec=/bin/bash /home/hallgato/docker/wordpress/run
+Path=/home/hallgato/docker/wordpress
 Icon=/home/hallgato/resources/wordpress.svg
 Terminal=true
 Type=Application

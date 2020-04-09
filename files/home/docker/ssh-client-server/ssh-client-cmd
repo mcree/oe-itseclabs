@@ -1,0 +1,3 @@
+#!/bin/bash
+SSH_WORKDIR="/home/hallgato/docker/ssh-client-server"
+tmux -S "${SSH_WORKDIR}/client_tmux/default" send-keys -t "0:0.0" "$@" Enter

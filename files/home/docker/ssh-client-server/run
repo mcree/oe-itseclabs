@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+cd $(dirname $0)
+export SSH_WORKDIR="$(dirname $0)"
+mkdir -p client_tmux
+chown hallgato client_tmux
+chmod +x ssh-client-cmd
+ln -s -f $(pwd)/ssh-client-cmd /usr/local/bin/ssh-client-cmd
+docker-compose run client

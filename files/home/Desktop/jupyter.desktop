@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Jupyter Lab
-Exec=jupyter-lab
+Exec=/bin/bash /home/hallgato/docker/jupyter/run
 Path=/home/hallgato/oe-itseclabs/
 Icon=/home/hallgato/resources/jupyter.svg
 Terminal=true

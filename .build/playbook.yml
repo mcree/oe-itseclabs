@@ -1,18 +1,5 @@
 ---
 - hosts: all
-  vars:
-    - dest_user: "{{ lookup('env','NB_USER') | default('hallgato', true) }}"
-    - dest_uid: "{{ lookup('env','NB_UID') | default(10000, true) }}"
-  pre_tasks:
-    - name: stop and disable apt-daily.service
-      systemd:
-        name: apt-daily.service
-        enabled: no
-        state: stopped
-      tags: update
-  roles:
-    - role: docker
-      tags: update
   tasks:
     - name: update the updater script
       copy:

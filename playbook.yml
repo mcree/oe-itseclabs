@@ -92,6 +92,7 @@
         dest: /usr/local/bin/ttyd
         mode: '0755'
         checksum: "sha256:179deb1810d9dd2553694eefbd7b1415fa7972f59be5546de30f9a383440dfcb"
+      tags: update
     - name: copy files to /home
       copy:
         src: files/home/

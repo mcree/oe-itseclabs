@@ -11,3 +11,4 @@
     - name: print debug message
       fail:
         msg: "!!! PLEASE RERUN THE UPDATE !!!"
+      tags: update

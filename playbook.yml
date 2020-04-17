@@ -43,6 +43,9 @@
           - cryptsetup
           - slay
           - gufw
+          - hashcat
+          - fcrackzip
+          - pdfcrack
           - mc
       tags: update
     - name: upgrade distribution packages

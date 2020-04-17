@@ -12,11 +12,13 @@
       tags: update
     - name: wait for any possibly running unattended upgrade to finish
       raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
+      tags: update
     - name: purge unattended upgrades
       apt:
         pkg: unattended-upgrades
         state: absent
         purge: yes
+      tags: update
   roles:
     - role: docker
       tags: update

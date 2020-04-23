@@ -1,0 +1,7 @@
+ssl.google-analytics.com:HSTS	0	18375	1598534924441,1,1,2
+start.thunderbird.net:HSTS	0	18375	1619184475621,1,0,2
+addons.thunderbird.net:HSTS	0	18375	1619184542546,1,0,2
+services.addons.thunderbird.net:HSTS	0	18375	1619184544246,1,0,2
+autoconfig.thunderbird.net:HSTS	0	18375	1619184454703,1,0,2
+firefox.settings.services.mozilla.com:HSTS	0	18375	1619184602387,1,0,2
+location.services.mozilla.com:HSTS	0	18375	1619184453443,1,1,2

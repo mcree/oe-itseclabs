@@ -1,0 +1,65 @@
+// <!-- <mdb:mork:z v="1.4"/> -->
+< <(a=c)> // (f=iso-8859-1)
+  (8A=charset)(8B=boxFlags)(8C=hierDelim)(8D=onlineName)(8E=aclFlags)
+  (8F=serverTotal)(90=serverUnseen)(91=serverRecent)(92=indexingPriority)
+  (93=folderName)(94=applyIncomingFilters.empty)(95=applyIncomingFilters)
+  (96=MRUTime)(97=nextUID)(98=lastSyncTimeInSec)
+  (99=dobayes.mailnews@mozilla.org#junk.empty)
+  (9A=dobayes.mailnews@mozilla.org#junk)
+  (80=ns:msg:db:row:scope:folders:all)(81=ns:msg:db:table:kind:folders)
+  (82=key)(83=flags)(84=totalMsgs)(85=totalUnreadMsgs)
+  (86=pendingUnreadMsgs)(87=pendingMsgs)(88=expungedBytes)(89=folderSize)>
+
+<(80
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/INBOX.msf)(A7=88083014)(AD=1)(81=0)(B5=78d)(83=ISO-8859-1)(A8
+    =200040)(A0=2f)(85=INBOX)(B4=1587648573)(B3=5ea197e8)(87
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/Mail/Local Folders/Tras\
+h.msf)(88=104)(82=ffffffffffffffff)(89=Trash)(8A
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/Mail/Local Folders/Unse\
+nt Messages.msf)(8B=804)(8D=Outbox)(8E
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/Mail/Local Folders)
+  (8F=1c)(90=ffffffff)(91=)(92=Local Folders)(93
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/Drafts.msf)(A2=400)(84=5e)(94=Drafts)(95
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/Templates.msf)(A4=400000)(96=Templates)(97
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/Sent.msf)(A1=200)(98=Sent)(9A
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/Archives.msf)(A3=4000)(9B=Archives)(9D
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/Trash.msf)(9E=4082114)(9F=210046)(A5
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/Junk.msf)(A6=Junk)(A9
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local/Sent-1.msf)(AB=c082214)(B1=589)(B2=582)(AC=202046)(AF=5ea19812)
+  (B0=2)(B6
+    =/home/alien/.thunderbird/0xxqqpfa.default-release/ImapMail/imap.itseclabs\
+.local)>
+{1:^80 {(k^81:c)(s=9)} 
+  [1(^82^80)(^83^A7)(^84=1)(^85=0)(^86=0)(^87=0)(^88=0)(^89^B5)(^8A^83)
+    (^8B^A8)(^8C=2f)(^8D^85)(^8E=0)(^8F=1)(^90=0)(^91=0)(^96^B4)(^97=1)
+    (^98^B3)]
+  [2(^82^87)(^83^88)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^93^89)]
+  [3(^82^8A)(^83^8B)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^93^8D)]
+  [4(^82^8E)(^83=1c)(^84^90)(^85^90)(^86=0)(^87=0)(^88=0)(^89^82)(^8A=)
+    (^93^92)]
+  [5(^82^93)(^83^A2)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^94)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [6(^82^95)(^83^A4)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^96)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [7(^82^97)(^83^A1)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^98)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [8(^82^9A)(^83^A3)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^9B)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [9(^82^9D)(^83^9E)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B^9F)(^8C=2f)(^8D^89)(^8E=0)(^8F=0)(^90=0)(^91=0)]
+  [A(^82^A5)(^83=0)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^A6)(^8E=0)(^8F=0)(^90=0)(^91=0)]
+  [B(^82^A9)(^83^AB)(^84=1)(^85=0)(^86=0)(^87=0)(^88^B1)(^89^B2)(^8A^83)
+    (^8B^AC)(^8C=2f)(^8D^98)(^8E=0)(^8F=1)(^90=0)(^91=0)(^98^AF)(^97=2)]
+  [C(^82^B6)(^83=0)(^84^90)(^85^90)(^86=0)(^87=0)(^88=0)(^89^82)(^8A=)
+    (^8B=0)(^8C=2f)(^8D=)(^8E=0)(^8F=0)(^90=0)(^91=0)]}

@@ -1,0 +1,70 @@
+// <!-- <mdb:mork:z v="1.4"/> -->
+< <(a=c)> // (f=iso-8859-1)
+  (8A=charset)(8B=boxFlags)(8C=hierDelim)(8D=onlineName)(8E=aclFlags)
+  (8F=serverTotal)(90=serverUnseen)(91=serverRecent)(92=indexingPriority)
+  (93=folderName)(94=applyIncomingFilters.empty)(95=applyIncomingFilters)
+  (96=MRUTime)(97=nextUID)(98=lastSyncTimeInSec)
+  (99=dobayes.mailnews@mozilla.org#junk.empty)
+  (9A=dobayes.mailnews@mozilla.org#junk)(9B=LastPurgeTime)
+  (9C=useServerRetention)(80=ns:msg:db:row:scope:folders:all)
+  (81=ns:msg:db:table:kind:folders)(82=key)(83=flags)(84=totalMsgs)
+  (85=totalUnreadMsgs)(86=pendingUnreadMsgs)(87=pendingMsgs)
+  (88=expungedBytes)(89=folderSize)>
+
+<(80
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/INBOX.msf)(A7=88083014)(81=0)(CD=1e08)(C6=11d9)(83=ISO-8859-1)
+  (A8=200040)(A2=2f)(85=INBOX)(B2=2)(CA=1587645235)(CB=4)(B9=5ea188b4)
+  (AA=1)(87
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/Mail/Local Folders/T\
+rash.msf)(88=104)(89=Trash)(D7=1587645426)(8A
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/Mail/Local Folders/U\
+nsent Messages.msf)(8B=804)(8D=Outbox)(D8=1587645427)(8E
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/Mail/Local Folders)
+  (8F=1c)(90=ffffffff)(82=ffffffffffffffff)(91=)(92=Local Folders)(93
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/Drafts.msf)(9E=400)(84=5e)(94=Drafts)(95
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/Templates.msf)(A4=400000)(96=Templates)(97
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/Sent.msf)(9D=200)(98=Sent)(9A
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/Archives.msf)(A3=4000)(9B=Archives)(9F
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/Trash.msf)(D3=4082114)(D6=3830)(D5=1b6b)(CF=240055)(C9=3)
+  (D2=1587645422)(A5
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/Junk.msf)(B1=40000000)(A6=Junk)(AF
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local)(BA
+    =/home/hallgato/.thunderbird/q6a45ypu.default-release/ImapMail/imap.itsecl\
+abs.local/Sent-1.msf)(BC=c082214)(D1=20d2)(CC=240046)(C2=5ea188e8)(CE
+    =1587645416)>
+{1:^80 {(k^81:c)(s=9)} 
+  [1(^82^80)(^83^A7)(^84=0)(^85=0)(^86=0)(^87=0)(^88^CD)(^89^C6)(^8A^83)
+    (^8B^A8)(^8C=2f)(^8D^85)(^8E=0)(^8F=2)(^90=0)(^91=0)(^96^CA)(^97=4)
+    (^98^B9)(^9C=1)]
+  [2(^82^87)(^83^88)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89=0)(^8A^83)
+    (^93^89)(^9C=1)(^96^D7)]
+  [3(^82^8A)(^83^8B)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89=0)(^8A^83)
+    (^93^8D)(^9C=1)(^96^D8)]
+  [4(^82^8E)(^83=1c)(^84^90)(^85^90)(^86=0)(^87=0)(^88=0)(^89^82)(^8A=)
+    (^93^92)]
+  [5(^82^93)(^83^9E)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^94)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [6(^82^95)(^83^A4)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^96)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [7(^82^97)(^83^9D)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^98)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [8(^82^9A)(^83^A3)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^9B)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [9(^82^9F)(^83^D3)(^84=0)(^85=0)(^86=0)(^87=0)(^88^D6)(^89^D5)(^8A^83)
+    (^8B^CF)(^8C=2f)(^8D^89)(^8E=0)(^8F=3)(^90=0)(^91=0)(^96^D2)(^97=4)
+    (^98=0)(^9C=1)]
+  [A(^82^A5)(^83^B1)(^84=0)(^85=0)(^86=0)(^87=0)(^88=0)(^89^82)(^8A^83)
+    (^8B=0)(^8C=5e)(^8D^A6)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [B(^82^AF)(^83=0)(^84^90)(^85^90)(^86=0)(^87=0)(^88=0)(^89^82)(^8A=)
+    (^8B=0)(^8C=2f)(^8D=)(^8E=0)(^8F=0)(^90=0)(^91=0)(^98=0)]
+  [C(^82^BA)(^83^BC)(^84=0)(^85=0)(^86=0)(^87=0)(^88^D1)(^89=0)(^8A^83)
+    (^8B^CC)(^8C=2f)(^8D^98)(^8E=0)(^8F=2)(^90=0)(^91=0)(^98^C2)(^97=3)
+    (^9C=1)(^96^CE)]}

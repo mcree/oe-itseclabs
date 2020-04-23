@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Thunderbird - Alien
+Exec=/bin/bash /usr/local/bin/thunderbird-alien
+Path=/home/alien
+Icon=thunderbird
+Terminal=false
+Type=Application
+Categories=Application

@@ -1,4 +1,4 @@
-127.0.0.1	localhost www.itseclabs.local
+127.0.0.1	localhost itseclabs.local www.itseclabs.local imap.itseclabs.local smtp.itseclabs.local mail.itseclabs.local
 
 # The following lines are desirable for IPv6 capable hosts
 ::1	ip6-localhost	ip6-loopback

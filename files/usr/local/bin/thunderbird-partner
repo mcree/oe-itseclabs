@@ -1,0 +1,4 @@
+#!/bin/bash
+export DISPLAY=:0.0
+xhost +
+sudo -u partner -i thunderbird

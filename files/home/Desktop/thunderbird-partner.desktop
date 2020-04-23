@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Thunderbird - Partner
+Exec=/bin/bash /usr/local/bin/thunderbird-partner
+Path=/home/partner
+Icon=thunderbird
+Terminal=false
+Type=Application
+Categories=Application

@@ -92,6 +92,7 @@
         groups: sudo, docker
         shell: /bin/bash
         uid: "10001"
+      tags: update
     - name: "add mail default user alien"
       user:
         name: "alien"
@@ -101,6 +102,7 @@
         groups: sudo, docker
         shell: /bin/bash
         uid: "10002"
+      tags: update
     - name: remove default ubuntu cloudimage user
       user:
         name: ubuntu
@@ -140,13 +142,13 @@
       copy:
         src: files/home-partner/
         dest: "/home/partner/"
-        owner: "10001"
+        owner: "partner"
       tags: update
     - name: copy files to /home/alien
       copy:
         src: files/home-alien/
         dest: "/home/alien/"
-        owner: "10002"
+        owner: "alien"
       tags: update
     - name: "ssh-keyscan localhost > /home/{{ dest_user }}/.ssh/known_hosts"
       shell:

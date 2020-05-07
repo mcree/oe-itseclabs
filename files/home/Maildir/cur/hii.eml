@@ -1,0 +1,101 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 5FAE821F166
+	for <hallgato@itseclabs.local>; Tue, 24 Dec 2019 12:56:11 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Rz4yExsbywxu for <hallgato@itseclabs.local>;
+	Tue, 24 Dec 2019 12:56:09 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 3A09221F1C9
+	for <hallgato@itseclabs.local>; Tue, 24 Dec 2019 12:56:09 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 2058A2A056E; Tue, 24 Dec 2019 13:56:09 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="r6o7vdgb";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id DC4AA2A04FA;
+	Tue, 24 Dec 2019 13:56:08 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 0LsTUlt65H9Z; Tue, 24 Dec 2019 13:56:06 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 990612A04C2;
+	Tue, 24 Dec 2019 13:56:06 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=gjjg8639@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 6A2DC20092; Tue, 24 Dec 2019 13:56:06 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 372B120095
+	for <info@itseclabs.local>; Tue, 24 Dec 2019 13:56:06 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id yzryuhlvs0ws for <info@itseclabs.local>;
+	Tue, 24 Dec 2019 13:56:04 +0100 (CET)
+Received: from mail-wm1-f67.google.com (mail-wm1-f67.google.com [209.85.128.67])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id ABD4E20092
+	for <info@itseclabs.local>; Tue, 24 Dec 2019 13:56:01 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="r6o7vdgb";
+	dkim-atps=neutral
+Received: by mail-wm1-f67.google.com with SMTP id q9so788358wmj.5
+        for <info@itseclabs.local>; Tue, 24 Dec 2019 04:56:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=52ZJMUQ/wGjCGVhhgBgLox31dSwXCuqL+4Mc6ITN/LA=;
+        b=r6o7vdgbiOwxJBeY7PXsgcNrXDPfxLh+xpSzars42xS8VK/q+PrOiSbxWH4OZpnYf2
+         02PG/coeOEjx9jwjvxKAwm2CkDuIL4/el/+iebhpQHyRiXbtjnSXzQDuSjJJ4nUv/geU
+         S9npBvt7TYf/AjU84YzwcNA+6V4kLuWmkdvHHFd8BJ0KzyLcWetTvs3omWqG7HSBs7z5
+         7I0i0ptPcpFIRq/FZqB19eQtZ2mRagJ+pR7yzsgTA8vFBwL2wChGmkIFFwcTV78Q8qfb
+         wdz3Q4uDJCAq32XO564e5WBhB7TwHPDLbbIc8tbJPXZVARXlcCMZxkXhiPpaczm6iaGQ
+         Rr3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=52ZJMUQ/wGjCGVhhgBgLox31dSwXCuqL+4Mc6ITN/LA=;
+        b=PP88715u6YobGCClrVSIbODOGU1fHXd+ciEM9Fuvmxsktgwyu0PlqVb6j5hM/4Hvw0
+         SN+H4jK+kmMpqrOXcv29um+kTyAxYK3GYzSzV617i3qB3BqhoQYXEukQQx4c53swucXs
+         Uf4we9m4QSnZ3reJO6bocyR7Yzfh26g9fH5HHvB8QOfBCOinF6YcqSlwc9UD6I3TJVgI
+         oAccOMIkGhuriz9UH1R6Cyo2horYNpMa1Q4V3TlIgYSTYMxszm4YBu1ZB3U+4dmk6vIp
+         T4y6PuDg/bdaVU9htRY+mt2fxGll8uviUMt9AxC+950kKfWybMiK6zqPsX9GTJB7yXkN
+         89sw==
+X-Gm-Message-State: APjAAAUjIINt9GupgmWV31UoIMuLFOZnmRFxWeZArxLxx048vXC0yJy/
+	4zv9O9q9TNU0bhWETJn2Jk819ecl07CwByv1P5Y=
+X-Google-Smtp-Source: APXvYqySOzkQX7VmilcP1CCkiYyAaCXJ3IAFzvcTKIk4rIhOJnc6Vu5aXnw8zBDq3veLUK45AxK0PDh7id6ehO+ROkk=
+X-Received: by 2002:a05:600c:2c13:: with SMTP id q19mr4099528wmg.144.1577192160870;
+ Tue, 24 Dec 2019 04:56:00 -0800 (PST)
+MIME-Version: 1.0
+From: Karine Albert <karineuk2@gmail.com>
+Date: Tue, 24 Dec 2019 12:55:39 +0000
+Message-ID: <CANam2nxx5PD7gHeNcZQ4Ydjss=REjxsdWBt6+rZdJFuBkTZdzA@mail.gmail.com>
+Subject: hii
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000007dc71c059a72aa30"
+
+--0000000000007dc71c059a72aa30
+Content-Type: text/plain; charset="UTF-8"
+
+Hi my name is Karine nice to meet you
+
+--0000000000007dc71c059a72aa30
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr"><div dir="ltr">Hi my name is Karine nice to meet you<br></div></div>
+
+--0000000000007dc71c059a72aa30--

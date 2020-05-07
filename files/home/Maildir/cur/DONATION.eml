@@ -1,0 +1,94 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 417A221AD78
+	for <hallgato@itseclabs.local>; Tue, 15 Oct 2019 20:51:04 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ORz0S7dHrl4l for <hallgato@itseclabs.local>;
+	Tue, 15 Oct 2019 20:51:03 +0000 (UTC)
+Received: from itseclabs.local (itseclabs.local [193.6.200.100])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 2EF0A21AD77
+	for <hallgato@itseclabs.local>; Tue, 15 Oct 2019 20:51:03 +0000 (UTC)
+Received: by itseclabs.local (Postfix, from userid 1208)
+	id 113C9E0004; Tue, 15 Oct 2019 22:51:03 +0200 (CEST)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by itseclabs.local (Postfix) with ESMTP id E6310E0013;
+	Tue, 15 Oct 2019 22:51:02 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id UkeUPiZzzkPf; Tue, 15 Oct 2019 22:51:02 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by itseclabs.local (Postfix) with ESMTPS id 6D558E0011;
+	Tue, 15 Oct 2019 22:51:02 +0200 (CEST)
+Received: by duflex.itseclabs.local (Postfix)
+	id 44E9720092; Tue, 15 Oct 2019 22:51:02 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 27F7020095
+	for <info@itseclabs.local>; Tue, 15 Oct 2019 22:51:02 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Dz69k_VsWWHK for <info@itseclabs.local>;
+	Tue, 15 Oct 2019 22:51:01 +0200 (CEST)
+X-Greylist: delayed 329 seconds by postgrey-1.36 at duflex-2; Tue, 15 Oct 2019 22:51:00 CEST
+Received: from mail.caosa.com.mx (mail.caosa.com.mx [173.231.54.139])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 7159F20092
+	for <info@itseclabs.local>; Tue, 15 Oct 2019 22:51:00 +0200 (CEST)
+Received: from [156.96.46.134] (UnknownHost [156.96.46.134]) by mail.caosa.com.mx with SMTP;
+   Tue, 15 Oct 2019 15:40:29 -0500
+Content-Type: multipart/alternative; boundary="===============1693916500=="
+MIME-Version: 1.0
+Subject: DONATION
+To: info@itseclabs.local
+From: "Susanne Klatten Foundation" <AIDA@CAOSA.COM.MX>
+Date: Tue, 15 Oct 2019 16:39:48 -0700
+Reply-To: susanneklatten502@gmail.com
+Message-Id: <20191015205103.113C9E0004@itseclabs.local>
+
+You will not see this in a MIME-aware mail reader.
+--===============1693916500==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+Dear Beloved,
+  =
+
+ Your E-mail info@itseclabs.local was randomly selected after an Electronic Computer=
+ SPIN BALL draw, you are to receive a donation of 1,000.000.00 (One Million=
+ Euros) as part of Susanne Klatten charity project.
+ =3000
+ Kindly confirm the ownership of your email by sending your response to me =
+immediately and I shall explain in detail all you need to know.
+ =3000=3000=3000
+ Best Regards,
+Susanne Klatten Foundation
+
+--===============1693916500==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+<HTML><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dutf-8"/></head><BODY><P>Dear Beloved,</P>
+<P>&nbsp;</P>
+<P>Your E-mail info@itseclabs.local was randomly selected after an Electronic Comput=
+er SPIN BALL draw, you are to receive a donation of 1,000.000.00 (One Milli=
+on Euros) as part of Susanne Klatten charity project.</P>
+<P>=E3=80=80</P>
+<P>Kindly confirm the ownership of your email by sending your response to m=
+e immediately and I shall explain in detail all you need to know.</P>
+<P>=E3=80=80=E3=80=80=E3=80=80</P>
+<P>Best Regards,<BR>Susanne Klatten Foundation</P></BODY></HTML>
+--===============1693916500==--
+

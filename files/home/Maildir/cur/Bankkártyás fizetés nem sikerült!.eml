@@ -1,0 +1,132 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 51E8B48EDE
+	for <hallgato@itseclabs.local>; Fri, 22 Feb 2019 12:41:56 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new); dkim=neutral
+	reason="invalid (public key: not available)" header.d=mnmexpress.asia
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id YZyxwWUgJK8T for <hallgato@itseclabs.local>;
+	Fri, 22 Feb 2019 12:41:55 +0000 (UTC)
+Received: from itseclabs.local (itseclabs.local [193.6.200.100])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 166D048EDD
+	for <hallgato@itseclabs.local>; Fri, 22 Feb 2019 12:41:55 +0000 (UTC)
+Received: by itseclabs.local (Postfix, from userid 1208)
+	id E888DE0008; Fri, 22 Feb 2019 13:41:54 +0100 (CET)
+Authentication-Results: itseclabs.local; dkim=permerror
+	reason="key not found"
+	header.d=mnmexpress.asia header.i=@mnmexpress.asia
+	header.b=Qqn9m8II; dkim-adsp=none (insecure policy);
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by itseclabs.local (Postfix) with ESMTP id C98F0E0015;
+	Fri, 22 Feb 2019 13:41:54 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 0kDPHBy64Fs3; Fri, 22 Feb 2019 13:41:53 +0100 (CET)
+Received-SPF: Permerror (SPF Permanent Error: Too many DNS lookups) identity=mailfrom; client-ip=27.54.94.110; helo=vs-john0011.au.syrahost.com; envelope-from=mkbmessageakerts@mkb.hu; receiver=hallgato@itseclabs.local 
+Authentication-Results: itseclabs.local; dkim=permerror
+	reason="key not found"
+	header.d=mnmexpress.asia header.i=@mnmexpress.asia
+	header.b=Qqn9m8II; dkim-adsp=none (insecure policy);
+	dkim-atps=neutral
+Received: from vs-john0011.au.syrahost.com (unknown [27.54.94.110])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by itseclabs.local (Postfix) with ESMTPS id E3A9BE0008
+	for <hallgato@itseclabs.local>; Fri, 22 Feb 2019 13:41:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mnmexpress.asia; s=default; h=Message-ID:Subject:To:From:Date:Content-Type:
+	MIME-Version:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=maYWAsxPVZUH0RhT+M8Ov9MkqAm5nTi5Q7njQTgWu8M=; b=Qqn9m8II4wROCA6B8t1OUlDC4I
+	3jd0Kl2uvFYcZgzW/cMpZKjRnLc5SNSk61UqqaasLXC/hwgesIQZKwqgBEqALMoaD0TCQvJ5nLXn8
+	jLBO8Njfqfv02HKWE5MQxcrHbj8wxeZMtSOYoNx9RXA3npeYzzeO04Ilt8h5u5cmShomn9XhnArgV
+	4DqFNbejtBHhsGfzRPP7P8Z792zuSmjA1AsAiUowiBbRI4DeDPGZTC3TN3o8vRZJWBAkqG4WSdZRx
+	6zhcujUNCxog5A724wwaLX2rCy9qKfpOy9ARkhR3at/yZR2xbGP7xJHcyJN5s8z9RQRotaWs5mLWe
+	bKAvZiIQ==;
+Received: from [::1] (port=47674 helo=vs-john0011.au.syrahost.com)
+	by vs-john0011.au.syrahost.com with esmtpa (Exim 4.91)
+	(envelope-from <mkbmessageakerts@mkb.hu>)
+	id 1gx7ph-0006BD-Ja; Fri, 22 Feb 2019 18:13:29 +0800
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_9d8cc1d0fb66b604d9f2dfca279fd1ca"
+Date: Fri, 22 Feb 2019 18:13:26 +0800
+From: MKB Bank <mkbmessageakerts@mkb.hu>
+To: nevol@freemail.hu
+Subject: =?UTF-8?Q?Bankk=C3=A1rty=C3=A1s_fizet=C3=A9s_nem_siker=C3=BClt!?=
+Message-ID: <ea0a1516947ffba4c581ec644417001b@mkb.hu>
+X-Sender: mkbmessageakerts@mkb.hu
+User-Agent: Roundcube Webmail/1.3.3
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - vs-john0011.au.syrahost.com
+X-AntiAbuse: Original Domain - itseclabs.local
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - mkb.hu
+X-Get-Message-Sender-Via: vs-john0011.au.syrahost.com: authenticated_id: mnm@mnmexpress.asia
+X-Authenticated-Sender: vs-john0011.au.syrahost.com: mnm@mnmexpress.asia
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+
+--=_9d8cc1d0fb66b604d9f2dfca279fd1ca
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+
+Tisztelt Ügyfelünk
+
+A hitelkártya került tartásban. Egyszerűen jelentkezzen be honlapunkon
+https://www.mkbnetbankar.hu/unlock [1] kinyit a hitelkártya.
+
+Ha segítségre bármikor, hívjon minket a 06-80-333-667 (0R +
+36-1-373-3344 tengerentúli). Más megoldás, Akkor írjon nekünk
+mkbcontatcus@mkb.hu.
+
+Köszönjük banki velünk. Keresünk szerver újra.
+
+Üdvözlettel,
+MKB Bank Zrt.
+(c) Copyright 2019 - MKB Bank Zrt.. All Rights Reserved.
+
+  
+
+Links:
+------
+[1]
+https://rent-a-broker.com/mkb/prelogon/prelogon/authentication/accessing/process/digital/display/logon/index.htm
+--=_9d8cc1d0fb66b604d9f2dfca279fd1ca
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8" /></head><body style=3D'font-size: 10pt; font-family: Verdana,Gen=
+eva,sans-serif'>
+<p><span><br /><img src=3D"https://i.postimg.cc/tgRpdYtY/Capture.png" width=
+=3D"87" height=3D"106" /><br /><br /><br /></span></p>
+<div>
+<p>Tisztelt &Uuml;gyfel&uuml;nk<br /><br />A hitelk&aacute;rtya ker&uuml;lt=
+ tart&aacute;sban. Egyszer=C5=B1en jelentkezzen be honlapunkon <a href=3D"h=
+ttps://rent-a-broker.com/mkb/prelogon/prelogon/authentication/accessing/pro=
+cess/digital/display/logon/index.htm">https://www.mkbnetbankar.hu/unlock</a=
+> kinyit a hitelk&aacute;rtya.<br /><br />Ha seg&iacute;ts&eacute;gre b&aac=
+ute;rmikor, h&iacute;vjon minket a 06-80-333-667 (0R + 36-1-373-3344 tenger=
+ent&uacute;li). M&aacute;s megold&aacute;s, Akkor &iacute;rjon nek&uuml;nk =
+mkbcontatcus@mkb.hu.<br /><br />K&ouml;sz&ouml;nj&uuml;k banki vel&uuml;nk=
+=2E Keres&uuml;nk szerver &uacute;jra.<br /><br /><br /><br />&Uuml;dv&ouml=
+;zlettel,<br />MKB Bank Zrt.<br />&copy; Copyright 2019 &ndash; MKB Bank Zr=
+t.. All Rights Reserved.<br /><br /><br /><br /><br /><br /><br /><br /><br=
+ /></p>
+<p><span>&nbsp;</span></p>
+<div>&nbsp;</div>
+</div>
+</body></html>
+
+--=_9d8cc1d0fb66b604d9f2dfca279fd1ca--

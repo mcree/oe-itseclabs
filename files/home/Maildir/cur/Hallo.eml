@@ -1,0 +1,123 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 94E951DCA99
+	for <hallgato@itseclabs.local>; Fri, 20 Dec 2019 15:39:09 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id QibKHGS70KbT for <hallgato@itseclabs.local>;
+	Fri, 20 Dec 2019 15:39:09 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 42C791DCA96
+	for <hallgato@itseclabs.local>; Fri, 20 Dec 2019 15:39:09 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 27A272A0278; Fri, 20 Dec 2019 16:39:09 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="SfkPAn3Q";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id D86D62A01FF;
+	Fri, 20 Dec 2019 16:39:08 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 0LhYFnV93e_4; Fri, 20 Dec 2019 16:39:06 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 7D0972A0258;
+	Fri, 20 Dec 2019 16:39:06 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=wilsonbrooks67@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 400E820092; Fri, 20 Dec 2019 16:39:06 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 1730A20095
+	for <info@itseclabs.local>; Fri, 20 Dec 2019 16:39:06 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id sAyw1caB3SiA for <info@itseclabs.local>;
+	Fri, 20 Dec 2019 16:39:04 +0100 (CET)
+Received: from mail-lf1-f66.google.com (mail-lf1-f66.google.com [209.85.167.66])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 9781420092
+	for <info@itseclabs.local>; Fri, 20 Dec 2019 16:39:01 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="SfkPAn3Q";
+	dkim-atps=neutral
+Received: by mail-lf1-f66.google.com with SMTP id b15so7375886lfc.4
+        for <info@itseclabs.local>; Fri, 20 Dec 2019 07:39:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:reply-to:from:date:message-id:subject:to;
+        bh=lkj7jwp6vKGrhktZpNVaHoggFdCNloF89v/8OB5IFEM=;
+        b=SfkPAn3Q9HXPzWX0t3DEOQipDgpsTjyeaDQ4gmy89k/70ZEPQA66V6hxk2wMxtxC7G
+         UWUUDbUBaCDTIF+FClomMJj33jOHI2HLd3e58EFy0Z4396xNLoGfc80IMF9v/rA4jtF+
+         dxb+7Ent+Y97vQ+ofo6cl9AJksz0evj7MlwGScNROD147SC0i1UECV0sdNQZHq5jmNna
+         c8s1NmVQ0sSkQ15KaPE6L266YhpkvmWOqYVgGRzILwODI6pQPotnij6TwMLwghmaK1/1
+         YzKxWkE6UVYwIVzpNWQX+0TD5DYqdCuxPfimazJ6Pehev3aDICVNeZoPMIyv3UaYBuXh
+         f2tQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+         :subject:to;
+        bh=lkj7jwp6vKGrhktZpNVaHoggFdCNloF89v/8OB5IFEM=;
+        b=Ke2dDRj+RlUmmAGH9fY9d0WoTpmDXl4ZzE2akK5TogEQHrXYc9dTT5vk0eny2XbNDJ
+         PHlTrfOBNYFAlOKtlUvQafr+jPnRyBcmAvhScXIqu1HaXuW8MPsVYqiXr78KZlRLXMCv
+         lmDcmSj+G4LmPY6gLrifyPa3BIJlO8JTaw7zfDDK51JtSqQOn8JoRU5yl3ep41eW3jsE
+         NdfPzV3hJCqJEz/SlUWEP153HI8hbQuRMIFdbap07e2U+yLY3/zOBRcOc8+nSoqX4ztC
+         nJj0ijdla4QNFMxjQXboq3NLjiEybHuglXrCUVW6Jy1a2Hg/XyDpgnmCFdhKMSrwOUAp
+         wJsQ==
+X-Gm-Message-State: APjAAAXV5VCLVjABla0S2SRwOC6Gw22nyKWIqCK8a4KlgegtUqIPDI1A
+	LQYjDApPchK5rb8W9Z6KwY21bZ0bu0vmvxnpIZU=
+X-Google-Smtp-Source: APXvYqw/H/PKSRE+vtzM8PDe4FJZ9bJ8Q1WbZ08qnTqCnaZAonKFfrfnl14QXVKQUa45bl+TKTvcPbQHzVqkg77dQa0=
+X-Received: by 2002:a19:40d8:: with SMTP id n207mr9410153lfa.4.1576856340388;
+ Fri, 20 Dec 2019 07:39:00 -0800 (PST)
+MIME-Version: 1.0
+Reply-To: michaelwellington69@gmail.com
+From: Michael Wellington <wilsonbrooks67@gmail.com>
+Date: Fri, 20 Dec 2019 16:38:44 +0100
+Message-ID: <CA+7Gbp5peB9=4VxpPUp8_Q47gq5hzdyba4ZcWQmdVazm5QEUrw@mail.gmail.com>
+Subject: Hallo
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="00000000000007e6fc059a247a7b"
+
+--00000000000007e6fc059a247a7b
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hallo,
+
+Ich habe versucht, Sie zu kontaktieren, konnte aber nicht durchkommen. Ich
+habe wichtige Informationen, die ich mit Ihnen besprechen kann. Bitte
+melden Sie sich so schnell wie m=C3=B6glich bei mir, um weitere Information=
+en zu
+erhalten. Ich warte darauf, von Ihnen in meiner privaten E-Mail-ID (
+michaelwellington69@gmail.com) zu h=C3=B6ren.
+
+ Gr=C3=BC=C3=9Fe
+
+Michael Wellington
+
+--00000000000007e6fc059a247a7b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><div>Hallo,</div><div><br></div><div>Ich =
+habe versucht, Sie zu kontaktieren, konnte aber nicht durchkommen. Ich habe=
+ wichtige Informationen, die ich mit Ihnen besprechen kann. Bitte melden Si=
+e sich so schnell wie m=C3=B6glich bei mir, um weitere Informationen zu erh=
+alten. Ich warte darauf, von Ihnen in meiner privaten E-Mail-ID (<a href=3D=
+"mailto:michaelwellington69@gmail.com">michaelwellington69@gmail.com</a>) z=
+u h=C3=B6ren.</div><div><br></div><div>=C2=A0Gr=C3=BC=C3=9Fe</div><div><br>=
+</div><div>Michael Wellington</div></div></div>
+
+--00000000000007e6fc059a247a7b--

@@ -1,0 +1,116 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id DFDAA24F425
+	for <hallgato@itseclabs.local>; Wed, 25 Mar 2020 11:56:35 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id jhA-_RsX4DmA for <hallgato@itseclabs.local>;
+	Wed, 25 Mar 2020 11:56:35 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 6E09224F1D1
+	for <hallgato@itseclabs.local>; Wed, 25 Mar 2020 11:56:35 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 5781E2A00B6; Wed, 25 Mar 2020 12:56:35 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="ppjb3d6a";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id DA4942A0272;
+	Wed, 25 Mar 2020 12:56:34 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id tpIdJQ-xOR_h; Wed, 25 Mar 2020 12:56:32 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 96E4C2A00B6;
+	Wed, 25 Mar 2020 12:56:32 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=eleasali07@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 4768E2008F; Wed, 25 Mar 2020 12:56:32 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 3474620095
+	for <info@itseclabs.local>; Wed, 25 Mar 2020 12:56:32 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id DWrCpMAEw-2W for <info@itseclabs.local>;
+	Wed, 25 Mar 2020 12:56:30 +0100 (CET)
+Received: from mail-il1-f196.google.com (mail-il1-f196.google.com [209.85.166.196])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 56E162008F
+	for <info@itseclabs.local>; Wed, 25 Mar 2020 12:56:26 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="ppjb3d6a";
+	dkim-atps=neutral
+Received: by mail-il1-f196.google.com with SMTP id f16so1534356ilj.9
+        for <info@itseclabs.local>; Wed, 25 Mar 2020 04:56:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=GQQbyY3vhs4xSf9eHVTstoSZtNxEv+n4gnOaksB/j84=;
+        b=ppjb3d6aMobNIcVMmPtXI+pKHSc1iUos+Ze+Y2xPSiejlicDvMyGj3vytNjrmVp/8G
+         /t+yBZ4Bw2XA9eY8YeXsdafAd2lZKhjCMOhfTnXb6qY3+t6cm9Fg92zWEEJb+rflZeNE
+         KTWABWos3oYNmxWJ9sYzQa7WcLfnL0MsuQYlb6hLubkeL6dpYqRS+XFD12bQ1ZLKaesp
+         JZHgqIYfnfkt1BaKcZdAizU23KUTWLWW3zU4r+7xjnT0uvFLjgdzn4WEDhK98EaZ3Vqs
+         Qr4wLIWsu04Z1tPFTa6of5al8/HIuLELuC5+p1EbjSd94JpFHyMgsNmu9I9U5FPMgeqR
+         P8ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=GQQbyY3vhs4xSf9eHVTstoSZtNxEv+n4gnOaksB/j84=;
+        b=bnkDxrP7bCd6O/35wHV/aoL0554QGkIHbufwXjVaxw77jllNefTYkaPODgpLVLAIBK
+         iWKDR1BMZIIKQEpF9Wzs/KcCWVJFWvSXy9XmsHXNONa4CuVoaaZqOYeHX/yimZJfFLBA
+         vQ2/u3lQMna6jMHVSax/F1/6yRl10QOK0T0xQsUqa+Y/RkDIEuCYsa3wqBfE+LOQca63
+         8xk4G8S95Fn7qRqsCEegbV8ZYll50N0OuboHM0/3iB+/pfex50YWyUDG35o88kOF9Vlm
+         yxhn/WlL72n3W+GgmVsWGF6Fp/PnSZ7YIdXw7MJWu/p2cUsyDBcKFIWO0YiCzC/yeiJb
+         bHeg==
+X-Gm-Message-State: ANhLgQ16BUt7L4UJ7q8wFjIt9WqjOx+cXfg6c8cow9H/fo9+gfHkPCR3
+	YYx4eCkxvowGhWX3zrS4iFgeH7+Rr5TddJoVqhY=
+X-Google-Smtp-Source: ADFU+vsOQ0rjRWEGzPOI6S9/PrrFQLf/REFr5WejzHzsUH7fSwBRvw81qxAeAKTqDQ/ANPOrdXitwq8SPb3fLSd04KY=
+X-Received: by 2002:a92:af05:: with SMTP id n5mr911646ili.134.1585137384851;
+ Wed, 25 Mar 2020 04:56:24 -0700 (PDT)
+MIME-Version: 1.0
+From: Aasia Basim <eleasali07@gmail.com>
+Date: Wed, 25 Mar 2020 11:56:12 +0000
+Message-ID: <CALzoskm_5PCxTGdR0b5+GqhAg_z196ukUcWG4_-aLNPvpC1prA@mail.gmail.com>
+Subject: hi dear
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000be958905a1ac8ecf"
+
+--000000000000be958905a1ac8ecf
+Content-Type: text/plain; charset="UTF-8"
+
+Hello dear.
+
+ My name is Miss Aasia female  I am contacting you for friendship
+purposes.let me know if you are interested?so that i can discuss this
+further with you. reach me (  basim_aasia63@yahoo.com  )
+
+I look forward to hearing from you soon.
+Thanks
+Aasia
+
+--000000000000be958905a1ac8ecf
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><div><br></div><div>Hello dear.</div><div=
+><br></div><div>=C2=A0My name is Miss Aasia female =C2=A0I am contacting yo=
+u for friendship purposes.let me know if you are interested?so that i can d=
+iscuss this further with you. reach me ( =C2=A0<a href=3D"mailto:basim_aasi=
+a63@yahoo.com">basim_aasia63@yahoo.com</a> =C2=A0)</div><div><br></div><div=
+>I look forward to hearing from you soon.</div><div>Thanks</div><div>Aasia<=
+/div></div></div>
+
+--000000000000be958905a1ac8ecf--

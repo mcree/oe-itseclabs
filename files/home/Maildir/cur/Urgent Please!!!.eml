@@ -1,0 +1,132 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 05D3624A374
+	for <hallgato@itseclabs.local>; Thu, 19 Mar 2020 13:36:37 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 1.608
+X-Spam-Level: *
+X-Spam-Status: No, score=1.608 tagged_above=1 required=4.5
+	tests=[BAYES_20=-0.001, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+	DKIM_VALID_AU=-0.1, FREEMAIL_FROM=0.001, FREEMAIL_REPLYTO=2.398,
+	HTML_MESSAGE=0.001, RCVD_IN_DNSWL_LOW=-0.7, SPF_HELO_PASS=-0.001,
+	T_TO_NO_BRKTS_FREEMAIL=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id HwJumMWbUdOU for <hallgato@itseclabs.local>;
+	Thu, 19 Mar 2020 13:36:36 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id A8AC224A55B
+	for <hallgato@itseclabs.local>; Thu, 19 Mar 2020 13:36:36 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 71E492A05DC; Thu, 19 Mar 2020 14:36:36 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="RxPrka0S";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 1E34C2A0482;
+	Thu, 19 Mar 2020 14:36:36 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id QlZR4oj0gcBA; Thu, 19 Mar 2020 14:36:33 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id D7E312A01DD;
+	Thu, 19 Mar 2020 14:36:33 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=kevinmartins2083@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id A9D8820095; Thu, 19 Mar 2020 14:36:33 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 8CFB220096
+	for <info@itseclabs.local>; Thu, 19 Mar 2020 14:36:33 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id rqNMgofgXFXr for <info@itseclabs.local>;
+	Thu, 19 Mar 2020 14:36:32 +0100 (CET)
+Received: from mail-io1-f65.google.com (mail-io1-f65.google.com [209.85.166.65])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 8256C20095
+	for <info@itseclabs.local>; Thu, 19 Mar 2020 14:36:29 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="RxPrka0S";
+	dkim-atps=neutral
+Received: by mail-io1-f65.google.com with SMTP id c19so2251585ioo.6
+        for <info@itseclabs.local>; Thu, 19 Mar 2020 06:36:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:reply-to:from:date:message-id:subject:to;
+        bh=reNOzGFmsl16s6LZxq+qen37MtH/upGyCsMbzKtlp2E=;
+        b=RxPrka0SQ+d5G6vdzhVnYhsArlJ2WJxRgaQSkihQgaQRP+Wb/4NzKLd4czlBmejXnm
+         DVbwdTNnhM5VVyxM1pyBAq4CR6GBSaocXMTRTwpLDb5UUycLrEfui9a3j7Wm/fjGSEJ/
+         5YO/h162SFFSFhoeY5480ADo0yb134yyyksQNNTQtfANsQmtR+XUNod9yFXjJPH3JwCn
+         nRrkDltfKGEZCJ1cFxHezZ2Z18eg/TLqyWzhd8ttsgDdQmXPe9BdiTm+wR88QsJZLNhN
+         ad2DhgJQ6neTk6IUIDLc7m25TIFrJR+YyOsIs/NxKrxnh4nlzwInSlmc7Z4ixjB4vGCK
+         5EzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+         :subject:to;
+        bh=reNOzGFmsl16s6LZxq+qen37MtH/upGyCsMbzKtlp2E=;
+        b=hMyUJE0C/Go/BQkvCpjCbH0bmPcDnIsSVRaQYdfJYZj2Oo12z+7PLglJg5NvbV2HXC
+         LcxtWpqskuLPUNioiUU8GUpnHoDP1VFBMUngGH8DrFYwd5ocaTZc6TeL4IhpYxmUrIOK
+         W6eo8BbTRNwtNNQl+ywG8o4KK+Hy9rH/fRgFOhK6WQO4tjBRzG/+7ckeDaJmfJ/4jH/6
+         7nqVOoVKH2BmuihmgEGmRrGiRqXea0GWvH8OQZAQqaFjAXEXhqT70gZmKpNCp6Aezvzf
+         E4+VeOTsoNgPMHIQE8cC2PxVaqlgSi/mLk97MJOGhXvuPEp8qcFipuKAoh9/zAmbkmmF
+         tyyQ==
+X-Gm-Message-State: ANhLgQ2PGbuA+nQ8BCt8gcZg549zKLrODfKD0fSqwPLnG5/ibu8QUM7/
+	re4AOpeBbavzilQow5Q3dJcE4A+3rHoY4ihR2R0=
+X-Google-Smtp-Source: ADFU+vtIVZhbWgn2h/8PSd85FCyhqrACfXPgq1WNwIC9qJgTFN/D1YuTjgDruETQP9CixVtR679LnXm7akfpi+Bq/6A=
+X-Received: by 2002:a6b:6606:: with SMTP id a6mr2616988ioc.8.1584624986911;
+ Thu, 19 Mar 2020 06:36:26 -0700 (PDT)
+MIME-Version: 1.0
+Reply-To: hw3718622@gmail.com
+From: Harry Williams <kevinmartins2083@gmail.com>
+Date: Thu, 19 Mar 2020 06:36:16 -0700
+Message-ID: <CANMR2vjo_Z9wVEc37--C1vXAAB7DrvuAFBCEmpSkj=JTjpdr_Q@mail.gmail.com>
+Subject: Urgent Please!!!
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000727a1005a13541b0"
+
+--000000000000727a1005a13541b0
+Content-Type: text/plain; charset="UTF-8"
+
+-- 
+Attn:
+
+I do have the authorization of a wealthy client who has an interest in
+investing in your country into a Joint Venture / Partnership. He has funds
+available meant for investment. We would be delighted to work with you.
+Kindly let me know so we can discuss further.
+
+Best Regards,
+
+Harry Williams
+Santander Bank
+69 English St,
+Carlisle CA3 8LQ, UK
+
+--000000000000727a1005a13541b0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr" c=
+lass=3D"gmail_signature" data-smartmail=3D"gmail_signature">Attn:<br><br>I =
+do have the authorization of a wealthy client who has an interest in invest=
+ing in your country into a Joint Venture / Partnership. He has funds availa=
+ble meant for investment. We would be delighted to work with you. Kindly le=
+t me know so we can discuss further.<br><br>Best Regards,<br><br>Harry Will=
+iams<br>Santander Bank<br>69 English St,<br>Carlisle CA3 8LQ, UK<br><br></d=
+iv></div>
+
+--000000000000727a1005a13541b0--

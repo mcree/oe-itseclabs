@@ -1,0 +1,228 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 965BC2405C3
+	for <hallgato@itseclabs.local>; Fri,  6 Mar 2020 10:41:10 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 7LDqA4t6MF4Y for <hallgato@itseclabs.local>;
+	Fri,  6 Mar 2020 10:41:10 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 0A77B2405C2
+	for <hallgato@itseclabs.local>; Fri,  6 Mar 2020 10:41:10 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id E440C2A0602; Fri,  6 Mar 2020 11:41:09 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=outlook.com header.i=@outlook.com header.b="sfuodPD3";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 99EC82A0664;
+	Fri,  6 Mar 2020 11:41:09 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id YzIGEE-igYcm; Fri,  6 Mar 2020 11:41:07 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id C4BFE2A0602;
+	Fri,  6 Mar 2020 11:41:06 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=outlook.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=ITS_011@outlook.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 9D25820096; Fri,  6 Mar 2020 11:41:06 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 770E220098
+	for <info@itseclabs.local>; Fri,  6 Mar 2020 11:41:06 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id tWj6OhL30vxL for <info@itseclabs.local>;
+	Fri,  6 Mar 2020 11:41:04 +0100 (CET)
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (mail-co1nam11olkn2064.outbound.protection.outlook.com [40.92.18.64])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id E86D320096
+	for <info@itseclabs.local>; Fri,  6 Mar 2020 11:41:00 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=outlook.com header.i=@outlook.com header.b="sfuodPD3";
+	dkim-atps=neutral
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=jGRHKlRTT9tMaSi43rc2xSnSr5F2UJpBNaFAIFL/34PAsRj5MPEiVSZaTVmbLQBzWG/4pzmLH1lPp0WkP/bIpKynI+ebkQxks8oc8745tnZQVma93wOQ+uMIQ9/iIf7TDt8VOF0RbUT/Vb818GqjIYSatEkOqY/dsimcXjLPzGz79CYLycY9VugHAjiKN8HNZ9yKGaVOWzhoRiQYdR0INdYoFzMTqe1hbgR8htax63fKJEbZkVc4Px2cWhFfGjXEwu5IRRMf6SvE94jCU/wshFnhHqwdfOiKr/BMebI70dnUCFcWy0zShi0fI6dd0avXI6LMTkvfmT43odALeaqcbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PhlMgM7vshNNy9g1Hj8HQwMRttyV0aEt0oU2M87A6Og=;
+ b=bzF1NLuwdA2oURdCK9aNaIfOoqbOGHJL6erkZpHvIdT+VRHPMjimT3zxSbfM/t5cDM4oUjjNqcMkmdHP6fMvBGS+2/DbT9AC3ZUoCfNpaXpVcvcKxqTY4ty2iuYZrfN+dNjfXRmXZ4TkhehXCoUONE5i6nv6Tg90qjQdL7PqFToi3tkylls8etWWD37sb5y5R+9yw/LSYzrakr4lQr14spD8HGq6u96zUOfzRAuLEZwkp7ZVdAPTBRFg/ohaORQ+dwAkOzop5CFM7ucthGUeM6P9RF8MkArI0XiLUSLlM0nMzf+DkoEDzD45AMOdrDBJrNsi72Ov45OYQwR+YDcDJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PhlMgM7vshNNy9g1Hj8HQwMRttyV0aEt0oU2M87A6Og=;
+ b=sfuodPD3S6vZAY6DLjlmPJe8ilxHyRbxOgqv5q6szX10Ra660a7L313OYoAPv2k4tM1bvQC0WPg1Qz5Q3R6LNWHKxevfYuIUu6H561ZXknZHckU0zPY0n0njl0vS64/uzkjAoWjJprGG7xiIqXJNQFAjkLSanhfY/k3qg517HgRkphv+bRD44LqDdZXPE+RWHekDaLhK3ZVhpd1izQMBLU+Yc1r2agHPk6qiRhMdkLG/DfWtVEZYIWb4DxuwCIyUOYLAtwjblA2ks+6AQ8mGYfKmbk078wpAQeAIi6XBYOxvdYDMnXMivpUuQzAFQSzOkTVeW0YgvW3u07JZ/uFQyg==
+Received: from CO1NAM11FT051.eop-nam11.prod.protection.outlook.com
+ (2a01:111:e400:3861::3c) by
+ CO1NAM11HT061.eop-nam11.prod.protection.outlook.com (2a01:111:e400:3861::360)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2793.11; Fri, 6 Mar
+ 2020 10:40:37 +0000
+Received: from MWHPR08MB2751.namprd08.prod.outlook.com (10.13.174.60) by
+ CO1NAM11FT051.mail.protection.outlook.com (10.13.174.114) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2793.11 via Frontend Transport; Fri, 6 Mar 2020 10:40:37 +0000
+Received: from MWHPR08MB2751.namprd08.prod.outlook.com
+ ([fe80::dcb6:b62d:fda8:7f9f]) by MWHPR08MB2751.namprd08.prod.outlook.com
+ ([fe80::dcb6:b62d:fda8:7f9f%7]) with mapi id 15.20.2793.013; Fri, 6 Mar 2020
+ 10:40:37 +0000
+From: ts mz <ITS_011@outlook.com>
+Subject: Re: Please I Need Your Urgent Help
+Thread-Topic: Please I Need Your Urgent Help
+Thread-Index: AQHV86OdFJi7UtM9VUWd5AEf5K0YNQ==
+Date: Fri, 6 Mar 2020 10:40:37 +0000
+Message-ID:
+ <MWHPR08MB275136D14450C7A6D6DE2CE8DDE30@MWHPR08MB2751.namprd08.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-incomingtopheadermarker:
+ OriginalChecksum:1519EA2BFFFCDBD1B8C0CBD213B36102F8154C7071DD6BD9D7BE8212382DCCE5;UpperCasedChecksum:90AA6EEF9F67AF6AA8F416C7F3D101C6D841B9B5E74F806DEA5E624EB7C258A4;SizeAsReceived:32584;Count:42
+x-ms-exchange-messagesentrepresentingtype: 1
+x-tmn: [VPUicpUISO2m+wVeABz2mS3n1D2DTaW/]
+x-ms-publictraffictype: Email
+x-incomingheadercount: 42
+x-eopattributedmessage: 0
+x-ms-office365-filtering-correlation-id: e35e34bf-de48-482c-ebbc-08d7c1baced3
+x-ms-traffictypediagnostic: CO1NAM11HT061:
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ CixwPLt0NZz0+d/KvmJtcsFbR4dhzORsmbarKU619+ilnAVm4mLfBLsrN6klU+fNmv1uSEBTljEdgEW0QWqnfayDmcoiAMfhQHHOPgS5fEOfxmNu7i1KbMPIUl8Dg1C2ctPQVg46XgPL4/U1kAfVrPlEj4tEPD78U8rqssF8PZVXL+NmobESCxhfaq3x0m2k
+x-ms-exchange-antispam-messagedata:
+ ddkb9TM7paFnX7f8fYL7aLXkxqn+NrpYZQrdsGZ5VyuvUrqhWAdYDBDuq01vnajN24aTN8rzEazsN8r6zWja7wIWhhOQ5zeW2hGz+VathuLZeamL9awS8jZhU1nQjeHoCAKWbuOJGJqPSbiQkdkicw==
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_MWHPR08MB275136D14450C7A6D6DE2CE8DDE30MWHPR08MB2751namp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: e35e34bf-de48-482c-ebbc-08d7c1baced3
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Mar 2020 10:40:37.1228
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Internet
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1NAM11HT061
+
+--_000_MWHPR08MB275136D14450C7A6D6DE2CE8DDE30MWHPR08MB2751namp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Good Day, please can I trust you?
+
+I have decided to proceed with an investment partnership. Would you please =
+send me your feedback as soon as possible.
+
+I am looking for a reliable and capable faithful foreign investor that will=
+ assist me to receive and invest my family fund abroad for investment purpo=
+se.
+
+I will brief you further on how to proceed upon your response.
+
+Isabella Muza
+Direct #: +27 73 704 9508
+(WhatsApp / Skype)
+Email: musaisabella74@gmail.com<mailto:musaisabella74@gmail.com>
+
+"Disclaimer: This e-mail contains privileged information or information bel=
+onging to the sender. and is intended solely for the addressee/s. Access to=
+ this email by anyone else is unauthorized. Any copying (whole or partial) =
+or further distribution beyond the original recipient is not intended, and =
+may be unlawful. The recipient acknowledges that the sender is unable to ex=
+ercise control or ensure or guarantee the integrity of the contents of the =
+information contained in e-mail transmissions and further acknowledges that=
+ any views expressed in this message are those of the individual sender and=
+ are not binding on the sender's E-mails are susceptible to alteration and =
+their integrity cannot be guaranteed. The sender does not accept any liabil=
+ity for any damages caused on account of this e-mail.If you have received t=
+his email in error, ! please contact the sender and delete the material fro=
+m your computer."
+
+
+
+
+--_000_MWHPR08MB275136D14450C7A6D6DE2CE8DDE30MWHPR08MB2751namp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<p style=3D"margin: 0in 0in 8pt; line-height: 107%; font-size: 11pt; font-f=
+amily: Calibri, sans-serif;background:white">
+<span style=3D"font-size:10.0pt; font-family:&quot;Arial&quot;,sans-serif; =
+color:#444444">Good Day, please can I trust you?<br>
+<br>
+I have decided to proceed with an investment partnership. Would you please =
+send me your feedback as soon as possible.<br>
+<br>
+I am looking for a reliable and capable faithful foreign investor that will=
+ assist me to receive and invest my family fund abroad for investment purpo=
+se.<br>
+<br>
+I will brief you further on how to proceed upon your response.</span></p>
+<p style=3D"margin: 0in 0in 8pt; line-height: 107%; font-size: 11pt; font-f=
+amily: Calibri, sans-serif;line-height:11.75pt;background:white">
+<span style=3D"font-family:&quot;Arial&quot;,sans-serif;color:#999999">Isab=
+ella Muza<br>
+Direct #:&nbsp;&#43;27 73 704 9508<br>
+(WhatsApp / Skype)<br>
+Email:&nbsp;</span><span style=3D"color:black;mso-color-alt:windowtext"><a =
+href=3D"mailto:musaisabella74@gmail.com" target=3D"_blank"><b><span style=
+=3D"color:#196AD4; letter-spacing:.2pt; background:white; text-underline:no=
+ne">musaisabella74@gmail.com</span></b></a></span><span style=3D"mso-ascii-=
+font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:=0A=
+Calibri;color:#222222"><br>
+</span><span style=3D"font-family:&quot;Helvetica&quot;,sans-serif;color:#2=
+22222"><br>
+</span><i><span style=3D"font-size:7.5pt;font-family:&quot;Helvetica&quot;,=
+sans-serif;=0A=
+color:#222222">&quot;Disclaimer: This e-mail contains privileged informatio=
+n or information belonging to the sender. and is intended solely for the ad=
+dressee/s. Access to this email by anyone
+ else is unauthorized. Any copying (whole or partial) or further distributi=
+on beyond the original recipient is not intended, and may be unlawful. The =
+recipient acknowledges that the sender is unable to exercise control or ens=
+ure or guarantee the integrity of
+ the contents of the information contained in e-mail transmissions and furt=
+her acknowledges that any views expressed in this message are those of the =
+individual sender and are not binding on the sender's E-mails are susceptib=
+le to alteration and their integrity
+ cannot be guaranteed. The sender does not accept any liability for any dam=
+ages caused on account of this e-mail.If you have received this email in er=
+ror, ! please contact the sender and delete the material from your computer=
+.&quot;</span></i><span style=3D"font-size:10.0pt;mso-ascii-font-family:=0A=
+Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:#2=
+22222"></span></p>
+<p style=3D"margin: 0in 0in 8pt; line-height: 107%; font-size: 11pt; font-f=
+amily: Calibri, sans-serif">
+<o:p>&nbsp;</o:p></p>
+<br>
+</div>
+</body>
+</html>
+
+--_000_MWHPR08MB275136D14450C7A6D6DE2CE8DDE30MWHPR08MB2751namp_--

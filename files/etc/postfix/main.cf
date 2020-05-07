@@ -44,3 +44,5 @@ inet_interfaces = all
 inet_protocols = all
 
 transport_maps=hash:/etc/postfix/transport
+
+home_mailbox = Maildir/

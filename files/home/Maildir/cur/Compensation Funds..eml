@@ -1,0 +1,232 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id C7D8420E8B0
+	for <hallgato@itseclabs.local>; Tue, 31 Mar 2020 03:55:23 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 1.844
+X-Spam-Level: *
+X-Spam-Status: No, score=1.844 tagged_above=1 required=4.5
+	tests=[ADVANCE_FEE_2_NEW_MONEY=0.596, ADVANCE_FEE_3_NEW=1.353,
+	ADVANCE_FEE_3_NEW_MONEY=1, BAYES_00=-1.9, DKIM_SIGNED=0.1,
+	DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1, HTML_MESSAGE=0.001,
+	LOTS_OF_MONEY=0.001, MISSING_HEADERS=1.021, RCVD_IN_DNSWL_LOW=-0.7,
+	SPF_HELO_PASS=-0.001, URG_BIZ=0.573] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id vDq-TDbrssCF for <hallgato@itseclabs.local>;
+	Tue, 31 Mar 2020 03:55:22 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id A7B7720EA83
+	for <hallgato@itseclabs.local>; Tue, 31 Mar 2020 03:55:22 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 811F32A0272; Tue, 31 Mar 2020 05:55:22 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=outlook.com header.i=@outlook.com header.b="IQZXDa4Y";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 39FA32A021E;
+	Tue, 31 Mar 2020 05:55:22 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ezcyPmKsKA55; Tue, 31 Mar 2020 05:55:19 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 187382A0180;
+	Tue, 31 Mar 2020 05:55:19 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=outlook.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=jasperlennon1@outlook.com
+Received: by duflex.itseclabs.local (Postfix)
+	id C253320095; Tue, 31 Mar 2020 05:55:18 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id A0A4120096
+	for <info@itseclabs.local>; Tue, 31 Mar 2020 05:55:18 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id HZpneLUY_834 for <info@itseclabs.local>;
+	Tue, 31 Mar 2020 05:55:15 +0200 (CEST)
+Received: from APC01-HK2-obe.outbound.protection.outlook.com (mail-oln040092255015.outbound.protection.outlook.com [40.92.255.15])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id EEC5D20095
+	for <info@itseclabs.local>; Tue, 31 Mar 2020 05:55:11 +0200 (CEST)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=outlook.com header.i=@outlook.com header.b="IQZXDa4Y";
+	dkim-atps=neutral
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=WQjCo94xmEQgAynkMilYy7vQCc4K6fEMA4j54hy1PwJCnQRoIPcdSlWuFsfMNENLqGi+9MjnPdIxAyhe7yqfzF9c8ooG4ZEfteE693LiND6tpk65lNz2E4x+RWBgqmEZ+D0n5dCNY1qh8697rZPwh8DAwDdnOUYLoFQny0yglnjRF9VQ8KBXAWy1r+4dBw+7y2KXXscNRIvLTOlcxlR+3cjkmGJQeMFSxGyPnsm3mmEz79r9ISWtWj8UM3f6yu80DnqT+R9P6shrjeC7zDuQq88yeI2RqG+3O0uMAhUL8uJVdxTIJoI9HaIW3sVWmHiPPwY6SdlF8E2wDSkdw4Os8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mw+m6e+vUMvXsIvmFfFpG1QSWfiQ/Lt3q45JeSiA648=;
+ b=MIZVSgOyRiQ0Fh8oLsww9H/5MwFPXICURCrVLUO2n5kgFd5rE3936iOvrEIaavu0D/oXoaHkd75AdbuWJ4brj/tKmz7hLB6i4DokSDq+h9Zgsr4RNJ0BXM27zHcEipARhJkxI9KB0Fi9DBNQgdIVt28KplB53X6erRLSOz4XkkyQDF8kNVhDXWlphQW6vu0cP2CfcPRc2oTGVHwTpdBBSq4DeAw91zvcwSL9h8xSN3lrhq//QpOg+eFUQXjs41CpCLk/D0ayHlO90LIFz6cwmtIiO++L9Ry1OsrOr/5OFf5ldVueorgwOyIdbopzhOYjWN4nCHxo7E7l6U4nkYQyTg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mw+m6e+vUMvXsIvmFfFpG1QSWfiQ/Lt3q45JeSiA648=;
+ b=IQZXDa4YpaF9rjfZdD+SGhIs+eOVHV9Qiw4ECJAZQfV9pIl+yV9NQ+6QjMapdLheCpJb/9jDJnfBaCYPylhUsHhuRZPAuHAL/AldnKOyCvBbu7yktT2IBMcBqnzruIS6ivBuJpuhgT4iilzfAQyntLtR/NDUmbTtJOCfL6hgw/SnWKp8YgpoYZunaBm5AK0Um0jMu2JSHCFGml9ZJ+/equPrCik/KYtr+GgVsXF3+1iXcx3BtcCaPO6H98RP8E1FAdQv+clDzjd/L1pJV1Epaa4rt25hGCZjb8/Dt9Y4AHKxemJbIQqTEZEGMTRMSevvKGr/V85Z7g3MeUbXHyewog==
+Received: from SG2APC01FT114.eop-APC01.prod.protection.outlook.com
+ (2a01:111:e400:7ebd::4d) by
+ SG2APC01HT030.eop-APC01.prod.protection.outlook.com (2a01:111:e400:7ebd::272)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2856.17; Tue, 31 Mar
+ 2020 03:53:20 +0000
+Received: from TY2PR06MB2717.apcprd06.prod.outlook.com (10.152.250.60) by
+ SG2APC01FT114.mail.protection.outlook.com (10.152.250.193) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2856.17 via Frontend Transport; Tue, 31 Mar 2020 03:53:20 +0000
+Received: from TY2PR06MB2717.apcprd06.prod.outlook.com
+ ([fe80::cd26:10c:8872:f49]) by TY2PR06MB2717.apcprd06.prod.outlook.com
+ ([fe80::cd26:10c:8872:f49%5]) with mapi id 15.20.2856.019; Tue, 31 Mar 2020
+ 03:53:20 +0000
+From: Department Of Agriculture <jasperlennon1@outlook.com>
+Subject: Compensation Funds.
+Thread-Topic: Compensation Funds.
+Thread-Index: AQHWBw/qE0J/nLj96kyqGYwNE/YZYA==
+Date: Tue, 31 Mar 2020 03:53:19 +0000
+Message-ID:
+ <TY2PR06MB27178086DB098D71A2B6BD03FAC80@TY2PR06MB2717.apcprd06.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-incomingtopheadermarker:
+ OriginalChecksum:07E83C740E91AA7BB93A3070B6E62565F472FE4C154744438292C3DB8C5EFEB2;UpperCasedChecksum:0BC286EC690EFDB43E79C2ABC27FAA0662FECB2ED921E0B140BB9020BFB961D9;SizeAsReceived:29041;Count:41
+x-tmn: [nTIjHOdcJ+MnCJBQ8/lj4MJt3Vyv7K+C]
+x-ms-publictraffictype: Email
+x-incomingheadercount: 41
+x-eopattributedmessage: 0
+x-ms-office365-filtering-correlation-id: 13bf801e-1212-4986-b9eb-08d7d5270d7b
+x-ms-traffictypediagnostic: SG2APC01HT030:
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ hQTAp9yDKG+AWu375x2XrZ8mgLzgt8B2MI2AytE041ej7qNIIMWBTlLqylAiVl/AurX4Ksm9YV0qk31GprUet+lmDrJrWwL/bT1ebiDMDNiYEyRD820KGcC17QjvXx02yF6fJoF+sQxLCk/3L65xul8/qTig8FYfU5TWJdmPj6VNLs8uHJnWMkKRsyCSMdKN
+x-ms-exchange-antispam-messagedata:
+ unx5g7/W01Pe78xrsbGE477DHAQ/XvqoJTGQQ2HYCAS8CIPoYxVU4IgCavWz0wmH6hWbKrf0WNUG82DeCalN/zoStOOcjByUPTbbiaWBhWubbqCAdwmorNZyjz2+NTBAyKpL77ttThg+Xh9KcRvYuQ==
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_TY2PR06MB27178086DB098D71A2B6BD03FAC80TY2PR06MB2717apcp_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13bf801e-1212-4986-b9eb-08d7d5270d7b
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Mar 2020 03:53:20.0349
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Internet
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2APC01HT030
+
+--_000_TY2PR06MB27178086DB098D71A2B6BD03FAC80TY2PR06MB2717apcp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Attn:Sir/Madam
+
+I am Mr. Thomas Wilson from United Kingdom London, I was directed by HSBC &=
+ Chase Bank of UK to pay the sum of =A32,000,000.00 to you as a compensatio=
+n fund due to many fund transaction you were engaged in the past and spent =
+your hard earn money, efforts and finally did not receive the fund.
+
+Kindly respond to this message in order to direct you how you receive
+the fund by Bank Wire Transfer to any of your nominated bank account
+within 5 days without any further delay.
+
+
+I look forward to receive your urgent response. Call or whatsapp me on
+the below phone number.
+
+Email: wilsonthomas529@gmail.com
+Telephone: +44-745-127-4775
+Regards
+Mr.Thomas Wilson
+England United Kingdom
+
+--_000_TY2PR06MB27178086DB098D71A2B6BD03FAC80TY2PR06MB2717apcp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div>
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+<div id=3D"Signature">
+<div></div>
+<div></div>
+<div></div>
+<div style=3D"font-family:Calibri,Arial,Helvetica,sans-serif; font-size:12p=
+t; color:rgb(0,0,0)">
+<span></span><span></span><span></span><span>Attn:Sir/Madam<br>
+</span>
+<div><br>
+</div>
+<div>I am Mr. Thomas Wilson from United Kingdom London, I was directed by H=
+SBC &amp; Chase Bank of UK to pay the sum of =A32,000,000.00 to you as a co=
+mpensation fund due to many fund transaction you were engaged in the past a=
+nd spent your hard earn money, efforts
+ and finally did not receive the fund.<br>
+</div>
+<div><br>
+</div>
+<div>Kindly respond to this message in order to direct you how you receive<=
+br>
+</div>
+<div>the fund by Bank Wire Transfer to any of your nominated bank account<b=
+r>
+</div>
+<div>within 5 days without any further delay.<br>
+</div>
+<div><br>
+</div>
+<div><br>
+</div>
+<div>I look forward to receive your urgent response. Call or whatsapp me on=
+<br>
+</div>
+<div>the below phone number.<br>
+</div>
+<div><br>
+</div>
+<div>Email: wilsonthomas529@gmail.com<br>
+</div>
+<div>Telephone: &#43;44-745-127-4775<br>
+</div>
+<div>Regards<br>
+</div>
+<div>Mr.Thomas Wilson<br>
+</div>
+<span>England United Kingdom</span><span></span><span></span><span></span><=
+br>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_TY2PR06MB27178086DB098D71A2B6BD03FAC80TY2PR06MB2717apcp_--

@@ -1,0 +1,107 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 7C134235B52
+	for <hallgato@itseclabs.local>; Wed,  8 Apr 2020 10:17:46 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id BWV6M3pr99lY for <hallgato@itseclabs.local>;
+	Wed,  8 Apr 2020 10:17:40 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id DC37F235C75
+	for <hallgato@itseclabs.local>; Wed,  8 Apr 2020 10:17:40 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id C4C732A0571; Wed,  8 Apr 2020 12:17:40 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="uCbsAlpT";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 727482A04FC;
+	Wed,  8 Apr 2020 12:17:40 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 9Imzc---9yCt; Wed,  8 Apr 2020 12:17:38 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 15B722A04F9;
+	Wed,  8 Apr 2020 12:17:35 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=obosia06@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 7332E20096; Wed,  8 Apr 2020 12:17:35 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 5AF812008F
+	for <info@itseclabs.local>; Wed,  8 Apr 2020 12:17:35 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id VGatiHLDPbol for <info@itseclabs.local>;
+	Wed,  8 Apr 2020 12:17:29 +0200 (CEST)
+Received: from mail-pf1-f194.google.com (mail-pf1-f194.google.com [209.85.210.194])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id ACDA120095
+	for <info@itseclabs.local>; Wed,  8 Apr 2020 12:17:15 +0200 (CEST)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="uCbsAlpT";
+	dkim-atps=neutral
+Received: by mail-pf1-f194.google.com with SMTP id c21so2202657pfo.5
+        for <info@itseclabs.local>; Wed, 08 Apr 2020 03:17:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:reply-to:from:date:message-id:subject:to;
+        bh=w2gOcgF7hzejj0umveMx4yIvj7/EVZHLZHBdrHkq5LA=;
+        b=uCbsAlpTLwCpr+poXZXegk+xA+fcoe1sjrdoJgLWt+F5HiG/pNc/bD/O/SD8oqZoDc
+         X6uH21O3qc0bmitfNNTxWCBqQPGnAWrujbwZKHTQUQQkGNIj9nzmLA1zyfDkd1uPQc+R
+         3YfyUNEaytDROOyiJ6yQCylSQmY/7C0yWj0ERhZum8qfh0oLjAZ/huOuIlF46DSIGw04
+         E+8gqUlpzqxxS5sBQ22KlbbP3QpYxwlTcZkDGk8HjPv/2RDOq2oAQY+RZFgKWinZ1Jxv
+         9JtBsmMajxWBLOaM//xPt2pKvFSDVukJmh1oArinztFlxkgokEh1RQhvSYHeBtygub3l
+         2O2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+         :subject:to;
+        bh=w2gOcgF7hzejj0umveMx4yIvj7/EVZHLZHBdrHkq5LA=;
+        b=oaFzmTTnf7GFfb2Rm9S08JohntZDX28EyLWwgIZsoobz206zoXxjeF4EeBck6VQs44
+         qoi5HVy9Mt+sf5VKg0qnI7LXg+6Q2GL0IaSd27p08im40ZfAEjp2o0+dkpdyAuf0Ct7Z
+         sViI+O6geNa0ldrpGzbbrl8rUYUiXKasLbu45jq2PQhtoo8s/KIDR+xwnLaEKGxJIXQ7
+         soPWu2V4VegtudsuTOjylSz0JRe8PYWXp8eVpgxv6uu20eMUtOTMUcBPPsIrmtXQZ7VL
+         zwBWd5g2RRfDuOSnoHAYe+B5nWfsshPpqmsVL7Gf1IMq+j8WDsf2LilYIfiInAnC6JRC
+         opsQ==
+X-Gm-Message-State: AGi0PuY0897ndSqLrecb3Y8muIKuXedHKos/G7chOPGicn/0F1/tjAuh
+	1WeOnVkVBY999ncNBjQqkRvEwjkEXK6LvS9KG2I=
+X-Google-Smtp-Source: APiQypJ2AyIt7fR1NLZC7hwRw/fsT2AVAmqwax27aMfZ+J7RoEtveJ4Kji8Y7+rPk19WRhruDm8FG0kuiDqfK5cAumI=
+X-Received: by 2002:a65:55c1:: with SMTP id k1mr5959599pgs.1.1586341032906;
+ Wed, 08 Apr 2020 03:17:12 -0700 (PDT)
+MIME-Version: 1.0
+Reply-To: barrobosia@mail.com
+From: Donald Obosia <obosia06@gmail.com>
+Date: Wed, 8 Apr 2020 10:16:55 +0000
+Message-ID: <CAHizGeYTnVF3f68yRLws-5M0RRCPZo9WqK1TYopkUkvSn1Gz_A@mail.gmail.com>
+Subject: 
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000c2518c05a2c4cd45"
+
+--000000000000c2518c05a2c4cd45
+Content-Type: text/plain; charset="UTF-8"
+
+How are you and members of your family? I hope everyone is fine,i just want
+confirm if you get the message i sent to you,did you receive it?kindly get
+back to me is very important wait to hear from you.
+
+Donald Obosia Esq
+
+--000000000000c2518c05a2c4cd45
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">How are you and members of your family? I hope everyone is fine,i just want confirm if you get the message i sent to you,did you receive it?kindly get back to me is very important wait to hear from you.<br><br>Donald Obosia Esq</div>
+
+--000000000000c2518c05a2c4cd45--

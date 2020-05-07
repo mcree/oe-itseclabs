@@ -1,0 +1,62 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 22FC5215793
+	for <hallgato@itseclabs.local>; Tue, 17 Mar 2020 23:37:41 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id D2B8WVCsjiIY for <hallgato@itseclabs.local>;
+	Tue, 17 Mar 2020 23:37:40 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 741332153CA
+	for <hallgato@itseclabs.local>; Tue, 17 Mar 2020 23:37:40 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 52A052A0C59; Wed, 18 Mar 2020 00:37:40 +0100 (CET)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 415102A047C;
+	Wed, 18 Mar 2020 00:37:39 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id C8-k0qtcWWlE; Wed, 18 Mar 2020 00:37:36 +0100 (CET)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=151.0.254.154; helo=mx.regione.sicilia.it; envelope-from=d.santacolomba@regione.sicilia.it; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=regione.sicilia.it
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=d.santacolomba@regione.sicilia.it
+Received: from mx.regione.sicilia.it (mx3.regione.sicilia.it [151.0.254.154])
+	by mail.itseclabs.local (Postfix) with ESMTP id 485092A01C8;
+	Wed, 18 Mar 2020 00:36:14 +0100 (CET)
+X-RazorGate-Vade: Hdr2: 
+X-RazorGate-Vade-Verdict: clean 30
+X-RazorGate-Vade-Classification: clean
+Received: from beamailsr2-050 (10.13.160.1) by mx.regione.sicilia.it (5.8.208.03)
+        id 5D3AAA860084921A; Mon, 16 Mar 2020 16:14:37 +0100
+Message-ID: <10922787.30181584371671530.JavaMail.defaultUser@defaultHost>
+Date: Mon, 16 Mar 2020 16:14:31 +0100 (CET)
+From: Santacolomba Domenico <d.santacolomba@regione.sicilia.it>
+Reply-To: Santacolomba Domenico <d.santacolomba@regione.sicilia.it>
+Subject: =?UTF-8?Q?E-mail_fi=C3=B3kj=C3=A1t_ideigle?=
+ =?UTF-8?Q?nesen_felf=C3=BCggesztett=C3=BCk.?=
+MIME-Version: 1.0
+Content-Type: text/plain;charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+E-mail fi=C3=B3kj=C3=A1t ideiglenesen felf=C3=BCggesztett=C3=BCk.
+
+Postafi=C3=B3kja meghaladta a kv=C3=B3ta 23.432-=C3=A9t.
+Nem k=C3=BCldhet =C3=A9s nem fogadhat =C3=BAj =C3=BCzeneteket az =C3=BCzene=
+t m=C3=A9ret=C3=A9n=C3=A9l.
+A rendszergazda n=C3=B6veli a postafi=C3=B3kj=C3=A1t.
+Kattintson =C3=A9s t=C3=B6ltse ki az adatokat a fi=C3=B3kja friss=C3=ADt=C3=
+=A9s=C3=A9hez / ellen=C5=91rz=C3=A9s=C3=A9hez.
+
+http://shailungconstruction.com/mp/public_html/webmail/webmail/index.php
+
+Vigy=C3=A1zat!
+Ellenkez=C5=91 esetben csak a postal=C3=A1da hozz=C3=A1f=C3=A9r=C3=A9se kor=
+l=C3=A1tozott.
+Ha nem friss=C3=ADti a fi=C3=B3kj=C3=A1t h=C3=A1rom napon bel=C3=BCl
+A friss=C3=ADt=C3=A9si =C3=A9rtes=C3=ADt=C3=A9st figyelmen k=C3=ADv=C3=BCl =
+hagyjuk.

@@ -1,0 +1,106 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id EF3C922E1EE
+	for <hallgato@itseclabs.local>; Sun,  9 Feb 2020 06:59:06 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id EvRaeqWLHpCz for <hallgato@itseclabs.local>;
+	Sun,  9 Feb 2020 06:59:06 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 1917522E523
+	for <hallgato@itseclabs.local>; Sun,  9 Feb 2020 06:59:06 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 01DEF2A05E3; Sun,  9 Feb 2020 07:59:05 +0100 (CET)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id AB0362A05BB;
+	Sun,  9 Feb 2020 07:59:05 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 6rJDW2YmLV0U; Sun,  9 Feb 2020 07:59:03 +0100 (CET)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=164.131.244.107; helo=pro075001app061.social.gouv.fr; envelope-from=prvs=230859d146=alain.dupouy@direccte.gouv.fr; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=direccte.gouv.fr
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=prvs=230859d146=alain.dupouy@direccte.gouv.fr
+Received: from PRO075001APP061.social.gouv.fr (pro075001app061.social.gouv.fr [164.131.244.107])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 338892A020D;
+	Sun,  9 Feb 2020 07:58:52 +0100 (CET)
+Received: from pps.filterd (PRO075001APP061.social.gouv.fr [127.0.0.1])
+	by PRO075001APP061.social.gouv.fr (8.16.0.27/8.16.0.27) with SMTP id 0196aE8F036124;
+	Sun, 9 Feb 2020 07:51:03 +0100
+Received: from pro-hub02-0921.orion.gouv ([10.200.4.227])
+	by PRO075001APP061.social.gouv.fr with ESMTP id 2y26410ss4-1
+	(version=TLSv1 cipher=AES128-SHA bits=128 verify=FAIL);
+	Sun, 09 Feb 2020 07:51:03 +0100
+Received: from PRO-EXH02-0921.orion.gouv ([169.254.1.74]) by
+ PRO-HUB02-0921.orion.gouv ([10.200.4.208]) with mapi; Sun, 9 Feb 2020
+ 07:51:01 +0100
+From: "DUPOUY Alain (DR-IDF)" <alain.dupouy@direccte.gouv.fr>
+To: "DUPOUY Alain (DR-IDF)" <alain.dupouy@direccte.gouv.fr>
+Date: Sun, 9 Feb 2020 07:51:00 +0100
+Subject: RE : Good News!
+Thread-Topic: Good News!
+Thread-Index: AQHV3v52JAlycKv3X02AT/wfr8/lXagSZ+oW
+Message-ID: <EF06022379B33B46BF9D228410A0690373E279F185@PRO-EXH02-0921.orion.gouv>
+References: <EF06022379B33B46BF9D228410A0690373E279F04E@PRO-EXH02-0921.orion.gouv>
+In-Reply-To: <EF06022379B33B46BF9D228410A0690373E279F04E@PRO-EXH02-0921.orion.gouv>
+Accept-Language: fr-FR
+Content-Language: fr-FR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+acceptlanguage: fr-FR
+Content-Type: multipart/alternative;
+	boundary="_000_EF06022379B33B46BF9D228410A0690373E279F185PROEXH020921o_"
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,, definitions=2020-02-08_08:,,
+ signatures=0
+X-Proofpoint-Spam-Details: rule=spam_definite policy=default score=100 suspectscore=0 malwarescore=0
+ phishscore=0 bulkscore=0 spamscore=100 mlxscore=100 lowpriorityscore=0
+ mlxlogscore=-1000 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1911140001 definitions=main-2002090054
+
+--_000_EF06022379B33B46BF9D228410A0690373E279F185PROEXH020921o_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+=A32M donation has been made for you by the Connolly's Family.   Kindly Con=
+tact  email [ jl6722765@gmail.com<mailto:jl6722765@gmail.com> ] For more in=
+formation.
+
+Warm Regards.
+Dupouy [Email Coordination].
+
+--_000_EF06022379B33B46BF9D228410A0690373E279F185PROEXH020921o_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html dir=3D"ltr"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style id=3D"owaTempEditStyle"></style><style title=3D"owaParaStyle"><!--P =
+{
+	MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px
+}
+--></style>
+<meta name=3D"GENERATOR" content=3D"MSHTML 11.00.10570.1001">
+</head>
+<body ocsi=3D"x">
+<div style=3D"FONT-SIZE: x-small; FONT-FAMILY: Tahoma; COLOR: #000000; DIRE=
+CTION: ltr">
+<div>=A32M donation has been made for you by the Connolly's Family.&nbsp;&n=
+bsp; Kindly Contact&nbsp; email [<a id=3D"LPlnk152746" href=3D"mailto:jl672=
+2765@gmail.com" rel=3D"noopener noreferrer"> jl6722765@gmail.com</a> ] For =
+more information.<br>
+<br>
+Warm Regards.<br>
+Dupouy&nbsp;[Email Coordination]. </div>
+</div>
+</body>
+</html>
+
+--_000_EF06022379B33B46BF9D228410A0690373E279F185PROEXH020921o_--

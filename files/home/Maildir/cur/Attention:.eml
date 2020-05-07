@@ -1,0 +1,85 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 5217F1FF18F
+	for <hallgato@itseclabs.local>; Fri,  7 Feb 2020 01:22:47 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Bb3MZK-u8mr0 for <hallgato@itseclabs.local>;
+	Fri,  7 Feb 2020 01:22:45 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 332231FF18D
+	for <hallgato@itseclabs.local>; Fri,  7 Feb 2020 01:22:45 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 167422A09C0; Fri,  7 Feb 2020 02:22:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=itseclabs.local; s=201805;
+	t=1581038565; bh=QB4UE5qHmekd0woZ2HUIGu3p5Z+sEB3xYv/14QkIdys=;
+	h=Subject:To:From:Date:Reply-To:From;
+	b=N/McUB/7lSwFtWY8+YMoZN1R2gAzqWWD1vImsdvLAlaj6X9AHQdxhw6soQyKuJz/5
+	 Wvg8Qi1rUNEQo041DRCgwBijzHfvFBfTCHvDBl5yg12IMpf+TGUO3JDkg2VMvbEROv
+	 EKPqNSTRaIDqtFWnI5Qpxfx4a92cGaVIlqSG9/C7E/LDR2gkjLuQRywuKaZicHGaAl
+	 IrzmQentj3pUC12+L1qKGzclCXlicdZ/ZZUo3TTorV8lz3EObdvuWHcIx/5LowE4CP
+	 rswmPJiqM8vDS5JJtRnzEn1kGwGbl7sa45/pigqtexmVpb07/9hgOD/eOFa0Rl1lsQ
+	 vPff3Fw+OiupQ==
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id C6EFB2A09AF;
+	Fri,  7 Feb 2020 02:22:44 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 6ug0Vg5BYlV3; Fri,  7 Feb 2020 02:22:42 +0100 (CET)
+Received-SPF: None (no SPF record) identity=no SPF record; client-ip=68.232.156.99; helo=esa2.hc45915.c3s2.iphmx.com; envelope-from=<>; receiver=<UNKNOWN> 
+Authentication-Results:mail.itseclabs.local; dkim=permerror (bad message/signature format)
+Received: from esa2.hc45915.c3s2.iphmx.com (esa2.hc45915.c3s2.iphmx.com [68.232.156.99])
+	by mail.itseclabs.local (Postfix) with ESMTP id 6BC742A08F5;
+	Fri,  7 Feb 2020 02:22:22 +0100 (CET)
+IronPort-SDR: SUmDUt0p2ps2VO21COzI6nyuMvntWEzVAzIITJCkQCzHVEPUKIFZWzL8+WW4abEExEH6OAfu7m
+ nwcwMpMC0dSANh0EQpM+YRrXu6JMyxuDZX8u3eOYzB5tAUTA71o3ooE7xrcrGBLxiWyF11fgqj
+ KkNDH3BRFfR/rzgW0BaA0Eu54FwDi4V83fvzHFP2ghhJwQAxP7JEJTOAb0OuQu5JR+044TSXlZ
+ LmYRuyOT6Hyu5ho07h6sKg+FAEovJem0FkBmUc5uluBBKB59sOfi5YzDocg1tL9L0QRsSovXqD
+ SVo=
+X-MTA-CheckPoint: {5E3CB9FB-B-B1719AC-3807}
+Content-Type: text/plain; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+Subject: Attention:
+To: Recipients@itseclabs.local
+From: "Mr. Dumbia"@itseclabs.local
+Date: Thu, 6 Feb 2020 17:14:31 -0800
+Reply-To: <u19906760@gmail.com>
+Message-ID: <48DHQK3Pn6znF8b@Asterix1>
+
+Attention:  =
+
+ =
+
+I know you will be surprise to read my email to you or may be
+skeptical to reply me because of what is happening around the internet
+globally, I am aware of insecurity on internet, But that does not mean
+that there is no good genuine businesses that exist when it comes
+through internet.
+ =
+
+I am Mr Dumbia  Couliberly from Cote D'ivoire Abidjan in west africa.
+We  deal on solid minerals like gold . We do get our goods from the
+local miners here in my country  . , We have Raw Metal Gold  of, 23
+Carat( Currently l  intend to sell at the cost of 40,000 US Dollars
+per kilo not on world ruling market price), I am looking for a  worthy
+individual or a buyer of this mineral, who is interested to buy from
+us.
+ =
+
+Please do not reply if you are not interested! Because I need serious
+buyers with a good credibility.
+ =
+
+Thanking you in advance and also hoping to hear from you soonest.
+ =
+
+Mr. Dumbia Couliberly

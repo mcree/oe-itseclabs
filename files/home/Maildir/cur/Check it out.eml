@@ -1,0 +1,164 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id B1616216618
+	for <hallgato@itseclabs.local>; Wed, 12 Feb 2020 18:08:46 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 5pJPX7Am0Mdc for <hallgato@itseclabs.local>;
+	Wed, 12 Feb 2020 18:08:46 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 60544216707
+	for <hallgato@itseclabs.local>; Wed, 12 Feb 2020 18:08:46 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 4A20E2A0233; Wed, 12 Feb 2020 19:08:46 +0100 (CET)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 144BE2A05BB;
+	Wed, 12 Feb 2020 19:08:46 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id YYi3ewHkl8ZI; Wed, 12 Feb 2020 19:08:43 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 003E72A0233;
+	Wed, 12 Feb 2020 19:08:42 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=enginyers.net
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=ramon.eixarch@enginyers.net
+Received: by duflex.itseclabs.local (Postfix)
+	id C2F062008A; Wed, 12 Feb 2020 19:08:42 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id A31DD20095
+	for <info@itseclabs.local>; Wed, 12 Feb 2020 19:08:42 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id fzydkbtbdBfJ for <info@itseclabs.local>;
+	Wed, 12 Feb 2020 19:08:40 +0100 (CET)
+X-Greylist: delayed 7414 seconds by postgrey-1.36 at duflex-2; Wed, 12 Feb 2020 19:08:39 CET
+Received: from mx42-out4.antispamcloud.com (mx42-out4.antispamcloud.com [138.201.61.180])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 5E4482008A
+	for <info@itseclabs.local>; Wed, 12 Feb 2020 19:08:38 +0100 (CET)
+Received: from mail3.enginyers.net ([91.121.33.182])
+	by mx114.antispamcloud.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ramon.eixarch@enginyers.net>)
+	id 1j1uVA-000It9-8E; Wed, 12 Feb 2020 17:04:43 +0100
+Received: from localhost (unknown [127.0.0.1])
+	by mail3.enginyers.net (Postfix) with ESMTP id 6CDB1395405E;
+	Wed, 12 Feb 2020 16:01:41 +0000 (UTC)
+X-Virus-Scanned: amavisd-new at enginyers.net
+Received: from mail3.enginyers.net ([127.0.0.1])
+	by localhost (mail3.enginyers.net [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id gcFrZx4_JhCv; Wed, 12 Feb 2020 17:01:40 +0100 (CET)
+Received: from webmail.enginyers.net (localhost.localdomain [127.0.0.1])
+	(Authenticated sender: ramon.eixarch@enginyers.net)
+	by mail3.enginyers.net (Postfix) with ESMTPSA id C3A00395401F;
+	Wed, 12 Feb 2020 17:01:35 +0100 (CET)
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_8db8ea5368cb061818cf5dc03c02847e"
+Date: Wed, 12 Feb 2020 16:01:35 +0000
+From: Harold Diamond <ramon.eixarch@enginyers.net>
+To: undisclosed-recipients:;
+Subject: Check it out
+Organization: Harold Diamond
+Reply-To: haroldiamondd@gmail.com
+Mail-Reply-To: haroldiamondd@gmail.com
+Message-ID: <4af68605679d3b15e39b5b28345f3f17@enginyers.net>
+X-Sender: ramon.eixarch@enginyers.net
+User-Agent: Roundcube Webmail/1.0.3
+X-Originating-IP: 91.121.33.182
+X-Spampanel-Domain: enginyers.net
+X-Spampanel-Username: 91.121.33.182
+Authentication-Results: antispamcloud.com; auth=pass smtp.auth=91.121.33.182@enginyers.net
+X-Spampanel-Outgoing-Class: unsure
+X-Spampanel-Outgoing-Evidence: Combined (0.73)
+X-Recommended-Action: accept
+X-Filter-ID: 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
+ htjl+Z5VmUm7GY6v
+X-Report-Abuse-To: spam@quarantine10.antispamcloud.com
+
+--=_8db8ea5368cb061818cf5dc03c02847e
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+
+ 
+
+-- 
+Dear Client, 
+
+My apologies for contacting you this way, I would like to discuss a
+possible collaboration on my charity projects which I have been
+operating over the years, hence please advise. However I shall send you
+a detailed email for consideration. please kindly reply back.
+
+Thank you and I look forward to cooperating with you.
+
+Harold Diamond
+ 
+--=_8db8ea5368cb061818cf5dc03c02847e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html><body style=3D'font-size: 10pt; font-family: Verdana,Geneva,sans-seri=
+f'>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div>
+<pre>-- <br />Dear Client,=20
+
+My apologies for contacting you this way, I would like to discuss a possibl=
+e collaboration on my charity projects which I have been operating over the=
+ years, hence please advise. However I shall send you a detailed email for =
+consideration. please kindly reply back.
+
+Thank you and I look forward to cooperating with you.
+
+Harold Diamond</pre>
+</div>
+</body></html>
+
+--=_8db8ea5368cb061818cf5dc03c02847e--
+

@@ -1,0 +1,149 @@
+Return-Path: <total_car_shopaesmsakuzlet@redfesse.com>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 39385252813
+	for <hallgato@itseclabs.local>; Fri,  1 May 2020 01:44:08 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 1.705
+X-Spam-Level: *
+X-Spam-Status: No, score=1.705 tagged_above=1 required=4.5
+	tests=[BAYES_50=0.8, DKIM_SIGNED=0.1, HTML_IMAGE_ONLY_32=0.001,
+	HTML_MESSAGE=0.001, RDNS_NONE=0.793, T_DKIM_INVALID=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new); dkim=neutral
+	reason="invalid (public key: DNS query timeout for dkim._domainkey.redfesse.com)"
+	header.d=redfesse.com; domainkeys=neutral
+	reason="invalid (public key: DNS query timeout for dkim._domainkey.redfesse.com)"
+	header.from=total_car_shopaesmsakuzlet@redfesse.com
+	header.d=redfesse.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id j1slUYioHAZg for <hallgato@itseclabs.local>;
+	Fri,  1 May 2020 01:43:48 +0000 (UTC)
+Received: from ocean.redfesse.com (unknown [69.94.143.198])
+	by gw.itseclabs.local (Postfix) with ESMTP id 9383C252810
+	for <hallgato@itseclabs.local>; Fri,  1 May 2020 01:43:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=dkim; d=redfesse.com;
+ h=Date:To:MIME-Version:Subject:List-Unsubscribe:Message-ID:From:Content-Type:Content-Transfer-Encoding; i=total_car_shopaesmsakuzlet@redfesse.com;
+ bh=a3/1X/2A+6iudhOb7I231rskdxI=;
+ b=okyGtOePrgfchNZuC/G3A0aVfuYALsar0YfDz29KSHTMmi/8XjoUD5YwXPiXBep/RuHFbbxJVKTK
+   ucBOb48F1Q8rrA42PI+erIWneic9a0zyk2WZzECwawW/D6SExGNpOZLwJUup5kh2tGzyH8305bub
+   NrLlVG6Zzoby9I4mioM=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=dkim; d=redfesse.com;
+ b=Zv1O9xasCGMm0W0vpb95fJbqzz5WjPqA4+JvsQ7JGlufmtdUFmzJYfEc7Fv6FRGGfNR75wp52PMr
+   mLd5I5DQgz+emyfnPpXnTPqF24o2TnPmdJBnQRUFQ/g/wBxZM3YQuSo1fWD+OknaUV34G60MDc+g
+   m5LL36xvCL2I02q+znk=;
+Date: Fri, 1 May 2020 03:49:16 +0200
+To:  <hallgato@itseclabs.local>
+MIME-Version: 1.0
+Subject: =?UTF-8?Q?Zavar_a_benyom=C3=B3d=C3=A1s_aut=C3=B3don=3F_H=C3=BAzd_ki_ezzel_a_k=C3=A9szlettel,_csak_3900_Ft?=
+List-Unsubscribe:  <http://redfesse.com/ub.php?b=2y54743901cfw4fm206gchxb28aagp19b7>
+Message-ID: <azdhzhbzyavqzujpthspqhpxmv@fzw.redfesse.com>
+X-Report-Abuse:  <http://redfesse.com/aa.php?a=2y54743901cfw4fm206gchxb28aagp19b7>
+From: =?UTF-8?Q?Total_Car_Shop_=C3=BCzlet?= <total_car_shopaesmsakuzlet@redfesse.com>
+Content-Type: multipart/alternative; boundary=b1_lqe0y40rptk8ec.cViwtSX; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+--b1_lqe0y40rptk8ec.cViwtSX
+Content-Type: text/plain; format=flowed; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+=0D
+Zavar a benyom=C3=B3d=C3=A1s aut=C3=B3don? H=C3=BAzd ki ezzel a k=C3=A9szle=
+ttel, csak 3900 Ft:=0D
+=0D
+http://zfy9n.redfesse.com=0D
+=0D
+=0D
+=0D
+Itt t=C3=B6r=C3=B6lheti mag=C3=A1t:=0D
+http://redfesse.com/ub.php?qrw=3D2y54743901cfw4fm206gchxb28aagp19b7=0D
+=0D
+Horpadt lett aut=C3=B3d? Kezeld ezzel a s=C3=A9r=C3=BCl=C3=A9st, 3.900 fori=
+nt=C3=A9rt kapod=
+
+
+--b1_lqe0y40rptk8ec.cViwtSX
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+=EF=BB=BF<!DOCTYPE html><html><head><meta name=3D"charset" content=3D"utf-8=
+"><title></title>=0D
+</head>=0D
+<body style=3D"background-color:#ffffff;">=0D
+<p><a href=3D"http://zfy9n.redfesse.com/qjt:2y54743901cfw4fm206gchxb28aagp1=
+9b7" style=3D"text-decoration:underline;"></a></p>=0D
+<p><strong>T=C3=BCntesd el aut=C3=B3d horpad=C3=A1sait h=C3=A1zilag, gazdas=
+=C3=A1gosan!</strong></p>=0D
+<p><strong>Horpad=C3=A1sjav=C3=ADt=C3=B3 k=C3=A9szlettel egyszer=C5=B1 a ja=
+v=C3=ADt=C3=A1s</strong></p>=0D
+<p>Neked is van <strong>horpad=C3=A1s az aut=C3=B3don?<br>=0D
+</strong>Mit sz=C3=B3ln=C3=A1l, ha <strong>pillanatok alatt elt=C3=BCntethe=
+tn=C3=A9d?</strong></p>=0D
+<p>Egy karossz=C3=A9riam=C5=B1helyben <strong>s=C3=BAlyos t=C3=ADz- vagy sz=
+=C3=A1zezrekbe <br>=0D
+is ker=C3=BClhet </strong>a jav=C3=ADt=C3=A1s. Dr=C3=A1ga szerviz helyett p=
+r=C3=B3b=C3=A1ld<br>=0D
+ki a <strong>profi aut=C3=B3szerel=C5=91k =C3=A1ltal tervezett</strong> hor=
+pad=C3=A1sjav=C3=ADt=C3=B3<br>=0D
+k=C3=A9szletet!</p>=0D
+<p><a href=3D"http://zfy9n.redfesse.com/qjt:2y54743901cfw4fm206gchxb28aagp1=
+9b7" style=3D"text-decoration:underline;">Ezzel az =C3=BAj tal=C3=A1lm=C3=
+=A1nnyal</a> <strong>szaktud=C3=A1s n=C3=A9lk=C3=BCl, h=C3=A1zilag</strong>=
+ is<br>=0D
+egyszer=C5=B1en el tudod t=C3=A1vol=C3=ADtani a <strong>kisebb =C3=A9s k=C3=
+=B6zepes<br>=0D
+horpad=C3=A1sokat </strong>aut=C3=B3dr=C3=B3l.</p>=0D
+<p>A horpad=C3=A1sjav=C3=ADt=C3=B3 k=C3=A9szlettel a <strong>legt=C3=B6bb b=
+enyom=C3=B3d=C3=A1st<br>=0D
+szinte =C3=A9szrev=C3=A9tlen=C3=BCl </strong>elt=C3=BCntetheted! Mindezt an=
+=C3=A9lk=C3=BCl,<br>=0D
+hogy aut=C3=B3d f=C3=A9nyez=C3=A9se k=C3=A1rosodna.</p>=0D
+<p>Kiv=C3=A1l=C3=B3an alkalmas <strong>kavicsfelver=C5=91d=C3=A9sek, j=C3=
+=A9ghorpad=C3=A1sok,<br>=0D
+=C3=BCt=C5=91d=C3=A9sek, ajt=C3=B3 =C3=A1ltali r=C3=A1nyit=C3=A1sok</strong=
+> ellen. Ak=C3=A1r <strong>h=C3=A1ztart=C3=A1si<br>=0D
+g=C3=A9pekre, h=C5=B1t=C5=91re, mos=C3=B3g=C3=A9pre</strong> is haszn=C3=A1=
+lhatod.</p>=0D
+<p><strong>Hogyan m=C5=B1k=C3=B6dik?</strong></p>=0D
+<p>A horpad=C3=A1sjav=C3=ADt=C3=B3t <strong>n=C3=A9h=C3=A1ny l=C3=A9p=C3=A9=
+sben, k=C3=B6nnyed=C3=A9n <br>=0D
+</strong>alkalmazhatod:</p>=0D
+<ol>=0D
+<li>Tiszt=C3=ADtsd meg a k=C3=ADv=C3=A1nt fel=C3=BCletet alkohollal</li>=0D
+<li>Ragaszd fel a kih=C3=BAz=C3=B3fejet a horpad=C3=A1sra <br>=0D
+a mell=C3=A9kelt ragaszt=C3=B3pisztollyal</li>=0D
+<li>Helyezd a kih=C3=BAz=C3=B3fej f=C3=B6l=C3=A9 a hidat, majd<br>=0D
+tekerd addig a sz=C3=A1rnyas any=C3=A1t, m=C3=ADg a<br>=0D
+horpad=C3=A1s el nem t=C5=B1nik</li>=0D
+<li>T=C3=A1vol=C3=ADtsd el a ragaszt=C3=B3t a fel=C3=BCletr=C5=91l<br>=0D
+egy alkohollal =C3=A1titatott kend=C5=91vel</li>=0D
+</ol>=0D
+<p>A folyamat <strong>n=C3=A9h=C3=A1ny percig tart,</strong> az eredm=C3=A9=
+nye pedig<br>=0D
+<strong>csodasz=C3=A9p, horpad=C3=A1smentes kasztni!</strong></p>=0D
+<p>Ez a hat=C3=A9kony k=C3=A9szlet m=C3=A1r <strong>egyszeri bevet=C3=A9sn=
+=C3=A9l<br>=0D
+behozza az =C3=A1r=C3=A1t.</strong></p>=0D
+<p><strong>Sz=C3=A9p=C3=ADtsd meg te is aut=C3=B3d vagy h=C3=A1ztart=C3=A1s=
+i g=C3=A9ped!<br>=0D
+</strong>K=C3=B6lts=C3=A9ges =C3=A9s id=C5=91ig=C3=A9nyes szerviz helyett <=
+strong>v=C3=A1laszd<br>=0D
+az otthoni horpad=C3=A1sjav=C3=ADt=C3=B3 szettet:</strong></p>=0D
+<p><a href=3D"http://zfy9n.redfesse.com/qjt:2y54743901cfw4fm206gchxb28aagp1=
+9b7" style=3D"text-decoration:underline;">Siess, <strong>most kedvezm=C3=A9=
+nyes =C3=A1ron</strong> kapod!</a></p>=0D
+<p><br>=0D
+</p>=0D
+<p><br><br><br><br><br><br></p>=0D
+<p><a href=3D"http://redfesse.com/ub.php?a3=3D2y54743901cfw4fm206gchxb28aag=
+p19b7">Leiratkoz=C3=A1s</a></p>=0D
+<br>=0D
+<img src=3D"http://redfesse.com/ob.php?qy0=3D2y54743901cfw4fm206gchxb28aagp=
+19b7" alt=3D"">=0D
+</body>=0D
+</html>=
+
+--b1_lqe0y40rptk8ec.cViwtSX--

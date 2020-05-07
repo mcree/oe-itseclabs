@@ -1,0 +1,96 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 12B1821FB23
+	for <hallgato@itseclabs.local>; Tue, 24 Dec 2019 13:59:00 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id xjDNsPfkuYHf for <hallgato@itseclabs.local>;
+	Tue, 24 Dec 2019 13:58:59 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id AD2B021FB22
+	for <hallgato@itseclabs.local>; Tue, 24 Dec 2019 13:58:59 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 938D02A04C2; Tue, 24 Dec 2019 14:58:59 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="LdB85Nsd";
+	dkim-atps=neutral
+X-Original-To: Rigo.Erno@sztaki.mta.hu
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 640E82A0277
+	for <Rigo.Erno@sztaki.mta.hu>; Tue, 24 Dec 2019 14:58:59 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id dluTC3hTaEkP for <Rigo.Erno@sztaki.mta.hu>;
+	Tue, 24 Dec 2019 14:58:57 +0100 (CET)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=209.85.166.196; helo=mail-il1-f196.google.com; envelope-from=susanjm281958@gmail.com; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=susanjm281958@gmail.com
+Received: from mail-il1-f196.google.com (mail-il1-f196.google.com [209.85.166.196])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id DABC02A024E
+	for <Rigo.Erno@sztaki.mta.hu>; Tue, 24 Dec 2019 14:58:56 +0100 (CET)
+Received: by mail-il1-f196.google.com with SMTP id f10so16618370ils.8
+        for <Rigo.Erno@sztaki.mta.hu>; Tue, 24 Dec 2019 05:58:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=PvdkhxHu8+/vZ6y2ayZ31YfQ4d4LOKMX0w7rvBYlAx0=;
+        b=LdB85NsdeiGLBBlfIddd2La/pfL8QZV8MAmFoF5+YT8NXUjnlt2VpE52e4FUDY1fWP
+         56vJFu6sJ5MEoWDqbA5XHZFNZSKfMk95pCrdocawEQxUjrk66zyYs3sFOpQQ4Ruan9j+
+         7OznyD9QcD1o26HY/q4x2cSDONbW2k1P84aufHvJQoHJxUYiX/scID0qL+o29eEyPfD7
+         QyBHlGcPEI9oH+nYjlMlWtJDrIJFyZUp7/o82bQFsbjKdua+6QTZBEEv9tURxkvSRBm7
+         NsTz3Nt/i+wpK+QSQR/HeKF9Cs3xZKgMNebU0HdTEi3FKV9l5ADXArNLxmC3gd5y9xax
+         gTwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=PvdkhxHu8+/vZ6y2ayZ31YfQ4d4LOKMX0w7rvBYlAx0=;
+        b=DVodsZzfm+8ZNHRiIh/3nolpIaQZG35yyFXScVdi4v/Y7AyyMfiQLR0O9Q90mronBc
+         k6B435wCKhjjGPrVnR4SPRDqNSIr6upaiVZZ8XxBvMasUaLhMF2xoPdkGipnECuPRP7I
+         sJLaBiam9IGI/V2KKzakkwfU7/XiNMBxuLCNisJZCMUmQU6CAd89xVuQxdxYePSdRZEC
+         Op4GVWU5TdwIQj7iiHoppFyYNp91zyd2P8HqytimtWNimyZCV/YaiFSlterw6x0hSdX/
+         mT+txlAbKFUfgCKTEPJOgmkiS/DUeP4b1sXJiGrcQtuxAEJpCT6yEEFkjO729TlaWahD
+         LLwA==
+X-Gm-Message-State: APjAAAXy6FsfbxDSSFHh3DyHto1Yn8hfhD5xipwtrpG2lILboBEEwAUk
+	0NT/LeDAfyIT6O/iSlKjmpwo5kx0YDoPFmiTnOA=
+X-Google-Smtp-Source: APXvYqxoEpmfj7rIPGLZJpjEhRb3GBKP5SG+TiIML3k6nzkN2uga4kGmF8/oYOCoPoHEWKWeYNnv9GNIS/VobmPdicI=
+X-Received: by 2002:a92:aa52:: with SMTP id j79mr24297181ili.268.1577195935263;
+ Tue, 24 Dec 2019 05:58:55 -0800 (PST)
+MIME-Version: 1.0
+From: Vanina Littlejohn <littlejohnvanina@gmail.com>
+Date: Tue, 24 Dec 2019 05:59:09 -0800
+Message-ID: <CACtO40Xj4Jwi12vY_Aw2jyFEU3bkPhE-qAa0GhpxgfF2iE4QsA@mail.gmail.com>
+Subject: 
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000007675ba059a738bca"
+
+--0000000000007675ba059a738bca
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hell=C3=B3, Vanina Littlejohn nevem, itt velem kapcsolatba l=C3=A9phet;
+(littlejohnvanina@gmail.com) Jobban bemutatom magam, =C3=A9s elk=C3=BCld=C3=
+=B6m a
+k=C3=A9peimet, amint megkapom az e-mailemet. V=C3=A1rom a v=C3=A1lasz=C3=A1=
+t
+
+Vanina
+
+--0000000000007675ba059a738bca
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hell=C3=B3, Vanina Littlejohn nevem, itt velem kapcsolatba=
+ l=C3=A9phet;<br>(<a href=3D"mailto:littlejohnvanina@gmail.com">littlejohnv=
+anina@gmail.com</a>) Jobban bemutatom magam, =C3=A9s elk=C3=BCld=C3=B6m a k=
+=C3=A9peimet, amint megkapom az e-mailemet. V=C3=A1rom a v=C3=A1lasz=C3=A1t=
+<br><br>Vanina<br></div>
+
+--0000000000007675ba059a738bca--

@@ -1,0 +1,129 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id C1D052480FA
+	for <hallgato@itseclabs.local>; Thu, 16 Apr 2020 02:08:44 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 1.979
+X-Spam-Level: *
+X-Spam-Status: No, score=1.979 tagged_above=1 required=4.5
+	tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+	DKIM_VALID_AU=-0.1, FREEMAIL_FORGED_REPLYTO=2.095, HTML_MESSAGE=0.001,
+	LOTS_OF_MONEY=0.001, MISSING_HEADERS=1.021, RCVD_IN_DNSWL_LOW=-0.7,
+	REPLYTO_WITHOUT_TO_CC=1.552, SPF_HELO_PASS=-0.001, T_FRT_CONTACT=0.01]
+	autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=crous-normandie.fr
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Bzul9kAqSXO3 for <hallgato@itseclabs.local>;
+	Thu, 16 Apr 2020 02:08:43 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 182DF2480F9
+	for <hallgato@itseclabs.local>; Thu, 16 Apr 2020 02:08:43 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id F1FF62A04F9; Thu, 16 Apr 2020 04:08:42 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=crous-normandie.fr header.i=@crous-normandie.fr header.b="J41BRvIy";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id B6CC72A04C2
+	for <hallgato@itseclabs.local>; Thu, 16 Apr 2020 04:08:42 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=crous-normandie.fr
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Kg3lybXJA2Yx for <hallgato@itseclabs.local>;
+	Thu, 16 Apr 2020 04:08:40 +0200 (CEST)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=194.167.198.217; helo=smtp1.crous-rouen.fr; envelope-from=cramoisanm@crous-normandie.fr; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=none dis=none) header.from=crous-normandie.fr
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=cramoisanm@crous-normandie.fr
+Received: from smtp1.crous-rouen.fr (smtp1.crous-normandie.fr [194.167.198.217])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 5DE322A0058
+	for <hallgato@itseclabs.local>; Thu, 16 Apr 2020 04:08:40 +0200 (CEST)
+Received: from smtp1.crous-rouen.fr (localhost [127.0.0.1])
+	by smtp1.crous-rouen.fr (Postfix) with ESMTPS id 3183382712;
+	Thu, 16 Apr 2020 03:48:04 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by smtp1.crous-rouen.fr (Postfix) with ESMTP id 29DB6826C1;
+	Thu, 16 Apr 2020 03:21:33 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.10.3 smtp1.crous-rouen.fr 29DB6826C1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crous-normandie.fr;
+	s=A9A0AB54-2907-11E8-9CF2-89D8D8E83B86; t=1587000093;
+	bh=ywYKJnvpsk/tQfx1ngIHm2BegY7/vnMulQ/ig8fuPPs=;
+	h=Date:From:Message-ID:MIME-Version;
+	b=J41BRvIyzWc8DLuXiXZOqk01A8KYEULdBWxbjWHy/wfDfApNcFuybIgQ7tzdL3U9Y
+	 m461vGjsmTqWMV5JcZxPw3XWRfipYmlOxpk2IHhE69gnfxP2r4VHEYXt0bNC6UKV4B
+	 fuiu4ti5iAHP6It62XI+DNVwDZzrbgnbE8f/2xBiio5GAD+wYN1RJH7cGzf/uZPiSF
+	 z0JGPW2hgInozqOg3ZiCRU34+UvtnqEVgcqc50GrpvTdkWXSPn/1fRDFdrjemRNfM6
+	 /usFrtwQxwsvpkMcO6Xw+cipVEaSh/eBO0rh75+yrv2nXIZVt7NCTdcWhT9zl7ztvn
+	 QWtunkWrhX8Yg==
+X-Virus-Scanned: amavisd-new at front-mail-1.in.crous-rouen.fr
+Received: from smtp1.crous-rouen.fr ([127.0.0.1])
+	by localhost (front-mail-1.in.crous-rouen.fr [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id v96n79XUtt7d; Thu, 16 Apr 2020 03:21:32 +0200 (CEST)
+Received: from back-mail-1.in.crous-rouen.fr (unknown [10.251.42.226])
+	by smtp1.crous-rouen.fr (Postfix) with ESMTP id 96F0B8236F;
+	Thu, 16 Apr 2020 03:21:30 +0200 (CEST)
+Date: Thu, 16 Apr 2020 03:21:31 +0200 (CEST)
+From: Callum Foundation <marie-jose.cramoisan@crous-normandie.fr>
+Reply-To: Callum Foundation <callumfoundation@aol.com>
+Message-ID: <2025212688.3475436.1587000091001.JavaMail.zimbra@crous-normandie.fr>
+Subject: RE
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="=_48009974-1be0-4c46-b2e7-43f93b1b0071"
+X-Originating-IP: [78.180.130.65]
+X-Mailer: Zimbra 8.8.11_GA_3780 (ZimbraWebClient - GC80 (Win)/8.8.11_GA_3787)
+Thread-Index: dWaYZY5SJbNkaSGuh9hB0Xq4sT200w==
+Thread-Topic: RE
+
+--=_48009974-1be0-4c46-b2e7-43f93b1b0071
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+--=20
+Hallo, Sie haben eine Wohlt=C3=A4tigkeitsspende von 2.800.000,00 EUR, ich g=
+ewann die Amerika-Lotterie in Amerika im Wert von 343 Millionen US-Dollar u=
+nd ich spende einen Teil von ihnen an f=C3=BCnf gl=C3=BCckliche Menschen un=
+d Wohlt=C3=A4tigkeitsh=C3=A4user, in Erinnerung an meinen verstorbenen Mann=
+, der an Krebs gestorben ist, um das Leben vieler Menschen zu verbessern, d=
+ie von diesem Corona-Virus betroffen sind, kontaktieren Sie mich unter f=C3=
+=BCr weitere Informationen: callumfoundation@aol.com=20
+
+Gr=C3=BC=C3=9Fe=20
+Mrs.Lerynne West=20
+
+--=_48009974-1be0-4c46-b2e7-43f93b1b0071
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><body><div style=3D"font-family: arial, helvetica, sans-serif; font-s=
+ize: 12pt; color: #000000"><div><br></div><div><br></div><div data-marker=
+=3D"__SIG_POST__">-- <br></div><div><div><span style=3D"color: rgb(34, 34, =
+34); font-family: Arial, Helvetica, sans-serif; font-size: small;">Hallo, S=
+ie haben eine Wohlt=C3=A4tigkeitsspende von 2.800.000,00 EUR, ich gewann di=
+e Amerika-Lotterie in Amerika im Wert von 343 Millionen US-Dollar und ich s=
+pende einen Teil von ihnen an f=C3=BCnf gl=C3=BCckliche Menschen und Wohlt=
+=C3=A4tigkeitsh=C3=A4user, in Erinnerung an meinen verstorbenen Mann, der a=
+n Krebs gestorben ist, um das Leben vieler Menschen zu verbessern, die von =
+diesem Corona-Virus betroffen sind, kontaktieren Sie mich unter f=C3=BCr we=
+itere Informationen:&nbsp;</span><a style=3D"color: rgb(34, 34, 34); font-f=
+amily: Arial, Helvetica, sans-serif; font-size: small;">callumfoundation@ao=
+l.com</a><br style=3D"color: rgb(34, 34, 34); font-family: Arial, Helvetica=
+, sans-serif; font-size: small;"><br style=3D"color: rgb(34, 34, 34); font-=
+family: Arial, Helvetica, sans-serif; font-size: small;"><span style=3D"col=
+or: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: =
+small;">Gr=C3=BC=C3=9Fe</span><br style=3D"color: rgb(34, 34, 34); font-fam=
+ily: Arial, Helvetica, sans-serif; font-size: small;"><span style=3D"color:=
+ rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif; font-size: sma=
+ll;">Mrs.Lerynne West</span><br></div></div></div></body></html>
+--=_48009974-1be0-4c46-b2e7-43f93b1b0071--

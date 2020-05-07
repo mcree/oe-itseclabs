@@ -1,0 +1,1084 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 1F5FD1F22E2
+	for <hallgato@itseclabs.local>; Wed, 11 Dec 2019 06:51:08 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=fail (1024-bit key) reason="fail (body has been altered)"
+	header.d=youroccasions.eu
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id TAPQsX1R0ABM for <hallgato@itseclabs.local>;
+	Wed, 11 Dec 2019 06:51:04 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 5860C1F22E1
+	for <hallgato@itseclabs.local>; Wed, 11 Dec 2019 06:51:04 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 377802A0562; Wed, 11 Dec 2019 07:51:04 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=fail reason="signature verification failed" (1024-bit key; unprotected) header.d=youroccasions.eu header.i=@youroccasions.eu header.b="l9G4J7fc";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id D42DA2A0568;
+	Wed, 11 Dec 2019 07:51:03 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=youroccasions.eu
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id l_CY6qpbq9QR; Wed, 11 Dec 2019 07:51:00 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id D41E02A04F9;
+	Wed, 11 Dec 2019 07:51:00 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=youroccasions.eu
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=info@youroccasions.eu
+Received: by duflex.itseclabs.local (Postfix)
+	id AB64F20095; Wed, 11 Dec 2019 07:51:00 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 90BA520096
+	for <info@itseclabs.local>; Wed, 11 Dec 2019 07:51:00 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Y3wWbWkts9e5 for <info@itseclabs.local>;
+	Wed, 11 Dec 2019 07:50:58 +0100 (CET)
+Received: from smtp204.gssmtp.pl (smtp204.gssmtp.pl [194.15.124.204])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id B3CF620095
+	for <info@itseclabs.local>; Wed, 11 Dec 2019 07:50:58 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=youroccasions.eu header.i=@youroccasions.eu header.b="l9G4J7fc";
+	dkim-atps=neutral
+Received: from [127.0.0.1] (q2 [10.10.0.226])
+	by smtp204.gssmtp.pl (Postfix) with ESMTP id F32991847B2
+	for <info@itseclabs.local>; Wed, 11 Dec 2019 07:50:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha1; bh=stlIrPhvBxhxfF9ddwIaC1O9wVE=;
+ d=youroccasions.eu; h=Date: Subject: From: Reply-To: To: MIME-Version:
+ Content-Type: X-UserId: X-Complaints-To: X-Abuse: Precedence:
+ List-Unsubscribe: GS-UserId: Feedback-ID; i=@youroccasions.eu;
+ s=feb2019.6084; t=1576047056;
+ b=l9G4J7fcyeBS945D2bUhXUNOgz2ligXW2akrUc7whz5Zo4QOwH3zsBw9FtqBftNuIT6SPLkXS
+ uTrlMTkcwf7r/UBKNZScOJv/OP+2QdRblGdxymdxzAEj4hnJ9oBTwz3lOfrz5g1P2c3XRky4N
+ LNyJXKm9N2N96cnxxyBt3PwkQ=
+Message-ID: <1576047055.5df091cfeea2f@youroccasions.eu>
+Date: Wed, 11 Dec 2019 07:50:55 +0100
+Subject: =?UTF-8?Q?=E2=81=A3Colitis_ulceros=C3=A1val_=C3=A9l=3F?= Ingyenes
+ teszt =?UTF-8?Q?=F0=9F=91=88?=
+From: Clinlife <info@youroccasions.eu>
+Reply-To: info@youroccasions.eu
+To: info@itseclabs.local
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_=_swift_v4_1576047055_057e716ff5b566c58ffc192bf9643207_=_"
+X-UserId: 0d770c496aa3da6d2c3f2bd19e7b9d6b
+X-Complaints-To: info@youroccasions.eu
+X-Abuse: info@youroccasions.eu
+Precedence: bulk
+List-Unsubscribe: <http://mailing.youroccasions.eu/m4b/mail/unsubscribe?hash=FRMeERIVEhAWFw==&code=cHd%2FdllwbXo3cWxlLykhLQ%3D%3D>
+GS-UserId: 0d770c496aa3da6d2c3f2bd19e7b9d6b
+Feedback-ID: KCgrIS0tKQ==
+
+
+--_=_swift_v4_1576047055_057e716ff5b566c58ffc192bf9643207_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Ha az =C3=BCzenet nem jelenik meg megfelel=C5=91en, kattintson ide =
+
+=09=20
+    =20
+    =20
+=09ClinLife=20
+
+=09
+=09
+
+=09
+=09
+
+=
+=09
+=09
+=09=09
+=09
+
+=09
+
+=09
+   =20
+
+=09=09/* What it doe=
+s: Remove spaces around the email design added by some email clients. */
+=
+=09=09/* Beware: It can remove the padding / margin and add a background co=
+lor to the compose a reply window. */
+        html,
+        body {
+  =
+          Margin: 0 !important;
+            padding: 0 !important;
+    =
+        height: 100% !important;
+            width: 100% !important;
+  =
+      }
+
+        /* What it does: Stops email clients resizing small te=
+xt. */
+        * {
+            -ms-text-size-adjust: 100%;
+          =
+  -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does:=
+ Forces Outlook.com to display emails full width. */
+        .ExternalCla=
+ss {
+            width: 100%;
+        }
+
+        /* What it does: C=
+enters email on Android 4.4 */
+        div[style*=3D"margin: 16px 0"] {=
+
+            margin:0 !important;
+        }
+
+        /* What it doe=
+s: Stops Outlook from adding extra spacing to tables. */
+        table,=
+
+        td {
+            mso-table-lspace: 0pt !important;
+         =
+   mso-table-rspace: 0pt !important;
+        }
+
+        /* What it do=
+es: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. App=
+lies table-layout to the first 2 tables then removes for anything nested de=
+eper. */
+        table {
+            border-spacing: 0 !important;
+  =
+          border-collapse: collapse !important;
+            table-layout:=
+ fixed !important;
+            Margin: 0 auto !important;
+        }
+ =
+       table table table {
+            table-layout: auto;
+        }
+=
+
+        /* What it does: Uses a better rendering method when resizing im=
+ages in IE. */
+        img {
+            -ms-interpolation-mode:bicubic=
+;
+        }
+
+        /* What it does: Overrides styles added when Yah=
+oo's auto-senses a link. */
+        .yshortcuts a {
+            border-=
+bottom: none !important;
+        }
+
+        /* What it does: A work-a=
+round for iOS meddling in triggered links. */
+        .mobile-link--foote=
+r a,
+        a[x-apple-data-detectors] {
+            color:inherit !imp=
+ortant;
+            text-decoration: underline !important;
+        }
+=
+
+   =20
+
+   =20
+   =20
+
+        /* What it does: Hover styles for but=
+tons */
+        .button-td,
+        .button-a {
+            transitio=
+n: all 100ms ease-in;
+        }
+        .button-td:hover,
+        .bu=
+tton-a:hover {
+            background: #3B8429 !important;
+            =
+border-color: #3B8429 !important;
+        }
+
+        /* Media Queries=
+ */
+        @media screen and (max-width: 480px) {
+
+            /* Wh=
+at it does: Forces elements to resize to the full width of their container.=
+ Useful for resizing images beyond their max-width. */
+            .fluid=
+,
+            .fluid-centered {
+                width: 100% !important;=
+
+                max-width: 100% !important;
+                height: au=
+to !important;
+                Margin-left: auto !important;
+          =
+      Margin-right: auto !important;
+            }
+            /* And c=
+enter justify these ones. */
+            .fluid-centered {
+            =
+    Margin-left: auto !important;
+                Margin-right: auto !imp=
+ortant;
+            }
+
+            /* What it does: Forces table cell=
+s into full-width rows. */
+            .stack-column,
+            .stac=
+k-column-center {
+                display: block !important;
+          =
+      width: 100% !important;
+                max-width: 100% !important;=
+
+                direction: ltr !important;
+            }
+           =
+ /* And center justify these ones. */
+            .stack-column-center {=
+
+                text-align: center !important;
+            }
+
+    =
+        /* What it does: Generic utility class for centering. Useful for im=
+ages, buttons, and nested tables. */
+            .center-on-narrow {
+  =
+              text-align: center !important;
+                display: blo=
+ck !important;
+                Margin-left: auto !important;
+          =
+      Margin-right: auto !important;
+                float: none !importa=
+nt;
+            }
+            table.center-on-narrow {
+              =
+  display: inline-block !important;
+            }
+
+        }
+
+   =
+=20
+
+
+
+
+   =20
+
+       =20
+           =20
+
+           =20
+     =
+      =20
+=09           =20
+=09=09=09=09=09
+=09=09=09=09=09=09
+=09=09=
+=09=09=09
+=09           =20
+           =20
+           =20
+
+            =
+
+           =20
+
+               =20
+               =20
+                =
+   =20
+                       =20
+=09=09=09=09=09=09=09
+=09=09=09=09=09=
+=09=09=09
+=09=09=09=09=09=09=09=09=09
+
+Fek=C3=A9lyes vastagb=C3=A9lgy=
+ullad=C3=A1s gy=C3=B6tri?
+
+
+
+=20
+=09=09=09=09=09=09=09=09=09
+=09=
+=09=09=09=09=09=09=09=09
+
+Ha igen, akkor ez az =C3=BAj klinikai kutat=
+=C3=B3vizsg=C3=A1lat =C3=A9rdekelheti =C3=96nt!
+
+K=C3=B6lts=C3=A9gt=
+=C3=A9r=C3=ADt=C3=A9sben r=C3=A9szes=C3=BClhet a vizsg=C3=A1latban val=
+=C3=B3 r=C3=A9szv=C3=A9tel=C3=A9rt =C3=A9s a kapcsol=C3=B3d=C3=B3 utaz=
+=C3=A1si k=C3=B6lts=C3=A9gei=C3=A9rt.
+
+=09=09=09=09=09=09=09=09=09
+=
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=
+=09=09=09=09=09=09=09=09=09Tov=C3=A1bbi inform=C3=A1ci=C3=B3k
+=09=09=09=
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09=09=09
+=09=09=09=
+=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=
+=09=09
+=09=09=09=09=09=09=09 =20
+=09=09=09=09=09=09=09
+                =
+       =20
+                   =20
+               =20
+               =20
+
+=
+=09=09=09=09
+               =20
+=09=09=09=09=09
+=09=09=09=09=09=09
+=
+=09=09=09=09=09
+               =20
+               =20
+
+=09=09=09=09
+ =
+              =20
+                   =20
+                       =20
+=09=09=
+=09=09=09=09=09
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09A C=
+linLife bemutat=C3=A1sa
+
+
+=09=09=09=09=09=09=09=09
+=09=09=09=09=09=
+=09=09
+                       =20
+                   =20
+                =
+
+               =20
+
+=09=09=09=09
+               =20
+                =
+   =20
+                       =20
+                       =20
+              =
+             =20
+                               =20
+                       =
+            =20
+                                   =20
+                    =
+                   =20
+                                           =20
+     =
+                                          =20
+                             =
+                      =20
+                                                 =
+      =20
+                                                           =20
+  =
+                                                         =20
+              =
+                                         =20
+                              =
+                         =20
+                                              =
+             =20
+                                                          =
+      ADATOK FELHASZN=C3=81L=C3=81SA
+=09=09=09=09=09=09=09=09=09=09=09=09=
+=09=09        Szem=C3=A9lyes adatait nem adjuk =C3=A1t harmadik f=C3=A9lnek=
+..
+
+                                                           =20
+     =
+                                                  =20
+                     =
+                              =20
+                                         =
+      =20
+                                           =20
+                  =
+                     =20
+                                   =20
+           =
+                        =20
+                                   =20
+        =
+                               =20
+                                        =
+   =20
+                                               =20
+=09=09=09=09=09=
+=09=09=09=09=09=09=09=09
+                                                =
+       =20
+                                                           =20
+ =
+                                                          =20
+             =
+                                          =20
+                             =
+                          =20
+                                             =
+              =20
+                                                         =
+       BIZALOM
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09=09  +1.000.000 =
+REGISZTR=C3=81LT TAGOK
+                                                  =
+         =20
+                                                       =20
+   =
+                                                =20
+                       =
+                        =20
+                                           =20
+=
+                                       =20
+                                =
+   =20
+                                   =20
+                             =
+      =20
+                                       =20
+                      =
+                     =20
+                                                =
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09
+                              =
+                         =20
+                                              =
+             =20
+                                                          =
+ =20
+                                                       =20
+           =
+                                            =20
+                           =
+                                =20
+                                       =
+                         INGYENES =C3=89S NEM K=C3=96TELEZ=C5=90 JELLEG=
+=C5=B0
+
+=09=09=09=09=09=09=09=09=09=09=09=09=09=09        Minden ClinLi=
+fe szolg=C3=A1ltat=C3=A1s ingyenes =C3=A9s nem k=C3=B6telez=C5=91 jelleg=
+=C5=B1.
+..
+                                                            =
+
+                                                       =20
+             =
+                                      =20
+                                 =
+              =20
+                                           =20
+          =
+                             =20
+                                   =20
+   =
+                                =20
+                               =20
+    =
+                       =20
+                       =20
+                     =
+  =20
+                   =20
+               =20
+               =20
+
+=09=
+=09=09
+           =20
+
+
+
+           =20
+       =20
+   =20
+
+
+
+=
+K=C3=BCld=C3=B6tt =C3=BCzenet via Ads Pro Company LTD, 776-778 Barking Road=
+, London, United Kingdom, E13 9PJ.  =C3=9Czenetek fogad=C3=A1s=C3=A1nak le=
+=C3=A1ll=C3=ADt=C3=A1sa.Complaints:email
+
+
+--_=_swift_v4_1576047055_057e716ff5b566c58ffc192bf9643207_=_
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w=
+ww.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head><center><p style=3D"text-align: center;"><span style=3D"font-size: x=
+x-small;">Ha az =C3=BCzenet nem jelenik meg megfelel=C5=91en, <a href=3D=
+"http://mailing.youroccasions.eu/home/preview/FRMeERIVEhAWFw=3D=3D"><br =
+/>kattintson ide</a> </center><center>
+	<meta charset=3D"utf-8"> <!-- utf-8 works for most cases -->
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width"> <!-- Forcing =
+initial-scale shouldn't be necessary -->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"> <!-- Use =
+the latest (edge) version of IE rendering engine -->
+	<title>ClinLife</title> <!-- The title tag shows in email notifications, l=
+ike Android 4.4. -->
+
+	<!-- Web Font / @font-face : BEGIN -->
+	<!-- NOTE: If web fonts are not required, lines 9 - 26 can be safely remo=
+ved. -->
+
+	<!-- Desktop Outlook chokes on web font references and defaults to Times =
+New Roman, so we force a safe fallback font. -->
+	<!--[if mso]>
+		<style>
+			* {
+				font-family: sans-serif !important;
+			}
+		</style>
+	<![endif]-->
+
+	<!-- All other clients get the webfont reference; some will render the f=
+ont and others will silently fail to the fallbacks. More on that here: h=
+ttp://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+	<!--[if !mso]><!-->
+		<!-- insert web font reference, eg: <link href=3D'https://fonts.googleapi=
+s.com/css?family=3DRoboto:400,700' rel=3D'stylesheet' type=3D'text/css'> -=
+->
+	<!--<![endif]-->
+
+	<!-- Web Font / @font-face : END -->
+
+	<!-- CSS Reset -->
+    <style type=3D"text/css">
+
+		/* What it does: Remove spaces around the email design added by some em=
+ail clients. */
+		/* Beware: It can remove the padding / margin and add a background colo=
+r to the compose a reply window. */
+        html,
+        body {
+            Margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Forces Outlook.com to display emails full width. =
+*/
+        .ExternalClass {
+            width: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*=3D"margin: 16px 0"] {
+            margin:0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables=
+. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail ta=
+ble alignment bug. Applies table-layout to the first 2 tables then remov=
+es for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            Margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto;
+        }
+
+        /* What it does: Uses a better rendering method when resizing ima=
+ges in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+
+        /* What it does: Overrides styles added when Yahoo's auto-senses a=
+ link. */
+        .yshortcuts a {
+            border-bottom: none !important;
+        }
+
+        /* What it does: A work-around for iOS meddling in triggered link=
+s. */
+        .mobile-link--footer a,
+        a[x-apple-data-detectors] {
+            color:inherit !important;
+            text-decoration: underline !important;
+        }
+
+    </style>
+
+    <!-- Progressive Enhancements -->
+    <style>
+
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td:hover,
+        .button-a:hover {
+            background: #3B8429 !important;
+            border-color: #3B8429 !important;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 480px) {
+
+            /* What it does: Forces elements to resize to the full width =
+of their container. Useful for resizing images beyond their max-width. */
+            .fluid,
+            .fluid-centered {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                Margin-left: auto !important;
+                Margin-right: auto !important;
+            }
+            /* And center justify these ones. */
+            .fluid-centered {
+                Margin-left: auto !important;
+                Margin-right: auto !important;
+            }
+
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: center !important;
+            }
+
+            /* What it does: Generic utility class for centering. Useful =
+for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                Margin-left: auto !important;
+                Margin-right: auto !important;
+                float: none !important;
+            }
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body width=3D"100%" bgcolor=3D"#F2F2F2" style=3D"Margin: 0;">
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" height=3D"100%" w=
+idth=3D"100%" bgcolor=3D"#F2F2F2" style=3D"border-collapse:collapse;"><tr>=
+<td valign=3D"top">
+    <center style=3D"width: 100%;">
+
+        <div style=3D"max-width: 680px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" widt=
+h=3D"680" align=3D"center">
+            <tr>
+            <td>
+            <![endif]-->
+
+            <!-- Email Header : BEGIN -->
+            <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=
+=3D"center" width=3D"100%" style=3D"max-width: 680px;">
+	            <tr>
+					<td bgcolor=3D"#ffffff" style=3D"padding: 30px 0 0 0; text-align: ce=
+nter">
+						<a href=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMeERIVEh=
+AWFw=3D=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D37=
+4%26aff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440"><img src=3D"=
+https://media.go2speed.org/brand/files/roiandco/10000/20171023160832-log=
+o.png" width=3D"141" height=3D"48" alt=3D"ClinLife" border=3D"0"></a>
+					</td>
+	            </tr>
+            </table>
+            <!-- Email Header : END -->
+
+            <!-- Email Body : BEGIN -->
+            <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" ali=
+gn=3D"center" bgcolor=3D"#ffffff" width=3D"100%" style=3D"max-width: 680=
+px;">
+
+                <!-- 1 Column Text : BEGIN -->
+                <tr>
+                    <td>
+                        <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" width=3D"100%">
+							<tr>
+								<td style=3D"padding: 20px 40px 40px 40px; text-align: center; font=
+-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-hei=
+ght: 28px; color: #9B9B9B;">
+									<span style=3D"color: #4A4A4A; font-size: 22px;"><a style=3D"text-=
+decoration:none; color:#4A4A4A" href=3D"http://mailing.youroccasions.eu/pr=
+oxy/349723147/FRMeERIVEhAWFw=3D=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital=
+%2Faff_c%3Foffer_id%3D374%26aff_id%3D1%26file_id%3D1462%26url_id%3D620&m=
+=3D1128440">
+
+Fek=C3=A9lyes vastagb=C3=A9lgyullad=C3=A1s gy=C3=B6tri?
+
+
+
+ </a></span>
+								=09
+									<p><a style=3D"text-decoration:none; color:#9B9B94" href=3D"http:/=
+/mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=3D?url=3Dhttp%=
+3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26aff_id%3D1%26fil=
+e_id%3D1462%26url_id%3D620&m=3D1128440">
+
+Ha igen, akkor ez az =C3=BAj klinikai kutat=C3=B3vizsg=C3=A1lat =C3=A9rde=
+kelheti =C3=96nt!
+
+K=C3=B6lts=C3=A9gt=C3=A9r=C3=ADt=C3=A9sben r=C3=A9szes=C3=BClhet a vi=
+zsg=C3=A1latban val=C3=B3 r=C3=A9szv=C3=A9tel=C3=A9rt =C3=A9s a kapcso=
+l=C3=B3d=C3=B3 utaz=C3=A1si k=C3=B6lts=C3=A9gei=C3=A9rt.
+</a></p>
+									<!-- Button : Begin -->
+									<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D=
+"center" style=3D"Margin: auto">
+										<tr>
+											<td style=3D"border-radius: 0; background: #5EBF47; text-alig=
+n: center;" class=3D"button-td">
+												<a href=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMe=
+ERIVEhAWFw=3D=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_i=
+d%3D374%26aff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440" styl=
+e=3D"background: #5EBF47; border: 15px solid #5EBF47; padding: 8px 25px;co=
+lor: #ffffff; font-family: sans-serif; font-size: 14px; line-height: 1.1=
+; text-align: center; text-decoration: none; display: block; border-radi=
+us: 3px; font-weight: bold;" class=3D"button-a">
+													<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->Tov=C3=A1bbi=
+ inform=C3=A1ci=C3=B3k<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->
+												</a>
+											</td>
+										</tr>
+									</table>
+									<!-- Button : END -->
+							  </td>
+							</tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text : BEGIN -->
+
+				<!-- Hero Image, Flush : BEGIN -->
+                <tr>
+					<td>
+						<a href=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMeERIV=
+EhAWFw=3D=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D=
+374%26aff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440"><img src=
+=3D"http://media.apoandrew.com/brand/files/roiandco/17809/shutterstock_102=
+5461768.jpg" width=3D"680" height=3D"" alt=3D"ClinLife Nuevo estudio sobre=
+ la artrosis" border=3D"0" align=3D"center" style=3D"width: 100%; max-widt=
+h: 680px;"></a>
+					</td>
+                </tr>
+                <!-- Hero Image, Flush : END -->
+
+				<!-- 1 Column Text : BEGIN -->
+                <tr>
+                    <td bgcolor=3D"#F2F2F2">
+                        <table cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" width=3D"100%">
+							<tr>
+								<td style=3D"padding: 20px 40px 0 40px; text-align: center; font=
+-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-hei=
+ght: 28px; color: #4A4A4A;">
+									<p><a style=3D"text-decoration:none; color:#4A4A4A" href=3D"http:/=
+/mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=3D?url=3Dhttp%=
+3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26aff_id%3D1%26fil=
+e_id%3D1462%26url_id%3D620&m=3D1128440">A ClinLife bemutat=C3=A1sa
+
+</a></p>
+								</td>
+							</tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text : BEGIN -->
+
+				<!-- Three Even Columns : BEGIN -->
+                <tr>
+                    <td bgcolor=3D"#F2F2F2" align=3D"center" height=3D"100%=
+" valign=3D"top" width=3D"100%" style=3D"padding: 0;">
+                        <!--[if mso]>
+                        <table border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" width=3D"660">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"660">
+                        <![endif]-->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" align=3D"center" width=3D"100%" style=3D"max-width:660px;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"font-size:0;">
+                                    <!--[if mso]>
+                                    <table border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" align=3D"center" width=3D"660">
+                                    <tr>
+                                    <td align=3D"left" valign=3D"top" widt=
+h=3D"220">
+                                    <![endif]-->
+                                    <div style=3D"display:inline-block; =
+Margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; w=
+idth:100%;" class=3D"stack-column">
+                                        <table cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0" width=3D"100%">
+                                            <tr>
+                                                <td style=3D"padding: 10px =
+10px;">
+                                                    <table cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" width=3D"100%" style=3D"font-size: 14px=
+; text-align: center;">
+                                                        <tr>
+                                                            <td><a href=3D"=
+http://mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=3D?url=
+=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26aff_id%3D1=
+%26file_id%3D1462%26url_id%3D620&m=3D1128440"><img src=3D"https://media.=
+go2speed.org/brand/files/roiandco/10000/icon1.png" width=3D"80" alt=3D"C=
+onfidencialidad" style=3D"border: 0;width: 180px; max-width: 80px;" cl=
+ass=3D"center-on-narrow"></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style=3D"fo=
+nt-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-h=
+eight: 22px; color: #9B9B9B; padding-top: 10px;" class=3D"stack-column-cen=
+ter">
+                                                                <span styl=
+e=3D"color: #4A4A4A;"><a style=3D"text-decoration:none; color:#4A4A4A" h=
+ref=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=
+=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26a=
+ff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440">ADATOK FELHASZN=
+=C3=81L=C3=81SA</a></span>
+														        <p style=3D"margin: 0;"><a style=3D"text-decoration:n=
+one; color:#9B9B9B" href=3D"http://mailing.youroccasions.eu/proxy/34972314=
+7/FRMeERIVEhAWFw=3D=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Fo=
+ffer_id%3D374%26aff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440">Sz=
+em=C3=A9lyes adatait nem adjuk =C3=A1t harmadik f=C3=A9lnek.
+</a></p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <!--[if mso]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"220">
+                                    <![endif]-->
+                                    <div style=3D"display:inline-block; Mar=
+gin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; widt=
+h:100%;" class=3D"stack-column">
+                                        <table cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" width=3D"100%">
+                                            <tr>
+                                                <td style=3D"padding: 10px =
+10px;">
+													<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" wi=
+dth=3D"100%" style=3D"font-size: 14px; text-align: center;">
+                                                        <tr>
+                                                            <td><a hre=
+f=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=3D?=
+url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26aff_id%=
+3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440"><img src=3D"https://med=
+ia.go2speed.org/brand/files/roiandco/10000/icon2.png" width=3D"80" alt=
+=3D"Confianza" style=3D"border: 0;width: 180px; max-width: 80px;" class=3D=
+"center-on-narrow"></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style=3D"fo=
+nt-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-h=
+eight: 22px; color: #9B9B9B; padding-top: 10px;" class=3D"stack-column-cen=
+ter">
+                                                                <span styl=
+e=3D"color: #4A4A4A;"><a style=3D"text-decoration:none; color:#4A4A4A" h=
+ref=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=
+=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26a=
+ff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440">BIZALOM</a></span>
+															  <p style=3D"margin: 0;"><a style=3D"text-decoration:none=
+; color:#9B9B9B" href=3D"http://mailing.youroccasions.eu/proxy/349723147/F=
+RMeERIVEhAWFw=3D=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffe=
+r_id%3D374%26aff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440">+1.00=
+0.000 REGISZTR=C3=81LT TAGOK</a></p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <!--[if mso]>
+                                    </td>
+                                    <td align=3D"left" valign=3D"top" width=
+=3D"220">
+                                    <![endif]-->
+                                    <div style=3D"display:inline-block; Mar=
+gin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; widt=
+h:100%;" class=3D"stack-column">
+                                        <table cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" width=3D"100%">
+                                            <tr>
+                                                <td style=3D"padding: 10px =
+10px;">
+													<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" wi=
+dth=3D"100%" style=3D"font-size: 14px; text-align: center;">
+                                                        <tr>
+                                                            <td><a hre=
+f=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=3D?=
+url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26aff_id%=
+3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440"><img src=3D"https://med=
+ia.go2speed.org/brand/files/roiandco/10000/icon3.png" width=3D"80" alt=
+=3D"Gratuito" style=3D"border: 0;width: 180px; max-width: 80px;" class=3D"=
+center-on-narrow"></a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style=3D"fo=
+nt-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-h=
+eight: 22px; color: #9B9B9B; padding-top: 10px;" class=3D"stack-column-cen=
+ter">
+                                                                <span styl=
+e=3D"color: #4A4A4A;"><a style=3D"text-decoration:none; color:#4A4A4A" h=
+ref=3D"http://mailing.youroccasions.eu/proxy/349723147/FRMeERIVEhAWFw=3D=
+=3D?url=3Dhttp%3A%2F%2Ftracking.wow.digital%2Faff_c%3Foffer_id%3D374%26a=
+ff_id%3D1%26file_id%3D1462%26url_id%3D620&m=3D1128440">INGYENES =C3=89S NEM=
+ K=C3=96TELEZ=C5=90 JELLEG=C5=B0
+</a></span>
+														        <p style=3D"margin: 0;">Minden ClinLife szolg=C3=A1=
+ltat=C3=A1s ingyenes =C3=A9s nem k=C3=B6telez=C5=91 jelleg=C5=B1.
+.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <!--[if mso]>
+                                    </td>
+
+									</tr>
+									</table>
+									<![endif]-->
+                                </td>
+                            </tr>
+                        </table>
+                        <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                    </td>
+                </tr>
+                <!-- Three Even Columns : END -->
+
+			</table>
+            <!-- Email Body : END -->
+
+
+
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </div>
+    </center>
+</td></tr></table>
+<img src=3D"http://trust.roiandco.com/aff_i?offer_id=3D17809&aff_id=3D16=
+99&url_id=3D35316&file_id=3D96661" width=3D"1" height=3D"1" /><img src=3D"=
+http://tracking.wow.digital/aff_i?offer_id=3D374&aff_id=3D1&file_id=3D1462=
+" width=3D"1" height=3D"1" /></body>
+</html>
+</html><center><span style=3D"font-size: xx-small;">K=C3=BCld=C3=B6=
+tt =C3=BCzenet via Ads Pro Company LTD, 776-778 Barking Road, London, Uni=
+ted Kingdom, E13 9PJ.</span><br /><span style=3D"font-size: xx-small;"> <a=
+ href=3D"http://mailing.youroccasions.eu/m4b/mail/unsubscribe?hash=3DFRM=
+eERIVEhAWFw=3D=3D&code=3DcHd%2FdllwbXo3cWxlLykhLQ%3D%3D"> =C3=9Czenetek</a>=
+ fogad=C3=A1s=C3=A1nak le=C3=A1ll=C3=ADt=C3=A1sa.</a><br>Complaints:<a hr=
+ef=3D"mailto:office@apcompany.ltd">email</a></span></center>
+<img src=3D'http://mailing.youroccasions.eu/m4b/m4b_mail/open/FRMeERIVEhAWF=
+w=3D=3D.gif' width=3D'1' height=3D'1' alt=3D''><img src=3D"https://pixel=
+.onaudience.com/?partner=3D149&amp;mapped=3D283fa0fde244390f9a6a312989c3=
+d927&redirect=3Dpixel.onaudience.com%2F%3Fevent%3D98005231" width=3D"0" =
+height=3D"0" alt=3D"">
+
+--_=_swift_v4_1576047055_057e716ff5b566c58ffc192bf9643207_=_--
+

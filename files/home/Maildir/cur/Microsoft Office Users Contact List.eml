@@ -1,0 +1,252 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 91D18224774
+	for <hallgato@itseclabs.local>; Tue, 14 Jan 2020 18:53:32 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=netorg5401865.onmicrosoft.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id PwbkJmuSJm_8 for <hallgato@itseclabs.local>;
+	Tue, 14 Jan 2020 18:53:30 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id DB1FC224678
+	for <hallgato@itseclabs.local>; Tue, 14 Jan 2020 18:53:30 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id BCD902A024E; Tue, 14 Jan 2020 19:53:30 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=NETORG5401865.onmicrosoft.com header.i=@NETORG5401865.onmicrosoft.com header.b="kzyiunHh";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 6D7922A0596;
+	Tue, 14 Jan 2020 19:53:30 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=netorg5401865.onmicrosoft.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id lug4b9VyMCAz; Tue, 14 Jan 2020 19:53:27 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 5F2412A03FE;
+	Tue, 14 Jan 2020 19:53:26 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=datavitality.tech
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=donna.colburn@datavitality.tech
+Received: by duflex.itseclabs.local (Postfix)
+	id 2EB6020092; Tue, 14 Jan 2020 19:53:26 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id EAB2820095
+	for <info@itseclabs.local>; Tue, 14 Jan 2020 19:53:25 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id s4X9S50GeXe3 for <info@itseclabs.local>;
+	Tue, 14 Jan 2020 19:53:21 +0100 (CET)
+Received: from IND01-BO1-obe.outbound.protection.outlook.com (mail-eopbgr1390040.outbound.protection.outlook.com [40.107.139.40])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 69B3B20092
+	for <info@itseclabs.local>; Tue, 14 Jan 2020 19:52:56 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=NETORG5401865.onmicrosoft.com header.i=@NETORG5401865.onmicrosoft.com header.b="kzyiunHh";
+	dkim-atps=neutral
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CjcfVDf6Pq8HH5RM7Qd+NA6+jIQRHkZAiPoY3XRE9ORPOLJ+ZfT5P8pQsbSwqvkgag4IOx47pvkUtkaepp5MUHC9URrgo8Rxr4gRoi3K82AjIg9ykLD/pPkAmIPMQXaWMIay2cN0bCeebtrO3Q3ANxbAz41ZiGn8uNl7TGt886K3CdPLqrj4kla2gFx9q8XeGezchNt3mhKV+hbaiFHnf6cKVQ4rebCD4zWXQRs3QcOvWO7bYklqzpAIAizj1+1Cdw9ertJhOLTh3WESGl9u45Rtag0HcfUlZf7/4dnEw5lPDhsT+IFniehVEPYud1V0FyurjKbiaWLst7mzSKKO7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8xbSzC/xUUkv+m31j5s8caJo7vuOfmpPSELTiW99cMU=;
+ b=LQu/LGMjfK2m3Ia77zh5Rrhxi99RVvyp/PT6KjV4/ch5s3nkpaWaflFyAJ8A19wZjGM9p7z+wI21VOLcAhI8rE+PhigwKVXcHcHMe97xV2pH1aaacU5GV6rtt0BDzxxecU3PZsO57byupDl4D+T9H5J6MCxSizvd/rGtokh+xMk2/eRpbUyCy1CxCbq82DmOJHWF6aJ/EIsXGECmebhV9Y9gedpEHpbfEBa8oaoONAPBZPVy6y5ohBJkhMNkoo6vwos27G4Y7ew4YHGO5eKQ3qiZmXqVvqkPAg1rVPpUfZUz4W+fr57gFNcIZStHP4JyLErBrqhKp/FAfG3yXuWK4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=datavitality.tech; dmarc=pass action=none
+ header.from=datavitality.tech; dkim=pass header.d=datavitality.tech; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=NETORG5401865.onmicrosoft.com; s=selector1-NETORG5401865-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8xbSzC/xUUkv+m31j5s8caJo7vuOfmpPSELTiW99cMU=;
+ b=kzyiunHhgIgWWaBEpCpgJCJQErlYScCFQgNdKHMKTWw8YVYZWG/3lblQ315SiJKeQnww81h/Kz/4FmyutE80yVUYuPvvC0KIAYwQYxFjK5JSV/nx8W/zdJ6Tsddc5LDaOp3yvAWjBIbHqluZ2WxvqlntC3OcJU2xiGEyKQ5XJXE=
+Received: from MAXPR01MB3248.INDPRD01.PROD.OUTLOOK.COM (52.134.157.80) by
+ MAXPR01MB3871.INDPRD01.PROD.OUTLOOK.COM (52.134.158.211) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2623.8; Tue, 14 Jan 2020 18:52:51 +0000
+Received: from MAXPR01MB3248.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::78e2:a681:afd2:6ef]) by MAXPR01MB3248.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::78e2:a681:afd2:6ef%7]) with mapi id 15.20.2623.017; Tue, 14 Jan 2020
+ 18:52:51 +0000
+From: Donna Colburn <donna.colburn@datavitality.tech>
+Subject: Microsoft Office Users Contact List 
+Thread-Topic: Microsoft Office Users Contact List 
+Thread-Index: AdXLC0nRh/Q+aqthTzmAGUA9RyR6mg==
+Disposition-Notification-To: Donna Colburn <donna.colburn@datavitality.tech>
+Return-Receipt-To: <donna.colburn@datavitality.tech>
+Date: Tue, 14 Jan 2020 18:52:49 +0000
+Message-ID:
+ <MAXPR01MB324833892FAB6B272C22841BF3340@MAXPR01MB3248.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=donna.colburn@datavitality.tech; 
+x-originating-ip: [183.82.18.215]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 8f9085ff-df57-4d83-6da0-08d79922f4bd
+x-ms-traffictypediagnostic: MAXPR01MB3871:
+x-microsoft-antispam-prvs:
+ <MAXPR01MB3871FAE1B1668AFF5986C415F3340@MAXPR01MB3871.INDPRD01.PROD.OUTLOOK.COM>
+x-ms-oob-tlc-oobclassifiers: OLM:7219;
+x-forefront-prvs: 028256169F
+x-forefront-antispam-report:
+ SFV:NSPM;SFS:(10009020)(39840400004)(366004)(396003)(346002)(136003)(376002)(47530400004)(189003)(199004)(186003)(7366002)(4743002)(4744005)(5660300002)(65686005)(7416002)(52230400001)(7406005)(7336002)(26005)(316002)(44832011)(9686003)(2906002)(55016002)(7276002)(9326002)(508600001)(6506007)(88732003)(89122003)(8676002)(76576003)(45080400002)(109986005)(81166006)(81156014)(66946007)(76116006)(33656002)(66556008)(86362001)(66446008)(64756008)(52536014)(66476007)(71200400001)(8936002)(7696005)(26710200004);DIR:OUT;SFP:1101;SCL:1;SRVR:MAXPR01MB3871;H:MAXPR01MB3248.INDPRD01.PROD.OUTLOOK.COM;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;MX:1;A:1;
+received-spf: None (protection.outlook.com: datavitality.tech does not
+ designate permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ e49KhLqxI0Q5MTwNXyHEFK+POrZe7V/hz3DCIdrW/dCpQqx/+6zf2fEuu5OtlT0ycT8DUjAcrz0rB0q9wNSmrk5jc1A7FHOiSqNqoRU9r+CltwHHWeMi4Kc5ZUO97Ygg6c/2emHQCsVlCsbIJI7WPY1O7btWHBbbQKIx1Q4Z1KX1GcNrTllNpK33vWli7426r0+/42CGJ7Mnf8KGZUuhg9sQFOamB5j+2VIgTM8gK9HCkU8M9UN5A0zu9R+O0qDT8CuP6dE9aDuIQlY0oAJQZ2UJ8yoj8MjtsTiQ9Xp/4KQXO6UVtTpO/KHLmTvb9woDsQDrHsYbIC5Dyqr+P6HktJ39QCTRz7KgRToxJZRQNO/SsYj8pIsZfNlNNL5jmlXe/gYzimGRPTTkS4TQhvrVKqxa+kyCeATy5B/ccj93bce7WzAzNem/3AW8PcX1Vi7MdQoBbwYJBwXWZFUi7ZWkrjNJUBs9fuSkmEabpaxyWQS637x4z2Zos0uWtgTqecUq
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_MAXPR01MB324833892FAB6B272C22841BF3340MAXPR01MB3248INDP_"
+MIME-Version: 1.0
+X-OriginatorOrg: datavitality.tech
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f9085ff-df57-4d83-6da0-08d79922f4bd
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jan 2020 18:52:49.3876
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 5f661b1b-09e8-4910-8c7c-283740a4e0e5
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: apuaOLzGk2OIhs7ojGq8e8iqrA1jd0fz3VtGQ07QCgzQQk6h/IoQFpjzi5B1ufYx/dEPfgHhEeKUh9k8mOfxpyzJ2qc4fElj2CSuOAFLmcc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAXPR01MB3871
+
+--_000_MAXPR01MB324833892FAB6B272C22841BF3340MAXPR01MB3248INDP_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hi,
+A Quick Follow up to you that if you are interested in Microsoft Office Use=
+rs Contact List which can help you to grow up your business campaigns?
+We do have: FreeOffice, LibreOffice, WPS Office, Calligra , OfficeSuite , P=
+olaris Office, OnlyOffice and many more.
+
+We can also provide you the key decision makers, MSPs, MSSPs, CSP, VARs and=
+ SI.s
+Data Fields - Name, Title, Email, Company Name, and Company Details like, P=
+hysical Address, Web Address, Revenue Size, Employee Size and industry.
+Please let me know if this is something of interest to you?
+Thanks,
+Donna Colburn
+Marketing Manager
+If you wish not to receive marketing emails please response "Opt Out"
+
+
+--_000_MAXPR01MB324833892FAB6B272C22841BF3340MAXPR01MB3248INDP_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:#954F72;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri","sans-serif";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;col=
+or:#002060">Hi,
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;col=
+or:#002060">A Quick Follow up to you that if you are interested in
+<b>Microsoft Office</b></span><b><span style=3D"font-size:12.0pt;line-heigh=
+t:105%;color:#002060;mso-fareast-language:EN-IN">
+</span></b><b><span style=3D"font-size:12.0pt;line-height:105%;color:#00206=
+0">Users Contact List</span></b><span style=3D"font-size:12.0pt;line-height=
+:105%;color:#002060"> which can help you to grow up your business campaigns=
+?<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:0in;margin-bottom:.0001pt;lin=
+e-height:normal">
+<b><span style=3D"font-size:12.0pt;color:#002060">We do have</span></b><spa=
+n style=3D"font-size:12.0pt;color:#002060">: FreeOffice, LibreOffice, WPS O=
+ffice, Calligra , OfficeSuite , Polaris Office, OnlyOffice and many more.</=
+span><span style=3D"font-size:11.5pt;font-family:&quot;Arial&quot;,&quot;sa=
+ns-serif&quot;;color:#515159"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt:0in;margin-right:0in;mar=
+gin-bottom:0in;margin-left:.5in;margin-bottom:.0001pt;line-height:normal">
+<span style=3D"font-size:11.5pt;font-family:&quot;Arial&quot;,&quot;sans-se=
+rif&quot;;color:#515159"><o:p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;col=
+or:#002060">We can also provide you the key decision makers, MSPs, MSSPs, C=
+SP, VARs and SI.s<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;col=
+or:#002060">Data Fields &#8211; Name, Title, Email, Company Name, and Compa=
+ny Details like, Physical Address, Web Address, Revenue Size, Employee Size=
+ and industry.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;col=
+or:#002060">Please let me know if this is something of interest to you?
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:0in;margin-bottom:.0001pt"><b=
+><span style=3D"font-size:12.0pt;line-height:105%;color:#002060">Thanks,<o:=
+p></o:p></span></b></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:0in;margin-bottom:.0001pt"><b=
+><span style=3D"font-size:12.0pt;line-height:105%;color:#002060">Donna Colb=
+urn<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:12.0pt;line-height:105%;=
+color:#002060">Marketing Manager<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12.0pt;line-height:105%;col=
+or:#8EAADB">If you wish not to receive marketing emails please response &#8=
+220;Opt Out&#8221;</span><span style=3D"font-size:12.0pt;line-height:105%">
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_MAXPR01MB324833892FAB6B272C22841BF3340MAXPR01MB3248INDP_--

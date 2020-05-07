@@ -1,0 +1,79 @@
+Return-Path: <ceuropa@oficina.unam.mx>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 24B3821CDAD
+	for <erno@itseclabs.local>; Mon, 23 Mar 2020 11:11:29 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id AmzxaH00Rwuo for <erno@itseclabs.local>;
+	Mon, 23 Mar 2020 11:11:28 +0000 (UTC)
+Received: from oficina.unam.mx (oficina.unam.mx [132.248.58.4])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 04CD121CDAC
+	for <erno@itseclabs.local>; Mon, 23 Mar 2020 11:11:27 +0000 (UTC)
+Received: from localhost (localhost [127.0.0.1])
+	by oficina.unam.mx (Postfix) with ESMTP id 71F633AA6F0C;
+	Mon, 23 Mar 2020 05:10:49 -0600 (CST)
+Received: from oficina.unam.mx ([127.0.0.1])
+	by localhost (oficina.unam.mx [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id WzTT4WX2GbRt; Mon, 23 Mar 2020 05:10:48 -0600 (CST)
+Received: from localhost (localhost [127.0.0.1])
+	by oficina.unam.mx (Postfix) with ESMTP id B4D823AA6F1B;
+	Mon, 23 Mar 2020 05:10:48 -0600 (CST)
+DKIM-Filter: OpenDKIM Filter v2.10.3 oficina.unam.mx B4D823AA6F1B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oficina.unam.mx;
+	s=96FC4F98-8307-11E9-91A2-00ADDC451B04; t=1584961848;
+	bh=ztsiCmryt3YTpHBD0HkLFGuXDsKCCh2K2WR1GTx217g=;
+	h=MIME-Version:To:From:Date:Message-Id;
+	b=gj1ufaYKLLio0sonAlcIVqiHn2nNd9hQ212jz9PR4XAXsaOkJbkwUfxBAm8A1gNV8
+	 o2l9gtVqNyJcW2+zrXjdOCFjmwxmNCk9xX4LLr+A+7mB9thYjjXh8RGZe9KQxHZRjk
+	 0drTqH4VU3LDLj6INx9YVZvvYfngybo1dZ3J5Oda1VEvGwaAhGQBYdHosJ3THUi6nE
+	 fNbPXALEUIEXVT+RGadnyd1V2XAGvgwo+Y5aTFBaKrH0E7Uj0iwCNt5MGfaA/3RhWB
+	 h7EmFXH0rsrbjgy6L9QaPjv2nVfsehSKMvUjkCJZV9cD7uyqw2pWsoOsgBdTjpCG2c
+	 jyvr11vyhE8hA==
+X-Virus-Scanned: amavisd-new at oficina.unam.mx
+Received: from oficina.unam.mx ([127.0.0.1])
+	by localhost (oficina.unam.mx [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id jsUhLUdgxISg; Mon, 23 Mar 2020 05:10:48 -0600 (CST)
+Received: from [192.168.43.104] (unknown [41.190.3.26])
+	by oficina.unam.mx (Postfix) with ESMTPSA id C20893AA6DF0;
+	Mon, 23 Mar 2020 05:10:39 -0600 (CST)
+Content-Type: multipart/alternative; boundary="===============0827866473=="
+MIME-Version: 1.0
+Subject: Hello
+To: Recipients <ceuropa@oficina.unam.mx>
+From: "Burke Wiebe Jurgen" <ceuropa@oficina.unam.mx>
+Date: Mon, 23 Mar 2020 12:10:28 +0100
+Reply-To: burkewiebe09@gmail.com
+Message-Id: <20200323111039.C20893AA6DF0@oficina.unam.mx>
+
+You will not see this in a MIME-aware mail reader.
+--===============0827866473==
+Content-Type: text/plain; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+Good day, I have a project and I want to seek your partnership and assistan=
+ce.
+If you would like to give me the opportunity, I will like you to respond ba=
+ck for more briefing.
+This is very urgent and important.
+
+Sincerely yours,
+
+Burke Wiebe
+
+--===============0827866473==
+Content-Type: text/html; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+
+<HTML><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Diso-8859-1"/></head><BODY><P>Good day, I have a project and I want to se=
+ek your partnership and assistance.<BR>If you would like to give me the opp=
+ortunity, I will like you to respond back for more briefing.<BR>This is ver=
+y urgent and important.<BR><BR>Sincerely yours,<BR><BR>Burke Wiebe</P></BOD=
+Y></HTML>
+--===============0827866473==--

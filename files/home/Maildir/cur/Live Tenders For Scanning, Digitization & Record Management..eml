@@ -1,0 +1,589 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 226DE22E0E2
+	for <hallgato@itseclabs.local>; Tue,  7 Apr 2020 13:14:55 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id RSpzGUKzEgyY for <hallgato@itseclabs.local>;
+	Tue,  7 Apr 2020 13:14:54 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 8B7D122E35B
+	for <hallgato@itseclabs.local>; Tue,  7 Apr 2020 13:14:53 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 8FFCC2A0181; Tue,  7 Apr 2020 15:14:53 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="AR2ZtwRX";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 2A4C42A0234;
+	Tue,  7 Apr 2020 15:14:53 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 7Ydx2ryZ20yE; Tue,  7 Apr 2020 15:14:50 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 67FE82A0181;
+	Tue,  7 Apr 2020 15:14:50 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=globaltender11@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 3BBD420096; Tue,  7 Apr 2020 15:14:50 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 3169E20095
+	for <info@itseclabs.local>; Tue,  7 Apr 2020 15:14:50 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 8HTRWSNUUZ56 for <info@itseclabs.local>;
+	Tue,  7 Apr 2020 15:14:49 +0200 (CEST)
+Received: from mail-ed1-f68.google.com (mail-ed1-f68.google.com [209.85.208.68])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 51D302008F
+	for <info@itseclabs.local>; Tue,  7 Apr 2020 15:14:46 +0200 (CEST)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="AR2ZtwRX";
+	dkim-atps=neutral
+Received: by mail-ed1-f68.google.com with SMTP id cf14so3924720edb.13
+        for <info@itseclabs.local>; Tue, 07 Apr 2020 06:14:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to:cc;
+        bh=Mp4ygLg77u/91MLmxi2Qj7G8WvodVtbQH+i2P7eBOVY=;
+        b=AR2ZtwRXXJxGs0+9YOW6PWFI1JHbwUPpdCuMmOB05c3uCnB07DXt1hLaafB4cTbkWa
+         owMUTYRI4jgZMYbSPHUA5l7B91gMSgV4ZcLMmLmLBC0YuUq5n7orSJ5CLExdob2FeRRJ
+         9ug5SuCB17JP7K2zb8rG+AsHgjTr5441IgYvvCDUVJX54XMJesGcXRfArhHxILT8dMvB
+         XMQgM19lna2OYk8QNyKtbQhdmFAiizIlQPQe8EF9i069Gkt2cheYG8L5MKZxjt36Hf9O
+         hblxnUPpEP23eFFBmmZ+NOrra75DjFWcSaYn1mehuhdCra3ZAl8NQGg40p+suWVaKAXg
+         h0cg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+        bh=Mp4ygLg77u/91MLmxi2Qj7G8WvodVtbQH+i2P7eBOVY=;
+        b=oEqe8aZFN96DlUL66wHWFIUMm5aNgpAqS3bYqFliOaONZOMic5K8WHDC6rTe3Jfed9
+         2EqouCed6CJd2UKpR30DkVFRSrBu22ELnEH0gRDuM1mNk6VfQGB0YaJWYl2WxkdMnVrt
+         jbu6zFMXjthXY3GjXrnrZrhvc/Cy8PPOtchCt0A5Be+lGNhTy+UPYxyKe2b6f6KuEL7R
+         GVCguC9ceggeXjldEbGiyZjdPKQFIONJbiBh/uMSkwXFCPj0Xp7SI7aa8V3gCRszo38Y
+         RgykX6oP+6mykGXKCQ5Pw1HRRzy8B/8JfRky1+64fHpMlvV7GqKA2OIoBayGC8ihBQ6E
+         1b8g==
+X-Gm-Message-State: AGi0PubX9CDcJ8Azib3Fzird4LijB9dy54Uiy2uJZyEWdpcCDRXyIxpg
+	aZ7XKRKp8Wal9Y4gH4D/GaW6z+DZtS44ajjrujk=
+X-Google-Smtp-Source: APiQypJSYKP9N/4Zd/fdltgsuB6yytOhjdfDenHpVwhdH4X4z7UChyhuO92IuYvZOTjnrRQKspWkffuO5QgH5GMQQUg=
+X-Received: by 2002:a17:906:3502:: with SMTP id r2mr1926087eja.67.1586265285181;
+ Tue, 07 Apr 2020 06:14:45 -0700 (PDT)
+MIME-Version: 1.0
+From: Public Procurement <globaltender11@gmail.com>
+Date: Tue, 7 Apr 2020 18:44:31 +0530
+Message-ID: <CABk4UPMzx8LgpeL4xOsRpGjquRcVMYm5jdaQ_00w3Xd6vjOa9Q@mail.gmail.com>
+Subject: Live Tenders For Scanning, Digitization & Record Management.
+To: Public Procurement <globaltender11@gmail.com>
+Cc: karen.worthy@dtiglobal.com, sam@sinettechnologies.com, info@cronon.net, 
+	jamal.atanahly@sword-group.com, Nicolas.Granet@soprasteria.com, 
+	joseph@esapartner.co.za, ravi.patel@suninfosystem.net, 
+	micrographicsindia@gmail.com, justus.mwangi@intellinksea.com, 
+	chris@dataworxsoftware.co.za, Alade@cubesystemsltd.com, 
+	info@webbetasolutions.com, megan.lourens@ewx.co.za, 
+	sebastien.fages@eurogiciel.fr, info@prodrom.com, bhuttak@eitskw.com, 
+	sumit192@gmail.com, sknight@thapovan-inc.com, p.lahner@kothes.de, 
+	nick.hull@phoenixbs.com, mary@techedge.co.ke, office@matic.com.pl, 
+	sohail.kidwai@ricoh-international.com, krishna@gmail.com, 
+	brijparmar1985@gmail.com, noah@invent.co.ke, contact@bluewings.ae, 
+	atranscriptions@hotmail.com, marketing@softageadept.com, andre@elrons.co.ke, 
+	iborov@cantek.bg, salindathu@gmail.com, kotona.zita@ulyssys.hu, 
+	enquiry@redstack.com.vn, enquiry@redstack.com.tw, enquiry@redstack.jp, 
+	enquiry@redstack.com.my, ronnie.ssempala@efficiencie.com, 
+	mistu.mandal@somnetics.in, info@targettext.dk, prasath@techswipe.com, 
+	info@remotesoftwaresolutions.com, info@hometrica.ch, info@totaildatainfo.com, 
+	anil@acyuta-tech.com, Magdi Fadel <info@mhdsolutions.com>, info@bizplanme.com, 
+	sidhu@betasoftsystems.com, si_apichart@kmit-group.com, 
+	atakan.eser@erkyazilim.com.tr, g.vastardis@adecsolutions-usa.com, 
+	tung.nguyen@synectics.vn, info@heckerbella.com, info@tarancomprint.com, 
+	innocentmhura@mhurele.co.za, info@kamdarconsultants.com, 
+	innotechlaser@yahoo.com, info@ccubesolutions.com, sales@oqualia.com, 
+	Alexey Kim <alexey.kim@spellabs.com>, sales@intelledox.com, sales@tps-asia.com, 
+	jhu@goalgroup.com, cmorton@goalgroup.com, acosti@goalgroup.com, 
+	info@goalgroup.com, ykristiadi@trinetprimasolusi.net, info@e4.co.za, 
+	info@attosystems.co.ke, sarra@zetasoftware.com, farook@3s-sys.com, 
+	venktesh.bhinge@gmail.com, manoj@redoxtechnologies.com, assembly@assembly.it, 
+	info@iguana-idm.com, info@cwconsulting.be, albertas.sermokas@asseco.lt, 
+	contact@revevol.eu, khanshamrej@gmail.com, enquiry@itsupportmalaysia.com, 
+	info@metrofile-ksa.com, info@itconsult-kenya.net, RK@reynex.net, 
+	sales@bluebox-tech.com, shekarreddy@aiswebnet.com, 
+	sales@contentratechnologies.com, SaudiArabia@euro-technologies.it, 
+	office@commquest.at, vsolomon@smwhk.com, steven@ipdynamics.co.za, 
+	ebid@southbridgemedia.co.uk, jp_psl@pslindia.com, monier@iwassa.com, 
+	telecom@advancebusiness.net, info.iraq@fllogistics.com, 
+	vikramjeet.dhillon@mpgbis.com, info@docsolutions.net, 
+	dennis@ravenhardware.co.za, vaishal@paperless.co.za, emea@crownww.com, 
+	azad@globalbdltd.com, motse.tsogang@doccmott.co.za, info@spanasiaco.com, 
+	shrikant.p@awpl.co, Beadan Chege <bedanche@gmail.com>, d.samaresh@ssminfomedia.com, 
+	udaykska@gmail.com, mahmoud@landcom.ae, info@hm-software.de, 
+	geetanjali@petroindia.net, joshua.verecom@gmail.com, zeljka@abba.hr, 
+	vocentrum@gmail.com, jw@netcompany.com, vardhamanshubham@gmail.com, 
+	info@cyclo.co.tz, info@coronabusinessolutions.com, 
+	alessandro.gasperoni@sae-pl.com, sumeet@gtscorporate.ae, 
+	jens.reindl@sacura-cro.com, info@numerix-sarl.com, info@e-nyra.com, 
+	info@avilaconsult.com, sales@mfphotocopier.com.my, codie@lesuro.com, 
+	chittibabu@cybermateinfotek.com, Emad Omar <emadomar@klenka.com>, igen@igenco.com, 
+	hakeem@delway.net, gilyar@mail.ru, aelam@gtr.com.my, akerubo@coretec.co.ke, 
+	info@archyvusistemos.lt, info@inbase.com.ua, stepan.alexa@gmail.com, 
+	telbagoury@provisiontechnology.com, contact@dailitech.com, 
+	office@sattelbusiness.com, info@bestway.com.mk, zidan@imprinttech.com, 
+	khalid.yahia@boss.co.tz, info@star-storage.ro, info@bahraindigital.net, 
+	info@fulcrumweb.com, sales@amagno.de, mhajjar@digicomsystems.com, 
+	info@glitesghana.com, sarah@adv-fusionex.com, sales@tryamm.ro, 
+	uejiogu@maximisetechnology.com, deepak@greentechconsulting.com, 
+	info@sdv.com.sa, info@tarseam.com.sa, sales@gloryiconlimited.com, 
+	info@simbatechnology.co.tz, edson@361ict.co.za, info@infintrixglobal.com, 
+	jagmohan.sahu@infintrixglobal.com, info@net-soft.co.tz, asim@infotouchme.com, 
+	hotline@iqusion.com, info@elegant-it.com, kassim@kkbc.com.sa, 
+	support@dlcorp.com.vn, info@hexacore.my, steve.affleck@changingworkplace.com, 
+	info@achevx.com, info@mcadventura.com, info@dm-tech.se, sales@vangent.co.uk, 
+	chovanec@ecmsystem.cz, sales@gfc-me.com, nazariy.korobko@mki.ua, 
+	sales.de@dicom.com, lithiumtechnologies@yahoo.com, info@dgkom.com.my, 
+	felix.thomas@abacusits.com, info@netroysystemsolutions.com, 
+	warren.jones@tarantula.net, info@sottapartners.co.tz, office@wittee.sk, 
+	axis@axis-company.nl, timc@isys.com.mt, info@avantech.com.mt, 
+	olivettisp@olivetti.com, info@sds.com.eg, liz.hope@recall.com, 
+	info@polyptychon.gr, indrajeet@unityit.in, info@axone.be, info@cardinal.hu, 
+	info@thinkflows.com, vbhatnagar2811@gmail.com, lionel.hitier@it-present.com, 
+	vikas.verma@it-present.com, sales@quadira.nl, mythiliv@aeldata.com, 
+	vijuphilip@hotmail.com, theoellis@antiochsolutions.co.uk, info@geebox.com, 
+	info@ser-solutions.com, rcahill@cscinfo.com, john.meyer@cscglobal.com, 
+	sales@kardex.com, info@servtouch.com, info@prodata.sg, 
+	sinsales@pericomimaging.com, philipp.hamann@therefore.net, salesnl@cintas.com, 
+	rahul@bsm.us.com, kkargi@dijipark.com, sharat.shenoy@sobis.com, 
+	sales@asentex.com, info@pro-line.com.tr, malu@ea-strategy.com, 
+	nenad.orban@mikrocop.com, d.lazos@olisoft.com, sales@dalim.com, 
+	info@ultrahint.co.za, Ashwin Nainar <ashwin.nainar@gmail.com>, helpdesk@groupmfi.com, 
+	info@telio.be, k.mohanan@groupmfi.com, nilin.mfisudan@hotmail.com, 
+	fr@microfilmegypt.com, hans.bachner@bachner.de, info@yerbabuena.es, 
+	agnieszka.malesinska@primesoft.pl, info@ceri.pl, boxit@boxit.com.pl, 
+	folayan.oyedeji@pyrichglobal.com, info@aquantima.com, info@libramation.com, 
+	info@dracon-international.com, bdm@interlacemena.com, 
+	m.hafizullah@moonnetworks.net, asif.hussain@tagglobalservices.com, 
+	tsipiniuk@pronet.ua, sijil@sifatit.com, enquiries@xenetix.com.sg, 
+	info@intranote.com, sales@imtf.com, info@afrosoft.co.ke, 
+	info@rotterdamdocumentsolutions.nl, office@econsulting.md, 
+	contactus@informationmapping.com, info@greylogix.de, Kleow@civica.com.sg, 
+	m-hamada@ascon-me.com, m-mostafa@ascon-me.com, 
+	Farouk Alogba <faroukzy@gmail.com>, patricbr@iafrica.com, Dio Lam <dio@astasys.com>, 
+	enquiry@datamailhk.com, cynthia@mesogroup.co.za, info@eds-egypt.com, 
+	info@edmond.nl, info@payxintl.com, info@candrgroup.co.ke, info@paperiton.com, 
+	info@salesmanager.nl, dirk@etechnologies.co.za, andre@muncomp.co.za, 
+	info@logicaldoc.com, sawantsagar2288@gmail.com, sales@tinext.com, 
+	info@smartsolutions-lb.com, info@elodigital.com.au, info@pohn.ch, 
+	heinz.fischer@vetasi.com, Abhishek Tiwari <abhi@abhitech.com>, info@itseclabs.local, 
+	basheer@eis.com.eg, contact@sollers.pl, mustafa.salameh@experts.ps, 
+	sales@ebestuae.ae, gg@oberon.it, international@abletech.it, info@prontecs.com, 
+	office@atypiq.ro, boris.vuga@3-port.si, suzoama@circumtechnologies.com, 
+	johnsonsiddique@gmail.com, yongseng.goh@maventree.com, 
+	devendra.swarnkar@onicra.com, ttucker@datagroup.ca, info@brainloop.com, 
+	info@sitewell.cz, info@informationmapping.com, 
+	fujita-katsutoshi@thermal-eng.co.jp, contact@instinctools.com, 
+	myezax@yahoo.com, office@pis.rs, info@dolphinsdesign.ch, info@arcplace.ch, 
+	aburr@infeurope.lu, info@techlineinc.com, faramawy@computhink.com.kw, 
+	info@tokendevelopment.co.za, alon@egis-software.com, etiennek@docufile.co.za, 
+	richard.entecott@dol.co.uk, imran@contitech-bh.com, 
+	Jacob Lazarus <jacob@conti-tech.com>, hafeez@saveinfotech.com, info@armanpaya.com, 
+	commercesps@swisspost.com, collins@signalalliance.com, 
+	marvin.valdez@firstcarbonsolutions.com, ntilila@smsize.com, 
+	oarinze@dtechlimited.com, info@matriks.com, info@bmbgroup.com, 
+	shabchi@netways.com, mustafa@edaran.com, info@thinkopensolutions.pt, 
+	info@dtit.biz, office@ironmountain.rs, srin@mglorysb.com, kahamer@ricoh.at, 
+	sales@daleelintl.com, henry.victor@delonti.com, rizwan.shariff@delonti.com, 
+	mohammed.azmathullah@delonti.com, info@infopark.com, 
+	info@improvision-consulting.com, info@scan4u.co.za, info@inovaitsys.com, 
+	gundarapu.rajaguru@stplglobal.com, info@zeusnetworks.com, carrsten@thessen.eu, 
+	shoukat_k@yahoo.com, Daniel Teklu <daniel.tek@gmail.com>, enquiry@ufida.com.hk, 
+	info@spritecs.com, kunle.oderinu@cbcemea.com, lauren.abbott@riscpl.com, 
+	information@ukcta.org.uk, info@confidentialdocs.com.au, 
+	customerservice.qld@ironmtn.com.au, enquiry@wincantonrm.co.uk, 
+	marketing@boxit.co.uk, matar@justvas.com, mail@pscsb.com.my, 
+	aurorawireless@info.org, info@decos.com, info@necam.com, jiva@gmail.com, 
+	info@i-docs.com, kamran.rafi@d-p-s.com, info@cylon.co.za, 
+	salman_gill@elixir.com, vivek@encoresolutions.in, rajapillai@omnex.com, 
+	kishor.palande@netlabindia.com, info@webmasterskenya.com, 
+	lizab@panasonicpta.co.za, ceo2015@dongbucni.com, 
+	dean.price@prosyscomputing.co.uk, Faheem Ahmad <faheem@softageindia.com>, 
+	ionut.cioc@softhouse.ro, searle@itiq-solutions.com, 
+	wael.gamal@catalyst-us.com, carmelr@cleversolutions.eu, 
+	lateef.akanbi@busicongroup.com, blackthorndesign@eircom.net, 
+	kevin@bookbuilders.com.hk, naveen@oectech.com, steve.davis@kodak.com, 
+	john.r.johnson@baesystems.com, omoyemi.o@milng.com, tundeb@resourcery.com, 
+	vinay@sumukha.in, amolg@modular-infotech.com, fakintoye@progenicscorp.com, 
+	vojtech.dohanyos@stringdata.cz, nadia.landman@sisglobal.com, bilal@wak.ae, 
+	bdm@buthour.com, lucas.ngowi@coseke.com, info@rcmt.com, rkellner@actuate.com, 
+	myassine@innosysintel.com, sales@active.com.hk, mahyar@mindfieldsolutions.net, 
+	Darko.Misov@comland.si, ddemirkaya@sigma.net.tr, arul.das@ipoint-me.com, 
+	somar@alnafitha.com, varada@sensaasindia.com, loneh@tdw.co.za, 
+	magnus.bruhn@formpipe.com, info.qatar@ever-team.com, info.ksa@ever-team.com, 
+	sales@ever-team.com, info@ever-team.es, imtheyaz@starlinkme.com, 
+	suhad.abudiake@elixir-soft.com, Imrul Chowdhury <imrul.c@rfsoftlab.com>, 
+	alhaimi@haimigroup.com, alexander.vlasov@t-systems.ru, sales@finsoft.it, 
+	als@danoffice.com, sipho@asicabange.co.za, kaido.kivilo@datel.ee, 
+	abramyan@corepartners.ru, robyn@vmcs.co.za, gints.dzelme@remote3.com, 
+	elena.josifoska@innovation.com.mk, rk@letsore.co.za, chathura@bpos.info, 
+	asif.quraishi@gillanime.com, gunen@teb.com.my, rstiles@api-corp.com, 
+	roland.obe@proactivetechng.com, olesya.gonchar@finnetlimited.com, 
+	pondimu@jpholdings.org, foyinp@infographicsnigeria.com, 
+	ramachandran.r@metricstream.com, sarah.israel@metricstream.com, 
+	De Klerk Knoetze <deklerk@farmworks.co.za>, info@aptom.com, sales@equiniti.com, 
+	Judith.carelsen@epiuse.com.au, fadi.elayyan@stme.com, 
+	whenny.yoe@ironmountain.com, mohdfazlan@apexpoint.com.my, 
+	s.dimeo@puntoqualita.eu, ekaddah@sana-tech.com, mkholief@ikdynamics.com, 
+	chris.childres@support.bg, habigaba@comtelafrica.com, info@ebox-solutions.com, 
+	issam@alameh.com, mchiang@elionetwork.com, info@chareesetechnologies.com, 
+	ravikant.k@wepindia.com, marieta@ceit.cc, bharath@etisbew.com, 
+	contactuk@htcinc.com, rania.reda@ots-it.com, sosterholm@crownworldwide.com, 
+	haris@argusqatar.com, robie@ticmanila.com, info@perceptivesoftware.com, 
+	nadia.suhaili@techinnovasi.com.my, rias@exceedme.com, 
+	hassan.housrom@digitalminds.ae, fadi_rahhal@yahoo.com, gbanju@ivyglobalng.com, 
+	ivo.matijevic@edc.hr, info@interdata.it, sravenall@effectivenesscompany.com, 
+	spetersen@effectivenesscompany.com, fasil@fosstechnologies.com, 
+	Jakes de Klerk <Jakes.deKlerk@bluukipepeo.com>, dharrison@zavanti.com, 
+	shiraz.abid@corporits.com, mike@boonsoft.net, sales@imscan.co.uk, 
+	david.chellappa@htcinc.com, marek@d3soft.sk, nitin@keytonetech.com, 
+	info@yande.co.ke, sibyl@development-solutions.eu, coaxis@coaxis.com, 
+	robert.masic@evozon.com, phoffbrand@litera.com, wj@hamptondata.com, 
+	Carleton Bedell <carleton.bedell@glonetex.com>
+Content-Type: multipart/alternative; boundary="000000000000d7ce6905a2b32a56"
+
+--000000000000d7ce6905a2b32a56
+Content-Type: text/plain; charset="UTF-8"
+
+*Dear Sir/Madam,Greeting!!!!!!*
+
+These are some live tenders & projects regarding your profile, Kindly
+acknowledge them, If there is any query let me know. To receive such daily
+mail alerts with detailed Tenders Information (including the tender
+document), Kindly contact me.
+
+
+*Kindly revert if you are interested to have details for following Tenders
+or want to avail of our services.*
+
+
+*TI Ref No:* 452735681 *Document Type:* Tender Notice
+*Description:* Tenders are Invited for Hiring of document management
+services for organization, Digitization, Transport, Cataloging, Management
+and custody of the cau / sp collection.
+
+*Deadline:* 22 Apr 2020
+*Country:* Brazil *Bidding Type:* Not Specified
+------------------------------
+*TI Ref No:* 452728303 *Document Type:* Tender Notice
+*Description:* Tenders are invited for The Provision Of Contact Center And
+Document Management Services
+
+*Deadline:* 05 May 2020
+*Country:* Ireland *Bidding Type:* Not Specified
+------------------------------
+*TI Ref No:* 452678799 *Document Type:* Tender Notice
+*Description:* Contract notice: Outsourcing the scanning of mdph 54 files
+
+*Deadline:* 20 May 2020
+*Country:* France *Bidding Type:* Global (ICB)
+------------------------------
+*TI Ref No:* 452673962 *Document Type:* Tender Notice
+*Description:* Contract notice: Digitization of construction files and
+plans 2020
+
+*Deadline:* 05 May 2020
+*Country:* Germany *Bidding Type:* Global (ICB)
+------------------------------
+*TI Ref No:* 452572264 *Document Type:* Tender Notice
+*Description:* Announcement of competition: Digitization of the real estate
+archive
+
+*Deadline:* 30 Apr 2020
+*Estimated Project Cost: *  NOK 1.4 Million
+*Country:* Norway *Bidding Type:* Global (ICB)
+------------------------------
+*TI Ref No:* 452143367 *Document Type:* Tender Notice
+*Description:* Contract notice: New printing, Copying and scanning
+
+*Deadline:* 16 Apr 2020
+*Country:* Sweden *Bidding Type:* Global (ICB)
+------------------------------
+*TI Ref No:* 452703047 *Document Type:* Tender Notice
+*Description:* Tenders are invited for Digitization platform
+
+*Deadline:* 30 Jun 2020
+*Country:* Sweden *Bidding Type:* Not Specified
+------------------------------
+*TI Ref No:* 452556083 *Document Type:* Tender Notice
+*Description:* Tender are Invited for Providing Digitization of Business
+and Internal Services
+
+*Deadline:* 26 Apr 2020
+*Country:* Saudi Arabia *Bidding Type:* Not Specified
+------------------------------
+*TI Ref No:* 452504250 *Document Type:* Tender Notice
+*Description:* Tenders are invited for Procurement Of Consultancy Services
+To Assist The Jcaa In The Development And Implementation Of An Archive And
+Records Management System
+
+*Deadline:* 21 Apr 2020
+*Country:* Jamaica *Bidding Type:* Not Specified
+------------------------------
+*TI Ref No:* 450918515 *Document Type:* Procurement Forecast
+*Description:* Procurement forecast invited for Providing Physical Record
+Management & Archiving Services
+
+*Deadline:* 30 Jun 2020
+*Country:* Oman *Bidding Type:* Not Specified
+------------------------------
+
+
+*For  COMPLETE DETAILS and BID DOCUMENT, Kindly revert back to this mail.*
+
+
+
+Kindly Subscribe to avail such information including all *Tenders, Bids,
+RFP, Prequalifications, Projects, Upcoming Projects, Procurement
+Forecasts, Procurement news &* Expression of Interest, etc. on the Daily
+basis through E-mail, with complete details of the same.
+
+*Kind Regard's *
+
+*Bipin Sati *
+
+*9818938728*
+
+--000000000000d7ce6905a2b32a56
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><p class=3D"MsoNormal"><font face=3D"trebuchet ms, sans-se=
+rif"><b>Dear Sir/Madam,<br>Greeting!!!!!!</b><br><br>These are some live te=
+nders &amp; projects regarding your profile, Kindly acknowledge them, If th=
+ere is any query let me know. To receive such daily mail alerts with detail=
+ed Tenders Information (including the tender document), Kindly contact me.<=
+u></u><u></u></font></p><div><div><p class=3D"MsoNormal"><font face=3D"treb=
+uchet ms, sans-serif"><span style=3D"color:black"><br><b>Kindly revert if y=
+ou are interested to have details for following Tenders or want to avail of=
+ our services.</b></span><u></u><u></u></font></p><p class=3D"MsoNormal"><f=
+ont face=3D"trebuchet ms, sans-serif"><span style=3D"color:black"><b><br></=
+b></span></font></p><table width=3D"100%" border=3D"0"><tbody><tr><td><tabl=
+e align=3D"left" border=3D"0" width=3D"100%" cellpadding=3D"1"><tbody><tr><=
+td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>=
+TI Ref No:</b></font></td><td><font size=3D"2" color=3D"#000000" face=3D"tr=
+ebuchet ms, sans-serif">452735681</font></td><td><font size=3D"2" color=3D"=
+#000000" face=3D"trebuchet ms, sans-serif"><b>Document Type:</b></font></td=
+><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">T=
+ender Notice</font></td></tr><tr><td><font size=3D"2" color=3D"#000000" fac=
+e=3D"trebuchet ms, sans-serif"><b>Description:</b></font></td><td width=3D"=
+40%"><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">T=
+enders are Invited for Hiring of document management services for organizat=
+ion, Digitization, Transport, Cataloging, Management and custody of the cau=
+ / sp collection.<br><br></font></td><td><font size=3D"2" color=3D"#000000"=
+ face=3D"trebuchet ms, sans-serif"><b>Deadline:</b></font></td><td><font co=
+lor=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">22 Apr 2020</f=
+ont></td></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet =
+ms, sans-serif"><b>Country:</b></font></td><td><font color=3D"#000000" size=
+=3D"2" face=3D"trebuchet ms, sans-serif">Brazil</font></td><td><font size=
+=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Bidding Type:=
+</b></font></td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms=
+, sans-serif">Not Specified</font></td></tr><tr><td colspan=3D"4"><font siz=
+e=3D"2" face=3D"trebuchet ms, sans-serif"><hr></font></td></tr><tr><td><fon=
+t size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>TI Ref =
+No:</b></font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet=
+ ms, sans-serif">452728303</font></td><td><font size=3D"2" color=3D"#000000=
+" face=3D"trebuchet ms, sans-serif"><b>Document Type:</b></font></td><td><f=
+ont size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">Tender N=
+otice</font></td></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"tr=
+ebuchet ms, sans-serif"><b>Description:</b></font></td><td width=3D"40%"><f=
+ont color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">Tenders =
+are invited for The Provision Of Contact Center And Document Management Ser=
+vices<br><br></font></td><td><font size=3D"2" color=3D"#000000" face=3D"tre=
+buchet ms, sans-serif"><b>Deadline:</b></font></td><td><font color=3D"#0000=
+00" size=3D"2" face=3D"trebuchet ms, sans-serif">05 May 2020</font></td></t=
+r><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-ser=
+if"><b>Country:</b></font></td><td><font color=3D"#000000" size=3D"2" face=
+=3D"trebuchet ms, sans-serif">Ireland</font></td><td><font size=3D"2" color=
+=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Bidding Type:</b></font><=
+/td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif=
+">Not Specified</font></td></tr><tr><td colspan=3D"4"><font size=3D"2" face=
+=3D"trebuchet ms, sans-serif"><hr></font></td></tr><tr><td><font size=3D"2"=
+ color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>TI Ref No:</b></fon=
+t></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-se=
+rif">452678799</font></td><td><font size=3D"2" color=3D"#000000" face=3D"tr=
+ebuchet ms, sans-serif"><b>Document Type:</b></font></td><td><font size=3D"=
+2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">Tender Notice</font>=
+</td></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, =
+sans-serif"><b>Description:</b></font></td><td width=3D"40%"><font color=3D=
+"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">Contract notice: Out=
+sourcing the scanning of mdph 54 files<br><br></font></td><td><font size=3D=
+"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Deadline:</b></f=
+ont></td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-=
+serif">20 May 2020</font></td></tr><tr><td><font size=3D"2" color=3D"#00000=
+0" face=3D"trebuchet ms, sans-serif"><b>Country:</b></font></td><td><font c=
+olor=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">France</font>=
+</td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-seri=
+f"><b>Bidding Type:</b></font></td><td><font color=3D"#000000" size=3D"2" f=
+ace=3D"trebuchet ms, sans-serif">Global (ICB)</font></td></tr><tr><td colsp=
+an=3D"4"><font size=3D"2" face=3D"trebuchet ms, sans-serif"><hr></font></td=
+></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans=
+-serif"><b>TI Ref No:</b></font></td><td><font size=3D"2" color=3D"#000000"=
+ face=3D"trebuchet ms, sans-serif">452673962</font></td><td><font size=3D"2=
+" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Document Type:</b>=
+</font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sa=
+ns-serif">Tender Notice</font></td></tr><tr><td><font size=3D"2" color=3D"#=
+000000" face=3D"trebuchet ms, sans-serif"><b>Description:</b></font></td><t=
+d width=3D"40%"><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sa=
+ns-serif">Contract notice: Digitization of construction files and plans 202=
+0<br><br></font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuch=
+et ms, sans-serif"><b>Deadline:</b></font></td><td><font color=3D"#000000" =
+size=3D"2" face=3D"trebuchet ms, sans-serif">05 May 2020</font></td></tr><t=
+r><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">=
+<b>Country:</b></font></td><td><font color=3D"#000000" size=3D"2" face=3D"t=
+rebuchet ms, sans-serif">Germany</font></td><td><font size=3D"2" color=3D"#=
+000000" face=3D"trebuchet ms, sans-serif"><b>Bidding Type:</b></font></td><=
+td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">Glo=
+bal (ICB)</font></td></tr><tr><td colspan=3D"4"><font size=3D"2" face=3D"tr=
+ebuchet ms, sans-serif"><hr></font></td></tr><tr><td><font size=3D"2" color=
+=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>TI Ref No:</b></font></td=
+><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">4=
+52572264</font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuche=
+t ms, sans-serif"><b>Document Type:</b></font></td><td><font size=3D"2" col=
+or=3D"#000000" face=3D"trebuchet ms, sans-serif">Tender Notice</font></td><=
+/tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-s=
+erif"><b>Description:</b></font></td><td width=3D"40%"><font color=3D"#0000=
+00" size=3D"2" face=3D"trebuchet ms, sans-serif">Announcement of competitio=
+n: Digitization of the real estate archive<br><br></font></td><td><font siz=
+e=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Deadline:</b=
+></font></td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, s=
+ans-serif">30 Apr 2020</font></td></tr><tr><td><font size=3D"2" color=3D"#0=
+00000" face=3D"trebuchet ms, sans-serif"><b>Estimated Project Cost:=C2=A0</=
+b>=C2=A0</font></td><td><font color=3D"#000000" size=3D"2" face=3D"trebuche=
+t ms, sans-serif">NOK 1.4 Million</font></td></tr><tr><td><font size=3D"2" =
+color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Country:</b></font><=
+/td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif=
+">Norway</font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuche=
+t ms, sans-serif"><b>Bidding Type:</b></font></td><td><font color=3D"#00000=
+0" size=3D"2" face=3D"trebuchet ms, sans-serif">Global (ICB)</font></td></t=
+r><tr><td colspan=3D"4"><font size=3D"2" face=3D"trebuchet ms, sans-serif">=
+<hr></font></td></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"tre=
+buchet ms, sans-serif"><b>TI Ref No:</b></font></td><td><font size=3D"2" co=
+lor=3D"#000000" face=3D"trebuchet ms, sans-serif">452143367</font></td><td>=
+<font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Doc=
+ument Type:</b></font></td><td><font size=3D"2" color=3D"#000000" face=3D"t=
+rebuchet ms, sans-serif">Tender Notice</font></td></tr><tr><td><font size=
+=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Description:<=
+/b></font></td><td width=3D"40%"><font color=3D"#000000" size=3D"2" face=3D=
+"trebuchet ms, sans-serif">Contract notice: New printing, Copying and scann=
+ing<br><br></font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebu=
+chet ms, sans-serif"><b>Deadline:</b></font></td><td><font color=3D"#000000=
+" size=3D"2" face=3D"trebuchet ms, sans-serif">16 Apr 2020</font></td></tr>=
+<tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif=
+"><b>Country:</b></font></td><td><font color=3D"#000000" size=3D"2" face=3D=
+"trebuchet ms, sans-serif">Sweden</font></td><td><font size=3D"2" color=3D"=
+#000000" face=3D"trebuchet ms, sans-serif"><b>Bidding Type:</b></font></td>=
+<td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">Gl=
+obal (ICB)</font></td></tr><tr><td colspan=3D"4"><font size=3D"2" face=3D"t=
+rebuchet ms, sans-serif"><hr></font></td></tr><tr><td><font size=3D"2" colo=
+r=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>TI Ref No:</b></font></t=
+d><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">=
+452703047</font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuch=
+et ms, sans-serif"><b>Document Type:</b></font></td><td><font size=3D"2" co=
+lor=3D"#000000" face=3D"trebuchet ms, sans-serif">Tender Notice</font></td>=
+</tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-=
+serif"><b>Description:</b></font></td><td width=3D"40%"><font color=3D"#000=
+000" size=3D"2" face=3D"trebuchet ms, sans-serif">Tenders are invited for D=
+igitization platform<br><br></font></td><td><font size=3D"2" color=3D"#0000=
+00" face=3D"trebuchet ms, sans-serif"><b>Deadline:</b></font></td><td><font=
+ color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">30 Jun 2020=
+</font></td></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuch=
+et ms, sans-serif"><b>Country:</b></font></td><td><font color=3D"#000000" s=
+ize=3D"2" face=3D"trebuchet ms, sans-serif">Sweden</font></td><td><font siz=
+e=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Bidding Type=
+:</b></font></td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet m=
+s, sans-serif">Not Specified</font></td></tr><tr><td colspan=3D"4"><font si=
+ze=3D"2" face=3D"trebuchet ms, sans-serif"><hr></font></td></tr><tr><td><fo=
+nt size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>TI Ref=
+ No:</b></font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuche=
+t ms, sans-serif">452556083</font></td><td><font size=3D"2" color=3D"#00000=
+0" face=3D"trebuchet ms, sans-serif"><b>Document Type:</b></font></td><td><=
+font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">Tender =
+Notice</font></td></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"t=
+rebuchet ms, sans-serif"><b>Description:</b></font></td><td width=3D"40%"><=
+font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">Tender =
+are Invited for Providing Digitization of Business and Internal Services<br=
+><br></font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet m=
+s, sans-serif"><b>Deadline:</b></font></td><td><font color=3D"#000000" size=
+=3D"2" face=3D"trebuchet ms, sans-serif">26 Apr 2020</font></td></tr><tr><t=
+d><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>C=
+ountry:</b></font></td><td><font color=3D"#000000" size=3D"2" face=3D"trebu=
+chet ms, sans-serif">Saudi Arabia</font></td><td><font size=3D"2" color=3D"=
+#000000" face=3D"trebuchet ms, sans-serif"><b>Bidding Type:</b></font></td>=
+<td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">No=
+t Specified</font></td></tr><tr><td colspan=3D"4"><font size=3D"2" face=3D"=
+trebuchet ms, sans-serif"><hr></font></td></tr><tr><td><font size=3D"2" col=
+or=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>TI Ref No:</b></font></=
+td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"=
+>452504250</font></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuc=
+het ms, sans-serif"><b>Document Type:</b></font></td><td><font size=3D"2" c=
+olor=3D"#000000" face=3D"trebuchet ms, sans-serif">Tender Notice</font></td=
+></tr><tr><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans=
+-serif"><b>Description:</b></font></td><td width=3D"40%"><font color=3D"#00=
+0000" size=3D"2" face=3D"trebuchet ms, sans-serif">Tenders are invited for =
+Procurement Of Consultancy Services To Assist The Jcaa In The Development A=
+nd Implementation Of An Archive And Records Management System<br><br></font=
+></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-ser=
+if"><b>Deadline:</b></font></td><td><font color=3D"#000000" size=3D"2" face=
+=3D"trebuchet ms, sans-serif">21 Apr 2020</font></td></tr><tr><td><font siz=
+e=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Country:</b>=
+</font></td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, sa=
+ns-serif">Jamaica</font></td><td><font size=3D"2" color=3D"#000000" face=3D=
+"trebuchet ms, sans-serif"><b>Bidding Type:</b></font></td><td><font color=
+=3D"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">Not Specified</fo=
+nt></td></tr><tr><td colspan=3D"4"><font size=3D"2" face=3D"trebuchet ms, s=
+ans-serif"><hr></font></td></tr><tr><td><font size=3D"2" color=3D"#000000" =
+face=3D"trebuchet ms, sans-serif"><b>TI Ref No:</b></font></td><td><font si=
+ze=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">450918515</fon=
+t></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-se=
+rif"><b>Document Type:</b></font></td><td><font size=3D"2" color=3D"#000000=
+" face=3D"trebuchet ms, sans-serif">Procurement Forecast</font></td></tr><t=
+r><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif">=
+<b>Description:</b></font></td><td width=3D"40%"><font color=3D"#000000" si=
+ze=3D"2" face=3D"trebuchet ms, sans-serif">Procurement forecast invited for=
+ Providing Physical Record Management &amp; Archiving Services<br><br></fon=
+t></td><td><font size=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-se=
+rif"><b>Deadline:</b></font></td><td><font color=3D"#000000" size=3D"2" fac=
+e=3D"trebuchet ms, sans-serif">30 Jun 2020</font></td></tr><tr><td><font si=
+ze=3D"2" color=3D"#000000" face=3D"trebuchet ms, sans-serif"><b>Country:</b=
+></font></td><td><font color=3D"#000000" size=3D"2" face=3D"trebuchet ms, s=
+ans-serif">Oman</font></td><td><font size=3D"2" color=3D"#000000" face=3D"t=
+rebuchet ms, sans-serif"><b>Bidding Type:</b></font></td><td><font color=3D=
+"#000000" size=3D"2" face=3D"trebuchet ms, sans-serif">Not Specified</font>=
+</td></tr><tr><td colspan=3D"4"><font size=3D"2" face=3D"trebuchet ms, sans=
+-serif"><hr></font></td></tr></tbody></table></td></tr></tbody></table><p c=
+lass=3D"MsoNormal"><font face=3D"trebuchet ms, sans-serif"><span style=3D"c=
+olor:black"><b><br></b></span></font></p><div><div><p class=3D"MsoNormal"><=
+font face=3D"trebuchet ms, sans-serif"><b><span style=3D"color:black">For=
+=C2=A0=C2=A0COMPLETE DETAILS=C2=A0and=C2=A0BID DOCUMENT, Kindly revert back=
+ to this mail.</span></b><u></u><u></u></font></p></div><div><p class=3D"Ms=
+oNormal"><font face=3D"trebuchet ms, sans-serif"><u></u>=C2=A0<u></u></font=
+></p></div><p class=3D"MsoNormal"><font face=3D"trebuchet ms, sans-serif"><=
+span style=3D"color:black">Kindly=C2=A0Subscribe to avail such information =
+including all=C2=A0<b>Tenders, Bids, RFP, Prequalifications, Projects, Upco=
+ming Projects, Procurement Forecasts,=C2=A0Procurement news &amp;</b>=C2=A0=
+Expression of Interest, etc. on the Daily basis through E-mail, with comple=
+te details of the same.<br><br><b>Kind Regard&#39;s=C2=A0</b></span><u></u>=
+<u></u></font></p></div><div><p class=3D"MsoNormal"><b><span style=3D"color=
+:black"><font face=3D"trebuchet ms, sans-serif">Bipin Sati=C2=A0</font></sp=
+an></b></p><p class=3D"MsoNormal"><b><span style=3D"color:black"><font face=
+=3D"trebuchet ms, sans-serif">9818938728</font></span></b></p></div></div><=
+/div></div>
+
+--000000000000d7ce6905a2b32a56--

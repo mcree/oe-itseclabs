@@ -1,0 +1,230 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id CAE7823F3B5
+	for <hallgato@itseclabs.local>; Fri, 14 Feb 2020 13:01:29 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 2.175
+X-Spam-Level: **
+X-Spam-Status: No, score=2.175 tagged_above=1 required=4.5
+	tests=[ADVANCE_FEE_2_NEW_MONEY=0.596, BAYES_00=-1.9, DKIM_SIGNED=0.1,
+	DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1, HTML_MESSAGE=0.001,
+	LOTS_OF_MONEY=0.001, MILLION_USD=3.247, MISSING_HEADERS=1.021,
+	RCVD_IN_DNSWL_LOW=-0.7, SPF_HELO_PASS=-0.001,
+	T_FILL_THIS_FORM_SHORT=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id uF9xCYoBpBkL for <hallgato@itseclabs.local>;
+	Fri, 14 Feb 2020 13:01:28 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id BC7AA23F3B4
+	for <hallgato@itseclabs.local>; Fri, 14 Feb 2020 13:01:28 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id ACE6C2A01C8; Fri, 14 Feb 2020 14:01:28 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=outlook.com header.i=@outlook.com header.b="TO2noedz";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 69F4A2A0324;
+	Fri, 14 Feb 2020 14:01:28 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id nd5lnQtxJmKV; Fri, 14 Feb 2020 14:01:26 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 15FC92A01C8;
+	Fri, 14 Feb 2020 14:01:26 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=outlook.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=henricaron01@outlook.com
+Received: by duflex.itseclabs.local (Postfix)
+	id F05E52008A; Fri, 14 Feb 2020 14:01:25 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id DD74220095
+	for <info@itseclabs.local>; Fri, 14 Feb 2020 14:01:25 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id rW2xvAqrDaKI for <info@itseclabs.local>;
+	Fri, 14 Feb 2020 14:01:24 +0100 (CET)
+Received: from EUR04-VI1-obe.outbound.protection.outlook.com (mail-oln040092075048.outbound.protection.outlook.com [40.92.75.48])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 7113F2008A
+	for <info@itseclabs.local>; Fri, 14 Feb 2020 14:01:24 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=outlook.com header.i=@outlook.com header.b="TO2noedz";
+	dkim-atps=neutral
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Raptvm5QItiAfgqgnwWL6t9nQ5dlksJO0wbAMH1S39ROLGUGWvLIaNg/n/lYrw1sdHFC+Ys0mrVsZ/EVDQWoPq6bjjdHw2YHlpqf7DRKG1JKprNF1Z5p0fdVC5BJ+8svYbFJjqpNpfxBquB7Co0C4qu+GwT75/vSs69g7AlmtaU0RA8VnV84ls3S6GPNsU7cG7SDnR1A/xErckzOGCXbsKqSRgFlpSZNM/dtokudI30vqEKS3r5d4WsUHnGSIL1I1So1KQLalMhj/uC5neF2npV8o75mBYPlD5ysyp1sycYdYmwBqAdHSjFY/pJrRg6kX/rLuCgGC6uY28KLbUn28w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8UCGLV2kn8f2zfnfXR7/4/Bi53Nzq4a402W9fUgIMEA=;
+ b=FEEiwsw1+wnJemu5wtZIh2mQ6WACpnHml/NRcntFc5peJ0bPYzRZBX5P5f0p5msB1Dn2CUAd89Ur6gPgUSoZBFkyePUCtkiG1EohsfldKj3GwejzSOpaGw2YhD+7why5Wygo17iciJS1zz6LgJrP32ZR74Ur4FBPLwdIF0gmLs78ITUXU9Rf8afdYhS/kkGqhyhZod16HDfgyTNii3bjnoQAo37GZR1MtKtqNO2zL0MFSCyX2WWf9WT/FIVNQbDa4Pp1xB47APk5az8rR0j50dVNZ7nOz/5OWYkjN2aqyxmvFGazSnHnbrhmZBpJCEN5ojQ8oYjKCHLxUWCUHYJsKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8UCGLV2kn8f2zfnfXR7/4/Bi53Nzq4a402W9fUgIMEA=;
+ b=TO2noedzs5+tfvpv8yZX1VdRmZJ8Lwi+EQW9dbmrSh3zbuhO/8RprcDE3yR6Cy9azlv/bi/d0ANcBfOOFDiZFpcY5bb8H/XdP8ZOj/juAvPX+o+2q2x9cCIQmZjKxWJblrqqS67Px8CjGkaFSI3883n2BMp7BSzb9qwdtytxSWmwiJXrZCyzcs0Bfi2eNxYSmaU1xJGNFh3318XOc3d9W5sJMYtePrh8bIQV2GCOdnQjOr/h5ZX1xtzH4Kq3kp2mRfzQJxfwjR3nOTCY5TBsBnq8ZvJmNwDCQgpoJWqKCGYBQi1mwx3gkSQtDHRcvolv8g9/ytuES/xuZI0HumGX9Q==
+Received: from HE1EUR04FT011.eop-eur04.prod.protection.outlook.com
+ (10.152.26.55) by HE1EUR04HT044.eop-eur04.prod.protection.outlook.com
+ (10.152.26.187) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2729.22; Fri, 14 Feb
+ 2020 13:01:20 +0000
+Received: from LNXP265MB0044.GBRP265.PROD.OUTLOOK.COM (10.152.26.53) by
+ HE1EUR04FT011.mail.protection.outlook.com (10.152.26.177) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2729.22 via Frontend Transport; Fri, 14 Feb 2020 13:01:20 +0000
+Received: from LNXP265MB0044.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::25c7:b070:6693:11eb]) by LNXP265MB0044.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::25c7:b070:6693:11eb%7]) with mapi id 15.20.2707.031; Fri, 14 Feb 2020
+ 13:01:20 +0000
+From: Henri Caron <henricaron01@outlook.com>
+Subject: =?Windows-1252?Q?RE_:_[TD-41163500]_Transaction(s)=99?=
+Thread-Topic: =?Windows-1252?Q?RE_:_[TD-41163500]_Transaction(s)=99?=
+Thread-Index: AQHV4zbZhUzOuSJXikukSblkai3vLQ==
+Date: Fri, 14 Feb 2020 13:01:19 +0000
+Message-ID:
+ <LNXP265MB00442EEB73A29DE017EF2A35D4150@LNXP265MB0044.GBRP265.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-incomingtopheadermarker:
+ OriginalChecksum:89505159E9DFE9F5363AA4F580E15C3C156474F8CC810E4F1625F08D7F35DBFC;UpperCasedChecksum:D214807C5BBF8B35E559366C7A72A01A5559B2D1BDC5FEBA4DEDC1E87CB965A6;SizeAsReceived:11518;Count:41
+x-tmn: [Jc7bK87vgkTElv/Qh65wkGT9RAgq6wH6]
+x-ms-publictraffictype: Email
+x-incomingheadercount: 41
+x-eopattributedmessage: 0
+x-ms-office365-filtering-correlation-id: 180e3a2e-140d-43c0-d267-08d7b14dfc56
+x-ms-traffictypediagnostic: HE1EUR04HT044:
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:
+ PHnGh8tI97+QKtBO9XpzgRfLsFlLNj+N8fefEzsO08814MQbSFyFeFnDexSmKoJ96EXlbGradZ2E5rpr2duGJZDe6fi6ydUz0kyeUEPOtSd8frc4UiySkswEH5p0yz+1vc9ZryO3Fr9e4g+GUyWED0zJnDiiBFVC/Taw31/ZQXBxGiZsByyDR0dMdzC6CVPD
+x-ms-exchange-antispam-messagedata:
+ cQvsTYLWN3O/Btx1RBEiW1EQVlQGCgd4xQhhNjX3qCNjdcqh/r9T+SEYb/5DxhWc20ZFpqNt2P4HIvSvYKya/uvjpovsg0nyHl/k/L0iYildjDZmTg/ADU520XXxiOhRnNKk74S0V9BXr2nZSbukAg==
+x-ms-exchange-transport-forked: True
+Content-Type: multipart/alternative;
+	boundary="_000_LNXP265MB00442EEB73A29DE017EF2A35D4150LNXP265MB0044GBRP_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 180e3a2e-140d-43c0-d267-08d7b14dfc56
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Feb 2020 13:01:19.8921
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Internet
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HE1EUR04HT044
+
+--_000_LNXP265MB00442EEB73A29DE017EF2A35D4150LNXP265MB0044GBRP_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Greetings:
+
+
+RE : Funds Investment and Management Placement of over 20 million USD.
+
+We are the company specializing in growth capital investments, we seek to i=
+nvest in public and private companies including real estates, energy, oil &=
+ gas, emerging markets, and high-technology. Within the technology sector, =
+the firm focuses on communication, software and digital content and service=
+s. Be kind enough to review our proposals below:
+
+We solicit for a private investor who wants to invest his financial estate =
+in long-term business venture in any viable project that require funding on=
+ our investor=92s capacity, your company=92s Business Plan will determine i=
+f we can invest on you or not. Note that our investor remains a silent part=
+nership to the investment due to his federal position.
+
+YOU WILL BE REQUIRED TO:
+Receive the funds and Invest as well as managing the funds profitably.
+
+If have the capacity to conduct good business with good annual returns plea=
+se contact me with your full name, country and telephone number for the neg=
+otiation/further details. Email me on mr.msimpkins36@gmail.com for quick at=
+tendance, more details shall be discussed.
+
+Sincerely Yours
+Michael Simpkins
+mr.msimpkins36@gmail.com
+
+--_000_LNXP265MB00442EEB73A29DE017EF2A35D4150LNXP265MB0044GBRP_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div style=3D"font-family: Calibri, Arial, Helvetica, sans-serif; font-size=
+: 12pt; color: rgb(0, 0, 0);">
+<span>Greetings:<br>
+</span>
+<div><br>
+</div>
+<div><br>
+</div>
+<div>RE : Funds Investment and Management Placement of over 20 million USD.=
+<br>
+</div>
+<div><br>
+</div>
+<div>We are the company specializing in growth capital investments, we seek=
+ to invest in public and private companies including real estates, energy, =
+oil &amp; gas, emerging markets, and high-technology. Within the technology=
+ sector, the firm focuses on communication,
+ software and digital content and services. Be kind enough to review our pr=
+oposals below:<br>
+</div>
+<div><br>
+</div>
+<div>We solicit for a private investor who wants to invest his financial es=
+tate in long-term business venture in any viable project that require fundi=
+ng on our investor=92s capacity, your company=92s Business Plan will determ=
+ine if we can invest on you or not.
+ Note that our investor remains a silent partnership to the investment due =
+to his federal position.<br>
+</div>
+<div><br>
+</div>
+<div>YOU WILL BE REQUIRED TO:<br>
+</div>
+<div>Receive the funds and Invest as well as managing the funds profitably.=
+<br>
+</div>
+<div><br>
+</div>
+<div>If have the capacity to conduct good business with good annual returns=
+ please contact me with your full name, country and telephone number for th=
+e negotiation/further details. Email me on mr.msimpkins36@gmail.com for qui=
+ck attendance, more details shall
+ be discussed.<br>
+</div>
+<div><br>
+</div>
+<div>Sincerely Yours<br>
+</div>
+<div>Michael Simpkins<br>
+</div>
+<span>mr.msimpkins36@gmail.com</span><br>
+</div>
+</body>
+</html>
+
+--_000_LNXP265MB00442EEB73A29DE017EF2A35D4150LNXP265MB0044GBRP_--

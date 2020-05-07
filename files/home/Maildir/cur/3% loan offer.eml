@@ -1,0 +1,92 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id B325F24613B
+	for <hallgato@itseclabs.local>; Thu, 19 Mar 2020 01:17:43 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=sendgrid.net
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id eNQdMNF9HLqM for <hallgato@itseclabs.local>;
+	Thu, 19 Mar 2020 01:17:42 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 181CA24613A
+	for <hallgato@itseclabs.local>; Thu, 19 Mar 2020 01:17:42 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 029112A037C; Thu, 19 Mar 2020 02:17:42 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=sendgrid.net header.i=@sendgrid.net header.b="KBw44rKs";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id B389E2A01CC
+	for <hallgato@itseclabs.local>; Thu, 19 Mar 2020 02:17:41 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=sendgrid.net
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id MEh3fu7yx4uL for <hallgato@itseclabs.local>;
+	Thu, 19 Mar 2020 02:17:38 +0100 (CET)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=149.72.221.60; helo=wrqvddpc.outbound-mail.sendgrid.net; envelope-from=bounces+12582751-1555-net-admin=itseclabs.local@sendgrid.net; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=hhpms.com
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=bounces+12582751-1555-net-admin=itseclabs.local@sendgrid.net
+Received: from wrqvddpc.outbound-mail.sendgrid.net (wrqvddpc.outbound-mail.sendgrid.net [149.72.221.60])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id CF7B22A00E1
+	for <hallgato@itseclabs.local>; Thu, 19 Mar 2020 02:17:37 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.net; 
+	h=mime-version:content-type:content-transfer-encoding:from:to:subject:reply-to; 
+	s=smtpapi; bh=jrpack8bZDvoS+qa2rBFCkMu+jRj9PDdFuSDPbqEghI=; b=KB
+	w44rKs16HFCnadJx1Wh/xQ8IVCMe2MD2YYj1vjScjUbwFTN0uqce5iICHWoM8l10
+	PxN6zo8mlCn67muUqwIzp9JfeLQLyHKx93iJksvA+zYvXgtjunfPxtk0jciec0Rv
+	DLY7NmqEJzaElj51TZc+4n9L2lCTrTJt0KGbTDjjw=
+Received: by filter2117p1mdw1.sendgrid.net with SMTP id filter2117p1mdw1-27937-5E72B13C-16
+        2020-03-18 23:39:40.79113919 +0000 UTC m=+900.883676853
+Received: from c02.tmdcloud.asia (unknown)
+	by ismtpd0006p1hnd1.sendgrid.net (SG) with ESMTP id ZHg5MuKnRoiAjnksITSWsg
+	Wed, 18 Mar 2020 23:39:40.323 +0000 (UTC)
+Received: from [::1] (port=47914 helo=c02.tmdcloud.asia)
+	by c02.tmdcloud.asia with esmtpa (Exim 4.93)
+	(envelope-from <salescn@hhpms.com>)
+	id 1jEgY9-002ukt-Df; Wed, 18 Mar 2020 21:48:29 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Wed, 18 Mar 2020 23:39:41 +0000 (UTC)
+From: GK FINANCE GROUP <salescn@hhpms.com>
+To: undisclosed-recipients:;
+Subject: 3% loan offer
+Reply-To: ceo@gkfinanceltd.com
+Mail-Reply-To: ceo@gkfinanceltd.com
+Message-ID: <fd006d6a5d3c10df59aa3292368067c3@hhpms.com>
+X-Sender: salescn@hhpms.com
+User-Agent: Roundcube Webmail/1.3.8
+X-SG-EID: VH9Oa03+6pKajIAB6H3kG1hjuHuujR22Eu3A+EGVO89B6Aq/WfBneOgsmtIwmTnMPEkDJ1NIUxwYoJ
+ ty1hqt7IdTn+yegkjNwpEieMAdl/996pcDkJpStFcgvAB8iUFRjL3XFG1n+Rmc0O8Wa/8/e0UvNOaF
+ D6tz2ZlkjnMmn8K6kzm73w3nsP5W882Jc7BY0/fL4T0G+x9eOaWJdxCBLLycotPnYZXkTEkf8l07Yu
+ E=
+
+
+
+-- 
+Good Day,
+
+We provide credit to interested investors, companies, and individuals 
+for Debt Consolidation, Buying, Building, Business Improving, 
+Refinancing Commercial Property and Personal Loan.
+
+We offer;
+  Fixed interest rates for Personal/business Loans.
+  Fixed terms from 1 - 20 years.
+Amount Ranging from 1,000.00 Pounds - 50,000.000.00 Pounds.
+
+Please get back to us if you are interested , through
+(ceo@gkfinanceltd.com)
+WhatsApp: +447451205806
+Sincerely,
+Demetrios Daniel

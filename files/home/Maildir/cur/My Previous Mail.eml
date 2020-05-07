@@ -1,0 +1,71 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id BF4C2229246
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 15:58:53 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 4.059
+X-Spam-Level: ****
+X-Spam-Status: No, score=4.059 tagged_above=1 required=4.5
+	tests=[BAYES_00=-1.9, DEAR_BENEFICIARY=1.768, DKIM_SIGNED=0.1,
+	DKIM_VALID=-0.1, FORGED_MUA_MOZILLA=2.309, MISSING_HEADERS=1.021,
+	RCVD_IN_DNSWL_LOW=-0.7, REPLYTO_WITHOUT_TO_CC=1.552,
+	SPF_HELO_PASS=-0.001, T_HK_NAME_MR_MRS=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=yahoo.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id CYNe0zdoCsbd for <hallgato@itseclabs.local>;
+	Sat, 14 Mar 2020 15:58:52 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 9762F229245
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 15:58:52 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 7C9B12A0324; Sat, 14 Mar 2020 16:58:52 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=yahoo.com header.i=@yahoo.com header.b="QI7lrnPZ";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 274642A063E
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 16:58:52 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=yahoo.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id UJZgZImT6UNg for <hallgato@itseclabs.local>;
+	Sat, 14 Mar 2020 16:58:49 +0100 (CET)
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=74.6.133.123; helo=sonic313-13.consmr.mail.bf2.yahoo.com; envelope-from=joshua13@bhkood.com; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=bhkood.com
+Authentication-Results: OpenDMARC; spf=none smtp.mailfrom=joshua13@bhkood.com
+Received: from sonic313-13.consmr.mail.bf2.yahoo.com (sonic313-13.consmr.mail.bf2.yahoo.com [74.6.133.123])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 44A062A061C
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 16:58:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1584201526; bh=sd66m3jNJJq+nPQ+D9DySzeATWHhypJ5/g6YNHfbaho=; h=Date:From:Reply-To:Subject:References:From:Subject; b=QI7lrnPZzpuYymxWiEM6QUci1yfKnw9BCC22YLOjzh9qo52Phq1ZGSOfMx1gY1TLOgL1X82Q+YxL5O4P3jqM9mb8ig4camaxMDhtVXNhuLlZ5uIvu+iiaguDpYztbSIGstuoxygz0NwbQ+fNT9yqUOpIuVYePt7j4G2EZ+CCv6dKLRhFUO2nZJvsQXBpUPab0dv2oz91H+eCTJcXqA7moJoqsnqlOcN7oQ6rDvVBTyeAuxjOtEoZb6X+ez2e+LBSXA3KmOH/l7rs+RvykBACtf+NPRPPsmUcn9HJeDMXC9FrWm4pJBKNxXcagJ8wcbbgiNUrtWE32nAr1uxyLYJ3Ow==
+X-YMail-OSG: RuI32zgLUzufB_0CJgGZgSr.lus-
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic313.consmr.mail.bf2.yahoo.com with HTTP; Sat, 14 Mar 2020 15:58:46 +0000
+Date: Sat, 14 Mar 2020 15:58:44 +0000 (UTC)
+From: "Mr. Joshua Kweisi" <joshua13@bhkood.com>
+Reply-To: joshuakwesi0@gmail.com
+Message-ID: <686164968.3192341.1584201524890@mail.yahoo.com>
+Subject: My Previous Mail
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+References: <686164968.3192341.1584201524890.ref@mail.yahoo.com>
+X-Mailer: WebService/1.1.15342 YMailNodin Mozilla/5.0 (Windows NT 6.1; rv:59.0) Gecko/20100101 Firefox/59.0
+
+
+
+Attn: Beneficiary
+
+Greetings to you, How are you doing today and your family, I have not heard
+from you. Hope you received my previous email.
+
+Yours Cordially
+Mr. Joshua Kweisi

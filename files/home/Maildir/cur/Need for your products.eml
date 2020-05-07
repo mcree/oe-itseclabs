@@ -1,0 +1,142 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id BB3B1229ECA
+	for <hallgato@itseclabs.local>; Thu, 30 Jan 2020 16:06:28 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=foxservs.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id T6L3bRh0Nzgj for <hallgato@itseclabs.local>;
+	Thu, 30 Jan 2020 16:06:27 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 70A96229EC9
+	for <hallgato@itseclabs.local>; Thu, 30 Jan 2020 16:06:27 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 4CF762A0596; Thu, 30 Jan 2020 17:06:27 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=foxservs.com header.i=@foxservs.com header.b="vorEppdB";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id E569E2A04EB;
+	Thu, 30 Jan 2020 17:06:26 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=foxservs.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id A79p-2n3ew2p; Thu, 30 Jan 2020 17:06:24 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 0E8142A04F0;
+	Thu, 30 Jan 2020 17:06:23 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=foxservs.com
+Authentication-Results: OpenDMARC; spf=none smtp.mailfrom=info@foxservs.com
+Received: by duflex.itseclabs.local (Postfix)
+	id C2B2A2008A; Thu, 30 Jan 2020 17:06:23 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id A716B20095
+	for <info@itseclabs.local>; Thu, 30 Jan 2020 17:06:23 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id OeAMOQtAVJ52 for <info@itseclabs.local>;
+	Thu, 30 Jan 2020 17:06:20 +0100 (CET)
+X-Greylist: delayed 453 seconds by postgrey-1.36 at duflex-2; Thu, 30 Jan 2020 17:06:20 CET
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=foxservs.com header.i=@foxservs.com header.b="vorEppdB";
+	dkim-atps=neutral
+Received: from atl4mhfb01.myregisteredsite.com (atl4mhfb01.myregisteredsite.com [209.17.115.55])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 4DD542008A
+	for <info@itseclabs.local>; Thu, 30 Jan 2020 17:06:20 +0100 (CET)
+Received: from atl4mhob13.registeredsite.com (atl4mhob13.registeredsite.com [209.17.115.51])
+	by atl4mhfb01.myregisteredsite.com (8.14.4/8.14.4) with ESMTP id 00UFwf49011784
+	for <info@itseclabs.local>; Thu, 30 Jan 2020 10:58:48 -0500
+Received: from atl4dcoxapp01pod7 (atl4dcoxapp01pod7.registeredsite.com [10.30.35.39])
+	by atl4mhob13.registeredsite.com (8.14.4/8.14.4) with ESMTP id 00UFqXfB022056
+	(version=TLSv1/SSLv3 cipher=AES256-SHA256 bits=256 verify=NO);
+	Thu, 30 Jan 2020 10:52:33 -0500
+DKIM-Filter: OpenDKIM Filter v2.11.0 atl4mhob13.registeredsite.com 00UFqXfB022056
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxservs.com;
+	s=default; t=1580399559;
+	bh=mYBoVu2BsDH0C6q119yTuk23WIbpKEBDz67SUHrcRTI=;
+	h=Date:From:Reply-To:Subject:From;
+	b=vorEppdB1CsuZmBF/boA8IgqDEwf4sAgHtBBlHwguHhCIMXBhtBJ+oUCg5SPi0Vra
+	 cmDa1pB1zFP3BjAXGNLj+Xml8naIy2vEHVRwh8eKEi+4CrbzYZD4yBf3iLoJjUX4DU
+	 NPh4HWgsqwQddDsdBuXcPBqCyPsR30jpciFd1hNM=
+Date: Thu, 30 Jan 2020 15:52:33 +0000 (GMT)
+From: JOHN LEWIS & PARTNERS <info@foxservs.com>
+Reply-To: JOHN LEWIS & PARTNERS <info@foxservs.com>
+Message-ID: <1232847685.524614.1580399553644@webmail7.networksolutionsemail.com>
+Subject: Need for your products
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_524613_1124103378.1580399553639"
+X-Priority: 3
+Importance: Medium
+X-Mailer: Open-Xchange Mailer v7.10.0-Rev28
+X-Originating-Client: open-xchange-appsuite
+To: undisclosed-recipients:;
+
+------=_Part_524613_1124103378.1580399553639
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+Hello
+We JOHN LEWIS & PARTNERS, a department retailer store situated in United Kingdom, Europe, are inquiring to know if our company can purchase some of your products and establishing new business relationship as regular products buyer from your company.
+Please provide us reference for more information about your products. We will also want to know about products you have for immediate supply or whether the entire products are going to be produced after placing order.
+We look forward to your feedback.
+Best Regards
+Patrick Lewis
+Managing Director (Partnership Services)
+www.johnlewis.com
+REGISTERED OFFICE 171 VICTORIA STREET, LONDON SW1E 5NN
+COMPANY REGISTRATION NUMBER 233462 VAT NO. GB232457280
+------=_Part_524613_1124103378.1580399553639
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="UTF-8"> 
+ </head>
+ <body>
+  <div>
+   <br>
+  </div>
+  <div class="io-ox-signature">
+   <div class="default-style">
+    <div class="default-style">
+     Hello
+    </div>
+    <div class="default-style">
+     We JOHN LEWIS &amp; PARTNERS, a department retailer store situated in United Kingdom, Europe, are inquiring to know if our company can purchase some of your products and establishing new business relationship as regular products buyer from your company.
+    </div>
+    <div class="default-style">
+     Please provide us reference for more information about your products. We will also want to know about products you have for immediate supply or whether the entire products are going to be produced after placing order.
+    </div>
+    <div class="default-style">
+     We look forward to your feedback.
+    </div>
+    <div class="default-style">
+     Best Regards 
+     <br>Patrick Lewis 
+     <br>Managing Director (Partnership Services) 
+     <br>www.johnlewis.com 
+     <br>REGISTERED OFFICE 171 VICTORIA STREET, LONDON SW1E 5NN 
+     <br>COMPANY REGISTRATION NUMBER 233462 VAT NO. GB232457280
+    </div>
+   </div>
+  </div> 
+ </body>
+</html>
+------=_Part_524613_1124103378.1580399553639--

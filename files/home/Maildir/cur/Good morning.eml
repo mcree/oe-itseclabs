@@ -1,0 +1,114 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 260A9240F35
+	for <hallgato@itseclabs.local>; Thu,  9 Apr 2020 13:41:40 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 2.461
+X-Spam-Level: **
+X-Spam-Status: No, score=2.461 tagged_above=1 required=4.5
+	tests=[ADVANCE_FEE_3_NEW=1.353, BAYES_05=-0.5, DKIM_SIGNED=0.1,
+	DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1, FREEMAIL_FROM=0.001,
+	FREEMAIL_REPLYTO=2.398, RCVD_IN_DNSWL_LOW=-0.7, SPF_HELO_PASS=-0.001,
+	T_TO_NO_BRKTS_FREEMAIL=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id NSVkBf50vZzj for <hallgato@itseclabs.local>;
+	Thu,  9 Apr 2020 13:41:39 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 16DFE240F34
+	for <hallgato@itseclabs.local>; Thu,  9 Apr 2020 13:41:39 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id F347B2A0571; Thu,  9 Apr 2020 15:41:38 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="kcrk99Y2";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 9AA152A0561;
+	Thu,  9 Apr 2020 15:41:38 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id BsRqtcaGwxOU; Thu,  9 Apr 2020 15:41:36 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 4AB372A021F;
+	Thu,  9 Apr 2020 15:41:36 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=greylingbc2@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 1A18220096; Thu,  9 Apr 2020 15:41:36 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 05F0520098
+	for <info@itseclabs.local>; Thu,  9 Apr 2020 15:41:36 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id NDPcTndDmzyS for <info@itseclabs.local>;
+	Thu,  9 Apr 2020 15:41:35 +0200 (CEST)
+Received: from mail-ua1-f68.google.com (mail-ua1-f68.google.com [209.85.222.68])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id D00D820096
+	for <info@itseclabs.local>; Thu,  9 Apr 2020 15:41:31 +0200 (CEST)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="kcrk99Y2";
+	dkim-atps=neutral
+Received: by mail-ua1-f68.google.com with SMTP id v24so3945443uak.0
+        for <info@itseclabs.local>; Thu, 09 Apr 2020 06:41:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:reply-to:from:date:message-id:subject:to;
+        bh=3dOJiCUNtncQWr+Z8tUuQRRyb9Sqb2jNC15AAwaTw0I=;
+        b=kcrk99Y2iYFBnLEGmj3yCoNISKPHzGIaaPfyElW8Vx+oyaZBo9iKEGCWwtQ5uCvj35
+         IVyZOGy70E8hSJUga6/hPfo20Kl/zaKhYQGJ99gqPy53VMTkOrZTrgQV5S96Llxj9dOt
+         661QO3/R70QsMHgQw72tIjjbRcQpy44TVuUcAJLxpE4aH4bWwEU3c21J3395o1TOIHdH
+         ZoYvyGE7Cp5V8sJnZnUcluQic5t22q14mPJXS8By5ockeWpC82DKGB+44SlhwQbuXkSD
+         zsds3O9vuAK0FF4cL6MYPoFlD0ZErjwHQ4FztiUyDYf2AgLshahcSVNjHmDlMjn8UvL0
+         mLDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+         :subject:to;
+        bh=3dOJiCUNtncQWr+Z8tUuQRRyb9Sqb2jNC15AAwaTw0I=;
+        b=IRlmjMVE08FWR/eq0ZW1GS8Wck0E/rRXo09dr8wFX9zHyx3uv2rIjbNlaG96TXXUYV
+         gzSwz9pFkjczIy28PvBt15S1D+QLkkeScVR5RiQitnJS2yRHsaMnr8FvGdR8+P2KziDB
+         0D8d8kjMHVgMP+BUFk7Xk6Pwfx89ug8NQ2OES5MdEMVkVmYtoKjy9gMh4IsvyUjhj9bl
+         dgO4+KFmSQxpNIxK5DNMb9522wREFHcMgG8kxh3Jp3edN88gUgP8b2ao/iYnFG+ETOXP
+         eZBjiTE9vXgnNjEacgmZNYzhZTBrlGLu5hJxF6WNxdfvNQ/oXyGrubKKwzBndB1WTlMp
+         y7Bg==
+X-Gm-Message-State: AGi0PuYW8mZj3k5GXN5UK5zBuBtSRsrs9ilIxooIep9foGgn20DvmqgW
+	/i6VywsJChs//8TTtJ5jGQ5x7KJ77drRIJWIdJI=
+X-Google-Smtp-Source: APiQypJtEPWSFfivKtVR68HYDwu2QUh9qfqUSLykwQ5+VnA2IGzX3KLnZ2IIgAQ4KtH+iUlZa/DMH5OLHuSAZe1SyO0=
+X-Received: by 2002:ab0:6204:: with SMTP id m4mr9661705uao.15.1586439689218;
+ Thu, 09 Apr 2020 06:41:29 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:ac5:c195:0:0:0:0:0 with HTTP; Thu, 9 Apr 2020 06:41:27 -0700 (PDT)
+Reply-To: ingridrolle2@gmail.com
+From: Ingrid Rolle <greylingbc2@gmail.com>
+Date: Thu, 9 Apr 2020 14:41:27 +0100
+Message-ID: <CAH9v9BySuiMG7dAVPhWeDD49FzUw2Lw3BmQprgL5yOo9CN-xeA@mail.gmail.com>
+Subject: Good morning
+To: undisclosed-recipients:;
+Content-Type: text/plain; charset="UTF-8"
+
+-- 
+Hi Dear,
+
+Sorry to invade your privacy, I am Mrs. Ingrid Rolle the wife of Dr.
+Gerald Rolle, When my late husband was alive he deposited sum amount
+of Money with a Bank, Presently, This money is still with the Bank, I
+am in a hospital in receiving treatment and my doctor has confirmed to
+me that i have just few days to live on earth due to my esophageal
+cancer.Please i am choosing you to receive  this money on my behalf,
+And use it to help the less privilege.
+
+Yours.
+Mrs. Ingrid Rolle

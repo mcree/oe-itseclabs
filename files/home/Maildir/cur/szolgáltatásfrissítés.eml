@@ -1,0 +1,339 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 330141A1169
+	for <hallgato@itseclabs.local>; Mon,  3 Sep 2018 09:31:19 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 1.817
+X-Spam-Level: *
+X-Spam-Status: No, score=1.817 tagged_above=1 required=4.5
+	tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, HTML_IMAGE_ONLY_24=1.618,
+	HTML_MESSAGE=0.001, HTTPS_HTTP_MISMATCH=1.989, SPF_HELO_PASS=-0.001,
+	T_DKIM_INVALID=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new); dkim=neutral
+	reason="invalid (public key: not available)"
+	header.d=dromaralajaji.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id kM0rWObd41H7 for <hallgato@itseclabs.local>;
+	Mon,  3 Sep 2018 09:31:18 +0000 (UTC)
+Received: from itseclabs.local (itseclabs.local [193.6.200.100])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 022CB1A1168
+	for <hallgato@itseclabs.local>; Mon,  3 Sep 2018 09:31:17 +0000 (UTC)
+Received: by itseclabs.local (Postfix, from userid 1208)
+	id DA26DE0013; Mon,  3 Sep 2018 11:31:17 +0200 (CEST)
+Authentication-Results: itseclabs.local; dkim=permerror
+	reason="key not found"
+	header.d=dromaralajaji.com header.i=@dromaralajaji.com
+	header.b=nmvg98jZ; dkim-adsp=none (insecure policy);
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by itseclabs.local (Postfix) with ESMTP id BADD3E0014;
+	Mon,  3 Sep 2018 11:31:17 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id n-QBiAWWHgZ8; Mon,  3 Sep 2018 11:31:15 +0200 (CEST)
+Received: from linzer.ki.iif.hu (linzer.ki.iif.hu [193.224.163.7])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by itseclabs.local (Postfix) with ESMTPS id A646BE0013;
+	Mon,  3 Sep 2018 11:31:15 +0200 (CEST)
+Authentication-Results: itseclabs.local; dkim=permerror
+	reason="key not found"
+	header.d=dromaralajaji.com header.i=@dromaralajaji.com
+	header.b=nmvg98jZ; dkim-adsp=none (insecure policy);
+	dkim-atps=neutral
+Received: by linzer.ki.iif.hu (Postfix)
+	id 967A64060EC; Mon,  3 Sep 2018 11:31:14 +0200 (CEST)
+Delivered-To: aai@niif.hu
+Received: from cirkusz.lvs.iif.hu (cirkusz.lvs.iif.hu [193.225.14.182])
+	by linzer.ki.iif.hu (Postfix) with ESMTP id D92204060E8;
+	Mon,  3 Sep 2018 11:31:13 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at cirkusz.lvs.iif.hu
+Received: from linzer.ki.iif.hu ([IPv6:::ffff:193.224.163.7])
+	by cirkusz.lvs.iif.hu (cirkusz.lvs.iif.hu [::ffff:193.225.14.72]) (amavisd-new, port 10024)
+	with ESMTP id GZE20UHULJMm; Mon,  3 Sep 2018 11:31:13 +0200 (CEST)
+Received: from passat.vivawebhost.com (unknown [78.142.47.120])
+	by linzer.ki.iif.hu (Postfix) with ESMTPS id 74CB44060E2;
+	Mon,  3 Sep 2018 11:31:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=dromaralajaji.com; s=default; h=Message-ID:Subject:To:From:Date:
+	Content-Type:MIME-Version:Sender:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	 bh=eO2Zy30UwwydsYIXal94KTqJyY/Q5RkeRm2K4QWnEI4=; b=nmvg98jZ0kxIAgHuPw/6T2+y5
+	h8FtiRVzWjZiKigNQRfNp+b7BuOx/XNBznXUh/8aL+euu+4N9YUDD3xZIAxfx0iAq+bm9+HmOBBUf
+	oFM8mRXCye+FCGq9fBP9s50COyaTKUXBAyDoOGrK4BZiwQKuNUzcGqOD+00xbemr4RMYX51ntU8mu
+	hENBTIeukStYWT2U8cx0LXol5fts7+3gMfwrecH5IDbxFNqNouIoWmf+d+4UVmrbcwlLTXeZaPaIL
+	84VdX2rPOlnwxXcgKGUs2+MObkpC8U4aK6O1kYdpmRsNlnemRLi5xgbN83VfFKts4bNlYzdGxJw8o
+	iv9dMYmsQ==;
+Received: from [::1] (port=47128 helo=passat.vivawebhost.com)
+	by passat.vivawebhost.com with esmtpa (Exim 4.91)
+	(envelope-from <Serviceinfo@otpbank.hu>)
+	id 1fwl88-0001fo-35; Mon, 03 Sep 2018 12:26:44 +0300
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_a52be559c2aeb6c76048fa9bd130e619"
+Date: Mon, 03 Sep 2018 12:26:42 +0300
+From: =?UTF-8?Q?OTPBank__friss=C3=ADt=C3=A9s?= <Serviceinfo@otpbank.hu>
+To: undisclosed-recipients:;
+Subject: =?UTF-8?Q?szolg=C3=A1ltat=C3=A1sfriss=C3=ADt=C3=A9s?=
+Message-ID: <2b81967a651d47a00ea1e3d395580733@otpbank.hu>
+X-Sender: Serviceinfo@otpbank.hu
+User-Agent: Roundcube Webmail/1.3.3
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - passat.vivawebhost.com
+X-AntiAbuse: Original Domain - niif.hu
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - otpbank.hu
+X-Get-Message-Sender-Via: passat.vivawebhost.com: authenticated_id: roberge@dromaralajaji.com
+X-Authenticated-Sender: passat.vivawebhost.com: roberge@dromaralajaji.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+
+--=_a52be559c2aeb6c76048fa9bd130e619
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+
+                                                                        
+                      2018. SEP. 3RD 
+
+Tisztelt Ügyfelünk
+
+Ezúton tájékoztatjuk Önt arról, hogy az OTP Bank Nyrt vezette be
+egy online ellenőrző kód a magánélet és az ügyfelek védelmére
+két-nagy mennyiségű adatlopásról számoltak be ügyfeleink számára. 
+be kell jelentkeznie ahhoz, hogy ellenőrizze, hogy Ön a fiók
+tulajdonosa-e, 
+és fiókja automatikusan frissül az új szolgáltatásokkal.
+
+ellenőrizze itt: HTTPS://WWW.OTPBANK.HU/ONLINE/VERIFICATION/UPDATE [1]
+
+OTP Bank biztonsági menedzsmentje.
+ 
+
+Links:
+------
+[1] https://pruadds.tk/otpbank.hu/
+--=_a52be559c2aeb6c76048fa9bd130e619
+Content-Type: multipart/related;
+ boundary="=_0bf5eee28ec1d8f8d959e87d81a61c03"
+
+--=_0bf5eee28ec1d8f8d959e87d81a61c03
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8" /></head><body style=3D'font-size: 10pt; font-family: Verdana,Gen=
+eva,sans-serif'>
+<p><img src=3D"cid:d061bbc0618d9a5401e134398fb93ca8@otpbank.hu" width=3D"24=
+5" height=3D"52" />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
+sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &=
+nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong><span style=
+=3D"font-size: 10pt;">2018. Sep. 3rd</span>&nbsp;</strong></p>
+<div>
+<p><br /></p>
+<p><span>Tisztelt &Uuml;gyfel&uuml;nk</span></p>
+<div id=3D"tw-target">
+<div id=3D"tw-target-text-container" class=3D"tw-ta-container tw-nfl">
+<pre class=3D"tw-data-text tw-ta tw-text-small" dir=3D"ltr"><span>Ez&uacute=
+;ton t&aacute;j&eacute;koztatjuk &Ouml;nt arr&oacute;l, hogy az OTP Bank Ny=
+rt vezette be
+egy online ellen=C5=91rz=C5=91 k&oacute;d a mag&aacute;n&eacute;let &eacute=
+;s az &uuml;gyfelek v&eacute;delm&eacute;re
+k&eacute;t-nagy mennyis&eacute;g=C5=B1 adatlop&aacute;sr&oacute;l sz&aacute=
+;moltak be &uuml;gyfeleink sz&aacute;m&aacute;ra. <br />be kell jelentkezni=
+e ahhoz, hogy ellen=C5=91rizze, hogy &Ouml;n a fi&oacute;k tulajdonosa-e, <=
+br />&eacute;s fi&oacute;kja automatikusan friss&uuml;l az &uacute;j szolg&=
+aacute;ltat&aacute;sokkal.<br /><br />ellen=C5=91rizze itt: <span style=3D"=
+color: #339966;"><strong><a style=3D"color: #339966;" href=3D"https://pruad=
+ds.tk/otpbank.hu/">https://www.otpbank.hu/online/verification/update</a></s=
+trong></span><br /></span></pre>
+<div id=3D"tw-target">
+<div id=3D"tw-target-text-container" class=3D"tw-ta-container tw-nfl">
+<pre class=3D"tw-ta tw-text-small" lang=3D"hu">&nbsp;</pre>
+<div class=3D"jhH5U r-il_h7heGRfj4">
+<div id=3D"tw-ob" class=3D"tw-src-ltr">
+<div class=3D"oSioSc">
+<div id=3D"tw-target">
+<div id=3D"tw-target-text-container" class=3D"tw-ta-container tw-nfl">
+<pre id=3D"tw-target-text" class=3D"tw-data-text tw-ta tw-text-medium" dir=
+=3D"ltr"><span>OTP Bank biztons&aacute;gi menedzsmentje.</span></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
+
+--=_0bf5eee28ec1d8f8d959e87d81a61c03
+Content-Transfer-Encoding: base64
+Content-ID: <d061bbc0618d9a5401e134398fb93ca8@otpbank.hu>
+Content-Type: image/jpeg;
+ name=d061bbc0.jpeg
+Content-Disposition: inline;
+ filename=d061bbc0.jpeg;
+ size=8297
+
+/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBWRXhpZgAATU0AKgAAAAgABAESAAMAAAABAAEAAAEaAAUA
+AAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAAAAAABLAAAAAEAAAEsAAAAAQAA/9sAQwAC
+AQECAQECAgICAgICAgMFAwMDAwMGBAQDBQcGBwcHBgcHCAkLCQgICggHBwoNCgoLDAwMDAcJDg8N
+DA4LDAwM/9sAQwECAgIDAwMGAwMGDAgHCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM
+DAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgANAD1AwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAA
+AAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGh
+CCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp
+anN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV
+1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkK
+C//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy
+0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKD
+hIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm
+5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A/ebxX4r0zwJ4Y1DW9a1Cx0nR9JtpLy+vryZYbezh
+jUs8kjsQqoqgkkkAAV+Of7fH/BxF4q8da1qHhv4FJ/wi/hyJjCfE95aK+qaiAcF7eKQFLeNucF1a
+UqQcQtwHf8HEv7e9542+KEfwJ8N30kXh/wAM+RfeJzCxUahfsolhtmI+9HDG0chXJUyuuRuhGPkn
+/gnV/wAE6vFn/BQ/4szaPo8w0XwzouyTXtfkh82PTkfdsjRMjzJ32namQAAWYgABt6dNW557H4/x
+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
+--=_0bf5eee28ec1d8f8d959e87d81a61c03--
+
+--=_a52be559c2aeb6c76048fa9bd130e619--

@@ -1,0 +1,151 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id B08B524732B
+	for <hallgato@itseclabs.local>; Fri, 10 Apr 2020 10:52:42 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Ad5XW7nA8G0u for <hallgato@itseclabs.local>;
+	Fri, 10 Apr 2020 10:52:41 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 93551247329
+	for <hallgato@itseclabs.local>; Fri, 10 Apr 2020 10:52:41 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 578C72A067E; Fri, 10 Apr 2020 12:52:41 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="n6qfU+H4";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 0F50A2A00B6;
+	Fri, 10 Apr 2020 12:52:41 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 5yfNtZ_JK9lI; Fri, 10 Apr 2020 12:52:38 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id A3A102A0461;
+	Fri, 10 Apr 2020 12:52:38 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=ups.parceldeliveryservices@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 7F9ED20096; Fri, 10 Apr 2020 12:52:38 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 6836C20095
+	for <info@itseclabs.local>; Fri, 10 Apr 2020 12:52:38 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id hpSUcs3Q3E0l for <info@itseclabs.local>;
+	Fri, 10 Apr 2020 12:52:37 +0200 (CEST)
+Received: from mail-il1-f194.google.com (mail-il1-f194.google.com [209.85.166.194])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 510562008F
+	for <info@itseclabs.local>; Fri, 10 Apr 2020 12:52:34 +0200 (CEST)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="n6qfU+H4";
+	dkim-atps=neutral
+Received: by mail-il1-f194.google.com with SMTP id f16so1465098ilj.9
+        for <info@itseclabs.local>; Fri, 10 Apr 2020 03:52:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to;
+        bh=AIrGl832wUyB7DJNHGrWzgsIoSEbljSLDZiyCZ+/8rA=;
+        b=n6qfU+H4qA5UyXeHB1hM0P+yY+g8p2mZqfL5uWQDf5DCVqEazZ6xl+WPJ5Mb5c2uvV
+         vLWiQghkK7xT6XfMTpEFPVTYPJKDN7lo/HBr5vg0Ice1Qb95olqx/rbfCrCtxePsGUFg
+         ckrAW6hA5W2+B2tFObxmCeiRrH5V0XiT3tL63mG0hZStl8eahbie6C7dualb7kHg7K7g
+         ghVbxP8/JXORmBhdtespCyjaEbCLP9mApqHjIB1FojlZA/PkP8XwRv+rzwP6bYs66QjJ
+         vzsdIyzbHu4I/T3N5a5gSbThJEnwHFkJLlQlcFKTSMI0JCqH9Fo5j3iKIMSqmGXUV8PV
+         6vbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:reply-to
+         :from:date:message-id:subject:to;
+        bh=AIrGl832wUyB7DJNHGrWzgsIoSEbljSLDZiyCZ+/8rA=;
+        b=iW857bDUwjdi1UUM50nr3WVawRf5109fGcvZi6crPucIMwzfFG0mW1AdeqXcMeByd+
+         GyidplyTiXowtyMDQh78N7dBKHxE7MKeZ8wpkpMy7LsTHvmooRmUdlqU8WWYLtB7eqsE
+         2z4wrIO3bES79U1FNkLBAfO1zwf0gBMbHrXOhK81Kf4dGHtQitIOTMhvmYSo/zn7ql69
+         HYC0LHDQhNv7PWO9OlP0q9S1+eHjVROY8e8lbotoQa2szCvNmIQK81n8f//ThmmaWw0R
+         sVyW/LJjv0oCzDTCngDCpdme26cOX58rkHXGGvjN4/xTt1rPanI8Cj/xnq1FXQY5AeSR
+         BwxA==
+X-Gm-Message-State: AGi0PuZ7jJmAdyJQCbLkfMkwWMVCYVSilh0YJyuAAsecqV4d9MD6Gaev
+	kME2+7lH9T4gegdNxC6Knw+nXmvWBhPBgoFY3iU=
+X-Google-Smtp-Source: APiQypL4TjX2pBkoFqcKJ1FYIo4I4QDGEaNaTvFEar4oTn4bH5pb86u5NfB0luI2bTIG92uMekPqYaSu6VuOVsM1QB4=
+X-Received: by 2002:a92:b74d:: with SMTP id c13mr4584122ilm.105.1586515951884;
+ Fri, 10 Apr 2020 03:52:31 -0700 (PDT)
+MIME-Version: 1.0
+References: <CANmvweCSH=NP9f8ec5FKPH8NyEkOvXAJbyeOYRaiBXh9VwKWyA@mail.gmail.com>
+ <CANmvweAxNZDz0BU=Q0AqLC79xQnfN9i-rEkQP9c0RthVU+DX+g@mail.gmail.com>
+ <CANmvweAY8VDWbcsgfhTQ+D3H4PP5XCmM766=2RXP_Tf2MkhzdA@mail.gmail.com> <CANmvweC-wTA7=EBJspQRs73aNfOxSakPvN5b7KXsdwQiwO5j4w@mail.gmail.com>
+In-Reply-To: <CANmvweC-wTA7=EBJspQRs73aNfOxSakPvN5b7KXsdwQiwO5j4w@mail.gmail.com>
+Reply-To: mustafasusilo70@gmail.com
+From: Mustafa Susilo <ups.parceldeliveryservices@gmail.com>
+Date: Fri, 10 Apr 2020 10:52:18 +0000
+Message-ID: <CANmvweAb00GKNMy32HNuXBBpcaq6-T7mrQYzBusS5cSBsaC_Dg@mail.gmail.com>
+Subject: =?UTF-8?B?VsOhbGFzeiB0b3bDoWJiaSByw6lzemxldGVrw6lydA==?=
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="000000000000be262105a2ed87ed"
+
+--000000000000be262105a2ed87ed
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Rem=C3=A9lem, hogy a leveleim j=C3=B3 =C3=A9s eg=C3=A9szs=C3=A9gesnek tal=
+=C3=A1l t=C3=A9ged? Mustafa Susilo =C3=BAr
+vagyok, a HSBC bank indon=C3=A9z vezet=C5=91 tan=C3=A1csad=C3=B3ja, rem=C3=
+=A9ltem, hogy seg=C3=ADthet
+nekem az=C3=A1ltal, hogy =C3=A1truh=C3=A1zza a k=C3=A9s=C5=91bbi rokon eszk=
+=C3=B6zeimet a birtokomban.
+Sz=C3=BCks=C3=A9gem van a seg=C3=ADts=C3=A9gedre az alapj=C3=A1nak (4,1 mil=
+li=C3=B3 doll=C3=A1r)
+visszatelep=C3=ADt=C3=A9s=C3=A9hez, miel=C5=91tt azt a bank elkobozta volna=
+, ahol let=C3=A9tbe
+helyezt=C3=A9k. Alig v=C3=A1rom, hogy meghallgassam =C3=96nt, hogy r=C3=A9s=
+zletesebben
+ismertessem.
+
+=C3=9Cdv=C3=B6zlettel
+Mustafa Susilo
+
+--000000000000be262105a2ed87ed
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail=
+_attr">Rem=C3=A9lem, hogy a leveleim j=C3=B3 =C3=A9s eg=C3=A9szs=C3=A9gesne=
+k tal=C3=A1l t=C3=A9ged? Mustafa Susilo =C3=BAr vagyok, a HSBC bank indon=
+=C3=A9z vezet=C5=91 tan=C3=A1csad=C3=B3ja, rem=C3=A9ltem, hogy seg=C3=ADthe=
+t nekem az=C3=A1ltal, hogy =C3=A1truh=C3=A1zza a k=C3=A9s=C5=91bbi rokon es=
+zk=C3=B6zeimet a birtokomban. Sz=C3=BCks=C3=A9gem van a seg=C3=ADts=C3=A9ge=
+dre az alapj=C3=A1nak (4,1 milli=C3=B3 doll=C3=A1r) visszatelep=C3=ADt=C3=
+=A9s=C3=A9hez, miel=C5=91tt azt a bank elkobozta volna, ahol let=C3=A9tbe h=
+elyezt=C3=A9k. Alig v=C3=A1rom, hogy meghallgassam =C3=96nt, hogy r=C3=A9sz=
+letesebben ismertessem.<br></div><div dir=3D"ltr"><div class=3D"gmail_quote=
+"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=
+=3D"gmail_quote"><div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_quot=
+e"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=
+=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"lt=
+r"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail_quote"><=
+div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div dir=3D"ltr=
+"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gmail_quote"><d=
+iv dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><div class=3D"gm=
+ail_quote"><div dir=3D"ltr"><div class=3D"gmail_quote"><div dir=3D"ltr"><br=
+>=C3=9Cdv=C3=B6zlettel<font color=3D"#888888"><font color=3D"#888888"><br>M=
+ustafa Susilo</font></font></div></div></div></div></div></div></div></div>=
+</div></div></div></div></div></div></div></div></div></div></div></div></d=
+iv></div></div></div></div></div></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+
+--000000000000be262105a2ed87ed--

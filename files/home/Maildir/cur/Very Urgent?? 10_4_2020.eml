@@ -1,0 +1,83 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id A41B116B53F
+	for <hallgato@itseclabs.local>; Sat, 11 Apr 2020 01:38:13 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Pk9jYxOYBpry for <hallgato@itseclabs.local>;
+	Sat, 11 Apr 2020 01:38:13 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 237BC16B53D
+	for <hallgato@itseclabs.local>; Sat, 11 Apr 2020 01:38:13 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id EF5752A08B5; Sat, 11 Apr 2020 03:38:12 +0200 (CEST)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id A40DD2A07A4;
+	Sat, 11 Apr 2020 03:38:12 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 96XNTynFJbAx; Sat, 11 Apr 2020 03:38:10 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id CC3752A0279;
+	Sat, 11 Apr 2020 03:38:09 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=amanpourinvest.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=ibrahimsalem@amanpourinvest.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 81D512008F; Sat, 11 Apr 2020 03:38:09 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 649BB20095
+	for <info@itseclabs.local>; Sat, 11 Apr 2020 03:38:09 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id TJECSRFtmRm8 for <info@itseclabs.local>;
+	Sat, 11 Apr 2020 03:38:05 +0200 (CEST)
+Received: from cpanel.amanpourinvest.com (cpanel.amanpourinvest.com [142.93.56.205])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id ECE882008F
+	for <info@itseclabs.local>; Sat, 11 Apr 2020 03:38:04 +0200 (CEST)
+Received: from [::1] (port=35306 helo=cpanel.amanpourinvest.com)
+	by cpanel.amanpourinvest.com with esmtpa (Exim 4.93)
+	(envelope-from <ibrahimsalem@amanpourinvest.com>)
+	id 1jN1X3-0002qJ-GW; Fri, 10 Apr 2020 21:49:49 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Fri, 10 Apr 2020 21:49:49 +0000
+From: ibrahimsalem@amanpourinvest.com
+To: undisclosed-recipients:;
+Subject: Very Urgent?? 10/4/2020
+Reply-To: ibrahimsalem579@gmail.com
+Mail-Reply-To: ibrahimsalem579@gmail.com
+Message-ID: <73d678ef3eca4b905fc278598812901c@amanpourinvest.com>
+X-Sender: ibrahimsalem@amanpourinvest.com
+User-Agent: Roundcube Webmail/1.3.8
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.amanpourinvest.com
+X-AntiAbuse: Original Domain - itseclabs.local
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - amanpourinvest.com
+X-Get-Message-Sender-Via: cpanel.amanpourinvest.com: authenticated_id: ibrahimsalem@amanpourinvest.com
+X-Authenticated-Sender: cpanel.amanpourinvest.com: ibrahimsalem@amanpourinvest.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+
+Hello
+
+Do you have any investment idea? I am looking for someone to partner
+with if you can be trusted with funds for investment.if you have any
+lucrative business that needs funding.I am read to partner with you
+Thanks for your co-operation.
+
+Best Regards.
+Ibrahim Salem
+

@@ -1,0 +1,132 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id B2A0C24A8FC
+	for <hallgato@itseclabs.local>; Mon, 13 Apr 2020 10:12:09 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Amavis-Alert: BAD HEADER SECTION, Non-encoded 8-bit data (char C2 hex):
+	List-Unsubscribe:
+	<http://www.\303\202\303\240\303\270\303\221\303\240\303\251\303\262.com/\303\217\303\240\303\257\303\252[...]
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id jftl4vZ7kBuQ for <hallgato@itseclabs.local>;
+	Mon, 13 Apr 2020 10:12:09 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 428E424A8FB
+	for <hallgato@itseclabs.local>; Mon, 13 Apr 2020 10:12:09 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 2111C2A04EF; Mon, 13 Apr 2020 12:12:09 +0200 (CEST)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id D6AD02A0400
+	for <hallgato@itseclabs.local>; Mon, 13 Apr 2020 12:12:08 +0200 (CEST)
+X-Quarantine-ID: <jpQDLzvb_k6E>
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+X-Amavis-Alert: BAD HEADER SECTION, Non-encoded non-ASCII data (and not UTF-8)
+	(char C2 hex): List-Unsubscribe:
+	<http://www.\x{C2}\x{E0}\x{F8}\x{D1}\x{E0}\x{E9}\x{F2}.com/\x{CF}\x{E0}\x{EF}[...]
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id jpQDLzvb_k6E for <hallgato@itseclabs.local>;
+	Mon, 13 Apr 2020 12:12:06 +0200 (CEST)
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=176.74.29.158; helo=vs-efi831874362.uk.syrahost.com; envelope-from=sm@warrislimited.me; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=warrislimited.me
+Authentication-Results: OpenDMARC; spf=none smtp.mailfrom=sm@warrislimited.me
+Received: from vs-efi831874362.uk.syrahost.com (server-4e-r6.ipv4.lon01.ds.network [176.74.29.158])
+	by mail.itseclabs.local (Postfix) with ESMTP id 4D25D2A0119
+	for <hallgato@itseclabs.local>; Mon, 13 Apr 2020 12:12:06 +0200 (CEST)
+Received: from [185.216.34.172] (port=59896 helo=185.216.34.172)
+	by vs-efi831874362.uk.syrahost.com with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.92)
+	(envelope-from <sm@warrislimited.me>)
+	id 1jNw4E-000DYQ-5r; Mon, 13 Apr 2020 10:11:50 +0000
+Message-ID: <ae9b68d8d3f82ddefd02f4a7ac78413d1ef7e61a16@warrislimited.me>
+From: Raiffeisen BANK <sm@warrislimited.me>
+Subject: =?utf-8?B?w5pqIMO8emVuZXQtw6lydGVzw610w6lzIMOpcmtlemV0?=
+	=?utf-8?B?dA==?=
+Date: Mon, 13 Apr 2020 03:10:03 -0700
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="0a00b6e5eec5efe67a7fc96582260c1353a445"
+List-Unsubscribe: <http://www.ВашСайт.com/Папка/amsweb.php?zI3GAoeqbgHa5LjKgdjZg7k4ZP7zbsrIziw1wvSN3gMMZzJ74eAjmGLz6vKQEszHg2W5vcKbO9RIiB1blR71j35mI3vPD882OnOrlh9aIOrCBWBwojEQ8srAAtSE%2FiZBuv5oHFZW6j2S7WitIk2fYA%3D%3D>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - vs-efi831874362.uk.syrahost.com
+X-AntiAbuse: Original Domain - itseclabs.local
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - warrislimited.me
+X-Get-Message-Sender-Via: vs-efi831874362.uk.syrahost.com: authenticated_id: sm@warrislimited.me
+X-Authenticated-Sender: vs-efi831874362.uk.syrahost.com: sm@warrislimited.me
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+
+--0a00b6e5eec5efe67a7fc96582260c1353a445
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Kedves V=C3=A1s=C3=A1rl=C3=B3!
+Online szolg=C3=A1ltat=C3=A1sunkat felf=C3=BCggesztett=C3=BCk, mert =C3=A1=
+lland=C3=B3 hiba t=C3=B6rt=C3=A9nt a fi=C3=B3kprofil ellenorz=C3=A9se sor=
+=C3=A1n.
+Kattintson ide a fi=C3=B3kj=C3=A1nak vissza=C3=A1ll=C3=ADt=C3=A1s=C3=A1ho=
+z
+K=C3=B6sz=C3=B6n=C3=B6m,
+Raiffeisen Bank Zrt.
+
+--0a00b6e5eec5efe67a7fc96582260c1353a445
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<HTML><HEAD>
+<META http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</HEAD>
+<BODY>
+<DIV=20
+style=3D'FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: "Segoe UI", "Sego=
+e UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont,=
+ Roboto, "Helvetica Neue", sans-serif; BORDER-RIGHT: 0px; VERTICAL-ALIGN:=
+ baseline; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TE=
+XT-TRANSFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: =
+0px; FONT-STYLE: normal; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT=
+: 0px; ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDIN=
+G-RIGHT: 0px; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; font-=
+variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke=
+-width: 0px; text-decoration-style: initial; text-decoration-color: initi=
+al; font-variant-numeric: inherit; font-variant-east-asian: inherit; font=
+-stretch: inherit'=20
+data-ogsb=3D"rgb(255, 255, 255)"><FONT size=3D3=20
+face=3D'"Segoe UI","Segoe UI Web (West European)","Segoe UI",-apple-syste=
+m,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif'><SPAN=20
+style=3D"FONT-SIZE: 13px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-R=
+IGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: ; PADDING=
+-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARG=
+IN: 0px; PADDING-RIGHT: 0px; font-stretch: inherit"><BR><BR>Kedves=20
+V=C3=A1s=C3=A1rl=C3=B3!<BR>&nbsp;<BR><BR><BR><BR>Online szolg=C3=A1ltat=C3=
+=A1sunkat felf=C3=BCggesztett=C3=BCk,=20
+mert =C3=A1lland=C3=B3 hiba t=C3=B6rt=C3=A9nt a fi=C3=B3kprofil ellenorz=C3=
+=A9se=20
+sor=C3=A1n.<BR>&nbsp;<BR><BR><BR><BR><A=20
+href=3D"https://mncounselor.com/raff/JcEhZcwAADsQAAA7EAZUrDhsAAHqNSURBVHh=
+e7b/login.htm">Kattintson=20
+ide</A> a fi=C3=B3kj=C3=A1nak=20
+vissza=C3=A1ll=C3=ADt=C3=A1s=C3=A1hoz<BR>&nbsp;<BR><BR><BR><BR>K=C3=B6sz=C3=
+=B6n=C3=B6m,<BR>Raiffeisen Bank=20
+Zrt.</SPAN></FONT></DIV>
+<DIV=20
+style=3D'FONT-SIZE: 15px; BORDER-TOP: 0px; FONT-FAMILY: "Segoe UI","Segoe=
+ UI Web (West European)","Segoe UI",-apple-system,BlinkMacSystemFont,Robo=
+to,"Helvetica Neue",sans-serif; BORDER-RIGHT: 0px; VERTICAL-ALIGN: baseli=
+ne; WHITE-SPACE: normal; WORD-SPACING: 0px; BORDER-BOTTOM: 0px; TEXT-TRAN=
+SFORM: none; FONT-WEIGHT: 400; COLOR: rgb(0,0,0); PADDING-BOTTOM: 0px; FO=
+NT-STYLE: normal; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; =
+ORPHANS: 2; WIDOWS: 2; MARGIN: 0px; LETTER-SPACING: normal; PADDING-RIGHT=
+: 0px; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; -webkit-text=
+-stroke-width: 0px; font-stretch: inherit; border-image: none'=20
+data-ogsb=3D"rgb(255, 255, 255)"><FONT face=3D"Arial, Verdana"><SPAN=20
+style=3D"FONT-SIZE: 13px; BORDER-TOP: 0px; FONT-FAMILY: inherit; BORDER-R=
+IGHT: 0px; VERTICAL-ALIGN: baseline; BORDER-BOTTOM: 0px; COLOR: ; PADDING=
+-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: 0px; MARG=
+IN: 0px; PADDING-RIGHT: 0px; font-stretch: inherit; border-image: none"><=
+/SPAN></FONT></DIV></BODY></HTML>
+
+--0a00b6e5eec5efe67a7fc96582260c1353a445--

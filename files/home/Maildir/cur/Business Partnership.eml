@@ -1,0 +1,141 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id AE04A2343FF
+	for <hallgato@itseclabs.local>; Wed,  8 Apr 2020 08:05:09 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 3.082
+X-Spam-Level: ***
+X-Spam-Status: No, score=3.082 tagged_above=1 required=4.5
+	tests=[BAYES_05=-0.5, DEAR_SOMETHING=1.973, DKIM_SIGNED=0.1,
+	DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1, FREEMAIL_FROM=0.001,
+	FREEMAIL_REPLYTO=2.398, HTML_MESSAGE=0.001, RCVD_IN_DNSWL_LOW=-0.7,
+	SPF_HELO_PASS=-0.001, T_TO_NO_BRKTS_FREEMAIL=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id d7UogAVZ9vju for <hallgato@itseclabs.local>;
+	Wed,  8 Apr 2020 08:05:06 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 69BC82343FE
+	for <hallgato@itseclabs.local>; Wed,  8 Apr 2020 08:05:06 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 565542A0571; Wed,  8 Apr 2020 10:05:06 +0200 (CEST)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="US0PDS1j";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id E382C2A04F9;
+	Wed,  8 Apr 2020 10:05:05 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 05IMPvBZWYQ2; Wed,  8 Apr 2020 10:05:03 +0200 (CEST)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 774652A0418;
+	Wed,  8 Apr 2020 10:05:03 +0200 (CEST)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=edrateuk@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 348382008F; Wed,  8 Apr 2020 10:05:03 +0200 (CEST)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 1FE3C20095
+	for <info@itseclabs.local>; Wed,  8 Apr 2020 10:05:03 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id SzGBJZb1grE1 for <info@itseclabs.local>;
+	Wed,  8 Apr 2020 10:05:02 +0200 (CEST)
+Received: from mail-qt1-f195.google.com (mail-qt1-f195.google.com [209.85.160.195])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id CC89F2008F
+	for <info@itseclabs.local>; Wed,  8 Apr 2020 10:04:58 +0200 (CEST)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="US0PDS1j";
+	dkim-atps=neutral
+Received: by mail-qt1-f195.google.com with SMTP id f20so4906310qtq.6
+        for <info@itseclabs.local>; Wed, 08 Apr 2020 01:04:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:reply-to:from:date:message-id:subject:to;
+        bh=ReBwCq00GzcU7rr9XWwqvK8kIyQOzK/7XYgIlRNlsGQ=;
+        b=US0PDS1j7/Anq5cN+D70E+I0vMIKQ6+go4ZIaBc5kCGLpSa+SPheL89TSN7s55QG3n
+         yMNqMVHsyxhFCybdgSyweSD4ZtD8zKftpYHbEkmXsJGPhNvUPQopr7/F8nHbAgYMDoUl
+         Dzibijorpx+EgzM2PcEo+rBtYnS9nHVU3hV1U8tWkYECxH36Wpr8tfB9CWNzE66xEve6
+         bsEuNQSeskgV+ca4Xjykglrixg9ypDRLdwykFzb9nDHYDfTHXYZN3P8t3eJ282TBdmZi
+         1H8XV+wsH0fwRwqwx3aB1+GNDZ8I+bJ01AlUjRRpkNQMP4Tfawd5J/pe8NV0SSAoknAK
+         L3ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+         :subject:to;
+        bh=ReBwCq00GzcU7rr9XWwqvK8kIyQOzK/7XYgIlRNlsGQ=;
+        b=E5DmX8s7tF9uZvSgPy+iy6p00+LWPkb789IEKeqFKS6PdDJL6fb0QZn+cIt9yZQLzo
+         6BZ4u7StCgzLs/QvZg1HTcPOSkNPWaD0PaDLLkjdcj+Y+XZuJT2uaU/Jnyb2FchRYv3q
+         AG8JBfDTXLNlHeYk2Pi7JFoVQpWKKVcgbpdC2jOm1loB9f7O+f6tNh9ZZhXJJ+bW6wut
+         cJVH57+2G5KSMHsln6CYA9OrjF/zOvH3XKGRfM4WSheWTHlGlgLhT1uGOJEYvv5dAiEx
+         hTcvyrns6ZSABXD+n41NvF7I/CyXrNqYEsmxKPboLMyqGMSlWLhB10mnDdjG051xglt1
+         K0TA==
+X-Gm-Message-State: AGi0PuZp2DxOK6x1oQV02vEIeCeMe/Q0fA/bzcVYv7GJM79Y8XOjhLz5
+	NwCOJ4cvn5oIpbHX0N6jqOzrgstSLkBNUNrjVac=
+X-Google-Smtp-Source: APiQypKrysbCnWIpfmu36h9XxDBjTWXezqo5+k+KG5L09X097AAqoQ7gOwQFrOpbwYToCJWWRVVC4JCUK0VIXGchDds=
+X-Received: by 2002:aed:2435:: with SMTP id r50mr6100322qtc.314.1586333096565;
+ Wed, 08 Apr 2020 01:04:56 -0700 (PDT)
+MIME-Version: 1.0
+Reply-To: shanerrrhalnan@gmail.com
+From: JACOBUS IGNATIUS DE WET <edrateuk@gmail.com>
+Date: Wed, 8 Apr 2020 09:04:46 +0100
+Message-ID: <CAPzEcjFA0jfswZ-5E1vdm43H9u5O70g8U+JZFm-G9uc83PQ26Q@mail.gmail.com>
+Subject: Business Partnership
+To: shanerrrhalnan@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000b764cf05a2c2f4c7"
+
+--000000000000b764cf05a2c2f4c7
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Sir,
+
+We are looking for businesses,entrepreneurs/project owners, who require
+loans for their projects. We have finance available for your projects with
+over 2 trillion private and corporate investment portfolios.
+We are looking for entrepreneurs/project owners who will pay up to 3%
+interest annually with a 5 to 10 year hold.
+We also give a 2% commission to brokers, who bring project owners for
+finance or other opportunities.
+For further details, kindly send us email with your business plans or
+project presentation.
+
+Regards,
+Shane Raymond Halnan
+International Business Coordinator
+Aseel Islamic Finance PJSC
+Al Mankhool, Dubai C2 Tower,
+Ground floor,P.O 94669 Dubai,
+United Arab Emirates
+
+--000000000000b764cf05a2c2f4c7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br clear=3D"all"><div><div dir=3D"ltr" class=3D"gmail_sig=
+nature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr">Dear Sir,<br><b=
+r>We are looking for businesses,entrepreneurs/project owners, who require l=
+oans for their projects. We have finance available for your projects with o=
+ver 2 trillion private and corporate investment portfolios.<br>We are looki=
+ng for entrepreneurs/project owners who will pay up to 3% interest annually=
+ with a 5 to 10 year hold.<br>We also give a 2% commission to brokers, who =
+bring project owners for finance or other opportunities.<br>For further det=
+ails, kindly send us email with your business plans or project presentation=
+.<br><br>Regards,<br>Shane Raymond Halnan<br>International Business Coordin=
+ator<br>Aseel Islamic Finance PJSC<br>Al Mankhool, Dubai C2 Tower,<br>Groun=
+d floor,P.O 94669 Dubai,<br>United Arab Emirates</div></div></div></div>
+
+--000000000000b764cf05a2c2f4c7--

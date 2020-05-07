@@ -1,0 +1,82 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 081AC1FD711
+	for <hallgato@itseclabs.local>; Sat, 21 Dec 2019 14:53:10 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 2.257
+X-Spam-Level: **
+X-Spam-Status: No, score=2.257 tagged_above=1 required=4.5
+	tests=[BAYES_00=-1.9, FH_FROM_CASH=1.739, FREEMAIL_REPLYTO=2.398,
+	LOTS_OF_MONEY=0.001, SPF_HELO_PASS=-0.001, T_FRT_CONTACT=0.01,
+	T_TO_NO_BRKTS_FREEMAIL=0.01] autolearn=no
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id CKQdAAnDx_9Y for <hallgato@itseclabs.local>;
+	Sat, 21 Dec 2019 14:53:08 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id C483F1FD710
+	for <hallgato@itseclabs.local>; Sat, 21 Dec 2019 14:53:08 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 9264F2A026A; Sat, 21 Dec 2019 15:53:08 +0100 (CET)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 50DED2A038D;
+	Sat, 21 Dec 2019 15:53:08 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id FV9BqZRGuEK1; Sat, 21 Dec 2019 15:53:06 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id CD39E2A0058;
+	Sat, 21 Dec 2019 15:53:05 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=dommel.be
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=marketing@dommel.be
+Received: by duflex.itseclabs.local (Postfix)
+	id 88AC220092; Sat, 21 Dec 2019 15:53:05 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 4546A20095
+	for <info@itseclabs.local>; Sat, 21 Dec 2019 15:53:05 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id lCG0mURDUYbT for <info@itseclabs.local>;
+	Sat, 21 Dec 2019 15:53:03 +0100 (CET)
+X-Greylist: delayed 682 seconds by postgrey-1.36 at duflex-2; Sat, 21 Dec 2019 15:53:03 CET
+Received: from relay05.infra.be.a11.eu (relay05.billi.be [185.83.138.21])
+	by duflex.itseclabs.local (Postfix) with ESMTP id C70C920092
+	for <info@itseclabs.local>; Sat, 21 Dec 2019 15:53:03 +0100 (CET)
+Received: from webmail.dommel.be (unknown [185.83.138.185])
+	by relay.infra.be.a11.eu (Postfix) with ESMTP id F1E532621B7;
+	Sat, 21 Dec 2019 15:41:33 +0100 (CET)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Date: Sat, 21 Dec 2019 16:41:33 +0200
+From: "Cash-Flow Finance LTD." <marketing@dommel.be>
+To: undisclosed-recipients:;
+Subject: =?UTF-8?Q?Czy_potrzebujesz_po=C5=BCyczki=3F?=
+Reply-To: hugginsdeborah472@gmail.com
+Mail-Reply-To: hugginsdeborah472@gmail.com
+Message-ID: <8f2870acc6f1b39fbd88fbe712e31f7f@dommel.be>
+X-Sender: marketing@dommel.be
+User-Agent: Roundcube Webmail/1.2-beta
+
+
+
+-- 
+Drogi Wnioskodawcy,
+
+Czy potrzebujesz pożyczki? Nie szukaj dalej, udzielamy pożyczek krótko- 
+i długoterminowych, aby pomóc Ci zwiększyć Twoje finanse
+
+Zakres pożyczek wynosi od: 5000 do 10 000 000 USD
+Zainteresowany kontakt Adrian na: getloan1233@financier.com lub zadzwoń 
+pod numer: +447418322491
+

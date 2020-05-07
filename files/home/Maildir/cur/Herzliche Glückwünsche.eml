@@ -1,0 +1,289 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 4A9471055B9
+	for <hallgato@itseclabs.local>; Fri, 27 Mar 2020 19:53:25 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 3.772
+X-Spam-Level: ***
+X-Spam-Status: No, score=3.772 tagged_above=1 required=4.5
+	tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+	DKIM_VALID_AU=-0.1, FILL_THIS_FORM=0.001,
+	FILL_THIS_FORM_FRAUD_PHISH=0.334, FILL_THIS_FORM_LOAN=2.88,
+	FREEMAIL_FORGED_REPLYTO=2.095, FREEMAIL_REPLYTO_END_DIGIT=1.151,
+	HTML_MESSAGE=0.001, LOTS_OF_MONEY=0.001, RCVD_IN_DNSWL_LOW=-0.7,
+	SPF_HELO_PASS=-0.001, T_FRT_CONTACT=0.01] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=melegatti.com.br
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id vd4Mdnr-4M7T for <hallgato@itseclabs.local>;
+	Fri, 27 Mar 2020 19:53:23 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 711EC1055B8
+	for <hallgato@itseclabs.local>; Fri, 27 Mar 2020 19:53:23 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 482EF2A0386; Fri, 27 Mar 2020 20:53:23 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=melegatti.com.br header.i=@melegatti.com.br header.b="Ux/CbYDM";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 064D42A0234;
+	Fri, 27 Mar 2020 20:53:23 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=melegatti.com.br
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id z5Bh-lLK5VQT; Fri, 27 Mar 2020 20:53:19 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 567FD2A020A;
+	Fri, 27 Mar 2020 20:53:16 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=melegatti.com.br
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=gevir@melegatti.com.br
+Received: by duflex.itseclabs.local (Postfix)
+	id 1C52E20095; Fri, 27 Mar 2020 20:53:16 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id EE5B120096
+	for <info@itseclabs.local>; Fri, 27 Mar 2020 20:53:15 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id jqFprgcYmGXq for <info@itseclabs.local>;
+	Fri, 27 Mar 2020 20:53:14 +0100 (CET)
+X-Greylist: delayed 327 seconds by postgrey-1.36 at duflex-2; Fri, 27 Mar 2020 20:53:12 CET
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=melegatti.com.br header.i=@melegatti.com.br header.b="Ux/CbYDM";
+	dkim-atps=neutral
+Received: from server5.softhost.org (server5.softhost.org [186.250.240.105])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 3021F20095
+	for <info@itseclabs.local>; Fri, 27 Mar 2020 20:53:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=melegatti.com.br; s=default; h=Message-ID:Reply-To:Subject:To:From:Date:
+	Content-Type:MIME-Version:Sender:Cc:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=6ckAPjPTqTkqXUk+OUwC8wBzmnEIO14DdfTIT8zDs88=; b=Ux/CbYDMfDV5clr+gfbdhJOZ54
+	86is/3xPSigJgkjJd5b9qASJcZ7OSkRWtXLWBoPGe5fHd3JOAQXXxcDJP4ScasL/A0VmUpTk69I/r
+	1iBIem6bJToXafY6kAc9J4BSFxrMKE4diyWa8aVyksWUmTlS+8EYfyJSI8k+3DdEhbiUcOjpSDzJj
+	ZkwM1J1lFak05fIFSospUz2MIDIre+51GnmkGBjsvbthI2UcEoDTKxQJX+oxEDRtzBG6eiKr+KdRk
+	pEuAzrVC9ZEw1UQcvutqpTGDqlRJemAWbBVJsrNKOpFJI5bPgsHw71E7vg6/+Bc99jmU6pm+uhOuK
+	yWd5HXCQ==;
+Received: from [::1] (port=39090 helo=server5.softhost.org)
+	by server5.softhost.org with esmtpa (Exim 4.93)
+	(envelope-from <gevir@melegatti.com.br>)
+	id 1jHuqz-00046V-KH; Fri, 27 Mar 2020 16:41:17 -0300
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_6f2e9882714c1f8da5b1eb429ee171af"
+Date: Fri, 27 Mar 2020 20:41:17 +0100
+From: =?UTF-8?Q?Euro_Online_Loter=C3=ADa_de_Navidad?=
+ <gevir@melegatti.com.br>
+To: undisclosed-recipients:;
+Subject: =?UTF-8?Q?Herzliche_Gl=C3=BCckw=C3=BCnsche?=
+Reply-To: antoniopaco2020@yandex.com
+Mail-Reply-To: antoniopaco2020@yandex.com
+Message-ID: <fc1df7659f6cfcbbaa1712e4bd077982@melegatti.com.br>
+X-Sender: gevir@melegatti.com.br
+User-Agent: Roundcube Webmail/1.3.8
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server5.softhost.org
+X-AntiAbuse: Original Domain - itseclabs.local
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - melegatti.com.br
+X-Get-Message-Sender-Via: server5.softhost.org: authenticated_id: gevir@melegatti.com.br
+X-Authenticated-Sender: server5.softhost.org: gevir@melegatti.com.br
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+
+--=_6f2e9882714c1f8da5b1eb429ee171af
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+
+ABC Lotería de Navidad 2019/ ABC-Weihnachtslotterie 2019
+http://www.abc.es/loteria-de-navidad
+HAUPTBURO: Avenida de Victoria 10 28045 Madrid Spanien 
+
+OFFIZIELLE MITTEILUNG: VON DES SCHREIBTISCH DES PRASIDENTEN
+INTERNATIONALE LOTTERIE AWARD GEWINNZUTEILUNG ABTEILUNG ESPAÑA
+EUROMILLONES-LOTTERIE 
+
+REFERENZ NR: SP/7211/075/SE; 
+Sehr geehrter, Begunstigter, (10989)                                    
+    23/03/2020 
+
+PREIS -MITTEILUNG; FROHE WEIHNACHTEN.
+AUFMERKSAMKEIT BENGUNSTIGTER (Kategorie "B".) 
+
+Wir freuen uns, Ihnen die Ergebnisse unseres INTERNATIONALEN
+WERBEPROGRAMMES das am 22. Dezember 2019 veranstaltet wurde,
+mitzuteilen. Ihr Name entspricht der Ticketnummer 198-5120756-406 und
+Gewinn-pin-nummer 
+S-4971518-E, die mit den Gewinnzahlen (10989) in der 2.Kategorie
+konstant gewonnen hat. Somit steht Ihnen eine Gewinnauszahlung von
+1,250,000.00 euro (Ein Million Zweihundert und funfzig tausend euro) zu,
+die mit der Bearbeitungsnmr: REFERENZ NR: SP/7211/075/SE u. GEWINNEN NR:
+(10989) gekenzeichnet ist und per versicherten Bar Scheck an sie
+Auabezahlt wird. Die summe ergibt sich aus einer Gewinnausschuttung von
+21,250,000.00 euro (Ein und zwanzig millionen Zweihundert und funzig
+tausend Euro) Die summe wurde durch 17 gewinnern aus der glieichen
+kategorie geteilt, und durch diese Zahlungsoptionen bezahlt werden; 
+Folgendermaßen: (A) BARSCHECK (B) BANKUBERWEISUNG
+Aus Sicherheitsgrunden wurde ihr Gewinn versichert und wird nach
+Datenverifikation von der Lotterie Gesellschaft ausbezahlt. Um keine
+Komplikationen bei der Abwicklung der Zahlung zu verursachen bitten wir
+sie diese offizielle mitteilung diskret zu behandeln. Alle Teilnehmer
+wurden durch ihren Namen und E-Mail Adresse mit einem Computersystem
+nach dem Zufallsprinzip der World Wide Web Site gezogen und alle Namen
+und E-Mail wurden von der Website "mehr als 100 Tausend Namen und E-Mail
+von Philanthropen, Firmen, Fluggesellschaften,
+Versicherungsgesellschaften, Aktionaren , Krankenhauser und humanitare
+Organisationen auf der ganzen Welt fur Burger Nordamerikas und der
+Karibik, Sud- und Mittelamerika, Europa, Asien, Mittlerer Osten, Afrika
+und Australien & Pazifik als Teil des Internationalen Forderprogramms.
+Wir mochten Sie bitten; diese Mitteilung nicht an die Offentlichkeit
+weiterzuleiten, bis Ihr Gewinn an Sie ausbezahlt wurde, da dies eine
+Vorkehrung unseres Sicherheitsprotokolles ist, um doppelte and korrupte
+Gewinnauszahlungen zu vermeiden sowie, dass dritte versuchen Ihren
+Gewinn fur sich zu beanspruchen. Wir hoffen, dass sie mit Teil Ihres
+Gewinnes an unserem jahrlichen 1.3 Billionen Gewinnspiel teilnehmen
+werden. 
+
+Um Ihren Gewinn zu beanspruchen und an sie weiterzuleiten kontaktieren
+Sie bitte das Anwalt fur weitere Informationen TEL: 0034-654-262-935,
+FAX: +34-910-612-001 E-MAIL: antoniopaco2020@yandex.com DR. ANTONIO
+PACO, Erreichbar von MO.-FR.ab 8.00 Bis 20.00hr und bitte beachten Sie,
+dass alle Preisgelder bis spatestens 15. April 2020 beansprucht werden
+mussen. Jeder nicht angemeldete Gewinnanspruch verfallt und geht zuruck
+an das MINISTERIO DE ECONOMIA Y HACIENDA wie zuruckgebracht warden.
+Wichtig: Um Komplikationen zu vermeiden, mochten wir Sie bitten, Ihrem
+Anwalt bei jeder Korrespondenz die Bearbeitungsnmr. anzugeben. Sollte es
+eine Anderung in lhrer Adresse geben mochten wir sie bitten, dies ihrem
+Anwalt so schnell wie moglich mitzuteilen. Das Original lhres
+Gewinntickets bleibt aus Sicherheits grunden bei Ihrem Anwalt. Nochmals
+Herzlichen Gluckwunsch von allen unseren Mitarbeitern und Herzlichen
+Dank fur ihre Teilnahme an unserem internationalen Promotionsprogrammes.
+
+
+Mit freundlichen Grussen,
+DR. JAUN ANTONIO 
+GESCHAFTSFUHRER 
+
+DR. ANTONIO PACO ANWALTSKANZLEI UND NOTARIAT
+Calle de Pericles 36A 28043. Madrid Spanien
+TEL: 0034-654-262-935, FAX: +34-910-612-001
+E-MAIL: antoniopaco2020@yandex.com 
+Fullen Sie Das form und Fax oder E-mail zu Anwaltskanzlei mit kopie
+Ihrer Personlichen Identikation
+ZAHLUNG OPTION: A/ BANKUBERWEISUNG B/ BARSCHECK
+(BANKDATEN SIND NUR NOTWENDIG WENN SIE SICH FUR EINE BANKUBERWEISUNG
+ENTSCHIEDEN HABEN) 
+
+(1) VOLLSTANDIGER NAME
+:-.........................................................................................(
+2) GEBURTSDATUM:-............
+(3)
+TELEFON:-......................................MOBIL:-.........................
+FAX:-.................... (4) MENGE GEWONNEN:-................
+(5) ADRESSE
+:-.............................................................................................................(6)
+NATIONALITAT:-..........................
+(7) BERUF :-....................................( 8) E-MAIL
+:-.....................................................................(
+9) GEWINNEN NR:-...........
+(10) BANK NAME:-............................
+KONTONUMMER:-..............................................
+BANKLEITZAHL:-......................
+(Bitte antworten Sie per E-Mail: antoniopaco2020@yandex.com )
+--=_6f2e9882714c1f8da5b1eb429ee171af
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8" /></head><body style=3D'font-size: 10pt; font-family: Verdana,Gen=
+eva,sans-serif'>
+<p>ABC Loter&iacute;a de Navidad 2019/ ABC-Weihnachtslotterie 2019<br /> ht=
+tp://www.abc.es/loteria-de-navidad<br />HAUPTBURO: Avenida de Victoria 10 2=
+8045 Madrid Spanien</p>
+<p>OFFIZIELLE MITTEILUNG: VON DES SCHREIBTISCH DES PRASIDENTEN INTERNATIONA=
+LE LOTTERIE AWARD GEWINNZUTEILUNG ABTEILUNG ESPA&Ntilde;A EUROMILLONES-LOTT=
+ERIE</p>
+<p>REFERENZ NR: SP/7211/075/SE; <br /> Sehr geehrter, Begunstigter, (10989)=
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
+; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;23/0=
+3/2020</p>
+<p>PREIS -MITTEILUNG; FROHE WEIHNACHTEN.<br />AUFMERKSAMKEIT BENGUNSTIGTER =
+(Kategorie "B".)</p>
+<p>Wir freuen uns, Ihnen die Ergebnisse unseres INTERNATIONALEN WERBEPROGRA=
+MMES das am 22. Dezember 2019 veranstaltet wurde, mitzuteilen. Ihr Name ent=
+spricht der Ticketnummer 198-5120756-406 und Gewinn-pin-nummer <br />S-4971=
+518-E, die mit den Gewinnzahlen (10989) in der 2.Kategorie konstant gewonne=
+n hat. Somit steht Ihnen eine Gewinnauszahlung von 1,250,000.00 euro (Ein M=
+illion Zweihundert und funfzig tausend euro) zu, die mit der Bearbeitungsnm=
+r: REFERENZ NR: SP/7211/075/SE u. GEWINNEN NR: (10989) gekenzeichnet ist un=
+d per versicherten Bar Scheck an sie Auabezahlt wird. Die summe ergibt sich=
+ aus einer Gewinnausschuttung von 21,250,000.00 euro (Ein und zwanzig milli=
+onen Zweihundert und funzig tausend Euro) Die summe wurde durch 17 gewinner=
+n aus der glieichen kategorie geteilt, und durch diese Zahlungsoptionen bez=
+ahlt werden; <br />Folgenderma&szlig;en: (A) BARSCHECK (B) BANKUBERWEISUNG<=
+br />Aus Sicherheitsgrunden wurde ihr Gewinn versichert und wird nach Daten=
+verifikation von der Lotterie Gesellschaft ausbezahlt. Um keine Komplikatio=
+nen bei der Abwicklung der Zahlung zu verursachen bitten wir sie diese offi=
+zielle mitteilung diskret zu behandeln. Alle Teilnehmer wurden durch ihren =
+Namen und E-Mail Adresse mit einem Computersystem nach dem Zufallsprinzip d=
+er World Wide Web Site gezogen und alle Namen und E-Mail wurden von der Web=
+site "mehr als 100 Tausend Namen und E-Mail von Philanthropen, Firmen, Flug=
+gesellschaften, Versicherungsgesellschaften, Aktionaren , Krankenhauser und=
+ humanitare Organisationen auf der ganzen Welt fur Burger Nordamerikas und =
+der Karibik, Sud- und Mittelamerika, Europa, Asien, Mittlerer Osten, Afrika=
+ und Australien &amp; Pazifik als Teil des Internationalen Forderprogramms=
+=2E Wir mochten Sie bitten; diese Mitteilung nicht an die Offentlichkeit we=
+iterzuleiten, bis Ihr Gewinn an Sie ausbezahlt wurde, da dies eine Vorkehru=
+ng unseres Sicherheitsprotokolles ist, um doppelte and korrupte Gewinnausza=
+hlungen zu vermeiden sowie, dass dritte versuchen Ihren Gewinn fur sich zu =
+beanspruchen. Wir hoffen, dass sie mit Teil Ihres Gewinnes an unserem jahrl=
+ichen 1.3 Billionen Gewinnspiel teilnehmen werden.</p>
+<p>Um Ihren Gewinn zu beanspruchen und an sie weiterzuleiten kontaktieren S=
+ie bitte das Anwalt fur weitere Informationen TEL: 0034-654-262-935, FAX: +=
+34-910-612-001 E-MAIL: antoniopaco2020@yandex.com DR. ANTONIO PACO, Erreich=
+bar von MO.-FR.ab 8.00 Bis 20.00hr und bitte beachten Sie, dass alle Preisg=
+elder bis spatestens 15. April 2020 beansprucht werden mussen. Jeder nicht =
+angemeldete Gewinnanspruch verfallt und geht zuruck an das MINISTERIO DE EC=
+ONOMIA Y HACIENDA wie zuruckgebracht warden. Wichtig: Um Komplikationen zu =
+vermeiden, mochten wir Sie bitten, Ihrem Anwalt bei jeder Korrespondenz die=
+ Bearbeitungsnmr. anzugeben. Sollte es eine Anderung in lhrer Adresse geben=
+ mochten wir sie bitten, dies ihrem Anwalt so schnell wie moglich mitzuteil=
+en. Das Original lhres Gewinntickets bleibt aus Sicherheits grunden bei Ihr=
+em Anwalt. Nochmals Herzlichen Gluckwunsch von allen unseren Mitarbeitern u=
+nd Herzlichen Dank fur ihre Teilnahme an unserem internationalen Promotions=
+programmes. <br /> <br /> Mit freundlichen Grussen,<br /> DR. JAUN ANTONIO =
+<br /> GESCHAFTSFUHRER</p>
+<p>DR. ANTONIO PACO ANWALTSKANZLEI UND NOTARIAT<br />Calle de Pericles 36A =
+28043. Madrid Spanien<br />TEL: 0034-654-262-935, FAX: +34-910-612-001<br /=
+>E-MAIL: antoniopaco2020@yandex.com <br />Fullen Sie Das form und Fax oder =
+E-mail zu Anwaltskanzlei mit kopie Ihrer Personlichen Identikation<br />ZAH=
+LUNG OPTION: A/ BANKUBERWEISUNG B/ BARSCHECK<br /> (BANKDATEN SIND NUR NOTW=
+ENDIG WENN SIE SICH FUR EINE BANKUBERWEISUNG ENTSCHIEDEN HABEN)</p>
+<p>(1) VOLLSTANDIGER NAME :-.............................................=
+=2E...........................................( 2) GEBURTSDATUM:-........=
+=2E...<br />(3) TELEFON:-......................................MOBIL:-...=
+=2E..................... FAX:-.................... (4) MENGE GEWONNEN:-..=
+=2E.............<br /> (5) ADRESSE :-....................................=
+=2E......................................................................=
+=2E.(6) NATIONALITAT:-..........................<br /> (7) BERUF :-......=
+=2E.............................( 8) E-MAIL :-...........................=
+=2E.........................................( 9) GEWINNEN NR:-...........<b=
+r /> (10) BANK NAME:-............................ KONTONUMMER:-..........=
+=2E................................... BANKLEITZAHL:-....................=
+=2E.<br />(Bitte antworten Sie per E-Mail: antoniopaco2020@yandex.com )</p>
+</body></html>
+
+--=_6f2e9882714c1f8da5b1eb429ee171af--

@@ -1,0 +1,113 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 3AB0A2512F7
+	for <hallgato@itseclabs.local>; Fri, 20 Mar 2020 10:43:58 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id qa-g4y-2hEmu for <hallgato@itseclabs.local>;
+	Fri, 20 Mar 2020 10:43:57 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 84BDB2512F6
+	for <hallgato@itseclabs.local>; Fri, 20 Mar 2020 10:43:57 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 581902A0275; Fri, 20 Mar 2020 11:43:57 +0100 (CET)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 08E042A0279;
+	Fri, 20 Mar 2020 11:43:57 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id HD5O9ufUkSLa; Fri, 20 Mar 2020 11:43:54 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 716C12A020B;
+	Fri, 20 Mar 2020 11:43:54 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=spc-gmh.org
+Authentication-Results: OpenDMARC; spf=none smtp.mailfrom=info@spc-gmh.org
+Received: by duflex.itseclabs.local (Postfix)
+	id 1EA3120096; Fri, 20 Mar 2020 11:43:54 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 0B11820095
+	for <info@itseclabs.local>; Fri, 20 Mar 2020 11:43:54 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id fr9v-2pErEhu for <info@itseclabs.local>;
+	Fri, 20 Mar 2020 11:43:52 +0100 (CET)
+Received: from atl4mhob05.registeredsite.com (atl4mhob05.registeredsite.com [209.17.115.43])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 6C9D42008A
+	for <info@itseclabs.local>; Fri, 20 Mar 2020 11:43:51 +0100 (CET)
+Received: from atl4oxapp05pod4 ([10.30.77.101])
+	by atl4mhob05.registeredsite.com (8.14.4/8.14.4) with ESMTP id 02KAdbSw020239
+	(version=TLSv1/SSLv3 cipher=AES256-SHA256 bits=256 verify=NO);
+	Fri, 20 Mar 2020 06:39:37 -0400
+Date: Fri, 20 Mar 2020 06:39:37 -0400 (EDT)
+From: Robert Bosch Car Multimedia GmbH <info@spc-gmh.org>
+Reply-To: Robert Bosch Car Multimedia GmbH <info@spc-gmh.org>
+Message-ID: <881023161.166196.1584700777739@webmail4.networksolutionsemail.com>
+Subject: INVOICE UPDATE!
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+Importance: Normal
+X-Mailer: Open-Xchange Mailer v7.10.2-Rev19
+X-Originating-Client: open-xchange-appsuite
+To: undisclosed-recipients:;
+
+<!doctype html>
+<html>
+ <head> 
+  <meta charset="UTF-8"> 
+ </head>
+ <body>
+  <div class="default-style">
+   <div class="default-style">
+    <span style="color: #333399;">Dear Partner,</span>
+   </div>
+   <div class="default-style">
+    <br>
+    <span style="color: #333399;">We are currently undergoing our annual bank reconciliation audit and reviewing the company outstanding balances with all our esteem partners, can you please send us a list of the open invoices and outstanding payments according to what your records shows?.</span>
+   </div>
+   <div class="default-style">
+    <br>
+    <span style="color: #333399;">Also if you have not paid yet, kindly inform me before payment as to allow me verify the bank account details to avoid error on payment as a result of the ongoing reconciliation audit.</span>
+   </div>
+   <div class="default-style">
+    <br>
+    <span style="color: #333399;">We apologize for any inconvenience at this time.</span>
+    <br>
+    <span style="color: #333399;">Your immediate response would be highly appreciated.</span>
+   </div>
+   <div class="default-style">
+    <br>
+    <span style="color: #333399;">Sincerely,</span>
+    <br>
+    <span style="color: #333399;">---</span>
+    <br>
+    <span style="color: #0000ff;">Head of Accounting</span>
+   </div>
+   <div class="default-style">
+    <span style="color: #0000ff;">Robert Bosch Car Multimedia GmbH</span>
+    <br>
+    <span style="color: #0000ff;">Robert-Bosch-Strasse 200</span>
+    <br>
+    <span style="color: #0000ff;">31139 Hildesheim</span>
+    <br>
+    <span style="color: #0000ff;">GERMANY</span>
+    <br>
+    <span style="color: #0000ff;">Amtsgericht Hildesheim HRB 201334</span>
+    <br>
+    <span style="color: #0000ff;">Value-added tax identification number</span>
+    <br>
+    <span style="color: #0000ff;">DE262821775</span>
+   </div>
+  </div> 
+ </body>
+</html>

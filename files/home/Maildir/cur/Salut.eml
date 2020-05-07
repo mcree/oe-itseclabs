@@ -1,0 +1,147 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 5C67E2132BC
+	for <hallgato@itseclabs.local>; Thu,  9 Jan 2020 18:11:08 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=mail.bg
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id s5hYFlw689wJ for <hallgato@itseclabs.local>;
+	Thu,  9 Jan 2020 18:11:07 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id A8E612132BB
+	for <hallgato@itseclabs.local>; Thu,  9 Jan 2020 18:11:07 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 938C12A04CA; Thu,  9 Jan 2020 19:11:07 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=mail.bg header.i=@mail.bg header.b="SmPfqgRr";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 48DAA2A0568;
+	Thu,  9 Jan 2020 19:11:07 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=mail.bg
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id lwq279WjyE20; Thu,  9 Jan 2020 19:11:04 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 40D6D2A024E;
+	Thu,  9 Jan 2020 19:11:04 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=mail.bg
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=documetaliaga7@mail.bg
+Received: by duflex.itseclabs.local (Postfix)
+	id 17F1E20092; Thu,  9 Jan 2020 19:11:04 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id 02FEE20095
+	for <info@itseclabs.local>; Thu,  9 Jan 2020 19:11:04 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id xvu-219fl-LX for <info@itseclabs.local>;
+	Thu,  9 Jan 2020 19:11:02 +0100 (CET)
+Received: from mx5.mail.bg (mx5.mail.bg [193.201.172.121])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id B0B7820092
+	for <info@itseclabs.local>; Thu,  9 Jan 2020 19:11:01 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=mail.bg header.i=@mail.bg header.b="SmPfqgRr";
+	dkim-atps=neutral
+Received: from mail.bg (php7w1.internal [10.0.0.31])
+	by mx5.mail.bg (Postfix) with ESMTPA id 718298108EB0;
+	Thu,  9 Jan 2020 17:02:27 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=mail.bg; s=default;
+	t=1578582148; bh=R4bVGUkMUrg71bULP5MrNmuRjFv8N8Jq1eSqQqa5C/o=;
+	h=Message-ID:Date:Subject:From:To:MIME-Version:Content-Type;
+	b=SmPfqgRrGw6SynR2cVYfjWFyt3UhilelRVuBjOSVVTigmG1zjGnOCGK0Bp/MgiSxX
+	 sbud6C41csnZvn6HbE8yASWqiePoqqmzVkc+MbEZldANu66+n06PUSwU8bJlNUYXbo
+	 3HfUKUaxy09BygVtAj1DATTJyJkeISzLkbBc02YE=
+Message-ID: <17428faa597ca49d13335c529b083023.mailbg@mail.bg>
+Date: Thu, 9 Jan 2020 15:02:28 -0000
+Subject: Salut
+From: documetaliaga7@mail.bg
+To: yayasalimata@yahoo.com
+User-Agent: Mail.BG Webmail
+MIME-Version: 1.0
+Content-Type: multipart/alternative;boundary="----=_20200109150228_66814"
+X-Priority: 3 (Normal)
+Importance: Normal
+X-Composed: 2020-01-09T15:02:27+00:00
+
+------=_20200109150228_66814
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+=0A=0A=0ASalut,=0AJe m'appelle Salimata Yaya d'Abidjan (C=C3=B4te d'Ivoire)=
+. Je suis un orphelin=0Ade 22 ans, c'est-=C3=A0-dire que, n'ayant pas de pa=
+rents, j'ai environ 10 500=0A000 dollars, 10 millions et cinq cent mille do=
+llars. Ce que j=E2=80=99ai h=C3=A9rit=C3=A9=0Ade mon d=C3=A9funt p=C3=A8re,=
+ il l=E2=80=99a d=C3=A9pos=C3=A9 aupr=C3=A8s d=E2=80=99une des banques ici =
+=C3=A0=0AAbidjan sur un compte. Mon p=C3=A8re utilisait mon nom comme enfan=
+t unique et=0Aenfant unique des prochains membres du fonds. Mon oncle veut =
+me tuer parce=0Aque je l'ai mis au d=C3=A9fi quand il voulait prendre toute=
+s les propri=C3=A9t=C3=A9s=0Ade mon d=C3=A9funt p=C3=A8re.=0ADeuxi=C3=A8mem=
+ent, si vous =C3=AAtes tout =C3=A0 fait dispos=C3=A9 =C3=A0 coop=C3=A9rer a=
+vec moi =C3=A0=0Acette fin, veuillez me contacter afin que je puisse fourni=
+r les=0Ainformations et les d=C3=A9tails requis pour toute action ult=C3=
+=A9rieure. Je vais=0Aoffrir 20% de l'argent pour votre aide =C3=A0 moi. Con=
+tactez-moi =C3=A0 mon adresse=0Ae-mail priv=C3=A9e (yayasalimata@yahoo.com)=
+=0AJ'ai besoin de votre aide si vous souhaitez m'aider =C3=A0 investir le f=
+onds=0Adans votre pays. Contactez-moi maintenant pour plus d'informations.=
+=0AMerci beaucoup=0ASalimata Yaya=0A=0A=0A=0A=0A---------------------------=
+----------=0A=0A=D0=9F.=D0=9F. =D0=A0=D0=B0=D0=B7=D0=B1=D1=80=D0=B0 =D0=
+=BB=D0=B8, =D1=87=D0=B5 =D0=AF=D0=BD=D0=B0 =D1=89=D1=8F=D0=BB=D0=B0 =D0=
+=B4=D0=B0 =D1=81=D0=B8 =D0=BF=D1=80=D0=B0=D0=B2=D0=B8 =D1=81=D0=B0=D0=B9=
+=D1=82? =D0=AF=D0=BD=D0=B0, =D0=BE=D1=82 =D0=BE=D0=BD=D0=B0=D0=B7=D0=B8 =
+=D1=80=D0=B5=D0=BA=D0=BB=D0=B0=D0=BC=D0=B0. =D0=92=D0=B8=D0=B6 =D1=81=D0=
+=B0=D0=B9=D1=82 =D0=B1=D0=B8=D0=BB=D0=B4=D1=8A=D1=80=D0=B0 =D0=BD=D0=B0 =
+=D0=A1=D1=83=D0=BF=D0=B5=D1=80=D0=A5=D0=BE=D1=81=D1=82=D0=B8=D0=BD=D0=B3.=
+=D0=91=D0=93, =D0=B7=D0=B0 =D0=B4=D0=B0 =D1=81=D0=B8 =D0=BD=D0=B0=D0=BF=
+=D1=80=D0=B0=D0=B2=D0=B8=D1=88 =D1=81=D0=B0=D0=B9=D1=82 =D0=B8 =D1=82=D0=
+=B8.=0A https://www.superhosting.bg/site-builder.php?utm_source=3Dmbg&utm_m=
+edium=3Dcpm&utm_content=3Dmail_footer&utm_campaign=3Dsitebuilder
+------=_20200109150228_66814
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<p valid=3D"true" style=3D"line-height: 16px; font-size: 13px; font-family:=
+ Tahoma, sans-serif; margin: 16px 0px;">Salut,<br>Je m'appelle Salimata Yay=
+a d'Abidjan (C=C3=B4te d'Ivoire). Je suis un orphelin de 22 ans, c'est-=
+=C3=A0-dire que, n'ayant pas de parents, j'ai environ 10 500 000 dollars, 1=
+0 millions et cinq cent mille dollars. Ce que j=E2=80=99ai h=C3=A9rit=C3=
+=A9 de mon d=C3=A9funt p=C3=A8re, il l=E2=80=99a d=C3=A9pos=C3=A9 aupr=
+=C3=A8s d=E2=80=99une des banques ici =C3=A0 Abidjan sur un compte. Mon p=
+=C3=A8re utilisait mon nom comme enfant unique et enfant unique des prochai=
+ns membres du fonds. Mon oncle veut me tuer parce que je l'ai mis au d=
+=C3=A9fi quand il voulait prendre toutes les propri=C3=A9t=C3=A9s de mon d=
+=C3=A9funt p=C3=A8re.<br>Deuxi=C3=A8mement, si vous =C3=AAtes tout =C3=
+=A0 fait dispos=C3=A9 =C3=A0 coop=C3=A9rer avec moi =C3=A0 cette fin, veuil=
+lez me contacter afin que je puisse fournir les informations et les d=C3=
+=A9tails requis pour toute action ult=C3=A9rieure. Je vais offrir 20% de l'=
+argent pour votre aide =C3=A0 moi. Contactez-moi =C3=A0 mon adresse e-mail =
+priv=C3=A9e (yayasalimata@yahoo.com)<br>J'ai besoin de votre aide si vous s=
+ouhaitez m'aider =C3=A0 investir le fonds dans votre pays. Contactez-moi ma=
+intenant pour plus d'informations.<br>Merci beaucoup<br>Salimata Yaya<br><b=
+r></p><br /><br />-------------------------------------<br /><a href=3D"htt=
+p://ads.mail.bg/delivery/ck.php?oaparams=3D2__bannerid=3D4245__zoneid=3D35_=
+_OXLCA=3D1__cb=3D9c0e9c0d47__oadest=3Dhttps%3A%2F%2Fwww.superhosting.bg%2Fs=
+ite-builder.php%3Futm_source%3Dmbg%26utm_medium%3Dcpm%26utm_content%3Dmail_=
+footer%26utm_campaign%3Dsitebuilder" target=3D"_blank">=0A=D0=9F.=D0=9F. =
+=D0=A0=D0=B0=D0=B7=D0=B1=D1=80=D0=B0 =D0=BB=D0=B8, =D1=87=D0=B5 =D0=AF=
+=D0=BD=D0=B0 =D1=89=D1=8F=D0=BB=D0=B0 =D0=B4=D0=B0 =D1=81=D0=B8 =D0=BF=
+=D1=80=D0=B0=D0=B2=D0=B8 =D1=81=D0=B0=D0=B9=D1=82? =D0=AF=D0=BD=D0=B0, =
+=D0=BE=D1=82 =D0=BE=D0=BD=D0=B0=D0=B7=D0=B8 =D1=80=D0=B5=D0=BA=D0=BB=D0=
+=B0=D0=BC=D0=B0. =D0=92=D0=B8=D0=B6 =D1=81=D0=B0=D0=B9=D1=82 =D0=B1=D0=
+=B8=D0=BB=D0=B4=D1=8A=D1=80=D0=B0 =D0=BD=D0=B0 =D0=A1=D1=83=D0=BF=D0=B5=
+=D1=80=D0=A5=D0=BE=D1=81=D1=82=D0=B8=D0=BD=D0=B3.=D0=91=D0=93, =D0=B7=D0=
+=B0 =D0=B4=D0=B0 =D1=81=D0=B8 =D0=BD=D0=B0=D0=BF=D1=80=D0=B0=D0=B2=D0=B8=
+=D1=88 =D1=81=D0=B0=D0=B9=D1=82 =D0=B8 =D1=82=D0=B8.<br />=0A</a>
+------=_20200109150228_66814--
+
+

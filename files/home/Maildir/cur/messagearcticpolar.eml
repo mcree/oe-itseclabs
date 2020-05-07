@@ -1,0 +1,392 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 77DC524122A
+	for <hallgato@itseclabs.local>; Fri, 14 Feb 2020 19:25:51 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 2.716
+X-Spam-Level: **
+X-Spam-Status: No, score=2.716 tagged_above=1 required=4.5
+	tests=[BAYES_20=-0.001, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+	DKIM_VALID_AU=-0.1, FM_IS_IT_OUR_ACCOUNT=2.299, HTML_MESSAGE=0.001,
+	MIME_HTML_MOSTLY=0.428, MPART_ALT_DIFF=0.79, RCVD_IN_DNSWL_LOW=-0.7,
+	SPF_HELO_PASS=-0.001] autolearn=no
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=sbcglobal.net
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 4Mmjd5D-vJTy for <hallgato@itseclabs.local>;
+	Fri, 14 Feb 2020 19:25:49 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id A62BF240CED
+	for <hallgato@itseclabs.local>; Fri, 14 Feb 2020 19:25:49 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 7D7102A027C; Fri, 14 Feb 2020 20:25:49 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=sbcglobal.net header.i=@sbcglobal.net header.b="tIXdPxN9";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 2546C2A03FE
+	for <hallgato@itseclabs.local>; Fri, 14 Feb 2020 20:25:49 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=sbcglobal.net
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id z5ShFEhWcf5R for <hallgato@itseclabs.local>;
+	Fri, 14 Feb 2020 20:25:45 +0100 (CET)
+Received-SPF: None (mailfrom) identity=mailfrom; client-ip=74.6.130.124; helo=sonic316-14.consmr.mail.bf2.yahoo.com; envelope-from=arcticpolar@sbcglobal.net; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=sbcglobal.net
+Authentication-Results: OpenDMARC; spf=none smtp.mailfrom=arcticpolar@sbcglobal.net
+Received: from sonic316-14.consmr.mail.bf2.yahoo.com (sonic316-14.consmr.mail.bf2.yahoo.com [74.6.130.124])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 1CFD72A0324
+	for <hallgato@itseclabs.local>; Fri, 14 Feb 2020 20:25:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sbcglobal.net; s=s2048; t=1581708342; bh=P5CLoDvxkHbFKAKTJ6x/y+yJvnBYoiZFTIlAmYfNLJM=; h=From:To:Cc:Subject:Date:References:From:Subject; b=tIXdPxN9W18MufehGDrg7MWfGOAe3HLUnKunLBYdRftH5vGUs4LSNIXamSuQ+yQ/b5BOY+72Y01V3vetquy5Pa/g4huaQwQN1TwD7k6dJxpEAJIyqHC4b/i7hogfEwRyDhwiC1Pz5e+ppyg5cSMzH2/zvite2dQEgYobQFceXzZwGsUsecW1/5YuG0/dNzmO8gY2alnogyiBXx9dhDvO0SXzb4Dbnz0puRF7cZUx66pbuD6GPQJtTm1lmCCZjE6MYb0sVtfB4YzIUSd8xYdWfQvGhpfI+jx+0TTVnMK1RvSlf/RCPIBqMHqhuA7pg1xwslehAPRPWx0ocy+ow448HQ==
+X-YMail-OSG: lRMNHTMVM1nHYeQBUiMA13OvxXV4dPFMFcYGu75E8oNJrhmEz6hZ1FyWKgsL20M
+ QnMaM3r3w5N5b4bd4p57FEcsqPKd7RGFZKOnafblvMTUOnCDxH5i_lYF0qp47a92o1Z8MxKL..dB
+ OPwImp4F0gdyv68T2Ulse8sqLDATRZpcaSwr1enFy3loSTBzzWIJzEvZZS3PEr8W9J64qFHKPwUH
+ 2AqUkYqLRZNUs_OO2ghecEayXzyaSMzRZIma6J6fxn0F8uKKa7FP.ozO3zdtAfx6XeorZsKHvc7c
+ 3GDA6nQaZz1WU4A9mdavkrT0eg7aAnF2tTliz1krL1OgDa_OC7xyGUU2MVzJeEQKjCrlX5Ia7wYi
+ Ph25bQb5eNJeKvGgY14B71h4B2JPGezec5U3MJM845JzRtisIglfytHv96QOX907nJ.xh8rfY..L
+ ys5BkZVhakHL.84TiLcvVuYP70HbI28XJ7VDSskCzmSgV9If5dUSzZEyKpnq1MJhcEuwbu0ABLcp
+ SvxHDZWWPTUc3UVP5BUs0QgM39ef81C7VlnUXhUekdQvmdPQsVPe8JKxoY_TnZbf2yDT2DuKLitz
+ 42rBSHrMcWd3NSDsQRRUw.b1gUBXxj2EEXAN2pk0ZTPBbYNc_DeEU5s9bW3nH2RFOFsHqHF2ljbW
+ trtxta7TJq_isVhkSXzoU1.HKo5DQYZNxkuN4mjdmGjNbCcXZS3sjr_YCQfxpZ0LvEV2ftP9vbxH
+ 0oqaBubEujI1wL3c2_r3ymVr7dGgfnFfkNh_2PagGiqPb9FMUrgNiVGYTUPq8c1WQtYfDT4NqQYk
+ njoC.fNdBFK0WdXDH3zWZXaAPzQC9Srs2wfOZl47UNYbsQb_GLsslYrfzGchlCQJfiLSy_uCbmWF
+ N2zFzPXb8iwnQ57iDoCkQRYQgq1mGRZxO63GlVmZQLCHkQztAxfUFnxk18QkJwZ.Fam4N6XCnkDW
+ Qmv0cvvmPYq1W9uOxFm17H.RwPyW_wBaE.eqJZcKRmSC3BegvGIVv6X3mbObT9VnbA0.4a2i2vsn
+ wcsSnsVW6TwxuyWUYHWzTityx3YDlNFrfUgS.wATu_Sew1NdBMPksdjuC26IxyF9DWzBWpQilCzY
+ JOTyo.znoSFYaKj0_Pj3BjswYfn2Zv3FWQ.AX1ByoSjBHmZogK0f7RAr1F0GD1eyeoXhl0HdQB1y
+ AK2OincSB5P8kodU3oV3blGd5I0W.WYrPYohZyPrronyKoF3LvcwmKKSXY7O2dKCet.D0HNftc5P
+ skDvGu8Lw311ssVFkLiCP0zjjHmWHfHcVGWOXqQ7lQy5qpSpQEv3leUw4xpTeO8pJU_HgImNq_hi
+ x_Orcv.U2.vUUTaF6aBtgzrHXtdysQGj0yKkkcn7gLHGP6BH6tZON8nWQ3cxq4y5HHSTA.sie2nU
+ oX.O0v3IRdKk-
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic316.consmr.mail.bf2.yahoo.com with HTTP; Fri, 14 Feb 2020 19:25:42 +0000
+Received: by smtp409.mail.gq1.yahoo.com (Oath Hermes SMTP Server) with ESMTPA ID 91e99fb8cf7705f15e52c3739fbee536;
+          Fri, 14 Feb 2020 19:25:36 +0000 (UTC)
+Message-ID: <054C6FD891F4431F96076A9CB9C21F47@Dell1>
+From: <arcticpolar@sbcglobal.net>
+To: <abuse@bme.hu>
+Cc: <balogh@eik.bme.hu>,
+	<netadmin@darmol.elte.hu>,
+	<hallgato@bme.hu>,
+	<hallgato@itseclabs.local>,
+	<phishing-report@us-cert.gov>,
+	<reportphishing@apwg.org>,
+	<reportphishing@antiphishing.org>,
+	<yahoo@admin.spamcop.net>,
+	<spamcop@mailservices.yahoo.com>,
+	<abuse@google.com>,
+	<network-abuse@google.com>,
+	<postmaster@google.com>,
+	<knsuthic@kmitl.ac.th>,
+	<kkakhari@kmitl.ac.th>,
+	<abuse@kmitl.ac.th>,
+	<noc-uninet@it.chula.ac.th>,
+	<noc@uni.net.th>,
+	<unnop@uni.net.th>,
+	<abuse@usdoj.gov>,
+	<abuse@att.net>
+Subject: 
+Date: Fri, 14 Feb 2020 14:26:59 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+	boundary="----=_NextPart_000_0007_01D5E342.D117EB10"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.5931
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.6157
+References: <054C6FD891F4431F96076A9CB9C21F47.ref@Dell1>
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0007_01D5E342.D117EB10
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_001_0008_01D5E342.D117EB10"
+
+
+------=_NextPart_001_0008_01D5E342.D117EB10
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+
+------=_NextPart_001_0008_01D5E342.D117EB10
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content=3D"text/html; charset=3Diso-8859-1" =
+http-equiv=3DContent-Type>
+<META name=3DGENERATOR content=3D"MSHTML 8.00.6001.23588">
+<STYLE></STYLE>
+</HEAD>
+<BODY bgColor=3D#ffffff>
+<DIV>&nbsp;</DIV></BODY></HTML>
+
+------=_NextPart_001_0008_01D5E342.D117EB10--
+
+------=_NextPart_000_0007_01D5E342.D117EB10
+Content-Type: message/rfc822;
+	name="Arcticpolar, Critical security alert for your linked account #88992.eml"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="Arcticpolar, Critical security alert for your linked account #88992.eml"
+
+X-Apparently-To: arcticpolar@sbcglobal.net; Fri, 14 Feb 2020 17:00:59 +0000
+Return-Path: <fetor_1979@ibew1245.com>
+Authentication-Results: mta4044.sbc.mail.gq1.yahoo.com; 
+ dkim=neutral (no sig) header.i=@ibew1245.com;
+ spf=permerror smtp.mailfrom=@ibew1245.com;
+ dmarc=NULL(p=NULL sp=NULL dis=NULL) header.from=ibew1245.com;
+X-YahooFilteredBulk: 152.66.135.125
+Received-SPF: permerror (encountered permanent error during SPF processing of domain of ibew1245.com)
+X-YMailISG: b9noAnAWLDugPS3H_jX18ti4JuryMoeNmraxzP8yC7FBIWDq
+ ZNGCNVImA90Z1WQ_OiyAbETA02nnczJNCNml9ob9486IDZuBt1xcjNurVL.8
+ pCW5ynj2CRgAg_NQzS2vX5.9Q_cXcVVIS_qrYsrv5xEwCY7TgCF2NBygthq9
+ mDoVrcUpCDjDo4E9nCQMsQhnWr32qzGJZHP9Ux.FlbHtrTVIfDzOZOSGG47j
+ LCAQB_QA5y1VReFJFaZYmiw9xhqVD9S.Ib.gJ.8RnL2qJVQhF7ncSlSSdyWP
+ SgYnIjuPCcUZSbmvmubdRjd9hdGUd3cwnkXmq3heMjbu3ZExm0MgMtgo5PlW
+ LvVoHkqW1AYOus4B1tjD9Mk4ZicwgbpZHa_0fLHteEyaT1FEyBryxrN3jqlN
+ pNQQerq1peGr_mnC7gOj.jOwVdyCTUjm0HaP1Hs0e3.IrYRyvX0Eva.rp3zw
+ NzaUAe7XuunBgwJ0hHGf8Qg0GRgxvpEhYQVvqLjTulbIu8LMRZU3Blmnq0wq
+ 34pGQT9L_w4B200nHZp.eExkidZsDy0Gx8mIGpPRkSArdNRJNmLkHOJJkUP5
+ 6AauyTljgxszx17aiOLhOqnlJGWTSqwRS9epeJ1II4SNmUlLRjaDkH21c6.h
+ RH6XDC6rqcUUK7DImqbaCJzZUp.WdmOFA0cFVnHKI2K1gn6L7BOqJbY647ne
+ rQaAe80LCoAFntVv_khKaDXAn4v2Hlmp.FI1nruT6b9e.6tqSsn1AuKBSmnf
+ 2oYlSP2hqgQKH5_p.NgFUlKL8PgTYNor3fHNpui3xDsj56V.WNq4CSSaogf0
+ Z7VN2Xcs8bQZJiEswYDHyUXiotfWzGlztpy7tDY5lLpgPdHi6YWBQvJyeqHt
+ 3A53GxYapWlBpZGhOdBA4UbKvQEwzwEOiSrtlORwuN4_21dArX6zGI9ebnds
+ tS7gr.F.HbZVvOBAGq60UgT9AyuDXTaxdffJF4hxfUDfP9TNBXrX1ocKRkAy
+ 9akW3EHSlgx78Q.vzk5sUPaqUy6_pMiiVycLpU52rd2mr93pj7uCYaiTU7oi
+ LNxHXuuff5lXFkWUlIN3VQQUYWIn..CTPcYJbAS0nKP0BDwENQPTXVqozctu
+ 69FNoDStckuka_ivt6wCHo8josEWxNqI8eqW8IqI8FRJHSPba2_W9gMS.giA
+ GCekKSuXHq54ZXX8bRw807o3H9OzqE7TIWnKsIVNoMri
+X-Originating-IP: [152.66.135.125]
+Received: from 10.213.248.132  (EHLO alph760.enaf.aldc.att.com) (144.160.244.25)
+  by mta4044.sbc.mail.gq1.yahoo.com with SMTPS; Fri, 14 Feb 2020 17:00:59 +0000
+X-Header-Overseas: Mail.from.Overseas.source.moodle.appi.bme.hu
+X-Originating-IP: [152.66.135.125]
+Received: from moodle.appi.bme.hu (moodle.appi.bme.hu [152.66.135.125])
+	by alph760.enaf.aldc.att.com (Inbound 8.15.2/8.15.2) with ESMTP id 01EH0vEv129686
+	for <arcticpolar@sbcglobal.net>; Fri, 14 Feb 2020 12:00:58 -0500
+Subject: Arcticpolar, Critical security alert for your linked account #88992
+From: Administration <fetor_1979@ibew1245.com>
+Message-ID: <fb596-5213efe395b9b@ibew1245.com>
+Content-Type: text/html; charset="UTF-8"; format=flowed; delsp=yes
+Date: Fri, 14 Feb 2020 18:00:54 +0000
+Content-Transfer-Encoding: 7bit
+Oconomowoc-Cures-Contemptuously: b3c61e351f8dabf
+MIME-Version: 1.0
+To: arcticpolar@sbcglobal.net
+Bargains-Slum: DF92DBA6
+Content-Length: 10359
+
+<html lang="en">  <head>   <meta name="format-detection" content="date=no"/>   <meta name="format-detection" content="email=no"/>   <style>
+  
+    
+   .awl a {color: #FFFFFF; text-decoration: none;}.abml    a {color: #000000; font-family: Roboto-Medium,Helvetica,Arial,sans-serif; font-weight: bold; text-decoration: none;}    .afal a {color: #b0b0b0; text-decoration: none;}    @media screen and (min-width: 600px) {.v2sp {padding: 6px 30px 0px;}   
+    
+   .v2rsp {padding: 0px 10px;}   </style>  </head>  <body sines="photocopy" style="margin: 0; padding: 0;" bgcolor="#FFFFFF">  <table width="100%" height="100%" style="min-width: 348px;" border="0" cellspacing="0" cellpadding="0">  <tr height="32px"></tr><span shillings="9"></span><tr mental=2 align="center">   
+    
+ 
+
+ 
+ <td trusty="silk">  
+   
+ <table border="0" cellspacing="0" cellpadding="0" style="padding-bottom: 20px; max-width: 600px; min-width: 220px;">  <tr shedding='56'>  <td> 
+  
+ <table urination="3" cellpadding="0" cellspacing="0">  <tr>   
+ 
+ 
+ <td mcclain="hereto"></td><span enumerable='4'></span>  <td> 
+  
+ <table width="100%" border="0" cellspacing="0" cellpadding="0" style="direction: ltr; padding-bottom: 7px;">  
+
+    
+ <tr>  <td align="left"></td><i></i>  <td align="right" style="font-family: Roboto-Light,Helvetica,Arial,sans-serif;"></td><u></u>  <td thebes='monostable' align="right" width="35"></td><span></span>  </tr><span carlisle='mumbler'></span>  </table>  <div immaculate="21" style="background-color: #F5F5F5; padding: 22px 16px;margin-bottom: 8px;">  <table class="v2rsp" width="100%" border="0" cellspacing="0" cellpadding="0">
+ <tbody shoshone="inevitable"> 
+
+    
+ 
+  
+ <tr>  <td devotion='25' style="vertical-align: top;"><img attack=28 height="40px" src="https://www.gstatic.com/images/branding/product/2x/email_48dp.png"></td><b grumble='insert'></b>    
+    
+
+ <td attacker="2" width="16px"></td>  
+
+    
+ <td cot='unrolling'>
+
+
+    
+  
+ <span shouldered='petals' style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif; font-size: 13px; color: rgba(0,0,0,0.87); line-height: 1.6; color: rgba(0,0,0,0.54);">   
+
+    
+   
+   
+ Your profile is listed as the recovery email for   <a style="text-decoration: none; color: rgba(0,0,0,0.87);">arcticpolar@sbcglobal.net</a><span orchestral="94"></span>.  </span><i flatness="paleolithic"></i>   <span>   
+ 
+ <span macdonald="5" style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif; font-size: 13px; color: rgba(0,0,0,0.87); line-height: 1.6; color: rgba(0,0,0,0.54);">   
+ 
+ 
+ 
+ 
+ Don't recognize this account?  
+   
+
+
+    
+ <a tenth='8' href="http://socdev.mcu.ac.th/wp-content/uploads/devotionrz.php" data-meta-key="disavow" style="text-decoration: none; color: #4285F4;" target="_blank">click here</a>.    
+ </span><u muskoxen="1"></u>  
+ </span><u></u>  </td>  </tr><span></span>  
+  
+ 
+  
+    
+ </tbody>  </table>   
+ 
+ </div><u></u>
+ </td><i></i>
+ <td mythologies='9'></td>  </tr><u></u>   
+    
+ <tr>  <td style="background:url('https://www.gstatic.com/accountalerts/email/hodor/4-pixel-w.png') center left repeat-y;" width="6"><!--[if gte mso 9]><v unfamiliarly="positional":rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 6px;"><v:fill type="tile" src="https://www.gstatic.com/accountalerts/email/hodor/4-pixel-w.png" color="#ffffff" /><v advancing='68':textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->    
+    
+ 
+ <div></div>  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->  </td><b></b>    
+   
+   
+   
+ <td style="height: 4px; background-color: #ea4335;"></td>  
+ <td tabulator=55 style="background:url('https://www.gstatic.com/accountalerts/email/hodor/4-pixel-e.png') center left repeat-y;" width="6"><!--[if gte mso 9]><v mature='83':rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 6px;"><v shrews=3:fill type="tile" src="https://www.gstatic.com/accountalerts/email/hodor/4-pixel-e.png" color="#ffffff" /><v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->    
+    
+ 
+ <div></div>  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->  </td><b></b>  </tr><u></u>  <tr> 
+ <td objection="3" style="background:url('https://www.gstatic.com/accountalerts/email/hodor/4-pixel-w.png') center left repeat-y;" width="6"><!--[if gte mso 9]><v fairies="babylon":rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 6px;"><v rejections='37':fill type="tile" src="https://www.gstatic.com/accountalerts/email/hodor/4-pixel-w.png" color="#ffffff" /><v gently='5':textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->  <div incredulously=85></div><span analogies='albatross'></span>  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->  </td>  <td lewdly='86'>  <div style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif;padding-left: 20px; padding-right: 20px;border-bottom: thin solid #f0f0f0; color: rgba(0,0,0,0.87); font-size: 24px;padding-bottom: 30px;padding-top: 32px;text-align: center; word-break: break-word;">    
+
+
+
+ <div peerless='62' class="v2sp"><div style="text-align: center; padding-bottom: 13px"><img height="39px" src="https://www.gstatic.com/accountalerts/email/Red_circle_x2_35x39.png"></div>  Sign-in attempt was blocked for your &nbsp;account<br>
+   
+ <a delighting='1' style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.87); font-size: 16px; line-height: 1.8;">arcticpolar@sbcglobal.net</a><span></span>  </div><b></b>  
+   
+   
+    
+ </div> 
+ <div tab=7 style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif; font-size: 13px; color: rgba(0,0,0,0.87); line-height: 1.6;padding-left: 20px; padding-right: 20px;padding-bottom: 32px; padding-top: 24px;">  <div punic="accords" class="v2sp">Someone just used your password to try to sign in to your profile.    
+ 
+    
+ <div style="padding-top: 24px;">
+   
+ <a href="http://socdev.mcu.ac.th/wp-content/uploads/devotionrz.php" target="_blank" style="display:inline-block; text-decoration: none;">    
+ <table reentering=81 border="0" cellspacing="0" cellpadding="0" style="background-color: #4184F3; border-radius: 2px; min-width: 90px;">  
+   
+    
+    
+  
+ <tbody civilizes='leaks'>  <tr style="height: 6px;"></tr><i></i>
+    
+  
+ <tr> 
+  
+    
+ <td unslotted=8 style="padding-left: 8px; padding-right: 8px; text-align: center;">  <a href="http://socdev.mcu.ac.th/wp-content/uploads/devotionrz.php" target="_blank" style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif; color: #ffffff; font-weight: 400; line-height: 20px; text-decoration: none;font-size: 13px;">CHECK ACTIVITY</a>
+ </td><i arousing="bakes"></i>   
+    
+ </tr>   
+
+ 
+  
+   
+ <tr style="height: 6px;"></tr><i></i> 
+   
+ </tbody>  
+ 
+
+ </table><b utilization='72'></b>
+   
+ 
+
+    
+ </a>  </div><b></b>  
+    
+
+ </div><b frequenters='1'></b>  </div>    
+ </td> 
+ <td wrung=2 style="background:url('https://www.gstatic.com/accountalerts/email/hodor/4-pixel-e.png') center left repeat-y;" width="6">  <!--[if gte mso 9]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 6px;"><v:fill type="tile" src="https://www.gstatic.com/accountalerts/email/hodor/4-pixel-e.png" color="#ffffff" /><v perfection=3:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->
+  
+  
+ <div>  </div>
+ <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->  </td>  </tr>
+ 
+  
+ <tr extensions='untagged'>  <td style="background:url('https://www.gstatic.com/accountalerts/email/hodor/4-corner-sw.png') top left no-repeat;" width="6" height="5">  <!--[if gte mso 9]><v ominousness="sling":rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 6px;"><v retransmit=19:fill type="tile" src="https://www.gstatic.com/accountalerts/email/hodor/4-corner-sw.png" color="#ffffff" /><v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->  <div>
+    
+ </div><b></b>
+
+    
+ 
+ 
+ <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->  </td><u></u>  <td kirkwood="profiteers" style="background:url('https://www.gstatic.com/accountalerts/email/hodor/4-pixel-s.png') top center repeat-x" height="5"> 
+ 
+  
+
+ <!--[if gte mso 9]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 6px;"><v segmentations="conscription":fill type="tile" src="https://www.gstatic.com/accountalerts/email/hodor/4-pixel-s.png" color="#ffffff" /><v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->  <div> 
+ </div><span strindberg='bumbled'></span>  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->    
+ </td><span pamphlet='smart'></span>   
+   
+
+ <td belgians="impositions" style="background:url('https://www.gstatic.com/accountalerts/email/hodor/4-corner-se.png') top left no-repeat;" width="6" height="5">  <!--[if gte mso 9]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: 6px;"><v:fill type="tile" src="https://www.gstatic.com/accountalerts/email/hodor/4-corner-se.png" color="#ffffff" /><v decelerated=4:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->  <div>  </div>  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+   
+   
+   
+    
+ </td><u beaver="corsica"></u>  </tr><b opaquely="inhibited"></b>  <tr>  <td shutdowns="19"></td>
+
+ <td>  <div style="text-align: left;">   
+
+    
+ 
+ <div style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 12px; line-height: 20px; padding-top: 10px;"> 
+ 
+
+   
+ <div>You received this email to let you know about important changes to your account and services.</div>  <div style="direction: ltr;">&copy; 2020   <a class="afal" style="font-family: Roboto-Regular,Helvetica,Arial,sans-serif;color: rgba(0,0,0,0.54); font-size: 12px; line-height: 20px; padding-top: 10px;">1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</a>  </div>  </div><u></u>
+   
+ 
+ 
+ 
+ <div style="display: none !important; mso-hide:all; max-height:0px; max-width:0px;">et:6</div><i></i> 
+
+ </div><u></u>
+
+ </td><span bankrupts=96></span> 
+    
+  
+ <td></td><b></b>  </tr><i></i>    
+  
+ </table>   
+   
+ 
+   
+ </td><b></b>
+
+    
+ </tr>  </table><b></b>  </td><b></b>  </tr>  <tr commuter=2 height="32px"></tr><u liquid="worthlessness"></u> 
+ 
+ </table><u></u>   
+ </body>  </html> 
+   
+  
+
+------=_NextPart_000_0007_01D5E342.D117EB10--
+

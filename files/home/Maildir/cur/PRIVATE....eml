@@ -1,0 +1,63 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id D60DC24787A
+	for <hallgato@itseclabs.local>; Sun,  8 Mar 2020 23:56:27 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=mediamaster-pt.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id j-eioEwHf_6M for <hallgato@itseclabs.local>;
+	Sun,  8 Mar 2020 23:56:26 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id B69DD247879
+	for <hallgato@itseclabs.local>; Sun,  8 Mar 2020 23:56:26 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id A3FC82A04C2; Mon,  9 Mar 2020 00:56:26 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=mediamaster-pt.com header.i=@mediamaster-pt.com header.b="UuX+aWJB";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 674322A04C1
+	for <hallgato@itseclabs.local>; Mon,  9 Mar 2020 00:56:26 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=mediamaster-pt.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id uT7QyXoLXJPP for <hallgato@itseclabs.local>;
+	Mon,  9 Mar 2020 00:56:24 +0100 (CET)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=91.186.8.76; helo=servidor.mediamaster-pt.com; envelope-from=joana.andrade@mediamaster-pt.com; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=pass (p=quarantine dis=none) header.from=mediamaster-pt.com
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=joana.andrade@mediamaster-pt.com
+Received: from servidor.mediamaster-pt.com (servidor.mediamaster-pt.com [91.186.8.76])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 29B302A047C
+	for <hallgato@itseclabs.local>; Mon,  9 Mar 2020 00:56:22 +0100 (CET)
+Received: from [74.208.137.30] (unknown [74.208.137.30])
+	by servidor.mediamaster-pt.com (Postfix) with ESMTPA id 5F2C05685B;
+	Sun,  8 Mar 2020 22:44:37 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mediamaster-pt.com;
+	s=default; t=1583707480;
+	bh=CUPtbLBrhEGJ7m2jGlGondtEK3kF8/9y4PQDk9pyRM8=; h=Subject:To:From;
+	b=UuX+aWJBVn9UGvyJqs47mL4ZCCeCCd66sMyhEcUgxGdoE44mbwck/NFsA20REA14u
+	 gaxxH6VPUzOvJnkz/Szlvw3DqJcjPcCEeqOhthEjSLo6z6isv81zQ2jpCyM/O8X63D
+	 JKlCA6zUYUlYhsN9bTdHiHQaTR4B8XaPLQwC4QCM=
+Content-Type: text/plain; charset="iso-8859-1"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Description: Mail message body
+Subject: PRIVATE...
+To: Recipients <joana.andrade@mediamaster-pt.com>
+From: joana.andrade@mediamaster-pt.com
+Date: Sun, 08 Mar 2020 22:44:34 +0000
+Reply-To: qiquanzhou01@gmail.com
+Message-Id: <20200308235626.A3FC82A04C2@mail.itseclabs.local>
+
+I have a business Proposal for you and I need your mutual respect, trust, h=
+onesty and adequate support.Kindly contact me on qiquanzhou01@gmail.com sho=
+uld this be of interest to you.

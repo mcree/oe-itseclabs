@@ -1,0 +1,69 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id EE6041D42AE
+	for <hallgato@itseclabs.local>; Sun, 27 Oct 2019 11:55:16 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id n2KwJj0Br7JW for <hallgato@itseclabs.local>;
+	Sun, 27 Oct 2019 11:55:16 +0000 (UTC)
+Received: from itseclabs.local (itseclabs.local [193.6.200.100])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 30D411D42AD
+	for <hallgato@itseclabs.local>; Sun, 27 Oct 2019 11:55:16 +0000 (UTC)
+Received: by itseclabs.local (Postfix, from userid 1208)
+	id 1711EE0002; Sun, 27 Oct 2019 12:55:16 +0100 (CET)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by itseclabs.local (Postfix) with ESMTP id EC861E0006;
+	Sun, 27 Oct 2019 12:55:15 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id zQjeXKsb7Aam; Sun, 27 Oct 2019 12:55:14 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by itseclabs.local (Postfix) with ESMTPS id 67ECEE0003;
+	Sun, 27 Oct 2019 12:55:14 +0100 (CET)
+Received: by duflex.itseclabs.local (Postfix)
+	id 1CC3620092; Sun, 27 Oct 2019 12:55:14 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id E173920095
+	for <info@itseclabs.local>; Sun, 27 Oct 2019 12:55:13 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id RxnTLjamWPBb for <info@itseclabs.local>;
+	Sun, 27 Oct 2019 12:55:12 +0100 (CET)
+X-Greylist: delayed 36962 seconds by postgrey-1.36 at duflex-2; Sun, 27 Oct 2019 12:55:12 CET
+Received: from mailserver.firstsoftwareprojects.nl (mailserver.firstsoftwareprojects.nl [79.99.25.138])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 43CC620092
+	for <info@itseclabs.local>; Sun, 27 Oct 2019 12:55:11 +0100 (CET)
+Received: from 192.168.1.88 ([217.217.179.17]) by mailserver.firstsoftwareprojects.nl with
+ MailEnable ESMTPA; Sat, 26 Oct 2019 10:14:12 +0200
+Date: Sat, 26 Oct 2019 10:14:13 +0200 (CEST)
+From: Peter Wong <notificaciones2@creg.gov.co>
+Reply-To: Peter Wong <peterwongpwhk@gmail.com>
+To: info@itseclabs.local
+Message-ID: <21194328.101965.1572077653352.JavaMail.javamailuser@localhost>
+Subject: Ihre Gelegenheit
+MIME-Version: 1.0
+Content-Type: text/plain; charset=Cp1252
+Content-Transfer-Encoding: quoted-printable
+
+Sch=F6ne Gr=FC=DFe,
+
+Finde diese Mail sehr vertraulich. antworten Sie f=FCr weitere Details
+
+Vielen Dank.
+Peter Wong
+
+
+
+
+----------------------------------------------------
+This email was sent by the shareware version of Postman Professional.
+

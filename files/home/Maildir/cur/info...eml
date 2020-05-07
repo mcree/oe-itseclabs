@@ -1,0 +1,98 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id 2FB79229654
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 15:44:35 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=corsodesignerfurniture.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 6T-ZXVZtt4MB for <hallgato@itseclabs.local>;
+	Sat, 14 Mar 2020 15:44:34 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 6715D229652
+	for <hallgato@itseclabs.local>; Sat, 14 Mar 2020 15:44:34 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 46C842A055F; Sat, 14 Mar 2020 16:44:34 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=corsodesignerfurniture.com header.i=@corsodesignerfurniture.com header.b="fWjCzlbX";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 07F2A2A060E;
+	Sat, 14 Mar 2020 16:44:34 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=corsodesignerfurniture.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id LypCMUMVj_Jb; Sat, 14 Mar 2020 16:44:31 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 3F2112A0324;
+	Sat, 14 Mar 2020 16:44:31 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=corsodesignerfurniture.com
+Authentication-Results: OpenDMARC; spf=none smtp.mailfrom=orders@corsodesignerfurniture.com
+Received: by duflex.itseclabs.local (Postfix)
+	id 0720B2008A; Sat, 14 Mar 2020 16:44:31 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id DEDEA20095
+	for <info@itseclabs.local>; Sat, 14 Mar 2020 16:44:30 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id vJGbfybl36Hs for <info@itseclabs.local>;
+	Sat, 14 Mar 2020 16:44:30 +0100 (CET)
+X-Greylist: delayed 100565 seconds by postgrey-1.36 at duflex-2; Sat, 14 Mar 2020 16:44:29 CET
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=corsodesignerfurniture.com header.i=@corsodesignerfurniture.com header.b="fWjCzlbX";
+	dkim-atps=neutral
+Received: from ded3234.inmotionhosting.com (ded3234.inmotionhosting.com [144.208.69.194])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id D4D082008A
+	for <info@itseclabs.local>; Sat, 14 Mar 2020 16:44:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=corsodesignerfurniture.com; s=default; h=Message-ID:Reply-To:Subject:To:
+	From:Date:Content-Transfer-Encoding:Content-Type:MIME-Version:Sender:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	 bh=AEBto8YugIHQ8MgIb4mlcgeY2zTS9mT86YYzZwXRLmY=; b=fWjCzlbXzujdnkfP5TMZG6oY8
+	KL1sGLK10kEChmQ+wmCvcmOA34h3jLMHChivauiasvXIvJjqy1jfKx9yLfsuBMZibBkSRWX63xEkF
+	MUq9GRBpa57KVEN0Vcg3D8FjkTewTe80568SQk1hG8pum3KfXOI8tzqvnGZ6jgWFoG9zwroKr3nrS
+	P4UB2uY33lWbPaqYZCEvjz90u1j+SjuHz2e2Ay4XNqyAAwTaHaLYAxkRnfye5YxsOOzxNYxxGQVNw
+	b9Zp4NXY7RsqgV2NoE4XtyCyS5kggj6KORoQzYMJXMl5Eu0794mhpl9e71YFvPJPPWYaEU4jew6Co
+	Lcx59ADmw==;
+Received: from [::1] (port=49390 helo=ded3234.inmotionhosting.com)
+	by ded3234.inmotionhosting.com with esmtpa (Exim 4.92)
+	(envelope-from <orders@corsodesignerfurniture.com>)
+	id 1jCiVu-0007c6-1d; Fri, 13 Mar 2020 04:30:02 -0700
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Date: Fri, 13 Mar 2020 04:30:01 -0700
+From: deskcot <orders@corsodesignerfurniture.com>
+To: undisclosed-recipients:;
+Subject: info..
+Reply-To: qzqi28451@gmail.com
+Mail-Reply-To: qzqi28451@gmail.com
+Message-ID: <f1a67dd1bc31ea91a6012fd97e0c3a7b@corsodesignerfurniture.com>
+X-Sender: orders@corsodesignerfurniture.com
+User-Agent: Roundcube Webmail/1.3.8
+X-OutGoing-Spam-Status: No, score=3.9
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - ded3234.inmotionhosting.com
+X-AntiAbuse: Original Domain - itseclabs.local
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - corsodesignerfurniture.com
+X-Get-Message-Sender-Via: ded3234.inmotionhosting.com: authenticated_id: orders@corsodesignerfurniture.com
+X-Authenticated-Sender: ded3234.inmotionhosting.com: orders@corsodesignerfurniture.com
+
+
+
+Cześć, wróć do mnie. W twoim lastenaam znalazłem kilka stypendiów.
+qzqi28451@gmail.com

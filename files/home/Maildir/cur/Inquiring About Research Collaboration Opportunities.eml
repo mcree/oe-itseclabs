@@ -1,0 +1,154 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id DAE8C20E5A8
+	for <hallgato@itseclabs.local>; Thu,  9 Jan 2020 10:10:52 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=cdac.in
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 1iTNi-YNT2y2 for <hallgato@itseclabs.local>;
+	Thu,  9 Jan 2020 10:10:48 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 947FF20E5A7
+	for <hallgato@itseclabs.local>; Thu,  9 Jan 2020 10:10:48 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 8203B2A0754; Thu,  9 Jan 2020 11:10:48 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (1024-bit key; unprotected) header.d=cdac.in header.i=@cdac.in header.b="hzES4qd0";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 2A9322A0221;
+	Thu,  9 Jan 2020 11:10:47 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (1024-bit key) header.d=cdac.in
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id H8eqc4E7EXOy; Thu,  9 Jan 2020 11:10:44 +0100 (CET)
+Received-SPF: Pass (mailfrom) identity=mailfrom; client-ip=196.1.113.117; helo=mailsender.cdac.in; envelope-from=asvijab@cdac.in; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=cdac.in
+Authentication-Results: OpenDMARC; spf=pass smtp.mailfrom=asvijab@cdac.in
+X-Greylist: delayed 1504 seconds by postgrey-1.36 at sztakimail; Thu, 09 Jan 2020 11:10:43 CET
+Received: from mailsender.cdac.in (mailsender.cdac.in [196.1.113.117])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 41EDB2A038D;
+	Thu,  9 Jan 2020 11:10:42 +0100 (CET)
+Received: from ims.pune.cdac.in (ims.pune.cdac.in [10.208.1.15])
+	by mailsender.cdac.in (8.14.2/8.13.8) with ESMTP id 0099S1da027443
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-SHA bits=256 verify=NOT);
+	Thu, 9 Jan 2020 14:58:01 +0530
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=cdac.in; s=default;
+	t=1578562082; bh=dFrJ1KC+IrGH8uy2WKXN/7m5GI99fyW4NbhJ34uA9E8=;
+	h=From:Subject:Date:To;
+	b=hzES4qd0ODZQgsWKYfRIxg+tpnji6adtlyh0DRk+7jdeoQjX53YgiqixwMJNMYstv
+	 S94mmmVQdWXfKxIHzCau1zgLRMOmQOy+o94obi7Vg0TJiqZJ3dbuuQmOpOuW7WiZ5p
+	 hE7DqbUYXqbqY3U9gFqOt9Q92JW12hO0uGv3xxBc=
+Received: from mailgw.pune.cdac.in ([10.208.1.4])
+	by ims.pune.cdac.in (8.14.4/8.14.4) with ESMTP id 0099RvZC023335;
+	Thu, 9 Jan 2020 14:57:57 +0530
+X-AuthUser: asvijab
+Received: from [10.180.5.21] (kalais1.blr.cdac.in [10.180.5.21])
+	(authenticated bits=0)
+	by mailgw.pune.cdac.in (8.14.2/8.13.8) with ESMTP id 0099RsWC030634
+	(version=TLSv1/SSLv3 cipher=AES128-SHA bits=128 verify=NOT);
+	Thu, 9 Jan 2020 14:57:56 +0530
+From: Asvija B <asvijab@cdac.in>
+Subject: Inquiring About Research Collaboration Opportunities
+Message-ID: <c081fb8a-b129-83c9-c3a3-394c9ee75f39@cdac.in>
+Date: Thu, 9 Jan 2020 14:57:53 +0530
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.1
+MIME-Version: 1.0
+To: undisclosed-recipients: ;
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+Content-Language: en-US
+X-CDAC-PUNE-MailScanner-ID: 0099RvZC023335
+X-CDAC-PUNE-MailScanner: Found to be clean, Found to be clean
+X-CDAC-PUNE-MailScanner-MCPCheck-IMS: MCP-Clean, MCP-Checker (score=0,
+	required 1)
+X-CDAC-PUNE-MailScanner-SpamCheck: not spam, SpamAssassin (cached,
+	score=-0.199, required 6, autolearn=disabled, ALL_TRUSTED -1.00,
+	BAYES_50 0.80, URIBL_BLOCKED 0.00), not spam, SpamAssassin (cached,
+	score=-5.3, required 6, autolearn=disabled, ALL_TRUSTED -1.80,
+	BAYES_00 -3.50)
+X-CDAC-PUNE-MailScanner-Information: Please contact npsfhelp@cdac.in/mailadmin@cdac.in for more information
+X-MailScanner-ID: 0099S1da027443
+X-CDAC-PUNE-MailScanner-From: asvijab@cdac.in
+X-CDAC-MailScanner-Spam-Status: No
+
+Warm greetings !
+
+My name is Asvija B., and I am positioned as a Joint Director at Centre 
+for Development of Advanced Computing (C-DAC), a premier research 
+institution in India.
+
+I'm writing this email to explore collaborative research opportunities 
+with your esteemed institute in the fields of Information Technology and 
+Computer applications in the scientific domain.   I represent a team 
+with strong expertise in the areas of Cloud Computing, High performance 
+Computing, e-infrastructures, Parallel computing, System Software and 
+Cybersecurity.  We are actively looking for prospective collaborations 
+with you in these areas of interest.
+
+A recent research funding call has been announced for Joint project 
+proposals between the researchers in India and Hungary. ( 
+https://dst.gov.in/callforproposals/call-proposals-indo-hungarian-joint-research-2019 
+).
+
+We believe that it is a great opportunity to make use of this call to 
+come together and explore submitting joint research proposals which are 
+of mutual interest.
+
+Following is a brief description about our organization and the research 
+areas we are actively working on:
+
+Centre for Development of Advanced Computing (C-DAC) is the premier R&D 
+organization of the Ministry of Electronics and Information Technology 
+(MeitY), Government of India, for carrying out R&D in IT, Electronics 
+and associated areas.  C-DAC has been the pioneer in setting and 
+managing supercomputer facilities for enabling scientific research in 
+various locations across the country.  C-DAC has also spearheaded the 
+Garuda Grid - a national grid computing initiative, connecting over 45 
+partnering HPC institutions across India.  We have a strong expertise in 
+AI, Cloud computing and Virtualization technologies.  Our team is 
+carrying out research in the area of Virtualization and Hypervisor 
+security.  We are also involved in enabling many scientific applications 
+on the next generation e-infrastructures for harnessing the massive 
+amount of parallelism available in these architectures.  We are also 
+working in the areas of system software, tools and frameworks for 
+scientific computing - including cloud & grid middleware.
+
+I request you to consider if we can have any joint project proposals, 
+based on your research interests or ongoing projects. We will be happy 
+to collaborate by contributing to the joint project.
+
+
+Thanks and regards,
+
+Asvija B.,
+
+Joint Director,
+
+Centre for Development of Advanced Computing (C-DAC)
+
+No.1, Old Madras Road, Byappanahalli, Bangalore,  India - 560038
+
+
+------------------------------------------------------------------------------------------------------------
+[ C-DAC is on Social-Media too. Kindly follow us at:
+Facebook: https://www.facebook.com/CDACINDIA & Twitter: @cdacindia ]
+
+This e-mail is for the sole use of the intended recipient(s) and may
+contain confidential and privileged information. If you are not the
+intended recipient, please contact the sender by reply e-mail and destroy
+all copies and the original message. Any unauthorized review, use,
+disclosure, dissemination, forwarding, printing or copying of this email
+is strictly prohibited and appropriate legal action will be taken.
+------------------------------------------------------------------------------------------------------------
+

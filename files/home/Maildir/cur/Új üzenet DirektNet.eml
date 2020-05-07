@@ -1,0 +1,121 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id C6F4C2478A5
+	for <hallgato@itseclabs.local>; Sat,  7 Mar 2020 10:43:46 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+X-Spam-Flag: NO
+X-Spam-Score: 1.101
+X-Spam-Level: *
+X-Spam-Status: No, score=1.101 tagged_above=1 required=4.5
+	tests=[BAYES_00=-1.9, HTML_IMAGE_ONLY_16=1.092, HTML_MESSAGE=0.001,
+	HTTPS_HTTP_MISMATCH=1.989, RCVD_IN_DNSWL_LOW=-0.7,
+	SPF_HELO_PASS=-0.001, T_REMOTE_IMAGE=0.01, URIBL_PH_SURBL=0.61]
+	autolearn=no
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 4-7sSiJA8_9f for <hallgato@itseclabs.local>;
+	Sat,  7 Mar 2020 10:43:46 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 2F7002478A4
+	for <hallgato@itseclabs.local>; Sat,  7 Mar 2020 10:43:46 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 11CF32A0578; Sat,  7 Mar 2020 11:43:46 +0100 (CET)
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id CF4A32A03FD
+	for <hallgato@itseclabs.local>; Sat,  7 Mar 2020 11:43:45 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Klmvx2dFo53A for <hallgato@itseclabs.local>;
+	Sat,  7 Mar 2020 11:43:43 +0100 (CET)
+Received-SPF: Softfail (mailfrom) identity=mailfrom; client-ip=27.54.92.14; helo=vs-berverlytuaiti011.au.syrahost.com; envelope-from=raiffeisenalerts@raiffeisen.hu; receiver=<UNKNOWN> 
+Authentication-Results: OpenDMARC; dmarc=none (p=none dis=none) header.from=raiffeisen.hu
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=Raiffeisenalerts@raiffeisen.hu
+Received: from vs-berverlytuaiti011.au.syrahost.com (vm-e-r47.ipv4.per01.ds.network [27.54.92.14])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id C2C562A01C8
+	for <hallgato@itseclabs.local>; Sat,  7 Mar 2020 11:43:42 +0100 (CET)
+Received: from [::1] (port=50134 helo=vs-berverlytuaiti011.au.syrahost.com)
+	by vs-berverlytuaiti011.au.syrahost.com with esmtpa (Exim 4.93)
+	(envelope-from <Raiffeisenalerts@raiffeisen.hu>)
+	id 1jA9gQ-0000OO-My; Fri, 06 Mar 2020 17:54:18 +0800
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="=_976ca35207f1f2044fc0de55c4f5f5f0"
+Date: Fri, 06 Mar 2020 17:54:16 +0800
+From: Raiffeisen BANK <Raiffeisenalerts@raiffeisen.hu>
+To: nixy18@freemail.hu
+Subject: =?UTF-8?Q?=C3=9Aj_=C3=BCzenet_DirektNet?=
+Message-ID: <264cff44d99d006bd40f619b1beef072@raiffeisen.hu>
+X-Sender: Raiffeisenalerts@raiffeisen.hu
+User-Agent: Roundcube Webmail/1.3.8
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - vs-berverlytuaiti011.au.syrahost.com
+X-AntiAbuse: Original Domain - itseclabs.local
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - raiffeisen.hu
+X-Get-Message-Sender-Via: vs-berverlytuaiti011.au.syrahost.com: authenticated_id: pol@polarinternational.me
+X-Authenticated-Sender: vs-berverlytuaiti011.au.syrahost.com: pol@polarinternational.me
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+
+--=_976ca35207f1f2044fc0de55c4f5f5f0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+
+Frissítettük a biztonsági ellenőrzést, hogy az Ön konkrét ajánlásokat,
+hogy erősítse fiókja biztonsága érdekében.
+
+Vegyünk 1 perc, hogy biztosítsa fiókját még ma.
+
+https://direktnet.raiffeisen.hu/direktnet [1]
+
+Üdvözlettel,
+Raiffeisen Bank
+Copyright 2020 (c) Minden jog fenntartva.
+
+  
+
+Links:
+------
+[1]
+https://instantcheapbulksms4u.com/raffes/10196a0b2bv10b233e3e576a0b2bv14732Fbv14732F42001v/index.php
+--=_976ca35207f1f2044fc0de55c4f5f5f0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8" /></head><body style=3D'font-size: 10pt; font-family: Verdana,Gen=
+eva,sans-serif'>
+<p><br /></p>
+<div>
+<div>
+<div>
+<p><span style=3D"font-size: 12pt;"><img src=3D"https://i.postimg.cc/HsjXTT=
+kv/Capture.png" width=3D"168" height=3D"53" /><br /><br /><br /><span style=
+=3D"font-size: 11pt;">Friss&iacute;tett&uuml;k a biztons&aacute;gi ellen=C5=
+=91rz&eacute;st, hogy az &Ouml;n konkr&eacute;t aj&aacute;nl&aacute;sokat, =
+hogy er=C5=91s&iacute;tse fi&oacute;kja biztons&aacute;ga &eacute;rdek&eacu=
+te;ben.</span><br /><br /></span><span style=3D"font-size: 11pt;">Vegy&uuml=
+;nk 1 perc, hogy biztos&iacute;tsa fi&oacute;kj&aacute;t m&eacute;g ma.<br =
+/><br /></span><span style=3D"font-size: 12pt;"><span style=3D"font-size: 1=
+1pt;"><a href=3D"https://instantcheapbulksms4u.com/raffes/10196a0b2bv10b233=
+e3e576a0b2bv14732Fbv14732F42001v/index.php">https://direktnet.raiffeisen.hu=
+/direktnet</a></span><br /><br /><br /><br /><br /><br /></span><span style=
+=3D"font-size: 11pt;">&Uuml;dv&ouml;zlettel,</span><br /><span style=3D"fon=
+t-size: 11pt;">Raiffeisen Bank</span><br /><span style=3D"font-size: 8pt; c=
+olor: #999999;">Copyright 2020 &copy; Minden jog fenntartva.</span><br /><s=
+pan style=3D"font-size: 8pt;"><br /><br /><br /><br /><br /><br /><br /><br=
+ /><br /><br /></span></p>
+<div>&nbsp;</div>
+</div>
+</div>
+</div>
+</body></html>
+
+--=_976ca35207f1f2044fc0de55c4f5f5f0--

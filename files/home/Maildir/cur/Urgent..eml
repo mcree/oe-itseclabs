@@ -1,0 +1,98 @@
+Return-Path: <MAILER-DAEMON>
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (mail.itseclabs.local [127.0.0.1])
+	by gw.itseclabs.local (Postfix) with ESMTP id CA87A24DBED
+	for <hallgato@itseclabs.local>; Mon,  9 Mar 2020 17:05:52 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at gw.itseclabs.local
+Authentication-Results: mail.itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from gw.itseclabs.local ([127.0.0.1])
+	by localhost (mail.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id pW6KCP9fXfc3 for <hallgato@itseclabs.local>;
+	Mon,  9 Mar 2020 17:05:52 +0000 (UTC)
+Received: from mail.itseclabs.local (mail.itseclabs.local [193.6.200.101])
+	by gw.itseclabs.local (Postfix) with ESMTPS id 768CE24DBEC
+	for <hallgato@itseclabs.local>; Mon,  9 Mar 2020 17:05:52 +0000 (UTC)
+Received: by mail.itseclabs.local (Postfix, from userid 1208)
+	id 5DA3B2A0488; Mon,  9 Mar 2020 18:05:52 +0100 (CET)
+Authentication-Results: mail.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="XgO9tYJO";
+	dkim-atps=neutral
+X-Original-To: hallgato@itseclabs.local
+Delivered-To: hallgato@itseclabs.local
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.itseclabs.local (Postfix) with ESMTP id 16A9C2A01CC;
+	Mon,  9 Mar 2020 18:05:52 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at itseclabs.local
+Authentication-Results: itseclabs.local (amavisd-new);
+	dkim=pass (2048-bit key) header.d=gmail.com
+Received: from mail.itseclabs.local ([127.0.0.1])
+	by localhost (itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id z2CWH3pEjD_l; Mon,  9 Mar 2020 18:05:50 +0100 (CET)
+Received: from duflex.itseclabs.local (duflex.itseclabs.local [195.70.56.227])
+	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.itseclabs.local (Postfix) with ESMTPS id 037932A017F;
+	Mon,  9 Mar 2020 18:05:49 +0100 (CET)
+Authentication-Results: OpenDMARC; dmarc=fail (p=none dis=none) header.from=gmail.com
+Authentication-Results: OpenDMARC; spf=fail smtp.mailfrom=alfredgerenday1@gmail.com
+Received: by duflex.itseclabs.local (Postfix)
+	id D07C82008A; Mon,  9 Mar 2020 18:05:49 +0100 (CET)
+Delivered-To: info@itseclabs.local
+Received: from localhost (localhost [127.0.0.1])
+	by duflex.itseclabs.local (Postfix) with ESMTP id BF5A620095
+	for <info@itseclabs.local>; Mon,  9 Mar 2020 18:05:49 +0100 (CET)
+X-Virus-Scanned: Debian amavisd-new at duflex.itseclabs.local
+Received: from duflex.itseclabs.local ([127.0.0.1])
+	by localhost (duflex-2.itseclabs.local [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 9SSkhQJsZmGq for <info@itseclabs.local>;
+	Mon,  9 Mar 2020 18:05:48 +0100 (CET)
+Received: from mail-qk1-f193.google.com (mail-qk1-f193.google.com [209.85.222.193])
+	by duflex.itseclabs.local (Postfix) with ESMTPS id 165742008A
+	for <info@itseclabs.local>; Mon,  9 Mar 2020 18:05:44 +0100 (CET)
+Authentication-Results: duflex.itseclabs.local;
+	dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.b="XgO9tYJO";
+	dkim-atps=neutral
+Received: by mail-qk1-f193.google.com with SMTP id q18so9918125qki.10
+        for <info@itseclabs.local>; Mon, 09 Mar 2020 10:05:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:sender:from:date:message-id:subject:to;
+        bh=JRhJyqsttBSyfysjP8GP/iAT6PVmKo2z8CF9aqgbF7A=;
+        b=XgO9tYJOZxGERC0yWO1F9rCYwMCqpT3jasybGGYQdAytrukbHBz4bVgy95QU8G3hIj
+         vM8LKVDG43DEMmEL123x+MaGOgQFXo7ROmjdkujImAqFGmwn9TgXWmVSiknSqhSWAhM9
+         l6yftSOfce22bcL59hGlcLcjKA+KMN1/7++evbFL3yhk0gaZ462EftFjr0nBASqsiDdq
+         jdhVnIzmgRpG6epHSHuSbyAbj5PN8zqB0oc2EmjknreVG98frf4gjK9hLxZoIvKKuHLQ
+         7bNYZmlq29GErtd2A0x4/diBZxMWUZlT5ZvcVa/BUY0V9nZVwBtzOSUwJo2FbSuQ1RgT
+         6SfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:sender:from:date:message-id:subject
+         :to;
+        bh=JRhJyqsttBSyfysjP8GP/iAT6PVmKo2z8CF9aqgbF7A=;
+        b=Z/zO3FdIQOp6DDt5mnBx9uUstYHhp1GK1f84HEZEgaEc4OTGZTDUlW9wYNbok8hKFW
+         a82E2a5XPF21r5QWadUkZVvO6L04XoXujeyxOnnebbb/1aZE8gdr/XUea3S/dSIhpKHo
+         jhSxahQc6Q2xdRLVP/3XlVU3v1frK1RmUTN7h7wB2eOuTKWpjQEoe6L2TEnn43S2LlPZ
+         Cr3Qhwtn4RzDPa6pBX79nRWVgwOmgGT/TSP12JwWPY7qLsEY3S4+RvZXc6ogR++UTscQ
+         TEI6awrQrfUbI9UzGQJau2E7GeOFg3azSyxpQiEa5wnBwyJLkE+EDeLCgQk/ZuoCfI1N
+         cxIA==
+X-Gm-Message-State: ANhLgQ3JoV1xJvy0i4ixgGugLWh73tDGJ8BkhucIS5gOKYR6ySbuHOo7
+	Fv3Hug6BuxrJZ1hYKyFlqz/g1+S7SjwCjZ1HTjk=
+X-Google-Smtp-Source: ADFU+vsiOH33NPJgYiSUnlJ4NEs9IX0Ekrx9/kFXi6Vj9h9YUytYJbVSE8kHSv1GjNBraDHlRDUkKRNvzB4L1VyJK2A=
+X-Received: by 2002:a05:620a:646:: with SMTP id a6mr15585862qka.245.1583773543375;
+ Mon, 09 Mar 2020 10:05:43 -0700 (PDT)
+MIME-Version: 1.0
+Sender: alfredgerenday1@gmail.com
+Received: by 2002:aed:25a3:0:0:0:0:0 with HTTP; Mon, 9 Mar 2020 10:05:42 -0700 (PDT)
+From: Alfred Gerenday <alfredgerenday@gmail.com>
+Date: Mon, 9 Mar 2020 10:05:42 -0700
+X-Google-Sender-Auth: GmepOwxENjPOMvfAum5bGQjmmEQ
+Message-ID: <CAMfpvi4FNDckcf9pTzsnpkg=XrrnMBUF9JMBvYu-N+yRP5+zKQ@mail.gmail.com>
+Subject: Urgent.
+To: undisclosed-recipients:;
+Content-Type: text/plain; charset="UTF-8"
+
+My dear,
+Greetings! Did you receive my previous email?
+Regards,
+Alfred Gerenday Esq.

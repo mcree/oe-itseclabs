@@ -10,85 +10,122 @@ unless Vagrant.has_plugin?("vagrant-vbguest")
     raise  Vagrant::Errors::VagrantError.new, "vagrant-vbguest plugin is missing. Please install it using 'vagrant plugin install vagrant-vbguest' and rerun 'vagrant up'"
 end
 
-
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
 Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/bionic64"
+  config.winrm.timeout = 120
+  config.winrm.retry_limit = 100
 
-  config.disksize.size = '20GB'
+  # FW
+  config.vm.define :fw do |fw|
+    fw.vm.box = "mcree/opnsense"
 
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
+    fw.vm.provider 'virtualbox' do |vb|
+      vb.memory = 512
+      vb.cpus = 1
+      vb.gui = true # want gui for testing
+      #vb.customize ['modifyvm', :id, '--nic1', 'nat'] # don't touch this interface!
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+      # Setup firewall port assignments
+      vb.customize ['modifyvm', :id, '--nic2', 'intnet']
+      vb.customize ['modifyvm', :id, '--intnet2', 'ITSEC-LAN']
+      vb.customize ['modifyvm', :id, '--nic3', 'intnet']
+      vb.customize ['modifyvm', :id, '--intnet3', 'ITSEC-WAN']
+      vb.customize ['modifyvm', :id, '--nic4', 'none']
+    end
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine and only allow access
-  # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+    fw.vm.synced_folder '.', '/vagrant', disabled: true
 
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+    fw.vm.network :forwarded_port, guest: 22, host: 10022, id: "ssh", auto_correct: true
+    fw.vm.network :forwarded_port, guest: 443, host: 10443, auto_correct: true
 
-  # Create a public network, which generally matched to bridged network.
-  # Bridged networks make the machine appear as another physical device on
-  # your network.
-  # config.vm.network "public_network"
-
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
-  config.vm.provider "virtualbox" do |vb|
-     # Display the VirtualBox GUI when booting the machine
-     vb.gui = true
-
-     # Customize the amount of memory on the VM:
-     vb.memory = "4096" # 4G
-
-     vb.customize ["modifyvm", :id, "--uartmode1", "disconnected"]
+    fw.vm.provision "file", source: "fw/FW-config.xml", destination: "/conf/config.xml" # copy default config to firewall
+    fw.vm.provision "shell", inline: "opnsense-shell reload" # apply configuration
   end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    DEBIAN_FRONTEND=noninteractive apt-get -y install python3 python3-distutils
-    update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
-  SHELL
+  # WIN
+  config.vm.define :win do |win|
+    win.vm.box = "mcree/win2019"
+    win.vm.provider 'virtualbox' do |vb|
+      vb.memory = 2048
+      vb.cpus = 2
+      vb.gui = true # want gui for testing
+    end
 
-  config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "playbook.yml"
-    ansible.become = true
-    ansible.compatibility_mode = "2.0"
-    ansible.version = "2.9.4"
-    ansible.install = true
-    ansible.install_mode = "pip"
+    win.vm.synced_folder '.', '/vagrant', disabled: true
+    win.vm.boot_timeout = 1200
+
+    # Network port assignment
+    win.vm.network "private_network", ip: "172.16.2.254", virtualbox__intnet: "ITSEC-LAN"
+
+    win.vm.provision "file", source: "win/hosts", destination: "C:\\Windows\\System32\\drivers\\etc\\hosts"
+
+    # Prefer routing on the private network (increase metric of Vagrant's default NAT interface)
+    win.vm.provision "shell", inline: <<-'SCRIPT'
+        choco install --yes --no-progress sysinternals firefox nmap wireshark kitty
+
+        $wshshell = New-Object -ComObject WScript.Shell
+        $lnk = $wshshell.CreateShortcut("C:\\Users\\Public\\Desktop\\Sysinternals.lnk")
+        $lnk.WindowStyle = 1
+        $lnk.TargetPath = "explorer.exe"
+        $lnk.Arguments = 'C:\ProgramData\chocolatey\lib\sysinternals\tools'
+        $lnk.IconLocation = "explorer.exe,0"
+        $lnk.Save()
+
+        $lnk = $wshshell.CreateShortcut("C:\\Users\\Public\\Desktop\\Zenmap.lnk")
+        $lnk.TargetPath = 'C:\Program Files (x86)\Nmap\zenmap.exe'
+        $lnk.Save()
+
+        $lnk = $wshshell.CreateShortcut("C:\\Users\\Public\\Desktop\\Wireshark.lnk")
+        $lnk.TargetPath = 'C:\Program Files\Wireshark\Wireshark.exe'
+        $lnk.Save()
+
+        $lnk = $wshshell.CreateShortcut("C:\\Users\\Public\\Desktop\\Kitty.lnk")
+        $lnk.TargetPath = 'C:\ProgramData\chocolatey\lib\kitty\tools\kitty.exe'
+        $lnk.Save()
+
+        $lnk = $wshshell.CreateShortcut("C:\\Users\\Public\\Desktop\\KittyGen.lnk")
+        $lnk.TargetPath = 'C:\ProgramData\chocolatey\lib\kitty\tools\kittygen.exe'
+        $lnk.Save()
+
+        Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+        Install-ADDSForest -DomainName itseclabs.local -Force -NoRebootOnCompletion -SafeModeAdministratorPassword (ConvertTo-SecureString "Hallgato1234." -Force -AsPlainText)
+
+        Get-NetIPInterface -InterfaceAlias Ethernet | Set-NetIPInterface -InterfaceMetric 2000 -AdvertiseDefaultRoute Disabled -Forwarding Disabled -RouterDiscovery Disabled -IgnoreDefaultRoutes Enabled
+        route /p add 0.0.0.0 MASK 0.0.0.0 172.16.2.1
+
+        shutdown /r /c "Provision done."
+    SCRIPT
+  end
+
+  # Linux BASE
+  config.vm.define :lin do |lin|
+    lin.vm.box = "ubuntu/bionic64"
+
+    lin.disksize.size = '20GB'
+
+    lin.vm.provider "virtualbox" do |vb|
+       # Display the VirtualBox GUI when booting the machine
+       vb.gui = true
+       # Customize the amount of memory on the VM:
+       vb.memory = "4096" # 4G
+       vb.customize ["modifyvm", :id, "--uartmode1", "disconnected"]
+    end
+
+    lin.vm.provision "shell", inline: <<-SHELL
+      DEBIAN_FRONTEND=noninteractive apt-get -y install python3 python3-distutils
+      update-alternatives --install /usr/bin/python python /usr/bin/python3.6 10
+    SHELL
+
+    lin.vm.provision "ansible_local" do |ansible|
+      ansible.playbook = "playbook.yml"
+      ansible.become = true
+      ansible.compatibility_mode = "2.0"
+      ansible.version = "2.9.4"
+      ansible.install = true
+      ansible.install_mode = "pip"
+    end
+
+    lin.vm.network "private_network", ip: "172.16.1.254", virtualbox__intnet: "ITSEC-WAN"
   end
 
 end

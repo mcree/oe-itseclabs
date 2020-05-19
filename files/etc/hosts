@@ -1,5 +1,11 @@
 127.0.0.1	localhost itseclabs.local www.itseclabs.local imap.itseclabs.local smtp.itseclabs.local mail.itseclabs.local
 
+172.16.2.1 fw.itseclabs.local fw
+172.16.1.1 fw.itseclabs.local fw
+172.16.1.254 lin.itseclabs.local lin
+172.16.2.254 win.itseclabs.local win
+
+
 # The following lines are desirable for IPv6 capable hosts
 ::1	ip6-localhost	ip6-loopback
 fe00::0	ip6-localnet

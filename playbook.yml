@@ -54,6 +54,7 @@
           - fcrackzip
           - pdfcrack
           - mc
+          - swaks
       tags: update
     - name: upgrade distribution packages
       apt:

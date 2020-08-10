@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
 
     # Prefer routing on the private network (increase metric of Vagrant's default NAT interface)
     win.vm.provision "shell", inline: <<-'SCRIPT'
-        choco install --yes --no-progress sysinternals firefox nmap wireshark kitty veracrypt duplicati
+        choco install --yes --no-progress sysinternals firefox nmap wireshark kitty winscp duplicati
 
         $wshshell = New-Object -ComObject WScript.Shell
         $lnk = $wshshell.CreateShortcut("C:\\Users\\Public\\Desktop\\Sysinternals.lnk")
@@ -89,9 +89,11 @@ Vagrant.configure("2") do |config|
 
         Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
         Install-ADDSForest -DomainName itseclabs.local -Force -NoRebootOnCompletion -SafeModeAdministratorPassword (ConvertTo-SecureString "Hallgato1234." -Force -AsPlainText)
-
+        
         Get-NetIPInterface -InterfaceAlias Ethernet | Set-NetIPInterface -InterfaceMetric 2000 -AdvertiseDefaultRoute Disabled -Forwarding Disabled -RouterDiscovery Disabled -IgnoreDefaultRoutes Enabled
         route /p add 0.0.0.0 MASK 0.0.0.0 172.16.2.1
+
+        choco install --yes --no-progress veracrypt 
 
         shutdown /r /c "Provision done."
     SCRIPT

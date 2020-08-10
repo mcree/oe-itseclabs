@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
 
     # Prefer routing on the private network (increase metric of Vagrant's default NAT interface)
     win.vm.provision "shell", inline: <<-'SCRIPT'
-        choco install --yes --no-progress sysinternals firefox nmap wireshark kitty
+        choco install --yes --no-progress sysinternals firefox nmap wireshark kitty veracrypt duplicati
 
         $wshshell = New-Object -ComObject WScript.Shell
         $lnk = $wshshell.CreateShortcut("C:\\Users\\Public\\Desktop\\Sysinternals.lnk")
@@ -99,7 +99,7 @@ Vagrant.configure("2") do |config|
 
   # Linux BASE
   config.vm.define :lin do |lin|
-    lin.vm.box = "ubuntu/bionic64"
+    lin.vm.box = "generic/ubuntu1804"
 
     lin.disksize.size = '20GB'
 
@@ -126,6 +126,8 @@ Vagrant.configure("2") do |config|
     end
 
     lin.vm.network "private_network", ip: "172.16.1.254", virtualbox__intnet: "ITSEC-WAN"
+    lin.vm.synced_folder '.', '/vagrant', disabled: false
   end
+
 
 end

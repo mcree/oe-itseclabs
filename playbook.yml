@@ -55,6 +55,7 @@
           - pdfcrack
           - mc
           - swaks
+          - zulucrypt-gui
       tags: update
     - name: upgrade distribution packages
       apt:
@@ -66,6 +67,7 @@
         name:
           - pipenv
           - "docker-compose==1.25.4"
+          - "docker>=3.3.0"
           - zsh_jupyter_kernel
       tags: update
     - name: setup system locale

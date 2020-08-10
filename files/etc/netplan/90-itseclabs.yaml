@@ -1,7 +1,7 @@
 network:
   version: 2
   ethernets:
-    enp0s8:
+    eth1:
       routes:
         - to: 172.16.2.0/24
           via: 172.16.1.1

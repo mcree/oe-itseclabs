@@ -54,6 +54,7 @@ This will include GUI components. Default username and password is: hallgato / h
 # Related
 
 * [OE IT Security Labs Jupyter environment](https://github.com/mcree/oe-itseclabs-jupyter/)
+* [OE IT Security Labs Windows environment](https://github.com/mcree/oe-itseclabs-windows/)
 
 # Contribute
 
